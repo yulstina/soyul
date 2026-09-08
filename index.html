@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SOYUL — 브랜드를 세우고, 그걸 직접 웹으로 만듭니다." />
+  <title>SOYUL — Brand &amp; Web, End to End</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <!-- 한글 본문 — 동적 서브셋이라 실제로 쓰인 글자만 내려받는다. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <!-- Archivo = 디스플레이(그로테스크), JetBrains Mono = 메타/좌표. -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..112,400..700&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="site-header-inner">
+      <a href="index.html" class="site-logo">SOYUL</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#work">WORK</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 좌표계. WORK 구간에서만 나타나 지금 몇 번째 천체를 보고 있는지 알려준다. -->
+  <nav class="chapter-index" id="chapterIndex" aria-label="Chapter index"></nav>
+
+  <main>
+    <section class="hero" id="hero" aria-label="SOYUL portfolio intro">
+      <div class="hero-content" id="heroContent">
+        <canvas class="particle-canvas" id="particleCanvas" aria-hidden="true"></canvas>
+
+        <div class="identity-wrap" id="identityWrap" aria-live="polite">
+          <div class="identity-stage" id="identityStage">
+            <div class="identity" id="identity" aria-label="SOYUL">
+              <span class="word-half word-half--left" id="wordLeft">SO</span>
+              <span class="y-slot" id="ySlot" aria-hidden="true">
+                <span class="y-glyph" id="yGlyph">Y</span>
+              </span>
+              <span class="word-half word-half--right" id="wordRight">UL</span>
+            </div>
+          </div>
+
+          <div class="identity-reveal" id="identityReveal" aria-hidden="true">
+            <span class="identity-rule" id="identityRule"></span>
+            <p class="role" id="role">WEB PUBLISHER · DESIGN & CODE</p>
+          </div>
+        </div>
+
+        <footer class="hero-meta" id="heroMetaBottom">
+          <span>PORTFOLIO / 2026</span>
+          <a href="#work" class="scroll-link">SCROLL TO EXPLORE ↓</a>
+        </footer>
+      </div>
+    </section>
+    <div class="hero-spacer" id="heroSpacer" aria-hidden="true"></div>
+
+    <!-- 히어로 아래는 하나의 판으로 묶어 고정된 히어로 위를 통째로 덮으며 올라온다. -->
+    <div class="page-flow">
+
+      <section id="work">
+        <div class="section-intro">
+          <span class="meta" data-reveal>(01) SELECTED WORK — 08</span>
+          <h2 class="section-title" data-reveal>디자인 경험을 바탕으로,<br />웹을 구현하는 퍼블리셔입니다. </h2>
+          <p class="section-lede" data-reveal>
+           약 7년간 HTML, CSS, jQuery를 중심으로 반응형 웹을 구현해 왔습니다. <br />
+           웹개발팀에서 협업하며 대규모 웹사이트 리뉴얼부터 키오스크, 웹뷰, 카페24까지 다양한 환경을 경험했습니다. <br />
+          개인 프로젝트에서는 Figma로 시안과 콘텐츠를 디자인하고, 직접 웹으로 구현하며 AI를 활용해 디자인과 작업의 범위를 넓혀가고 있습니다.<br />
+          </p>
+        </div>
+
+        <!-- 챕터 ------------------------------------------------------------
+             한 프로젝트가 한 화면을 통째로 쓴다. work.js가 data-chapter를 읽어
+             좌측 좌표계를 만들고 현재 위치를 표시한다. -->
+
+        <article class="chapter" id="ch-babambi" data-layout="a" data-chapter="BABAMBI">
+          <div class="chapter-inner">
+            <div class="chapter-text">
+              <span class="meta" data-reveal>01 / SELF-DIRECTED / 2026</span>
+              <h3 class="chapter-title" data-reveal>BABAMBI</h3>
+              <div class="chapter-role" data-reveal>
+                <span>Branding</span><span>SNS Content</span><span>Responsive Web</span>
+              </div>
+              <p class="chapter-desc" data-reveal>
+                반려동물 간식 브랜드의 아이덴티티부터 SNS 콘텐츠, 제품 상세, 자사몰 웹까지
+                하나의 결로 연결했습니다. 기획·디자인·퍼블리싱 전 과정을 혼자 진행한 작업입니다.
+              </p>
+              <div class="chapter-links" data-reveal>
+                <a class="chapter-link" href="https://yulstina.github.io/babambi/" target="_blank" rel="noopener">Live Site ↗</a>
+                <a class="chapter-link" href="work-babambi.html">Case Study →</a>
+              </div>
+            </div>
+            <div class="chapter-media" data-reveal>
+              <a class="media-link" href="work-babambi.html" aria-label="BABAMBI 케이스 스터디"></a>
+              <div class="media-drift"><img src="assets/babambi/cover_babambi.webp" alt="BABAMBI 브랜드 웹사이트 메인 화면" loading="lazy" /></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="chapter" id="ch-goyo" data-layout="b" data-chapter="GOYO">
+          <div class="chapter-inner">
+            <div class="chapter-text">
+              <span class="meta" data-reveal>02 / SELF-DIRECTED / 2026</span>
+              <h3 class="chapter-title" data-reveal>GOYO</h3>
+              <div class="chapter-role" data-reveal>
+                <span>Branding</span><span>Responsive Web</span>
+              </div>
+              <p class="chapter-desc" data-reveal>
+                머무는 시간의 밀도를 다룬 한옥 스테이 예약 홈페이지. 공간이 가진 정적인 정서를
+                웹의 여백과 호흡으로 옮겼습니다.
+              </p>
+              <div class="chapter-links" data-reveal>
+                <a class="chapter-link" href="https://goyo-hanok-stay.vercel.app/" target="_blank" rel="noopener">Live Site ↗</a>
+                <a class="chapter-link" href="work-goyo.html">Case Study →</a>
+              </div>
+            </div>
+            <div class="chapter-media" data-reveal>
+              <a class="media-link" href="work-goyo.html" aria-label="GOYO 케이스 스터디"></a>
+              <div class="media-drift"><img src="assets/cover-goyo.webp" alt="GOYO 한옥 스테이 웹사이트" loading="lazy" /></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="chapter" id="ch-13months" data-layout="c" data-chapter="13 MONTHS">
+          <div class="chapter-inner">
+            <div class="chapter-text">
+              <span class="meta" data-reveal>03 / CLIENT WORK / 2026</span>
+              <h3 class="chapter-title" data-reveal>13 MONTHS</h3>
+              <div class="chapter-role" data-reveal>
+                <span>Branding</span><span>Cafe24</span><span>E-commerce</span>
+              </div>
+              <p class="chapter-desc" data-reveal>
+                플로럴 브랜드 &lsquo;열세달꽃&rsquo;의 실제 클라이언트 커머스 사이트.
+                카페24 스킨 환경의 제약 안에서 브랜드 서사를 커머스 구조 위에 올렸습니다.
+              </p>
+              <div class="chapter-links" data-reveal>
+                <a class="chapter-link" href="https://rnrwls1801.cafe24.com/skin-skin8/" target="_blank" rel="noopener">Live Site ↗</a>
+                <a class="chapter-link" href="work-13months.html">Case Study →</a>
+              </div>
+            </div>
+            <div class="chapter-media" data-reveal>
+              <a class="media-link" href="work-13months.html" aria-label="13 MONTHS 케이스 스터디"></a>
+              <div class="media-drift"><img src="assets/cover-13months.webp" alt="13 MONTHS 플로럴 커머스 화면" loading="lazy" /></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 한 생태계 = 한 챕터. 웹·앱·메타버스 세 산출물은 상세에서 갈린다. -->
+        <article class="chapter" id="ch-ditoland" data-layout="b" data-chapter="DITOLAND">
+          <div class="chapter-inner">
+            <div class="chapter-text">
+              <span class="meta" data-reveal>04 / UTPLUS INTERACTIVE</span>
+              <h3 class="chapter-title" data-reveal>DITOLAND</h3>
+              <div class="chapter-role" data-reveal>
+                <span>Web</span><span>App</span><span>Metaverse</span>
+              </div>
+              <p class="chapter-desc" data-reveal>
+                메타버스 플랫폼 디토랜드의 웹, 모바일 앱, 그리고 근로복지공단 메타버스 웹뷰 구축
+              </p>
+              <div class="chapter-links" data-reveal>
+                <a class="chapter-link" href="https://ditoland.net/" target="_blank" rel="noopener">Live Site ↗</a>
+                <a class="chapter-link" href="work-ditoland.html">Case Study — 3 Projects →</a>
+              </div>
+            </div>
+            <div class="chapter-media" data-reveal>
+              <a class="media-link" href="work-ditoland.html" aria-label="DITOLAND 케이스 스터디"></a>
+              <div class="media-drift"><img src="assets/cover-ditoland.webp" alt="DITOLAND 메타버스 플랫폼 화면" loading="lazy" /></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="chapter" id="ch-ont" data-layout="a" data-chapter="ONT KIOSK">
+          <div class="chapter-inner">
+            <div class="chapter-text">
+              <span class="meta" data-reveal>05 / RTBS</span>
+              <h3 class="chapter-title" data-reveal>ONT KIOSK</h3>
+              <div class="chapter-role" data-reveal>
+                <span>Table Order</span><span>Kiosk UI</span><span>Publishing</span>
+              </div>
+              <p class="chapter-desc" data-reveal>
+                테이블에 놓인 채로 손님이 직접 주문하는 키오스크. <br />
+                1920x1080 크기로 작업하여 어느 기기에서나 최적화된 화면을 제공하도록 구현 
+              </p>
+              <div class="chapter-links" data-reveal>
+                <a class="chapter-link" href="https://yulstina.github.io/ont-table-order-kiosk/" target="_blank" rel="noopener">Live Demo ↗</a>
+                <a class="chapter-link" href="work-ont-kiosk.html">Case Study →</a>
+              </div>
+            </div>
+            <div class="chapter-media" data-reveal>
+              <a class="media-link" href="work-ont-kiosk.html" aria-label="ONT KIOSK 케이스 스터디"></a>
+              <div class="media-drift"><img src="assets/cover-ont.webp" alt="ONT 테이블 주문 키오스크 화면" loading="lazy" /></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="chapter" id="ch-kiosk" data-layout="c" data-chapter="KIOSK SYSTEM">
+          <div class="chapter-inner">
+            <div class="chapter-text">
+              <span class="meta" data-reveal>06 / RTBS</span>
+              <h3 class="chapter-title" data-reveal>KIOSK SYSTEM</h3>
+              <div class="chapter-role" data-reveal>
+                <span>Maintenance</span><span>New Pages</span><span>Color Variants</span>
+              </div>
+              <p class="chapter-desc" data-reveal>
+                12종 템플릿이 이미 운영 중이던 키오스크 시스템에 합류해 유지보수를 맡았습니다.
+                신규 페이지를 만들고 타입별 컬러 배리에이션을 구축하여 브랜드별 커스터 마이즈가 용이하게 구현했습니다.
+              
+              </p>
+              <div class="chapter-links" data-reveal>
+                <a class="chapter-link" href="work-kiosk.html">Case Study →</a>
+              </div>
+            </div>
+            <div class="chapter-media" data-reveal>
+              <a class="media-link" href="work-kiosk.html" aria-label="KIOSK SYSTEM 케이스 스터디"></a>
+              <div class="media-drift"><img src="assets/cover-navyz.webp" alt="NAVYZ 레스토랑 키오스크 화면" loading="lazy" /></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 주문웹과 주문웹앱은 같은 제품의 두 폼팩터다. 한 챕터로 묶는다. -->
+        <article class="chapter" id="ch-orderweb" data-layout="a" data-chapter="ORDER WEB">
+          <div class="chapter-inner">
+            <div class="chapter-text">
+              <span class="meta" data-reveal>07 / RTBS</span>
+              <h3 class="chapter-title" data-reveal>ORDER WEB</h3>
+              <div class="chapter-role" data-reveal>
+                <span>Template System</span><span>Multi-brand</span><span>Web App</span>
+              </div>
+              <p class="chapter-desc" data-reveal>
+                독립형 주문웹 템플릿.
+                여러 브랜드에 맞춰 사용할 수 있는 주문 사이트입니다.
+bhc·육대장·인쌩맥주·탐앤탐스 등 브랜드별 디자인을 적용하고,
+PC용 웹사이트와 모바일 웹앱을 함께 제작했습니다.
+              </p>
+              <div class="chapter-links" data-reveal>
+                <a class="chapter-link" href="https://tntweb.2go2go.com" target="_blank" rel="noopener">Order Web ↗</a>
+                <a class="chapter-link" href="https://newtnt.2go2go.com" target="_blank" rel="noopener">Web App ↗</a>
+                <a class="chapter-link" href="work-orderweb.html">Case Study →</a>
+              </div>
+            </div>
+            <div class="chapter-media" data-reveal>
+              <a class="media-link" href="work-orderweb.html" aria-label="ORDER WEB 케이스 스터디"></a>
+              <div class="media-drift"><img src="assets/cover-tomntoms.webp" alt="탐앤탐스 템플릿 주문 웹 화면" loading="lazy" /></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="chapter" id="ch-nz" data-layout="c" data-chapter="NZ SYSTEM">
+          <div class="chapter-inner">
+            <div class="chapter-text">
+              <span class="meta" data-reveal>08 / RTBS</span>
+              <h3 class="chapter-title" data-reveal>NZ SYSTEM</h3>
+              <div class="chapter-role" data-reveal>
+                <span>16 Pages</span><span>B2B Brand Site</span><span>Responsive</span>
+              </div>
+              <p class="chapter-desc" data-reveal>
+                POS·키오스크 솔루션 기업의 영문 브랜드 사이트. 메인부터 제품 소개,
+                블로그 6편, 문의·로그인, 약관까지 16개 페이지를 퍼블리싱했고,
+                공통 헤더와 푸터를 분리해 전 페이지가 같은 구조를 쓰도록 만들었습니다.
+              </p>
+              <div class="chapter-links" data-reveal>
+                <a class="chapter-link" href="https://yulstina.github.io/navyz-site/" target="_blank" rel="noopener">Live Site ↗</a>
+                <a class="chapter-link" href="work-nz-system.html">Case Study →</a>
+              </div>
+            </div>
+            <div class="chapter-media" data-reveal>
+              <a class="media-link" href="work-nz-system.html" aria-label="NZ SYSTEM 케이스 스터디"></a>
+              <div class="media-drift"><img src="assets/cover-nz.webp" alt="NZ 시스템 브랜드 사이트 화면" loading="lazy" /></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="about" id="about">
+        <span class="meta" data-reveal>(02) ABOUT</span>
+        <h2 class="section-title" style="margin-top:clamp(20px,3vh,36px)" data-reveal>
+          다양한 실무 경험을 쌓고,<br /> 개인 작업으로 영역을 넓혀왔습니다. 
+        </h2>
+
+        <div class="career" id="career">
+          <article class="career-item" data-reveal>
+            <div class="career-head">
+              <span class="career-date">2023.08 ~ 2025.10</span>
+              <h3>알티비에스 (RTBS)</h3>
+            </div>
+            <dl class="career-meta">
+              <dt>Role</dt>
+              <dd>키오스크·주문 웹·모바일 웹앱 퍼블리싱 및 유지보수</dd>
+              <dt>Project</dt>
+              <dd>NAVYZ·ONT 키오스크 화면 구현 및 개선 <br/>
+                브랜드별 활용 가능한 주문 웹·웹앱 템플릿 제작<br/>
+                NZ시스템 홍보 사이트 리뉴얼 및 관리자 페이지 작업</dd>
+            </dl>
+          </article>
+
+          <article class="career-item" data-reveal>
+            <div class="career-head">
+              <span class="career-date">2019.06 ~ 2023.01</span>
+              <h3>유티플러스 인터랙티브</h3>
+            </div>
+            <dl class="career-meta">
+              <dt>Role</dt>
+              <dd>기획·디자인·개발팀과 협업하며 웹 서비스와 앱 내 웹 화면 퍼블리싱</dd>
+              <dt>Project</dt>
+              <dd>디토랜드 웹 플랫폼 구축 및 리뉴얼<br/>
+              디토랜드 앱 웹뷰 화면 구현<br/>
+              근로복지공단 등 메타버스 프로젝트 웹 페이지 제작</dd>
+            </dl>
+          </article>
+
+          <article class="career-item" data-reveal>
+            <div class="career-head">
+              <span class="career-date">2017.07 ~ 2019.01</span>
+              <h3>한국가이던스</h3>
+            </div>
+            <dl class="career-meta">
+              <dt>Role</dt>
+              <dd>반응형 웹 디자인 및 퍼블리싱</dd>
+              <dt>Project</dt>
+              <dd>통합 홈페이지 디자인 및 반응형 리뉴얼<br/>
+수백 개의 심리검사·보고서 페이지 모바일 대응<br/>
+사내 관리자·제휴사 사이트 퍼블리싱</dd>
+            </dl>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <canvas class="contact-field" id="contactField" aria-hidden="true"></canvas>
+        <span class="meta" data-reveal>(03) CONTACT</span>
+        <div data-reveal>
+          <a class="contact-mail" href="mailto:lalalapanda910@gmail.com">lalalapanda910@gmail.com</a>
+        </div>
+        <div class="site-foot">
+          <span class="meta">SOYUL — PORTFOLIO 2026</span>
+          <span class="meta">WEB PUBLISHER · DESIGN & CODE</span>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="hero.js"></script>
+  <script src="site.js"></script>
+  <script src="topbtn.js"></script>
+</body>
+</html>

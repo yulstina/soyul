@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ONT KIOSK — 테이블에 놓고 손님이 직접 주문하는 키오스크" />
+  <title>ONT KIOSK — SOYUL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..112,400..700&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="case.css" />
+</head>
+<body class="case-page">
+  <header class="site-header is-visible" id="siteHeader">
+    <div class="site-header-inner">
+      <a href="index.html" class="site-logo">SOYUL</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html#work">WORK</a>
+        <a href="index.html#about">ABOUT</a>
+        <a href="index.html#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="case">
+      <section class="case-open">
+        <div class="case-cover">
+          <img src="assets/cover-ont.webp" alt="ONT 테이블 주문 키오스크 화면" />
+        </div>
+        <div class="case-open-inner">
+          <span class="meta case-eyebrow">05 / RTBS</span>
+          <h1 class="case-title">ONT KIOSK</h1>
+          <p class="case-tagline">
+            테이블에 놓인 채로 손님이 직접 주문하는 키오스크.
+            대기 화면부터 결제 완료까지 한 화면 안에서 흐릅니다.
+          </p>
+          <span class="case-rule" aria-hidden="true"></span>
+        </div>
+      </section>
+
+      <section class="case-brief" aria-label="프로젝트 개요">
+        <div class="brief-cell">
+          <h2>Overview</h2>
+          <p>
+            매장 직원을 거치지 않고 손님이 테이블에서 바로 주문하는 태블릿 키오스크.
+            영어와 한국어를 함께 쓰는 매장을 전제로 만들었습니다.
+          </p>
+        </div>
+        <div class="brief-cell">
+          <h2>My Role</h2>
+          <p>
+            화면 설계와 퍼블리싱을 담당했습니다. 라이브러리 없이 HTML · CSS ·
+            JavaScript만으로 구현했습니다.
+          </p>
+        </div>
+        <div class="brief-cell">
+          <h2>Build</h2>
+          <p>
+            대기 화면 · 메뉴 목록 · 메뉴 상세와 옵션 · 장바구니 · 결제 · 주문 완료.
+            한 페이지 안에서 화면이 전환되는 구조입니다.
+          </p>
+        </div>
+        <div class="brief-cell">
+          <h2>Stack</h2>
+          <ul>
+            <li>HTML</li><li>CSS</li><li>JavaScript</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="case-gallery is-flow">
+        <div class="case-chapter" data-reveal><h2>Screens</h2></div>
+        <figure class="shot" data-reveal>
+          <img src="assets/ont/screen.webp" alt="키오스크 화면 모음" loading="lazy" />
+        </figure>
+
+        <div class="case-chapter" data-reveal><h2>Demo</h2></div>
+        <!-- 태블릿 키오스크라 화면 하나가 곧 제품이다. 클립으로 쪼개지 않고
+             한 편을 크게 두고, 저절로 돌아가되 마우스를 올리면 멈춘다. -->
+        <figure class="video-main" data-reveal>
+          <video data-inview data-hover="pause" src="assets/ont/ont.mp4"
+                 muted loop playsinline preload="metadata"
+                 aria-label="ONT 테이블 주문 키오스크 시연 화면"></video>
+          <button class="video-toggle" type="button" aria-pressed="false">PAUSE</button>
+        </figure>
+      </section>
+
+      <section class="case-notes" aria-label="작업 내용">
+        <span class="meta">WHAT I BUILT</span>
+        <div class="note-grid">
+          <article class="note">
+            <span class="note-no">01</span>
+            <div class="note-body">
+              <h3>한 페이지 안에서 화면 전환</h3>
+              <div class="note-tags"><span>JavaScript</span></div>
+            </div>
+          </article>
+          <article class="note">
+            <span class="note-no">02</span>
+            <div class="note-body">
+              <h3>한국어 · 영어 전환</h3>
+              <div class="note-tags"><span>JavaScript</span></div>
+            </div>
+          </article>
+          <article class="note">
+            <span class="note-no">03</span>
+            <div class="note-body">
+              <h3>옵션 선택 모달</h3>
+              <div class="note-tags"><span>CSS</span><span>JavaScript</span></div>
+            </div>
+          </article>
+          <article class="note">
+            <span class="note-no">04</span>
+            <div class="note-body">
+              <h3>장바구니 패널 · 수량 변경</h3>
+              <div class="note-tags"><span>JavaScript</span></div>
+            </div>
+          </article>
+          <article class="note">
+            <span class="note-no">05</span>
+            <div class="note-body">
+              <h3>알림 토스트</h3>
+              <div class="note-tags"><span>CSS</span><span>JavaScript</span></div>
+            </div>
+          </article>
+          <article class="note">
+            <span class="note-no">06</span>
+            <div class="note-body">
+              <h3>대기 화면 자동 재생 영상</h3>
+              <div class="note-tags"><span>HTML Video</span></div>
+            </div>
+          </article>
+          <article class="note">
+            <span class="note-no">07</span>
+            <div class="note-body">
+              <h3>화면 회전 대응</h3>
+              <div class="note-tags"><span>JavaScript</span></div>
+            </div>
+          </article>
+          <article class="note">
+            <span class="note-no">08</span>
+            <div class="note-body">
+              <h3>메뉴 데이터 분리</h3>
+              <div class="note-tags"><span>JavaScript</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <a class="case-next" href="work-kiosk.html">
+        <img src="assets/cover-navyz.webp" alt="" />
+        <div class="case-next-inner">
+          <span class="meta case-next-label">NEXT PROJECT — 06</span>
+          <span class="case-next-title">KIOSK SYSTEM</span>
+        </div>
+      </a>
+    </article>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="case.js"></script>
+  <script src="topbtn.js"></script>
+</body>
+</html>

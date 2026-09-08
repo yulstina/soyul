@@ -1,0 +1,50 @@
+# 배포에 필요 없는 원본과 보관본 — 사이트는 이 파일들을 참조하지 않는다.
+_originals/
+_old/
+**/_old/
+**/_original/
+
+# 편집 전 원본 녹화. 사이트에는 잘라서 압축한 클립만 올라간다.
+녹음*.mp4
+assets/ont/ont_back.mp4
+assets/babambi/web.mp4
+
+# 작업 중 임시 파일
+*.tmp.json
+.DS_Store
+Thumbs.db
+
+# 사이트가 참조하지 않는 예전 자산 — 폴더에는 남겨두고 배포에서만 뺀다.
+/assets/orderweb/desktop 01_main.png
+/assets/orderweb/맥주 01.png
+/assets/orderweb/TOM N TOMS desktop 01_main.png
+/assets/orderweb/bhc 01.png
+/assets/babambi/lineup.png
+/assets/orderweb/yukdaejang.png
+/assets/orderweb/YUKDAEJANG desktop 01_main.png
+/assets/orderweb/tnt_1.png
+/assets/orderweb/YUKDAEJANG desktop 01_list scroll.png
+/assets/orderweb/desktop 01_list scroll.png
+/assets/orderweb/맥주 03.png
+/assets/orderweb/bhc 03.png
+/assets/ont/main.png
+/assets/ont/menu-detail.png
+/assets/babambi/feed.jpg
+/assets/ont/main-m.png
+/assets/babambi/forest-puppy.jpg
+/assets/babambi/giftbox.jpg
+/assets/babambi/kitchen.jpg
+/assets/babambi/story-picnic.jpg
+/fonts/Tenada.woff2
+/assets/goyo/location-bukchon.jpg
+/assets/babambi/pack-wet.png
+/assets/babambi/pack-dry.png
+/assets/babambi/brand2.png
+/assets/babambi/landing-hero.jpg
+/assets/goyo/Typography.png
+/assets/babambi/pack-vegetable.png
+/assets/babambi/pack-fruit.png
+/assets/babambi/banner-02.jpg
+/assets/babambi/banner-01.jpg
+/assets/goyo/foundations.png
+/assets/babambi/banner-03.jpg

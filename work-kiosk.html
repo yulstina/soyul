@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="KIOSK SYSTEM — 운영 중인 키오스크 템플릿 시스템의 유지보수와 확장" />
+  <title>KIOSK SYSTEM — SOYUL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..112,400..700&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="case.css" />
+</head>
+<body class="case-page">
+  <header class="site-header is-visible" id="siteHeader">
+    <div class="site-header-inner">
+      <a href="index.html" class="site-logo">SOYUL</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html#work">WORK</a>
+        <a href="index.html#about">ABOUT</a>
+        <a href="index.html#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="case">
+      <!-- 오프닝. 스크롤하면 제목이 헤더 쪽으로 올라가며 선이 그어진다. -->
+      <section class="case-open">
+        <div class="case-cover">
+          <img src="assets/cover-navyz.webp" alt="NAVYZ 브랜드가 적용된 키오스크 화면" />
+        </div>
+        <div class="case-open-inner">
+          <span class="meta case-eyebrow">06 / RTBS</span>
+          <h1 class="case-title">KIOSK SYSTEM</h1>
+          <p class="case-tagline">
+            12종 템플릿이 이미 운영 중이던 키오스크 시스템에 합류해,
+            유지보수와 신규 페이지, 타입별 컬러 배리에이션을 담당했습니다.
+          </p>
+          <span class="case-rule" aria-hidden="true"></span>
+        </div>
+      </section>
+
+      <section class="case-brief" aria-label="프로젝트 개요">
+        <div class="brief-cell">
+          <h2>Overview</h2>
+          <p>
+            프랜차이즈 매장에 설치되는 셀프 주문 키오스크. 제가 합류한 시점에 이미
+            12종 템플릿이 운영 중이었고, 브랜드마다 다른 타입이 적용되어 있었습니다.
+          </p>
+        </div>
+        <div class="brief-cell">
+          <h2>My Role</h2>
+          <p>
+            기존 시스템의 유지보수를 맡아 신규 페이지를 만들고, 타입별 컬러
+            배리에이션을 작업했습니다.
+          </p>
+        </div>
+        <div class="brief-cell">
+          <h2>Build</h2>
+          <p>
+            인트로 · 매장/포장 선택 · 메뉴 목록 · 메뉴 상세 · 장바구니 ·
+            테이블 번호 · 진동벨 · 팁 · 쿠폰 · 결제 · 영수증.
+            가로 · 세로 · 모바일 세 가지 화면으로 각각.
+          </p>
+        </div>
+        <div class="brief-cell">
+          <h2>Stack</h2>
+          <ul>
+            <li>HTML</li><li>CSS</li><li>jQuery</li><li>ASP</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="case-gallery is-flow">
+        <div class="case-chapter" data-reveal><h2>Screens</h2></div>
+        <figure class="shot" data-reveal>
+          <img src="assets/kiosk/kiosk_1.webp" alt="키오스크 화면 모음" loading="lazy" />
+        </figure>
+        <figure class="shot" data-reveal>
+          <img src="assets/kiosk/kiosk_2.webp" alt="키오스크 화면 모음" loading="lazy" />
+        </figure>
+        <figure class="shot" data-reveal>
+          <img src="assets/kiosk/kiosk_3.webp" alt="키오스크 화면 모음" loading="lazy" />
+        </figure>
+        <figure class="shot" data-reveal>
+          <img src="assets/kiosk/kiosk_4.webp" alt="키오스크 화면 모음" loading="lazy" />
+        </figure>
+
+        <div class="case-chapter" data-reveal><h2>Demo</h2></div>
+        <!-- 키오스크는 켜져 있는 화면이 곧 제품이라 저절로 돌아가고,
+             마우스를 올리면 멈춘다. 한 편뿐이라 크게 둔다. -->
+        <figure class="video-main" data-reveal>
+          <video data-inview data-hover="pause" src="assets/kiosk/clip-01.mp4"
+                 muted loop playsinline preload="metadata"
+                 aria-label="키오스크 화면 녹화"></video>
+          <button class="video-toggle" type="button" aria-pressed="false">PAUSE</button>
+        </figure>
+      </section>
+
+      <!-- 제목과 기술 이름만. 본인이 설명할 수 있는 것만 적는다. -->
+      <section class="case-notes" aria-label="작업 내용">
+        <span class="meta">WHAT I BUILT</span>
+
+        <div class="note-grid">
+          <article class="note">
+            <span class="note-no">01</span>
+            <div class="note-body">
+              <h3>터치하면 버튼이 눌리는 효과</h3>
+              <div class="note-tags"><span>CSS Animation</span></div>
+            </div>
+          </article>
+  
+          <article class="note">
+            <span class="note-no">02</span>
+            <div class="note-body">
+              <h3>구형 브라우저 대응</h3>
+              <div class="note-tags"><span>CSS 벤더 프리픽스</span></div>
+            </div>
+          </article>
+  
+          <article class="note">
+            <span class="note-no">03</span>
+            <div class="note-body">
+              <h3>화면 안에 뜨는 가상 키보드</h3>
+              <div class="note-tags"><span>jQuery Keyboard</span></div>
+            </div>
+          </article>
+  
+          <article class="note">
+            <span class="note-no">04</span>
+            <div class="note-body">
+              <h3>메뉴 목록 터치 스크롤</h3>
+              <div class="note-tags"><span>jQuery mCustomScrollbar</span></div>
+            </div>
+          </article>
+  
+          <article class="note">
+            <span class="note-no">05</span>
+            <div class="note-body">
+              <h3>옵션 선택 (체크박스 · 라디오)</h3>
+              <div class="note-tags"><span>jQuery</span></div>
+            </div>
+          </article>
+  
+          <article class="note">
+            <span class="note-no">06</span>
+            <div class="note-body">
+              <h3>타입별 컬러 배리에이션</h3>
+              <div class="note-tags"><span>CSS</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+
+      <section class="case-notes" aria-label="사용 도구">
+        <span class="meta">TOOLS</span>
+
+        <div class="note-grid">
+          <article class="note">
+            <span class="note-no">T01</span>
+            <div class="note-body">
+              <h3>코딩</h3>
+              <div class="note-tags"><span><i class="tool-icon" style="--icon:url(assets/icons/webstorm.svg)" aria-hidden="true"></i>WebStorm</span></div>
+            </div>
+          </article>
+
+          <article class="note">
+            <span class="note-no">T02</span>
+            <div class="note-body">
+              <h3>디자인 협업</h3>
+              <div class="note-tags"><span><i class="tool-icon is-text" aria-hidden="true">Z</i>Zeplin</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <a class="case-next" href="work-orderweb.html">
+        <img src="assets/cover-tomntoms.webp" alt="" />
+        <div class="case-next-inner">
+          <span class="meta case-next-label">NEXT PROJECT — 07</span>
+          <span class="case-next-title">ORDER WEB</span>
+        </div>
+      </a>
+    </article>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="case.js"></script>
+  <script src="topbtn.js"></script>
+</body>
+</html>

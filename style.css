@@ -1,0 +1,406 @@
+/* SOYUL PORTFOLIO v1 — 암흑 보이드
+   See DESIGN_SYSTEM.md. The UI carries no colour; the work images are the
+   only light source on the page. */
+
+:root{
+  /* Void scale ------------------------------------------------------------ */
+  --void-000:#000000;
+  --void-100:#08080A;
+  --void-200:#101013;
+  --void-300:#1A1A1F;
+
+  --line-faint:rgba(255,255,255,.07);
+  --line:rgba(255,255,255,.16);
+  --line-strong:rgba(255,255,255,.44);
+
+  --text-000:#FFFFFF;
+  --text-100:#E6E6E9;
+  --text-300:#ABABB4;
+  --text-500:#9C9CA6;
+  --text-600:#4E4E57;
+
+  /* Type ------------------------------------------------------------------ */
+  --font-display:'Archivo','Pretendard Variable','Pretendard',-apple-system,sans-serif;
+  --font-body:'Pretendard Variable','Pretendard',-apple-system,sans-serif;
+  --font-mono:'JetBrains Mono','SFMono-Regular',Consolas,monospace;
+
+  --fs-mega:clamp(48px,8vw,124px);
+  --fs-h2:clamp(30px,4.4vw,68px);
+  --fs-h3:clamp(20px,2.2vw,30px);
+  --fs-body:clamp(16px,1.2vw,19px);
+  --fs-meta:13px;
+
+  /* Space ----------------------------------------------------------------- */
+  --margin:clamp(40px,6vw,120px);
+  /* Gutter reserved down the left of WORK for the chapter coordinate rail.
+     Every block inside WORK must clear it — the rail is fixed and will
+     otherwise sit on top of the text. */
+  --rail:74px;
+  --section-pad:clamp(96px,14vh,200px);
+
+  --ease:cubic-bezier(.22,.8,.24,1);
+
+  /* How many screens of scroll the hero owns before WORK takes over. Single
+     source of truth: hero.js sizes the spacer from it and site.js times the
+     header drop off it. */
+  --hero-span:2;
+
+  /* Runtime slot, not a design token: site.js measures the fixed header and
+     writes its real height here. */
+  --header-height:0px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--void-000)}
+/* Lenis' required stylesheet, inlined so it cannot be missed. The
+   scroll-behavior override is the important one: while Lenis drives the page,
+   native smooth scrolling re-animates every position Lenis sets. */
+html.lenis,html.lenis body{height:auto}
+html.lenis{scroll-behavior:auto!important}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+
+body{margin:0;background:var(--void-100);color:var(--text-100);
+     font-family:var(--font-body);font-size:var(--fs-body);
+     -webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2,h3,p{margin:0}
+
+.meta{font-family:var(--font-mono);font-size:var(--fs-meta);font-weight:500;
+      letter-spacing:.12em;text-transform:uppercase;color:var(--text-500)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;
+         clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Header -------------------------------------------------------------------
+   Hidden until the work sheet has fully covered the hero, then it drops in. */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:30;
+             background:rgba(8,8,10,.72);backdrop-filter:blur(14px);
+             transform:translateY(-100%);opacity:0;pointer-events:none;
+             transition:transform .55s var(--ease),opacity .3s ease-out}
+.site-header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+                    background:var(--line);transform:scaleX(0);transform-origin:0 50%;
+                    transition:transform .9s var(--ease)}
+.site-header.is-visible{transform:translateY(0);opacity:1;pointer-events:auto}
+.site-header.is-visible::after{transform:scaleX(1)}
+.site-header-inner{display:flex;align-items:center;justify-content:space-between;
+                   gap:24px;padding:16px var(--margin)}
+.site-logo{font-family:var(--font-display);font-weight:600;font-size:16px;
+           letter-spacing:.02em;color:var(--text-000)}
+/* The hero's own SOYUL shrinks down onto this exact spot. Showing both at once
+   would read as a duplicate, so the real one waits for the handoff. */
+.site-header.is-logo-hidden .site-logo{opacity:0}
+.site-nav{display:flex;gap:28px}
+.site-nav a{font-family:var(--font-mono);font-size:var(--fs-meta);font-weight:500;
+            letter-spacing:.12em;text-transform:uppercase;color:var(--text-300);
+            transition:color .25s ease}
+.site-nav a:hover{color:var(--text-000)}
+
+/* Hero ---------------------------------------------------------------------
+   Ported from the previous site unchanged in geometry and motion; only the
+   colour tokens are new. hero.js drives the identity build and the
+   scroll-linked black-hole exit. */
+.hero{position:fixed;top:0;left:0;right:0;height:100svh;overflow:hidden;
+      isolation:isolate;background:var(--void-000);z-index:1}
+/* hero.js overwrites this from the measured hero height; the calc is the
+   pre-script fallback so the page is never short. */
+.hero-spacer{height:calc(100svh * var(--hero-span))}
+.hero-content{position:relative;width:100%;height:100%;display:grid;place-items:center;
+              padding:64px var(--margin);transform-origin:50% 42%;
+              will-change:transform,opacity,filter}
+.particle-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;
+             background:radial-gradient(circle at center,transparent 0%,
+                        rgba(0,0,0,.04) 46%,rgba(0,0,0,.42) 100%)}
+.hero-meta{position:absolute;left:var(--margin);right:var(--margin);bottom:32px;
+           display:flex;justify-content:space-between;gap:24px;z-index:2;
+           font-family:var(--font-mono);font-size:13px;font-weight:500;
+           letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.scroll-link{color:var(--text-000);display:inline-block}
+.scroll-link.is-bouncing{animation:scroll-hint 1.8s ease-in-out infinite}
+@keyframes scroll-hint{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+.identity-wrap{width:min(100%,1600px);text-align:center;z-index:2;
+               padding-block:clamp(28px,5vw,72px);will-change:transform}
+.identity-stage{display:flex;justify-content:center;align-items:center;width:100%;
+                padding:clamp(18px,3vw,48px) 0;overflow:visible}
+.identity{position:relative;display:inline-flex;align-items:center;justify-content:center;
+          white-space:nowrap;font-family:var(--font-display);
+          font-size:clamp(64px,12vw,180px);line-height:1;letter-spacing:-.045em;
+          font-weight:700;perspective:1400px;opacity:0;transform:translateY(18px);
+          transform-origin:center center;will-change:transform,opacity,filter;
+          overflow:visible;filter:blur(12px);color:var(--text-000)}
+.word-half,.y-slot,.y-glyph{display:inline-block;will-change:transform,opacity}
+.word-half{line-height:1;overflow:visible}
+.y-slot{position:relative;width:0;height:1em;flex:0 0 auto;opacity:0;
+        overflow:visible;perspective:1200px}
+.y-glyph{position:absolute;left:50%;top:50%;font:inherit;line-height:1;color:inherit;
+         transform:translate(-50%,-50%) rotateY(0deg);transform-origin:center center;
+         opacity:0;clip-path:polygon(46% 49%,54% 49%,54% 100%,46% 100%);
+         backface-visibility:visible;overflow:visible}
+/* The rule and the role line rise as one block. hero.js returns this to 0 the
+   moment SOYUL resolves into a plane. */
+.identity-reveal{width:min(82vw,980px);margin:-28px auto 0;transform:translateY(20px);
+                 will-change:transform}
+.identity-rule{display:block;width:0;margin-inline:auto;height:1px;
+               background:rgba(255,255,255,.82);transform:scaleX(0);
+               transform-origin:50% 50%;opacity:0}
+.role{margin:14px 0 0;font-family:var(--font-mono);font-size:clamp(14px,1.35vw,22px);
+      font-weight:500;letter-spacing:.045em;line-height:1.2;white-space:nowrap;
+      color:var(--text-100);overflow:visible}
+.role-char{display:inline-block;opacity:0;transform:translateY(9px) rotateX(-24deg);
+           filter:blur(4px);transform-origin:50% 100%;will-change:transform,opacity,filter}
+.role-space{display:inline-block;width:.34em}
+
+/* Page flow ----------------------------------------------------------------
+   Everything after the pinned hero rides in one stacking context so it slides
+   over the fixed hero as a single sheet. */
+.page-flow{position:relative;z-index:2;background:var(--void-100)}
+
+/* Section intro ------------------------------------------------------------ */
+#work .section-intro{padding-left:calc(var(--margin) + var(--rail))}
+.section-intro{padding:var(--section-pad) var(--margin) clamp(48px,7vh,96px);
+               border-bottom:1px solid var(--line-faint)}
+#work .section-intro{min-height:100svh;display:flex;flex-direction:column;
+                     justify-content:center}
+.section-intro .meta{display:block;margin-bottom:clamp(20px,3vh,36px)}
+.section-title{font-family:var(--font-display);font-weight:600;font-size:var(--fs-h2);
+               line-height:1.06;letter-spacing:-.03em;color:var(--text-000);
+               max-width:28ch;word-break:keep-all}
+/* Wide enough to finish under the end of the heading rather than a third of
+   the way in. Still capped, so it never runs the full 1680px measure. */
+.section-lede{margin-top:clamp(20px,3vh,32px);max-width:min(72ch,100%);color:var(--text-300);
+              line-height:1.8;word-break:keep-all}
+
+/* Chapter index ------------------------------------------------------------
+   The "coordinate" element: a fixed read-out of where you are among the eight
+   chapters. It exists only while WORK is on screen. */
+.chapter-index{position:fixed;left:var(--margin);top:50%;transform:translateY(-50%);
+               z-index:20;display:flex;flex-direction:column;gap:10px;
+               opacity:0;pointer-events:none;transition:opacity .5s var(--ease)}
+.chapter-index.is-active{opacity:1;pointer-events:auto}
+/* The rail is a read-out, not decoration — the chapters you are not on still
+   have to be readable. Dim enough that the current one stands apart, not so
+   dim that the numbers disappear. */
+.chapter-index a{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;
+                 color:#71717C;display:flex;align-items:center;gap:9px;
+                 transition:color .3s ease,opacity .3s ease}
+.chapter-index a::before{content:"";width:14px;height:1px;background:currentColor;
+                         transition:width .35s var(--ease)}
+.chapter-index a:hover{color:var(--text-300)}
+.chapter-index a.is-current{color:var(--text-000)}
+.chapter-index a.is-current::before{width:34px}
+
+/* Work chapters ------------------------------------------------------------
+   One project fills one screen. Nothing else shares it. */
+.chapter{position:relative;min-height:100svh;display:grid;align-items:center;
+         padding:clamp(96px,12vh,140px) var(--margin) clamp(72px,10vh,120px);
+         padding-left:calc(var(--margin) + var(--rail));
+         border-bottom:1px solid var(--line-faint)}
+.chapter-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);
+               gap:clamp(32px,5vw,88px);align-items:center;width:100%;
+               max-width:1680px;margin-inline:auto}
+
+.chapter-text{display:flex;flex-direction:column;gap:clamp(16px,2.2vh,26px);min-width:0}
+.chapter-title{font-family:var(--font-display);font-weight:600;font-size:var(--fs-mega);
+               font-variation-settings:'wght' 700,'wdth' 100;
+               line-height:.88;letter-spacing:-.045em;color:var(--text-000);
+               word-break:keep-all}
+.chapter-role{display:flex;flex-wrap:wrap;gap:8px}
+.chapter-role span{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;
+                   text-transform:uppercase;color:var(--text-300);
+                   border:1px solid var(--line);border-radius:999px;padding:5px 11px}
+.chapter-desc{color:var(--text-300);line-height:1.85;max-width:46ch;word-break:keep-all}
+.chapter-links{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:22px;margin-top:4px}
+.chapter-link{font-family:var(--font-mono);font-size:var(--fs-meta);letter-spacing:.1em;
+              text-transform:uppercase;color:var(--text-300);padding-bottom:5px;
+              border-bottom:1px solid var(--line);
+              transition:color .3s ease,border-color .3s ease}
+.chapter-link:hover{color:var(--text-000);border-bottom-color:var(--line-strong)}
+
+/* The frame is the only lit object on the screen. Hover lifts the image out of
+   the void rather than adding any colour to the UI around it.
+   .media-drift exists purely to own the parallax transform, so hover can own
+   the image's own transform without the two fighting. */
+.chapter-media{position:relative;overflow:hidden;background:var(--void-200);
+               border:1px solid var(--line-faint);aspect-ratio:16/10}
+/* 이미지 전체가 상세 페이지로 가는 링크. 챕터 전체를 링크로 덮으면 텍스트를
+   드래그하거나 선택할 수 없고, 어디를 눌러도 이동해 버린다. */
+.media-link{position:absolute;inset:0;z-index:2}
+.media-drift{width:100%;height:100%;will-change:transform}
+.chapter-media img{width:100%;height:100%;object-fit:cover;
+                   filter:brightness(.86) saturate(.94);transform:scale(1.04);
+                   transition:filter .7s var(--ease),transform .9s var(--ease)}
+.chapter-media:hover img,
+.chapter-media:focus-within img{filter:none;transform:scale(1)}
+
+/* Layout variants ----------------------------------------------------------
+   Eight identical screens read as one screen shown eight times. Three
+   rotations break that without breaking the system. Variant B is reserved for
+   atmospheric wide images — a cropped UI screenshot at full bleed looks like a
+   mistake, not a decision. */
+
+/* B — the image takes the whole screen, the text sits in it. */
+.chapter[data-layout="b"]{padding:0;border-bottom:0}
+.chapter[data-layout="b"] .chapter-inner{display:block;max-width:none;
+                                         position:relative;height:100svh}
+.chapter[data-layout="b"] .chapter-media{position:absolute;inset:0;aspect-ratio:auto;
+                                         border:0}
+.chapter[data-layout="b"] .chapter-media::after{content:"";position:absolute;inset:0;
+  pointer-events:none;
+  background:linear-gradient(to top,rgba(0,0,0,.94) 0%,rgba(0,0,0,.62) 34%,
+             rgba(0,0,0,.16) 66%,rgba(0,0,0,.36) 100%)}
+/* B already has the scrim doing the contrast work, so the base dim comes off
+   — dimming twice buries the photograph. */
+.chapter[data-layout="b"] .chapter-media img{filter:brightness(.84) saturate(.92)}
+.chapter[data-layout="b"] .chapter-text{position:relative;z-index:2;height:100%;
+  justify-content:flex-end;max-width:min(720px,92%);
+  padding:calc(var(--margin) + 20px) var(--margin);
+  padding-left:calc(var(--margin) + var(--rail))}
+
+/* C — mirrored. The image leads, the text answers. */
+.chapter[data-layout="c"] .chapter-inner{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
+.chapter[data-layout="c"] .chapter-text{order:2}
+.chapter[data-layout="c"] .chapter-media{order:1}
+
+/* About -------------------------------------------------------------------- */
+.about{padding:var(--section-pad) var(--margin);border-bottom:1px solid var(--line-faint)}
+.career{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+        margin-top:clamp(48px,7vh,88px);background:var(--line-faint);
+        border:1px solid var(--line-faint)}
+.career-item{background:var(--void-100);padding:clamp(28px,3.2vw,44px);
+             display:flex;flex-direction:column;gap:22px;
+             transition:background-color .4s var(--ease)}
+.career-item:hover{background:var(--void-200)}
+.career-item h3{font-family:var(--font-display);font-size:var(--fs-h3);font-weight:600;
+                letter-spacing:-.01em;color:var(--text-000)}
+.career-meta{display:grid;grid-template-columns:auto 1fr;gap:10px 20px;margin:0;
+             align-content:start}
+.career-meta dt{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;
+                text-transform:uppercase;color:var(--text-500);padding-top:2px}
+.career-meta dd{margin:0;color:var(--text-300);line-height:1.7;font-size:16px;
+                word-break:keep-all}
+
+/* Contact ------------------------------------------------------------------ */
+.contact{position:relative;isolation:isolate;min-height:100svh;display:flex;
+         flex-direction:column;justify-content:center;
+         padding:var(--section-pad) var(--margin) clamp(64px,9vh,120px);
+         background:var(--void-000)}
+/* The void returns for the closing screen, so the page ends where it began.
+   Drawn once, never animated — see site.js. */
+.contact-field{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.contact-mail{display:inline-block;margin-top:clamp(28px,4vh,48px);
+              font-family:var(--font-display);font-weight:600;
+              font-size:clamp(26px,5vw,72px);letter-spacing:-.03em;color:var(--text-000);
+              border-bottom:1px solid var(--line);padding-bottom:6px;
+              transition:border-color .3s ease}
+.contact-mail:hover{border-bottom-color:var(--line-strong)}
+.site-foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
+           margin-top:auto;padding-top:24px;
+           border-top:1px solid var(--line-faint)}
+
+/* Back-to-top ---------------------------------------------------------------
+   Eight full-screen chapters is a long way down; getting back should not be. */
+.to-top{position:fixed;right:clamp(20px,3vw,40px);bottom:clamp(20px,3vw,40px);
+        z-index:40;width:46px;height:46px;display:grid;place-items:center;
+        background:rgba(8,8,10,.72);backdrop-filter:blur(14px);
+        border:1px solid var(--line);border-radius:50%;
+        color:var(--text-100);font-size:16px;line-height:1;cursor:pointer;
+        opacity:0;transform:translateY(10px);pointer-events:none;
+        transition:opacity .35s var(--ease),transform .35s var(--ease),
+                   border-color .3s ease,color .3s ease}
+.to-top.is-visible{opacity:1;transform:none;pointer-events:auto}
+.to-top:hover{border-color:var(--line-strong);color:var(--text-000)}
+
+/* Scroll-driven motion ------------------------------------------------------
+   Native CSS scroll timelines: no JS, no observer, nothing on the main thread.
+   Everything here is defined INSIDE the @supports block and the default state
+   is the finished state — a browser without scroll timelines simply gets the
+   static page, which is the correct fallback, not a degraded one. */
+@supports (animation-timeline: view()){
+  @media not (prefers-reduced-motion: reduce){
+
+    /* Reveal — one shared primitive, no per-section variants. */
+    @keyframes reveal{from{opacity:0;transform:translateY(26px)}
+                      to{opacity:1;transform:none}}
+    [data-reveal]{animation:reveal linear both;
+                  animation-timeline:view();
+                  animation-range:entry 6% cover 22%}
+
+    /* Kinetic type — the title tightens and gains weight as its chapter
+       settles into the middle of the screen. Archivo is variable, so the
+       weight is a real interpolation, not a swap between two cuts. */
+    @keyframes title-settle{
+      from{letter-spacing:.015em;
+           font-variation-settings:'wght' 500,'wdth' 82;opacity:.62}
+      to  {letter-spacing:-.045em;
+           font-variation-settings:'wght' 700,'wdth' 100;opacity:1}
+    }
+    .chapter-title,.section-title{animation:title-settle linear both;
+                   animation-timeline:view();
+                   animation-range:entry 18% cover 46%}
+
+    /* Depth — the image drifts slower than the text it sits beside, so it
+       reads as sitting further back. One element, one axis. Deliberately
+       small: this is a Z hint, not a parallax site. */
+    @keyframes media-drift{from{transform:translateY(3.5%)}
+                           to{transform:translateY(-3.5%)}}
+    .media-drift{animation:media-drift linear both;
+                 animation-timeline:view();
+                 animation-range:cover 0% cover 100%}
+    /* Full-bleed chapters already fill the screen; drifting them would expose
+       the edges of the image. */
+    .chapter[data-layout="b"] .media-drift{animation:none;transform:none}
+  }
+}
+
+/* Responsive ---------------------------------------------------------------- */
+@media (max-width:1279px){
+  /* Below the split point every variant collapses to the same stack. Overlaid
+     text on a cropped image is unreadable at this width, so B folds back too. */
+  .chapter-inner,
+  .chapter[data-layout="c"] .chapter-inner{grid-template-columns:1fr;
+                                           gap:clamp(28px,4vh,44px)}
+  .chapter,
+  .chapter[data-layout="b"]{padding:clamp(96px,12vh,140px) var(--margin) clamp(72px,10vh,120px);
+                            border-bottom:1px solid var(--line-faint)}
+  .chapter[data-layout="b"] .chapter-inner{display:grid;height:auto}
+  .chapter[data-layout="b"] .chapter-media{position:relative;inset:auto;
+                                           aspect-ratio:16/10;
+                                           border:1px solid var(--line-faint)}
+  .chapter[data-layout="b"] .chapter-media::after{display:none}
+  .chapter[data-layout="b"] .chapter-text{height:auto;padding:0;max-width:none}
+  .chapter[data-layout="c"] .chapter-text{order:1}
+  .chapter[data-layout="c"] .chapter-media{order:2}
+  .chapter-index{display:none}
+  #work .section-intro{padding-left:var(--margin)}
+  .career{grid-template-columns:1fr}
+}
+@media (max-width:767px){
+  :root{--margin:20px}
+  .chapter{min-height:auto;padding-block:clamp(72px,10vh,96px)}
+  .chapter-media{aspect-ratio:4/3}
+  .chapter-media img{filter:none;transform:none}
+  .site-nav{gap:18px}
+  .hero-meta{font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  [data-reveal]{opacity:1;transform:none;transition:none}
+  .chapter-media img{filter:none;transform:none}
+  .scroll-link.is-bouncing{animation:none}
+}
+
+/* Career dates -------------------------------------------------------------
+   A career entry without its years is a list of names. In the three-up card
+   layout the date sits above the company — a card is only about 330px wide and
+   the two will not share a line. Below 1280px the cards become full-width rows
+   and there is room to set them side by side. */
+.career-head{display:flex;flex-direction:column;gap:10px}
+.career-date{font-family:var(--font-mono);font-size:13px;letter-spacing:.06em;
+             color:var(--text-500);white-space:nowrap}
+@media (max-width:1279px){
+  .career-head{flex-direction:row;align-items:baseline;
+               gap:clamp(16px,3vw,40px);flex-wrap:wrap}
+}

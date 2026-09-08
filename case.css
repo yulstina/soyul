@@ -1,0 +1,446 @@
+/* 경기천년바탕 — 고요가 공간·서비스 이름에 쓰는 서체. 이 한 줄의 견본을 위해
+   싣는 파일이라 swap 으로 두어, 내려받는 동안 글이 비어 보이지 않게 한다. */
+@font-face{font-family:'GyeonggiBatang';
+           src:url('fonts/GyeonggiBatang-Regular.woff') format('woff');
+           font-weight:400;font-style:normal;font-display:swap}
+
+/* Case study pages — the detail template shared by all eight projects.
+   Loaded after style.css, which owns every token used here. */
+
+/* Detail pages have no hero to hand off from, so the header is simply there
+   from the first frame. */
+.case-page .site-header{transform:none;opacity:1;pointer-events:auto}
+.case-page .site-header::after{transform:scaleX(1)}
+.case-page{background:var(--void-100)}
+
+/* Opening -------------------------------------------------------------------
+   The cover fills the screen, then the title climbs to sit under the header
+   while a rule draws out beneath it. Scroll drives every frame of this — a
+   timed opening plays whether or not anyone is watching, which is the exact
+   problem the home hero had. */
+.case-open{position:relative;height:100svh;overflow:hidden;background:var(--void-000)}
+.case-cover{position:absolute;inset:0;z-index:0}
+/* Bright enough to read as a photograph, not a shadow. The gradient below
+   still buys the title its contrast, so the darkening does not have to come
+   from the image itself. */
+.case-cover img,.case-cover video{width:100%;height:100%;object-fit:cover;
+                filter:brightness(.92) saturate(1);will-change:transform,filter}
+.case-cover::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.82) 0%,rgba(0,0,0,.38) 38%,
+             rgba(0,0,0,.06) 70%,rgba(0,0,0,.3) 100%)}
+.case-open-inner{position:relative;z-index:2;height:100%;display:flex;
+                 flex-direction:column;justify-content:flex-end;
+                 padding:calc(var(--header-height) + 40px) var(--margin)
+                         clamp(56px,9vh,110px);
+                 max-width:1680px;margin-inline:auto;will-change:transform}
+.case-eyebrow{display:block;margin-bottom:clamp(14px,2vh,22px)}
+.case-title{font-family:var(--font-display);font-weight:600;
+            font-size:clamp(46px,9vw,140px);line-height:.9;letter-spacing:-.045em;
+            color:var(--text-000);font-variation-settings:'wght' 700,'wdth' 100}
+.case-tagline{margin-top:clamp(16px,2.4vh,26px);max-width:44ch;color:var(--text-100);
+              line-height:1.7;word-break:keep-all}
+/* Drawn from the left as the opening resolves, mirroring the header's own rule. */
+.case-rule{display:block;height:1px;background:var(--line-strong);
+           transform:scaleX(0);transform-origin:0 50%;margin-top:clamp(24px,4vh,44px)}
+
+/* Brief ---------------------------------------------------------------------
+   Four blocks, everything a reader needs before a single image. Same panel
+   grammar as ABOUT's career cards so the two read as one system. */
+.case-brief{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+            background:var(--line-faint);border-block:1px solid var(--line-faint)}
+.brief-cell{background:var(--void-100);padding:clamp(28px,3vw,44px);
+            display:flex;flex-direction:column;gap:14px}
+.brief-cell dt,.brief-cell h2{margin:0;font-family:var(--font-mono);font-size:12px;
+            font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+            color:var(--text-500)}
+.brief-cell p{color:var(--text-300);line-height:1.8;font-size:16px;word-break:keep-all}
+.brief-cell ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:7px}
+.brief-cell li{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;
+               color:var(--text-300);border:1px solid var(--line);
+               border-radius:999px;padding:5px 10px}
+
+/* Gallery -------------------------------------------------------------------
+   Ratio-adaptive: case.js measures each image and tags it, because the eight
+   projects supply wildly different artwork — wide brand shots, tall kiosk
+   screens, and page-length site captures. One fixed grid cannot serve all
+   three, and a project with one image must look as deliberate as one with
+   twenty. */
+.case-gallery{padding:clamp(64px,9vh,120px) var(--margin);
+              display:grid;grid-template-columns:repeat(2,1fr);
+              gap:clamp(16px,2vw,28px);max-width:1680px;margin-inline:auto}
+.case-chapter{grid-column:1/-1;display:flex;align-items:baseline;gap:20px;
+              margin-top:clamp(40px,6vh,80px);padding-bottom:14px;
+              border-bottom:1px solid var(--line-faint)}
+.case-chapter:first-child{margin-top:0}
+.case-chapter h2{margin:0;font-family:var(--font-display);font-weight:600;
+                 font-size:var(--fs-h3);letter-spacing:-.01em;color:var(--text-000)}
+
+.shot{position:relative;margin:0;overflow:hidden;background:var(--void-200);
+      border:1px solid var(--line-faint);cursor:zoom-in}
+.shot img{width:100%;height:auto;display:block;
+          transition:transform .8s var(--ease),filter .6s var(--ease)}
+.shot:hover img{transform:scale(1.02)}
+/* Wide artwork earns the full measure; everything else pairs up. */
+.shot[data-ratio="wide"]{grid-column:1/-1}
+.shot[data-ratio="square"],.shot[data-ratio="tall"]{grid-column:span 1}
+/* Page captures are shown as uniform cards cropped to the top of the page —
+   the recognisable part — and open full length in the lightbox. Scrolling
+   frames made the page enormous for very little text, and the inner
+   scrollbars read as clutter. */
+.shot[data-ratio="long"],
+.shot[data-ratio="long-narrow"]{grid-column:span 1;height:clamp(300px,38vh,420px)}
+.shot[data-ratio="long"] img,
+.shot[data-ratio="long-narrow"] img{height:auto;object-position:top}
+
+/* Implementation notes ------------------------------------------------------
+   A publisher is hired for what they can build, and "HTML · CSS · JavaScript"
+   is a list every publisher writes. These are the three or four things worth
+   defending in an interview: what was built, how, and why that way. Depth over
+   inventory — a long list of interactions reads as a skills checklist again. */
+.case-notes{padding:clamp(64px,9vh,120px) var(--margin);max-width:1680px;
+            margin-inline:auto;border-top:1px solid var(--line-faint)}
+.case-notes > .meta{display:block;margin-bottom:clamp(28px,4vh,48px)}
+/* Each item is one pill that flows into the next, rather than a cell in a
+   table. The table's rules and equal columns made five short lines look like
+   a form to fill in; pills let a page with four items and a page with nine
+   both look deliberate. The item keeps its sentence — the pill is the shape,
+   not a shorter claim. */
+.note-grid{display:flex;flex-wrap:wrap;gap:10px;background:none;border:0}
+.note{background:none;border:1px solid var(--line);border-radius:999px;
+      padding:11px clamp(16px,1.4vw,20px);display:inline-flex;align-items:center;
+      gap:10px;transition:border-color .3s var(--ease)}
+.note:hover{border-color:var(--line-strong)}
+/* The number ordered rows in a table. Nothing is in a row any more. */
+.note-no{display:none}
+.note-body{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.note-body h3{margin:0;font-family:var(--font-body);font-weight:500;
+              font-size:16px;letter-spacing:-.01em;color:var(--text-000);
+              word-break:keep-all}
+/* Inside a pill the tag is no longer a pill of its own — it reads as the
+   second half of the same phrase, set apart by a dot. */
+.note-tags{display:flex;flex-wrap:wrap;gap:9px}
+.note-tags span{font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;
+                color:var(--text-300);white-space:nowrap;
+                display:inline-flex;align-items:center;gap:9px}
+.note-tags span::before{content:"·";color:var(--text-600)}
+
+/* Next project --------------------------------------------------------------
+   Full bleed, so the page ends by offering the next thing rather than a dead
+   stop. */
+.case-next{position:relative;display:block;height:min(72svh,720px);
+           overflow:hidden;background:var(--void-000);
+           border-top:1px solid var(--line-faint)}
+.case-next img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+               filter:brightness(.42) saturate(.7);
+               transition:filter .8s var(--ease),transform 1.1s var(--ease)}
+.case-next:hover img{filter:brightness(.62) saturate(.9);transform:scale(1.03)}
+.case-next-inner{position:relative;z-index:2;height:100%;display:flex;
+                 flex-direction:column;justify-content:center;
+                 padding:0 var(--margin);max-width:1680px;margin-inline:auto}
+.case-next-label{display:block;margin-bottom:14px}
+.case-next-title{font-family:var(--font-display);font-weight:600;
+                 font-size:clamp(40px,7vw,110px);line-height:.9;
+                 letter-spacing:-.045em;color:var(--text-000)}
+
+/* Lightbox ------------------------------------------------------------------
+   The UI detail work only reads at full size, so every shot opens. */
+.lightbox{position:fixed;inset:0;z-index:60;display:flex;align-items:center;
+          justify-content:center;padding:clamp(20px,4vw,64px);
+          background:rgba(0,0,0,.94);opacity:0;pointer-events:none;
+          transition:opacity .3s var(--ease)}
+.lightbox.is-open{opacity:1;pointer-events:auto}
+.lightbox img{max-width:100%;max-height:100%;width:auto;height:auto;
+              object-fit:contain}
+/* A page-length capture opens scrollable rather than squeezed to fit. */
+.lightbox.is-long{align-items:flex-start;overflow-y:auto}
+.lightbox.is-long img{max-height:none}
+.lightbox-close{position:fixed;top:20px;right:20px;z-index:2;
+                background:none;border:1px solid var(--line);color:var(--text-100);
+                font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;
+                padding:9px 14px;cursor:pointer;
+                transition:border-color .3s ease,color .3s ease}
+.lightbox-close:hover{border-color:var(--line-strong);color:var(--text-000)}
+
+@media (max-width:1279px){
+  .case-brief{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:767px){
+  .case-brief{grid-template-columns:1fr}
+  .case-gallery{grid-template-columns:1fr}
+  .shot[data-ratio="square"],.shot[data-ratio="tall"]{grid-column:1/-1}
+}
+@media (prefers-reduced-motion:reduce){
+  .shot:hover img,.case-next:hover img{transform:none}
+  .case-cover img{transform:none!important}
+}
+
+
+/* Flow gallery --------------------------------------------------------------
+   Some projects are laid out by hand rather than by measured ratio: the
+   images are grouped into rows that belong together. `.is-flow` turns the
+   gallery into a plain vertical stack so those groups own their own grid. */
+.case-gallery.is-flow{display:flex;flex-direction:column;
+                      gap:clamp(16px,2vw,28px)}
+.case-gallery.is-flow > .case-chapter{margin-top:clamp(40px,6vh,80px)}
+.case-gallery.is-flow > .case-chapter:first-child{margin-top:0}
+
+.shot-grid{display:grid;gap:clamp(12px,1.5vw,22px)}
+.shot-grid.cols-3{grid-template-columns:repeat(3,1fr)}
+.shot-grid.cols-2{grid-template-columns:repeat(2,1fr)}
+/* Inside a hand-laid row the measured ratio must not re-span anything. */
+.shot-grid > .shot[data-ratio]{grid-column:auto;height:auto}
+/* A whole phone page is thousands of pixels tall and would own the case study
+   on its own. It is shown as a card cropped to the top and opens full length
+   in the lightbox — the same treatment the loose gallery gives page captures. */
+.shot-grid > .shot[data-ratio="long"],
+.shot-grid > .shot[data-ratio="long-narrow"]{height:clamp(320px,48vh,540px)}
+/* Natural heights — nothing is cropped, rows simply end where they end.
+   A two-up row centres its pair, so a shorter image is not stranded at the
+   top of a taller neighbour. */
+.shot-grid{align-items:start}
+.shot-grid.cols-2{align-items:center}
+
+/* Green panels --------------------------------------------------------------
+   Two chapters sit on a faint forest gradient so the SNS and store work read
+   as one block rather than loose thumbnails. */
+.panel-green{padding:clamp(24px,3.4vw,56px);border-radius:6px;
+             border:1px solid rgba(126,176,116,.14);
+             background:
+               radial-gradient(120% 100% at 10% 0%,rgba(104,158,90,.20),transparent 64%),
+               linear-gradient(165deg,rgba(74,118,66,.17) 0%,rgba(18,30,18,.10) 100%)}
+.panel-green .case-chapter{margin-top:0;margin-bottom:clamp(18px,2.4vw,30px);
+                           border-bottom-color:rgba(255,255,255,.12)}
+/* These captures are transparent PNGs, so the shot frame must not paint a
+   black plate behind them — the gradient has to show through. */
+.panel-green .shot{background:transparent;border-color:transparent;overflow:visible}
+
+/* Full-bleed video ----------------------------------------------------------
+   The web work is a screen recording, and a recording only reads when it is
+   big — so it breaks out of the gallery margin and spans the viewport, the
+   way an awwwards case hero does. Its own 1918x910 ratio is kept, so nothing
+   about the site being shown is cropped away. */
+/* Recording ------------------------------------------------------------------
+   Sits inside the gallery's own margin, so it lines up with every image above
+   it. The ratio here is only a placeholder that reserves the right height
+   before the file loads — case.js replaces it with the file's real ratio, so
+   re-exporting the video at a different shape needs no change here. */
+.video-main{position:relative;margin:clamp(8px,1.6vw,28px) 0 0;
+            aspect-ratio:1918/910;overflow:hidden;
+            background:var(--void-200);border:1px solid var(--line-faint)}
+.video-main video{width:100%;height:100%;object-fit:cover;display:block}
+/* Only shown where there is no pointer to hover with — on a phone the loop
+   starts by itself, so there has to be a way to stop it. */
+.video-toggle{position:absolute;right:clamp(12px,1.6vw,24px);
+              bottom:clamp(12px,1.6vw,24px);z-index:2;
+              font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;
+              color:var(--text-100);background:rgba(0,0,0,.5);
+              backdrop-filter:blur(8px);border:1px solid var(--line);
+              padding:8px 13px;cursor:pointer;opacity:.55;
+              transition:opacity .3s var(--ease),border-color .3s var(--ease)}
+.video-toggle:focus-visible{opacity:1;border-color:var(--line-strong)}
+
+/* Highlight clips ----------------------------------------------------------
+   Short loops of the moments the full recording only passes through — the
+   awwwards "Elements" idea. Same source ratio as the recording, so no part of
+   the screen is cropped away to fit the card. */
+.clip-grid{display:grid;grid-template-columns:repeat(2,1fr);
+           gap:clamp(12px,1.5vw,22px);margin-top:clamp(16px,2vw,28px)}
+.clip{position:relative;margin:0;overflow:hidden;
+      /* One shape for every card in the grid — case.js fills --clip-ar in from
+         the first clip that loads, so a row never comes out ragged. */
+      aspect-ratio:var(--clip-ar,1918/910);
+      background:var(--void-200);border:1px solid var(--line-faint)}
+.clip video{width:100%;height:100%;object-fit:cover;display:block}
+/* A card whose file has not been dropped in yet still holds its space and
+   says so, rather than collapsing the grid or showing a broken frame. */
+.clip.is-empty,.video-main.is-empty{border-style:dashed}
+.clip.is-empty video,.video-main.is-empty video{display:none}
+.clip.is-empty::after,.video-main.is-empty::after{content:attr(data-empty);
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;
+  color:var(--text-500)}
+/* Nothing to stop while the slot is still empty. */
+.video-main.is-empty .video-toggle{display:none}
+
+@media (max-width:1023px){
+  .shot-grid.cols-3{grid-template-columns:repeat(2,1fr)}
+  .shot-grid.cols-2{grid-template-columns:1fr}
+}
+@media (max-width:559px){
+  .shot-grid.cols-3{grid-template-columns:1fr}
+  /* Two wide clips side by side are too small to read on a phone. */
+  .clip-grid{grid-template-columns:1fr}
+}
+/* Mobile: full-bleed green panels look cramped inside the page margin. */
+@media (max-width:767px){
+  .panel-green{padding:20px 16px;border-radius:4px}
+}
+
+/* Staggered reveal ----------------------------------------------------------
+   Same scroll-timeline primitive style.css defines; the columns of a row are
+   offset so the images arrive one after another instead of all at once. */
+@supports (animation-timeline: view()){
+  @media not (prefers-reduced-motion: reduce){
+    .case-gallery [data-reveal]{animation-range:entry 4% cover 26%}
+    .shot-grid > [data-reveal]:nth-child(3n+2){animation-range:entry 9% cover 34%}
+    .shot-grid > [data-reveal]:nth-child(3n+3){animation-range:entry 14% cover 42%}
+  }
+}
+
+/* Workflow ------------------------------------------------------------------
+   Six steps on one line, hung off a single rule with a dot each — a timeline
+   read left to right. It comes before the artwork because on a self-directed
+   project the order of the work is part of what is being shown. */
+.case-flow{padding:clamp(64px,9vh,120px) var(--margin);max-width:1680px;
+           margin-inline:auto;border-top:1px solid var(--line-faint)}
+.case-flow > .meta{display:block;margin-bottom:clamp(28px,4vh,48px)}
+/* Column count follows the number of steps — GOYO has six, a client job
+   has five. Auto-flow means neither page has to be counted in the CSS. */
+.flow{list-style:none;margin:0;padding:0;
+      display:grid;grid-auto-flow:column;grid-auto-columns:1fr}
+.flow-step{position:relative;padding:26px clamp(12px,1.4vw,22px) 0 0}
+/* The rule runs edge to edge under the whole row; each cell draws its own
+   piece, so nothing has to be positioned across siblings. */
+.flow-step::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;
+                   background:var(--line-faint)}
+.flow-step::after{content:"";position:absolute;top:-3px;left:0;
+                  width:7px;height:7px;border-radius:50%;
+                  background:var(--text-600)}
+/* The last step is the one that shipped. */
+.flow-step.is-last::after{background:var(--text-100)}
+.flow-no{display:block;font-family:var(--font-mono);font-size:12px;
+         letter-spacing:.1em;color:var(--text-500);margin-bottom:10px}
+.flow-step h3{margin:0;font-family:var(--font-body);font-weight:500;
+              font-size:16px;letter-spacing:-.01em;color:var(--text-000);
+              word-break:keep-all}
+.flow-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.flow-tags span{font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;
+                color:var(--text-300);border:1px solid var(--line);
+                border-radius:999px;padding:4px 9px;white-space:nowrap}
+
+/* A logotype is not a screenshot: it needs air around it and a background to
+   sit on, not a frame cropped to its edges. */
+/* Each lockup sits on the ground it was drawn for — the brand own light
+   and dark values, set per figure. A white mark on a near-black page and a
+   black mark on a dark card were both invisible. */
+.shot.mark{display:flex;align-items:center;justify-content:center;
+           aspect-ratio:16/10;background:var(--mark-bg,#FAF9F6);cursor:zoom-in}
+.shot.mark img{width:clamp(84px,14%,150px);height:auto}
+.shot.mark:hover img{transform:none}
+
+@media (max-width:1023px){
+  .flow{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);row-gap:34px}
+}
+@media (max-width:599px){
+  .flow{grid-auto-flow:row;grid-template-columns:repeat(2,1fr);row-gap:30px}
+}
+
+/* Palette -------------------------------------------------------------------
+   A colour on its own is a hex code; a colour with the job it does is a
+   decision. Each chip therefore carries its name, where it is used, and the
+   value — the same three things the Figma page lists. The page is near-black
+   and most of this palette is near-white, so every chip keeps a hairline
+   border: without it the pale ones would have no edge at all. */
+.palette{list-style:none;margin:clamp(16px,2vw,28px) 0 0;padding:0;
+         display:grid;grid-template-columns:repeat(4,1fr);
+         gap:clamp(12px,1.5vw,22px)}
+.swatch{display:flex;flex-direction:column;gap:6px}
+.swatch-chip{display:block;aspect-ratio:16/9;background:var(--c);
+             border:1px solid var(--line);margin-bottom:6px}
+.swatch-name{font-family:var(--font-body);font-weight:500;font-size:14px;
+             color:var(--text-000)}
+.swatch-use{font-size:14px;color:var(--text-300);word-break:keep-all}
+.swatch code{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;
+             color:var(--text-500);text-transform:uppercase}
+
+@media (max-width:1023px){ .palette{grid-template-columns:repeat(3,1fr)} }
+@media (max-width:599px){ .palette{grid-template-columns:repeat(2,1fr)} }
+
+/* Typeset -------------------------------------------------------------------
+   Three roles, three faces. Named next to the job it does, with a line of the
+   site own copy set in it, so the choice is legible rather than asserted. */
+.typeset{list-style:none;margin:clamp(28px,3.4vw,52px) 0 0;padding:0}
+.type-row{display:grid;grid-template-columns:minmax(150px,1fr) 2.2fr;
+          gap:8px clamp(20px,3vw,48px);align-items:baseline;
+          padding:clamp(20px,2.4vw,32px) 0;
+          border-top:1px solid var(--line-faint)}
+.type-row:last-child{border-bottom:1px solid var(--line-faint)}
+.type-use{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;
+          text-transform:uppercase;color:var(--text-500);word-break:keep-all}
+.type-name{grid-column:2;font-size:clamp(19px,2vw,26px);color:var(--text-000);
+           letter-spacing:-.01em}
+.type-sample{grid-column:2;font-size:clamp(15px,1.2vw,18px);color:var(--text-300);
+             line-height:1.7;word-break:keep-all}
+.serif-kr{font-family:'Noto Serif KR',serif;font-weight:400}
+.sans-kr{font-family:'Noto Sans KR',var(--font-body);font-weight:400}
+.batang{font-family:'GyeonggiBatang','Noto Serif KR',serif;font-weight:400}
+
+@media (max-width:599px){
+  .type-row{grid-template-columns:1fr}
+  .type-name,.type-sample{grid-column:1}
+}
+
+
+/* An image whose file has not been dropped in yet holds its place and says so,
+   the same way an empty video slot does. */
+.shot.is-empty{aspect-ratio:16/9;border-style:dashed}
+.shot.is-empty img{display:none}
+.shot.is-empty::after{content:attr(data-empty);position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;
+  color:var(--text-500)}
+
+/* Live site link -------------------------------------------------------------
+   The strongest thing a case study can offer is the working site itself, so
+   the link sits in the opening rather than at the bottom of a long page. It is
+   a quiet outline until the pointer arrives, then fills — the only filled
+   element on a page that is otherwise all rules and photographs. */
+.case-live{display:inline-flex;align-items:center;gap:10px;
+           align-self:flex-start;margin-top:clamp(22px,3vh,32px);
+           padding:13px 22px;border:1px solid var(--line-strong);border-radius:999px;
+           font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;
+           text-transform:uppercase;color:var(--text-000);
+           background:transparent;backdrop-filter:blur(6px);white-space:nowrap;
+           transition:background-color .35s var(--ease),color .35s var(--ease),
+                      border-color .35s var(--ease)}
+.case-live:hover,.case-live:focus-visible{background:var(--text-000);
+           color:var(--void-000);border-color:var(--text-000)}
+.case-live-arrow{width:14px;height:14px;flex:0 0 auto;
+                 transition:transform .35s var(--ease)}
+.case-live:hover .case-live-arrow{transform:translate(2px,-2px)}
+@media (prefers-reduced-motion:reduce){
+  .case-live:hover .case-live-arrow{transform:none}
+}
+
+/* A pair of phone captures at half the full measure comes out over 1200px
+   tall. Narrowed and centred, they land at about the size of a real handset. */
+.shot-grid.cols-2.is-phone{max-width:720px;margin-inline:auto}
+
+.cormorant{font-family:'Cormorant Garamond','Times New Roman',serif;font-weight:400}
+.pretendard{font-family:'Pretendard Variable',Pretendard,var(--font-body);font-weight:400}
+
+/* A clip that plays on its own needs its own stop, and the corner of the card
+   is the only place for it that does not cover the recording. */
+.clip .video-toggle{right:10px;bottom:10px;padding:6px 10px;opacity:.42}
+.clip:hover .video-toggle{opacity:1}
+
+/* A single tall capture would run past 1500px at the full measure. Narrowed
+   and centred it reads at about the size of the screen it came from. */
+.shot-narrow{max-width:420px;margin-inline:auto}
+
+/* A near-square recording does not need the full measure — at 1252px wide it
+   would stand over a thousand pixels tall for a loop of a second and a half. */
+.video-main.is-compact{max-width:640px;margin-inline:auto}
+
+/* Tool marks ----------------------------------------------------------------
+   Four of these programs publish a logo we can use; the rest do not, so they
+   get a letter mark in the same box. Same size, same colour, same alignment —
+   the row reads as one set rather than four logos and nine gaps. */
+.tool-icon{flex:0 0 auto;width:14px;height:14px;display:inline-flex;
+           align-items:center;justify-content:center}
+.tool-icon:not(.is-text){background-color:currentColor;
+  -webkit-mask:var(--icon) center/contain no-repeat;
+          mask:var(--icon) center/contain no-repeat}
+.tool-icon.is-text{font-family:var(--font-mono);font-size:8px;font-weight:500;
+  letter-spacing:0;line-height:1;border:1px solid currentColor;border-radius:3px;
+  width:15px;height:14px;opacity:.9}
