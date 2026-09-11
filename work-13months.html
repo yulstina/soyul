@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <!-- 첫 화면 영상을 미리 받아 두어, 빈 화면이 보이는 시간을 줄인다. -->
+  <link rel="preload" as="video" href="assets/13months/main.mp4" type="video/mp4" fetchpriority="high" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..112,400..700&family=JetBrains+Mono:wght@400;500&family=Cormorant+Garamond:wght@400;600&display=swap" />
   <link rel="stylesheet" href="style.css" />
@@ -29,9 +31,8 @@
     <article class="case">
       <section class="case-open">
         <div class="case-cover">
-          <!-- 첫 화면은 실제로 움직이는 사이트다. 소리 없이 반복되고,
-               내려받기 전과 「동작 줄이기」를 켠 경우에는 poster 정지컷이 보인다. -->
-          <video src="assets/13months/main.mp4" poster="assets/13months/main.webp"
+          <!-- 첫 화면은 실제로 움직이는 사이트다. 소리 없이 반복된다. -->
+          <video src="assets/13months/main.mp4"
                  autoplay muted loop playsinline preload="auto"
                  aria-label="열세달꽃 메인 화면 녹화"></video>
         </div>

@@ -66,7 +66,13 @@
   const openInner = document.querySelector('.case-open-inner');
   const rule = document.querySelector('.case-rule');
 
-  if (open && !reduced) {
+  // 모바일에서 세로 스택으로 펴지는 오프닝(가로로 긴 대표 이미지)은 스크롤 스크럽을
+  // 끈다 — 이미지와 텍스트가 겹치지 않는 정적 레이아웃이라 스크럽이 오히려 어긋난다.
+  const stackedOpen = open
+    && open.classList.contains('case-open--tall-shot')
+    && matchMedia('(max-width:767px)').matches;
+
+  if (open && !reduced && !stackedOpen) {
     const clamp01 = (v) => (v < 0 ? 0 : v > 1 ? 1 : v);
     const smooth = (t) => t * t * (3 - 2 * t);
     let ticking = false;
@@ -106,10 +112,23 @@
   }
 
   // A cover that is a recording plays itself, so someone who has asked for less
-  // motion gets the poster frame instead of a loop they cannot stop.
+  // motion gets a still first frame instead of a loop they cannot stop.
   if (reduced && coverImg && coverImg.tagName === 'VIDEO') {
     coverImg.autoplay = false;
     coverImg.pause();
+  } else if (coverImg && coverImg.tagName === 'VIDEO') {
+    // The cover has no poster, so it is blank until the recording has buffered.
+    // Fade the video in the moment it actually starts, so it arrives softly
+    // rather than snapping on.
+    coverImg.style.transition = 'opacity .5s ease';
+    if (coverImg.readyState < 3) {
+      coverImg.style.opacity = '0';
+      const reveal = () => { coverImg.style.opacity = '1'; };
+      coverImg.addEventListener('playing', reveal, { once: true });
+      coverImg.addEventListener('loadeddata', reveal, { once: true });
+      // If the video never plays (blocked, error), never leave it hidden.
+      setTimeout(reveal, 2500);
+    }
   }
 
   /* Video --------------------------------------------------------------------

@@ -41,6 +41,18 @@
   }
 
   buildRoleWave();
+
+  // 역할 문구 · 구분선 · VIEW WORK 버튼은 스크롤과 무관하게 고정 노출한다. 이름
+  // 조립(SO→SOYUL) 연출만 스크롤에 남기고, 그 아래 블록은 한 번 나타나면 그대로 둔다.
+  function showReveal(){
+    identityReveal.style.transform='none';
+    identityReveal.style.opacity='1';
+    identityRule.style.opacity='1';
+    identityRule.style.transform='scaleX(1)';
+    role.querySelectorAll('.role-char').forEach((c)=>{
+      c.style.opacity='1';c.style.transform='none';c.style.filter='none';
+    });
+  }
   // How many viewport heights the hero occupies before WORK covers it.
   const HERO_SPAN=parseFloat(
     getComputedStyle(document.documentElement).getPropertyValue('--hero-span'))||2;
@@ -94,7 +106,7 @@
       identityReveal.style.transform='none';
       identityRule.style.opacity='1';
       identityRule.style.transform='scaleX(1)';
-      role.querySelectorAll('.role-char').forEach(char=>{char.style.opacity='1';char.style.transform='none';char.style.filter='none';});
+      showReveal();
       refit(0);
       identityWrap.style.transform='none';
       finalReady=true;
@@ -124,6 +136,9 @@
     introCloud.mode='fade';
     introCloud.started=performance.now();
     await sleep(460);
+
+    // 이름이 자리를 잡는 순간, 아래 블록도 부드럽게 함께 나타난다.
+    showReveal();
 
     // ------------------------------------------------------------------
     // The auto-played part ends here, with SOUL on screen. Everything that
@@ -229,21 +244,9 @@
     if(spin>=1&&lastSpin<1) burstPulse(.62);
     lastSpin=spin;
 
-    // 04. SOYUL, the rule and the role line rise together as one block.
-    const lift=smooth(seg(p,.42,.58));
-    liftY=-(innerWidth<720?72:70)*lift;
-    identityReveal.style.transform=`translateY(${(20*(1-lift)).toFixed(2)}px)`;
-    identityRule.style.opacity=lift.toFixed(3);
-    identityRule.style.transform=`scaleX(${lift.toFixed(4)})`;
-
-    // The role line keeps its character wave, spread across the same band.
-    for(let i=0;i<roleChars.length;i++){
-      const t=easeOut(seg(p,.46+i*.0035,.55+i*.0035));
-      const c=roleChars[i];
-      c.style.opacity=t.toFixed(3);
-      c.style.transform=`translateY(${(9*(1-t)).toFixed(2)}px) rotateX(${(-24*(1-t)).toFixed(2)}deg)`;
-      c.style.filter=t>=1?'none':`blur(${(4*(1-t)).toFixed(2)}px)`;
-    }
+    // 04. 예전에는 여기서 구분선·역할 문구가 스크롤에 맞춰 떠올랐지만, 이제는
+    //     showReveal()로 처음부터 고정 노출한다. 이름 블록은 자리에서 움직이지
+    //     않으므로 liftY 는 계속 0 이다.
   }
 
 

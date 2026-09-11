@@ -58,6 +58,11 @@
 .brief-cell li{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;
                color:var(--text-300);border:1px solid var(--line);
                border-radius:999px;padding:5px 10px}
+/* Stack 칸 안에서 작업 환경·협업 도구를 나누는 작은 라벨. 셀 제목(h2)보다 한 단
+   낮은 위계로, 그룹 사이에 약간의 간격을 준다. */
+.brief-cell .brief-sub{margin:8px 0 0;font-family:var(--font-mono);font-size:11px;
+               font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+               color:var(--text-500)}
 
 /* Gallery -------------------------------------------------------------------
    Ratio-adaptive: case.js measures each image and tags it, because the eight
@@ -168,6 +173,21 @@
   .case-brief{grid-template-columns:1fr}
   .case-gallery{grid-template-columns:1fr}
   .shot[data-ratio="square"],.shot[data-ratio="tall"]{grid-column:1/-1}
+
+  /* 가로로 긴 대표 이미지가 쓰인 오프닝은 모바일에서 세로 스택으로 편다.
+     이미지는 잘리지 않고 전체가 보이고, 제목·설명은 그 아래에 놓여 겹치지 않는다. */
+  .case-open--tall-shot{height:auto;min-height:0;
+                        padding-top:calc(var(--header-height, 60px) + 12px)}
+  .case-open--tall-shot .case-cover{position:relative;inset:auto}
+  .case-open--tall-shot .case-cover img{height:auto;transform:none!important;
+                                        filter:brightness(.96) saturate(1);
+                                        object-position:center}
+  .case-open--tall-shot .case-cover::after{display:none}
+  .case-open--tall-shot .case-open-inner{position:relative;height:auto;
+                                         transform:none!important;opacity:1!important;
+                                         justify-content:flex-start;
+                                         padding:clamp(24px,6vw,40px) var(--margin)
+                                                 clamp(40px,10vw,64px)}
 }
 @media (prefers-reduced-motion:reduce){
   .shot:hover img,.case-next:hover img{transform:none}

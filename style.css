@@ -139,19 +139,28 @@ h1,h2,h3,p{margin:0}
          transform:translate(-50%,-50%) rotateY(0deg);transform-origin:center center;
          opacity:0;clip-path:polygon(46% 49%,54% 49%,54% 100%,46% 100%);
          backface-visibility:visible;overflow:visible}
-/* The rule and the role line rise as one block. hero.js returns this to 0 the
-   moment SOYUL resolves into a plane. */
-.identity-reveal{width:min(82vw,980px);margin:-28px auto 0;transform:translateY(20px);
-                 will-change:transform}
-.identity-rule{display:block;width:0;margin-inline:auto;height:1px;
+/* 구분선 · 역할 문구 · VIEW WORK 버튼. 스크롤과 무관하게 고정 노출되며,
+   hero.js 의 showReveal() 이 이름이 자리잡는 순간 한 번 부드럽게 켠다. */
+.identity-reveal{width:min(82vw,980px);margin:clamp(6px,1.5vh,16px) auto 0;
+                 opacity:0;transition:opacity .6s ease}
+.identity-rule{display:block;width:min(82vw,980px);margin-inline:auto;height:1px;
                background:rgba(255,255,255,.82);transform:scaleX(0);
-               transform-origin:50% 50%;opacity:0}
+               transform-origin:50% 50%;opacity:0;
+               transition:transform .6s var(--ease),opacity .6s ease}
 .role{margin:14px 0 0;font-family:var(--font-mono);font-size:clamp(14px,1.35vw,22px);
       font-weight:500;letter-spacing:.045em;line-height:1.2;white-space:nowrap;
       color:var(--text-100);overflow:visible}
 .role-char{display:inline-block;opacity:0;transform:translateY(9px) rotateX(-24deg);
-           filter:blur(4px);transform-origin:50% 100%;will-change:transform,opacity,filter}
+           filter:blur(4px);transform-origin:50% 100%;
+           transition:opacity .5s ease,transform .5s ease,filter .5s ease}
 .role-space{display:inline-block;width:.34em}
+.identity-cta{display:inline-block;margin-top:clamp(16px,2.4vh,28px);
+              font-family:var(--font-mono);font-size:var(--fs-meta);letter-spacing:.12em;
+              text-transform:uppercase;color:var(--text-100);
+              border:1px solid var(--line);border-radius:999px;padding:10px 22px;
+              transition:border-color .3s ease,color .3s ease,background-color .3s ease}
+.identity-cta:hover{border-color:var(--line-strong);color:var(--text-000);
+                    background:rgba(255,255,255,.04)}
 
 /* Page flow ----------------------------------------------------------------
    Everything after the pinned hero rides in one stacking context so it slides
@@ -162,8 +171,13 @@ h1,h2,h3,p{margin:0}
 #work .section-intro{padding-left:calc(var(--margin) + var(--rail))}
 .section-intro{padding:var(--section-pad) var(--margin) clamp(48px,7vh,96px);
                border-bottom:1px solid var(--line-faint)}
-#work .section-intro{min-height:100svh;display:flex;flex-direction:column;
-                     justify-content:center}
+/* 소개 구간은 위아래 여백을 줄여, 아래로 첫 프로젝트가 살짝 걸쳐 보이게 한다. */
+#work .section-intro{min-height:clamp(500px,78svh,840px);
+                     padding-top:clamp(72px,11vh,132px);
+                     padding-bottom:clamp(56px,8vh,100px);
+                     display:flex;flex-direction:column;justify-content:center}
+/* 소개 → 첫 프로젝트는 섹션이 바뀌는 지점이라, 프로젝트끼리의 간격보다 더 벌린다. */
+#work .chapter:first-of-type{padding-top:clamp(72px,13vh,160px)}
 .section-intro .meta{display:block;margin-bottom:clamp(20px,3vh,36px)}
 .section-title{font-family:var(--font-display);font-weight:600;font-size:var(--fs-h2);
                line-height:1.06;letter-spacing:-.03em;color:var(--text-000);
@@ -193,9 +207,10 @@ h1,h2,h3,p{margin:0}
 .chapter-index a.is-current::before{width:34px}
 
 /* Work chapters ------------------------------------------------------------
-   One project fills one screen. Nothing else shares it. */
-.chapter{position:relative;min-height:100svh;display:grid;align-items:center;
-         padding:clamp(96px,12vh,140px) var(--margin) clamp(72px,10vh,120px);
+   한 프로젝트가 한 화면을 쓰되, 콘텐츠보다 화면이 크면 위아래로 검정 여백이
+   길게 남는다. 높이를 콘텐츠에 맞추고 여백을 줄여, 작업끼리 끊겨 보이지 않게 한다. */
+.chapter{position:relative;display:grid;align-items:center;
+         padding:clamp(88px,11vh,128px) var(--margin) clamp(60px,8vh,96px);
          padding-left:calc(var(--margin) + var(--rail));
          border-bottom:1px solid var(--line-faint)}
 .chapter-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);
@@ -244,20 +259,25 @@ h1,h2,h3,p{margin:0}
 /* B — the image takes the whole screen, the text sits in it. */
 .chapter[data-layout="b"]{padding:0;border-bottom:0}
 .chapter[data-layout="b"] .chapter-inner{display:block;max-width:none;
-                                         position:relative;height:100svh}
+                                         position:relative;height:88svh}
 .chapter[data-layout="b"] .chapter-media{position:absolute;inset:0;aspect-ratio:auto;
                                          border:0}
 .chapter[data-layout="b"] .chapter-media::after{content:"";position:absolute;inset:0;
   pointer-events:none;
-  background:linear-gradient(to top,rgba(0,0,0,.94) 0%,rgba(0,0,0,.62) 34%,
-             rgba(0,0,0,.16) 66%,rgba(0,0,0,.36) 100%)}
+  background:linear-gradient(to top,rgba(0,0,0,.94) 0%,rgba(0,0,0,.7) 34%,
+             rgba(0,0,0,.4) 60%,rgba(0,0,0,.5) 100%)}
 /* B already has the scrim doing the contrast work, so the base dim comes off
    — dimming twice buries the photograph. */
 .chapter[data-layout="b"] .chapter-media img{filter:brightness(.84) saturate(.92)}
+/* 제목을 화면 맨 아래가 아니라 아래에서 1/4쯤 올라온 자리에 둔다 — 큰 이미지를
+   한참 스크롤한 뒤에야 제목이 나오던 간격을 줄이려는 것. */
 .chapter[data-layout="b"] .chapter-text{position:relative;z-index:2;height:100%;
-  justify-content:flex-end;max-width:min(720px,92%);
-  padding:calc(var(--margin) + 20px) var(--margin);
-  padding-left:calc(var(--margin) + var(--rail))}
+  justify-content:flex-end;max-width:min(720px,92%);gap:clamp(18px,2.6vh,30px);
+  padding:calc(var(--margin) + 20px) var(--margin) clamp(96px,20vh,220px);
+  padding-left:calc(var(--margin) + var(--rail));
+  text-shadow:0 1px 18px rgba(0,0,0,.55)}
+/* 밝은 이미지 위에서도 읽히도록 메타 줄은 더 밝게. */
+.chapter[data-layout="b"] .chapter-text .meta{color:var(--text-100)}
 
 /* C — mirrored. The image leads, the text answers. */
 .chapter[data-layout="c"] .chapter-inner{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
@@ -266,21 +286,24 @@ h1,h2,h3,p{margin:0}
 
 /* About -------------------------------------------------------------------- */
 .about{padding:var(--section-pad) var(--margin);border-bottom:1px solid var(--line-faint)}
-.career{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-        margin-top:clamp(48px,7vh,88px);background:var(--line-faint);
-        border:1px solid var(--line-faint)}
-.career-item{background:var(--void-100);padding:clamp(28px,3.2vw,44px);
-             display:flex;flex-direction:column;gap:22px;
+/* 회사별 가로 한 줄. 좁은 카드 안에서 문장이 자주 꺾이던 문제를 없애려고,
+   날짜·회사명 / Role / Project 를 넓은 가로폭에 나눠 배치한다. */
+.career{display:flex;flex-direction:column;margin-top:clamp(40px,6vh,72px);
+        border-top:1px solid var(--line)}
+.career-item{display:grid;
+             grid-template-columns:minmax(190px,0.9fr) minmax(0,1.15fr) minmax(0,1.7fr);
+             gap:clamp(20px,3.5vw,64px);align-items:start;
+             padding:clamp(24px,3.2vw,40px) clamp(12px,1.6vw,20px);
+             margin-inline:calc(-1 * clamp(12px,1.6vw,20px));
+             border-bottom:1px solid var(--line-faint);
              transition:background-color .4s var(--ease)}
 .career-item:hover{background:var(--void-200)}
 .career-item h3{font-family:var(--font-display);font-size:var(--fs-h3);font-weight:600;
                 letter-spacing:-.01em;color:var(--text-000)}
-.career-meta{display:grid;grid-template-columns:auto 1fr;gap:10px 20px;margin:0;
-             align-content:start}
-.career-meta dt{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;
-                text-transform:uppercase;color:var(--text-500);padding-top:2px}
-.career-meta dd{margin:0;color:var(--text-300);line-height:1.7;font-size:16px;
-                word-break:keep-all}
+.career-col{display:flex;flex-direction:column;gap:8px;min-width:0}
+.career-label{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;
+              text-transform:uppercase;color:var(--text-500)}
+.career-col p{color:var(--text-300);line-height:1.7;font-size:16px;word-break:keep-all}
 
 /* Contact ------------------------------------------------------------------ */
 .contact{position:relative;isolation:isolate;min-height:100svh;display:flex;
@@ -296,6 +319,14 @@ h1,h2,h3,p{margin:0}
               border-bottom:1px solid var(--line);padding-bottom:6px;
               transition:border-color .3s ease}
 .contact-mail:hover{border-bottom-color:var(--line-strong)}
+.contact-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(24px,3.5vh,40px)}
+.contact-btn{font-family:var(--font-mono);font-size:var(--fs-meta);letter-spacing:.1em;
+             text-transform:uppercase;color:var(--text-100);background:transparent;
+             border:1px solid var(--line);border-radius:999px;padding:11px 20px;
+             cursor:pointer;transition:border-color .3s ease,color .3s ease,background-color .3s ease}
+.contact-btn:hover,
+.contact-btn.is-copied{border-color:var(--line-strong);color:var(--text-000);
+                       background:rgba(255,255,255,.04)}
 .site-foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
            margin-top:auto;padding-top:24px;
            border-top:1px solid var(--line-faint)}
@@ -340,6 +371,9 @@ h1,h2,h3,p{margin:0}
     .chapter-title,.section-title{animation:title-settle linear both;
                    animation-timeline:view();
                    animation-range:entry 18% cover 46%}
+    /* 전폭 이미지 챕터에서는 제목이 더 일찍 또렷해져, 위의 .meta 와 거의 같은
+       순간에 눈에 들어온다. */
+    .chapter[data-layout="b"] .chapter-title{animation-range:entry 8% entry 95%}
 
     /* Depth — the image drifts slower than the text it sits beside, so it
        reads as sitting further back. One element, one axis. Deliberately
@@ -363,7 +397,7 @@ h1,h2,h3,p{margin:0}
   .chapter[data-layout="c"] .chapter-inner{grid-template-columns:1fr;
                                            gap:clamp(28px,4vh,44px)}
   .chapter,
-  .chapter[data-layout="b"]{padding:clamp(96px,12vh,140px) var(--margin) clamp(72px,10vh,120px);
+  .chapter[data-layout="b"]{padding:clamp(76px,9vh,112px) var(--margin) clamp(52px,6vh,80px);
                             border-bottom:1px solid var(--line-faint)}
   .chapter[data-layout="b"] .chapter-inner{display:grid;height:auto}
   .chapter[data-layout="b"] .chapter-media{position:relative;inset:auto;
@@ -375,15 +409,20 @@ h1,h2,h3,p{margin:0}
   .chapter[data-layout="c"] .chapter-media{order:2}
   .chapter-index{display:none}
   #work .section-intro{padding-left:var(--margin)}
-  .career{grid-template-columns:1fr}
+}
+/* 가로 한 줄이 좁아지면 회사별로 세로 스택으로 접는다. */
+@media (max-width:1023px){
+  .career-item{grid-template-columns:1fr;gap:clamp(14px,3vw,20px)}
 }
 @media (max-width:767px){
   :root{--margin:20px}
-  .chapter{min-height:auto;padding-block:clamp(72px,10vh,96px)}
+  .chapter{padding-block:clamp(60px,8vh,88px)}
   .chapter-media{aspect-ratio:4/3}
   .chapter-media img{filter:none;transform:none}
   .site-nav{gap:18px}
   .hero-meta{font-size:12px}
+  /* 콘텐츠에 맞춰 높이를 줄인다 — 빈 화면 하나를 통째로 차지하지 않도록. */
+  .contact{min-height:auto;padding-block:clamp(72px,13vh,112px)}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -393,14 +432,12 @@ h1,h2,h3,p{margin:0}
 }
 
 /* Career dates -------------------------------------------------------------
-   A career entry without its years is a list of names. In the three-up card
-   layout the date sits above the company — a card is only about 330px wide and
-   the two will not share a line. Below 1280px the cards become full-width rows
-   and there is room to set them side by side. */
+   가로 한 줄 배치에서는 첫 칸에 연도와 회사명을 위아래로 둔다. 세로로 접히는
+   좁은 화면에서는 연도와 회사명을 한 줄에 나란히 놓는다. */
 .career-head{display:flex;flex-direction:column;gap:10px}
 .career-date{font-family:var(--font-mono);font-size:13px;letter-spacing:.06em;
              color:var(--text-500);white-space:nowrap}
-@media (max-width:1279px){
+@media (max-width:1023px){
   .career-head{flex-direction:row;align-items:baseline;
                gap:clamp(16px,3vw,40px);flex-wrap:wrap}
 }

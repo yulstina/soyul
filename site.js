@@ -128,6 +128,37 @@
     }, { passive: true });
   }
 
+  /* Copy e-mail ---------------------------------------------------------
+     메일 보내기는 링크가 처리하고, 이 버튼은 주소만 클립보드에 넣는다. */
+  const copyBtn = document.getElementById('copyMailBtn');
+  if (copyBtn) {
+    const label = copyBtn.textContent;
+    let reset;
+    copyBtn.addEventListener('click', async () => {
+      const mail = copyBtn.dataset.mail || '';
+      try {
+        await navigator.clipboard.writeText(mail);
+      } catch {
+        const t = document.createElement('textarea');
+        t.value = mail;
+        t.setAttribute('readonly', '');
+        t.style.position = 'fixed';
+        t.style.opacity = '0';
+        document.body.appendChild(t);
+        t.select();
+        try { document.execCommand('copy'); } catch (e) { /* 복사 불가 환경 */ }
+        t.remove();
+      }
+      copyBtn.textContent = '복사됨';
+      copyBtn.classList.add('is-copied');
+      clearTimeout(reset);
+      reset = setTimeout(() => {
+        copyBtn.textContent = label;
+        copyBtn.classList.remove('is-copied');
+      }, 1600);
+    });
+  }
+
   /* Reveal is not here on purpose ----------------------------------------
      [data-reveal] runs on a native CSS scroll timeline (see style.css). No
      observer, no class toggling, nothing on the main thread. Browsers without

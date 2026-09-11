@@ -48,3 +48,7 @@ Thumbs.db
 /assets/babambi/banner-01.jpg
 /assets/goyo/foundations.png
 /assets/babambi/banner-03.jpg
+
+# 상세 대표 이미지 원본(PNG). 사이트에는 같은 이름의 가벼운 JPG를 올린다.
+/assets/kiosk/detail_main.png
+/assets/orderweb/detail_main.png
