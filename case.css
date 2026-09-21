@@ -128,6 +128,13 @@
                 color:var(--text-300);white-space:nowrap;
                 display:inline-flex;align-items:center;gap:9px}
 .note-tags span::before{content:"·";color:var(--text-600)}
+/* 좁은 화면에서는 긴 한글 태그가 알약 밖으로 밀려 나가지 않도록 줄바꿈을 허용한다.
+   nowrap 은 넓은 화면에서 한 줄로 읽히게 하려는 것이라, 폭이 모자랄 때만 푼다. */
+@media (max-width:599px){
+  .note{max-width:100%}
+  .note-body{min-width:0}
+  .note-tags span{white-space:normal;word-break:keep-all}
+}
 
 /* Next project --------------------------------------------------------------
    Full bleed, so the page ends by offering the next thing rather than a dead
