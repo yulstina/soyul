@@ -182,6 +182,7 @@ h1,h2,h3,p{margin:0}
 .section-title{font-family:var(--font-display);font-weight:600;font-size:var(--fs-h2);
                line-height:1.06;letter-spacing:-.03em;color:var(--text-000);
                max-width:28ch;word-break:keep-all}
+.highlight{color:var(--text-100)}
 /* Wide enough to finish under the end of the heading rather than a third of
    the way in. Still capped, so it never runs the full 1680px measure. */
 .section-lede{margin-top:clamp(20px,3vh,32px);max-width:min(72ch,100%);color:var(--text-300);
@@ -226,7 +227,7 @@ h1,h2,h3,p{margin:0}
 .chapter-role span{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;
                    text-transform:uppercase;color:var(--text-300);
                    border:1px solid var(--line);border-radius:999px;padding:5px 11px}
-.chapter-desc{color:var(--text-300);line-height:1.85;max-width:46ch;word-break:keep-all}
+.chapter-desc{color:var(--text-100);line-height:1.85;max-width:46ch;word-break:keep-all}
 .chapter-links{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:22px;margin-top:4px}
 .chapter-link{font-family:var(--font-mono);font-size:var(--fs-meta);letter-spacing:.1em;
               text-transform:uppercase;color:var(--text-300);padding-bottom:5px;
@@ -303,7 +304,7 @@ h1,h2,h3,p{margin:0}
 .career-col{display:flex;flex-direction:column;gap:8px;min-width:0}
 .career-label{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;
               text-transform:uppercase;color:var(--text-500)}
-.career-col p{color:var(--text-300);line-height:1.7;font-size:16px;word-break:keep-all}
+.career-col p{color:var(--text-100);line-height:1.7;font-size:16px;word-break:keep-all}
 
 /* Contact ------------------------------------------------------------------ */
 .contact{position:relative;isolation:isolate;min-height:100svh;display:flex;
