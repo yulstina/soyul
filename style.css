@@ -230,10 +230,10 @@ h1,h2,h3,p{margin:0}
 .chapter-desc{color:var(--text-100);line-height:1.85;max-width:46ch;word-break:keep-all}
 .chapter-links{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:22px;margin-top:4px}
 .chapter-link{font-family:var(--font-mono);font-size:var(--fs-meta);letter-spacing:.1em;
-              text-transform:uppercase;color:var(--text-300);padding-bottom:5px;
-              border-bottom:1px solid var(--line);
+              text-transform:uppercase;color:var(--text-000);padding-bottom:5px;
+              border-bottom:1px solid var(--line-strong);
               transition:color .3s ease,border-color .3s ease}
-.chapter-link:hover{color:var(--text-000);border-bottom-color:var(--line-strong)}
+.chapter-link:hover{color:var(--text-000);border-bottom-color:var(--text-000)}
 
 /* The frame is the only lit object on the screen. Hover lifts the image out of
    the void rather than adding any colour to the UI around it.

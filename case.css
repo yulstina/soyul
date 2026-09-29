@@ -53,10 +53,10 @@
 .brief-cell dt,.brief-cell h2{margin:0;font-family:var(--font-mono);font-size:12px;
             font-weight:500;letter-spacing:.12em;text-transform:uppercase;
             color:var(--text-500)}
-.brief-cell p{color:var(--text-300);line-height:1.8;font-size:16px;word-break:keep-all}
+.brief-cell p{color:var(--text-100);line-height:1.8;font-size:16px;word-break:keep-all}
 .brief-cell ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:7px}
 .brief-cell li{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;
-               color:var(--text-300);border:1px solid var(--line);
+               color:var(--text-100);border:1px solid var(--line);
                border-radius:999px;padding:5px 10px}
 /* Stack 칸 안에서 작업 환경·협업 도구를 나누는 작은 라벨. 셀 제목(h2)보다 한 단
    낮은 위계로, 그룹 사이에 약간의 간격을 준다. */
@@ -473,4 +473,4 @@
           mask:var(--icon) center/contain no-repeat}
 .tool-icon.is-text{font-family:var(--font-mono);font-size:8px;font-weight:500;
   letter-spacing:0;line-height:1;border:1px solid currentColor;border-radius:3px;
-  width:15px;height:14px;opacity:.9}
+  width:15px;height:14px;opacity:.9; margin-right:3px;}
