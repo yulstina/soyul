@@ -128,8 +128,34 @@
     }, { passive: true });
   }
 
+  /* Mail fallback ---------------------------------------------------------
+     mailto: 링크는 기본 메일 앱이 설정돼 있지 않은 환경(특히 Windows)에서는
+     눌러도 아무 반응이 없다. 일정 시간 안에 페이지를 벗어나지 않으면(=
+     메일 앱이 뜨지 않았으면) Gmail 작성 창을 새 탭으로 대신 연다. */
+  document.querySelectorAll('a[href^="mailto:"]').forEach((a) => {
+    a.addEventListener('click', () => {
+      const match = a.getAttribute('href').match(/^mailto:([^?]*)/i);
+      const mail = match ? decodeURIComponent(match[1]) : '';
+      if (!mail) return;
+      let left = false;
+      const onLeave = () => { left = true; };
+      addEventListener('blur', onLeave, { once: true });
+      document.addEventListener('visibilitychange', onLeave, { once: true });
+      setTimeout(() => {
+        removeEventListener('blur', onLeave);
+        document.removeEventListener('visibilitychange', onLeave);
+        if (left || document.hidden) return;
+        window.open(
+          `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(mail)}`,
+          '_blank', 'noopener'
+        );
+      }, 1200);
+    });
+  });
+
   /* Copy e-mail ---------------------------------------------------------
-     메일 보내기는 링크가 처리하고, 이 버튼은 주소만 클립보드에 넣는다. */
+     메일 보내기는 위 mailto 처리(+ 실패 시 Gmail 대체)로 동작하고, 이 버튼은
+     주소만 클립보드에 넣는다. */
   const copyBtn = document.getElementById('copyMailBtn');
   if (copyBtn) {
     const label = copyBtn.textContent;
