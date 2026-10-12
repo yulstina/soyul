@@ -33,7 +33,9 @@
 ```
 HERO (고정, 블랙홀 이탈)
   ↓
-WORK — PROFESSIONAL 01 … 06 → SELF-DIRECTED 07 … 10
+WORK — PROFESSIONAL 01 … 06 → SELF-DIRECTED 07 … 11
+  ↓
+HOW I WORK WITH AI (단계별 AI / 직접 한 일)
   ↓
 ABOUT (경력 · 3사)
   ↓
@@ -63,6 +65,10 @@ CONTACT
 | 08 | BABAMBI | SELF-DIRECTED | 브랜딩 · SNS 콘텐츠 · 반응형웹 |
 | 09 | LUCENT | SELF-DIRECTED | 브랜딩 · 병원 웹 · AI 영상 |
 | 10 | GOYO | SELF-DIRECTED | 브랜딩 · 반응형웹 |
+| 11 | PORTFOLIO | SELF-DIRECTED | 디자인 시스템 · 인터랙션 |
+
+- **묶음 머리말** (2026-10 변경): `.group-intro`는 `--void-200` 면과 위아래 선으로 된 띠이고, 제목은 챕터 제목과 같은 급이다. 묶음 제목이 첫 챕터 제목보다 작아 묻히던 문제를 고쳤다.
+- **목적 배지** (2026-10): 개인 프로젝트는 제목 아래 `.chapter-purpose`로 "무엇을 위해 만들었나"를 한 줄로 둔다. 색 대신 흰 면·검정 글자로 뒤집어 강조한다(§3 무채색 규칙 유지).
 
 ## 3. 색 — 무채색만
 

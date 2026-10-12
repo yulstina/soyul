@@ -65,7 +65,7 @@
 
       <section id="work">
         <div class="section-intro">
-          <span class="meta" data-reveal>(01) SELECTED WORK — 10</span>
+          <span class="meta" data-reveal>(01) SELECTED WORK — 11</span>
           <h2 class="section-title" data-reveal>디자인을 이해하고, <br />다양한 환경의 웹 화면을 구현하는 퍼블리셔입니다.</h2>
           <p class="section-lede" data-reveal>
             약 <span class="highlight">7년간 HTML, CSS, jQuery</span>를 중심으로 <span class="highlight">반응형 웹과 서비스 UI를 구현</span>해 왔습니다. <br />
@@ -238,7 +238,7 @@
               <h3 class="group-title" data-reveal>개인 프로젝트</h3>
             </div>
             <div class="group-side">
-              <span class="meta" data-reveal>SELF-DIRECTED — 04</span>
+              <span class="meta" data-reveal>SELF-DIRECTED — 05</span>
               <p class="group-desc" data-reveal>기획부터 디자인, 퍼블리싱, 배포까지 혼자 진행한 작업입니다.</p>
             </div>
           </header>
@@ -335,11 +335,88 @@
             </div>
           </div>
         </article>
+        <article class="chapter" id="ch-portfolio" data-layout="c" data-chapter="PORTFOLIO">
+          <div class="chapter-inner">
+            <div class="chapter-text">
+              <span class="meta" data-reveal>11 / SELF-DIRECTED / 2026</span>
+              <h4 class="chapter-title is-long" data-reveal>PORTFOLIO</h4>
+              <p class="chapter-purpose" data-reveal><span>목적</span>디자인 시스템 문서화</p>
+              <div class="chapter-role" data-reveal>
+                <span>Design System</span><span>Interaction</span><span>Responsive Web</span>
+              </div>
+              <p class="chapter-desc" data-reveal>
+                지금 보고 계신 이 사이트입니다. 디자인 결정을 DESIGN_SYSTEM.md로 먼저 정하고, 그 문서를 기준으로 화면을 만들고 고쳐 왔습니다.
+              </p>
+              <div class="chapter-links" data-reveal>
+                <a class="chapter-link" href="work-portfolio.html">View Detail →</a>
+              </div>
+            </div>
+            <div class="chapter-media" data-reveal>
+              <a class="media-link" href="work-portfolio.html" aria-label="PORTFOLIO 케이스 스터디"></a>
+              <div class="media-drift"><img src="assets/cover-portfolio.webp" alt="SOYUL 포트폴리오 첫 화면" loading="lazy" /></div>
+            </div>
+          </div>
+        </article>
         </div>
       </section>
 
+      <!-- AI를 어디에 쓰고 어디서 직접 판단하는지. 단계마다 AI가 한 일과 내가 한 일을
+           한 줄씩 나눠, "AI로 만들었다"가 아니라 "AI와 이렇게 일한다"로 읽히게 한다. -->
+      <section class="ai-work" id="ai-workflow">
+        <span class="meta" data-reveal>(02) HOW I WORK WITH AI</span>
+        <h2 class="section-title" data-reveal>초안은 AI와 빠르게,<br />판단과 마무리는 직접 합니다.</h2>
+        <ol class="ai-steps">
+          <li class="ai-step" data-reveal>
+            <span class="ai-no">01</span>
+            <h3>기획 · 문서화</h3>
+            <dl class="ai-rows">
+              <div class="ai-row"><dt>AI</dt><dd>서비스 흐름과 화면 규칙을 문서 초안으로 정리</dd></div>
+              <div class="ai-row is-me"><dt>ME</dt><dd>무엇을 만들지, 어떤 규칙을 지킬지 직접 정하고 확정</dd></div>
+            </dl>
+            <div class="ai-tools"><span>Claude</span><span>DESIGN.md</span></div>
+            <p class="ai-ex"><a href="work-unsu.html">UNSU →</a> <a href="work-babambi.html">CS 자동화 →</a></p>
+          </li>
+          <li class="ai-step" data-reveal>
+            <span class="ai-no">02</span>
+            <h3>비주얼 · 시안</h3>
+            <dl class="ai-rows">
+              <div class="ai-row"><dt>AI</dt><dd>제품 비주얼, 영상, 화면 시안 초안 생성</dd></div>
+              <div class="ai-row is-me"><dt>ME</dt><dd>Figma에서 레이아웃과 디테일을 다듬어 최종 시안 결정</dd></div>
+            </dl>
+            <div class="ai-tools"><span>ChatGPT</span><span>Flow</span><span>Higgsfield</span><span>Figma Make</span><span>Stitch</span><span>Figma</span></div>
+            <p class="ai-ex"><a href="work-babambi.html">BABAMBI →</a> <a href="work-goyo.html">GOYO →</a> <a href="work-13months.html">13 MONTHS →</a></p>
+          </li>
+          <li class="ai-step" data-reveal>
+            <span class="ai-no">03</span>
+            <h3>코드</h3>
+            <dl class="ai-rows">
+              <div class="ai-row"><dt>AI</dt><dd>시안을 화면과 기능 코드로 옮기기</dd></div>
+              <div class="ai-row is-me"><dt>ME</dt><dd>마크업 구조, 반응형, 인터랙션을 직접 읽고 수정</dd></div>
+            </dl>
+            <div class="ai-tools"><span>Claude Code</span><span>Codex</span><span>Antigravity</span><span>VS Code</span></div>
+            <p class="ai-ex"><a href="work-lucent.html">LUCENT →</a> <a href="work-goyo.html">GOYO →</a></p>
+          </li>
+          <li class="ai-step" data-reveal>
+            <span class="ai-no">04</span>
+            <h3>검수</h3>
+            <dl class="ai-rows">
+              <div class="ai-row is-me"><dt>ME</dt><dd>브라우저와 실기기에서 화면과 동작을 직접 확인</dd></div>
+            </dl>
+          </li>
+          <li class="ai-step" data-reveal>
+            <span class="ai-no">05</span>
+            <h3>배포</h3>
+            <dl class="ai-rows">
+              <div class="ai-row is-me"><dt>ME</dt><dd>GitHub로 버전을 관리하고 GitHub Pages, Vercel로 배포</dd></div>
+            </dl>
+            <div class="ai-tools"><span>GitHub</span><span>GitHub Pages</span><span>Vercel</span></div>
+            <p class="ai-ex"><a href="work-unsu.html">UNSU →</a> <a href="work-babambi.html">BABAMBI →</a></p>
+          </li>
+        </ol>
+      </section>
+
       <section class="about" id="about">
-        <span class="meta" data-reveal>(02) ABOUT</span>
+        <span class="meta" data-reveal>(03) ABOUT</span>
         <h2 class="section-title" style="margin-top:clamp(20px,3vh,36px)" data-reveal>
           웹사이트부터 키오스크와 앱 내 웹뷰까지,<br />  다양한 서비스 화면을 구현해 왔습니다.   
         </h2> 
@@ -399,7 +476,7 @@
 
       <section class="contact" id="contact">
         <canvas class="contact-field" id="contactField" aria-hidden="true"></canvas>
-        <span class="meta" data-reveal>(03) CONTACT</span>
+        <span class="meta" data-reveal>(04) CONTACT</span>
         <div data-reveal>
           <a class="contact-mail" href="mailto:lalalapanda910@gmail.com">lalalapanda910@gmail.com</a>
         </div>

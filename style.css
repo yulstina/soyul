@@ -248,6 +248,8 @@ h1,h2,h3,h4,p{margin:0}
                font-variation-settings:'wght' 700,'wdth' 100;
                line-height:.88;letter-spacing:-.045em;color:var(--text-000);
                word-break:keep-all}
+/* 9자 넘는 한 단어 제목은 줄바꿈할 곳이 없어 칸 밖으로 나간다. 한 단계만 줄인다. */
+.chapter-title.is-long{font-size:clamp(40px,5.4vw,96px)}
 .chapter-role{display:flex;flex-wrap:wrap;gap:8px}
 .chapter-role span{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;
                    text-transform:uppercase;color:var(--text-300);
@@ -479,4 +481,37 @@ h1,h2,h3,h4,p{margin:0}
 @media (max-width:1023px){
   .career-head{flex-direction:row;align-items:baseline;
                gap:clamp(16px,3vw,40px);flex-wrap:wrap}
+}
+
+/* How I work with AI ---------------------------------------------------------
+   다섯 단계를 한 줄로 두고, 단계마다 AI가 한 일(흐리게)과 내가 한 일(밝게)을
+   나눠 적는다. 색 없이 밝기만으로 "내 판단"이 먼저 읽히게 한다. */
+.ai-work{padding:var(--section-pad) var(--margin);border-bottom:1px solid var(--line-faint)}
+.ai-work > .meta{display:block;margin-bottom:clamp(20px,3vh,36px)}
+.ai-steps{list-style:none;margin:clamp(40px,6vh,72px) 0 0;padding:0;
+          display:grid;grid-template-columns:repeat(5,minmax(0,1fr));
+          border-top:1px solid var(--line)}
+.ai-step{display:flex;flex-direction:column;gap:14px;
+         padding:24px clamp(14px,1.4vw,24px) 8px 0}
+.ai-step + .ai-step{padding-left:clamp(14px,1.4vw,24px);border-left:1px solid var(--line-faint)}
+.ai-no{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;color:var(--text-500)}
+.ai-step h3{margin:0;font-family:var(--font-body);font-weight:600;font-size:clamp(18px,1.5vw,22px);
+            letter-spacing:-.02em;color:var(--text-000);word-break:keep-all}
+.ai-rows{margin:0;display:flex;flex-direction:column;gap:10px}
+.ai-row{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;align-items:baseline}
+.ai-row dt{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:var(--text-500)}
+.ai-row dd{margin:0;font-size:15px;line-height:1.65;color:var(--text-300);word-break:keep-all}
+.ai-row.is-me dt{color:var(--text-000)}
+.ai-row.is-me dd{color:var(--text-000)}
+.ai-tools{display:flex;flex-wrap:wrap;gap:6px}
+.ai-tools span{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;
+               color:var(--text-300);border:1px solid var(--line);
+               border-radius:999px;padding:3px 8px;white-space:nowrap}
+.ai-ex{margin:2px 0 0;display:flex;flex-wrap:wrap;gap:6px 14px}
+.ai-ex a{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:var(--text-100);
+         border-bottom:1px solid var(--line-strong);padding-bottom:2px}
+.ai-ex a:hover{color:var(--text-000);border-color:var(--text-000)}
+@media (max-width:1023px){
+  .ai-steps{grid-template-columns:1fr}
+  .ai-step,.ai-step + .ai-step{padding:22px 0 26px;border-left:0;border-bottom:1px solid var(--line-faint)}
 }
