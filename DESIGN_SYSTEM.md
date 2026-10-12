@@ -33,7 +33,7 @@
 ```
 HERO (고정, 블랙홀 이탈)
   ↓
-WORK — PROFESSIONAL 01 … 06 → SELF-DIRECTED 07 … 09
+WORK — PROFESSIONAL 01 … 06 → SELF-DIRECTED 07 … 10
   ↓
 ABOUT (경력 · 3사)
   ↓
@@ -59,9 +59,10 @@ CONTACT
 | 04 | ORDER WEB | RTBS | 템플릿 주문웹 · 웹앱 |
 | 05 | NZ SYSTEM | RTBS | 브랜드 사이트 |
 | 06 | 13 MONTHS | FREELANCE | 브랜딩 · 카페24 커머스 |
-| 07 | BABAMBI | SELF-DIRECTED | 브랜딩 · SNS 콘텐츠 · 반응형웹 |
-| 08 | LUCENT | SELF-DIRECTED | 브랜딩 · 병원 웹 · AI 영상 |
-| 09 | GOYO | SELF-DIRECTED | 브랜딩 · 반응형웹 |
+| 07 | UNSU | SELF-DIRECTED | 서비스 기획 · 모바일 웹앱 · 디자인 시스템 |
+| 08 | BABAMBI | SELF-DIRECTED | 브랜딩 · SNS 콘텐츠 · 반응형웹 |
+| 09 | LUCENT | SELF-DIRECTED | 브랜딩 · 병원 웹 · AI 영상 |
+| 10 | GOYO | SELF-DIRECTED | 브랜딩 · 반응형웹 |
 
 ## 3. 색 — 무채색만
 
