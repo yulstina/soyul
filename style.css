@@ -518,25 +518,34 @@ h1,h2,h3,h4,p{margin:0}
    한 화면에 보이게 한다. 필터는 목록과 아래 챕터를 함께 거른다. */
 .work-index{position:relative;padding:0 var(--margin) clamp(56px,8vh,96px);
             padding-left:calc(var(--margin) + var(--rail))}
-.work-filter{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:clamp(20px,3vh,32px)}
-.work-filter button{font:500 13px/1 var(--font-mono);letter-spacing:.08em;
+/* 분류 버튼 — 한 줄짜리 세그먼트. 흰 바탕(thumb)이 고른 버튼 뒤로 미끄러져 가고,
+   목록도 같은 방향으로 넘어간다(work-index.js). */
+.work-filter{position:relative;display:inline-flex;padding:4px;
+             margin-bottom:clamp(20px,3vh,32px);
+             border:1px solid var(--line);border-radius:999px}
+.work-filter-thumb{position:absolute;left:0;top:4px;bottom:4px;width:0;
+                   border-radius:999px;background:var(--text-000);
+                   transition:transform .5s var(--ease),width .5s var(--ease)}
+.work-filter:not(.is-ready) .work-filter-thumb{transition:none}
+.work-filter button{position:relative;z-index:1;
+                    font:500 13px/1 var(--font-mono);letter-spacing:.08em;
                     color:var(--text-300);background:none;cursor:pointer;
-                    border:1px solid var(--line);border-radius:999px;padding:10px 16px;
-                    transition:color .25s ease,background .25s ease,border-color .25s ease}
-.work-filter button span{color:var(--text-500);margin-left:4px}
-.work-filter button:hover{color:var(--text-000);border-color:var(--line-strong)}
-.work-filter button[aria-pressed="true"]{background:var(--text-000);color:var(--void-100);
-                                         border-color:var(--text-000)}
+                    border:0;border-radius:999px;padding:11px 18px;
+                    transition:color .35s ease}
+.work-filter button span{color:var(--text-500);margin-left:4px;transition:color .35s ease}
+.work-filter button:hover{color:var(--text-000)}
+.work-filter button[aria-pressed="true"]{color:var(--void-100)}
 .work-filter button[aria-pressed="true"] span{color:var(--void-300)}
-.work-filter button:focus-visible{outline:2px solid var(--text-000);outline-offset:3px}
+.work-filter button:focus-visible{outline:2px solid var(--text-000);outline-offset:2px}
 
 .work-list-head,.work-row{display:grid;
-  grid-template-columns:56px minmax(0,1.3fr) minmax(0,.8fr) minmax(0,1.2fr) 64px;
+  grid-template-columns:56px minmax(0,1.3fr) minmax(0,.8fr) minmax(0,1.2fr) 80px;
   gap:clamp(12px,2vw,32px);align-items:baseline}
 .work-list-head{padding:0 0 12px;border-bottom:1px solid var(--line);
                 font:500 11px/1 var(--font-mono);letter-spacing:.12em;
                 text-transform:uppercase;color:var(--text-500)}
-.work-list{list-style:none;margin:0;padding:0}
+.work-list{list-style:none;margin:0;padding:0;will-change:transform}
+.work-list-view{overflow-x:clip}
 .work-list li[hidden],.chapter-index [hidden]{display:none}
 .work-row{padding:clamp(14px,1.8vh,20px) 0;border-bottom:1px solid var(--line-faint);
           color:var(--text-300);transition:color .25s ease,padding-left .35s var(--ease)}

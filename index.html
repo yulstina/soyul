@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <!-- Archivo = 디스플레이(그로테스크), JetBrains Mono = 메타/좌표. -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..112,400..700&family=JetBrains+Mono:wght@400;500&display=swap" />
-  <link rel="stylesheet" href="style.css?v=20261012c" />
+  <link rel="stylesheet" href="style.css?v=20261012d" />
 </head>
 <body>
   <header class="site-header" id="siteHeader">
@@ -80,6 +80,7 @@
              필터로 실무 / 개인만 골라 볼 수 있다. 행을 누르면 아래 챕터로 이동한다. -->
         <div class="work-index">
           <div class="work-filter" role="group" aria-label="프로젝트 분류">
+            <span class="work-filter-thumb" aria-hidden="true"></span>
             <button type="button" data-filter="ALL" aria-pressed="true">전체 <span>11</span></button>
             <button type="button" data-filter="PRO" aria-pressed="false">실무 <span>06</span></button>
             <button type="button" data-filter="SELF" aria-pressed="false">개인 <span>05</span></button>
@@ -87,6 +88,7 @@
           <div class="work-list-head" aria-hidden="true">
             <span>No.</span><span>Project</span><span>Client</span><span>Field</span><span>Year</span>
           </div>
+          <div class="work-list-view">
           <ol class="work-list">
             <li data-group="PRO">
               <a class="work-row" href="#ch-ditoland" data-thumb="assets/cover-ditoland.webp">
@@ -112,7 +114,7 @@
                 <span class="wr-name">KIOSK SYSTEM</span>
                 <span class="wr-org">RTBS</span>
                 <span class="wr-field">Maintenance · New Pages</span>
-                <span class="wr-year">2025</span>
+                <span class="wr-year">2023–25</span>
               </a>
             </li>
             <li data-group="PRO">
@@ -121,7 +123,7 @@
                 <span class="wr-name">ORDER WEB</span>
                 <span class="wr-org">RTBS</span>
                 <span class="wr-field">Template System · Multi-brand</span>
-                <span class="wr-year">2025</span>
+                <span class="wr-year">2024</span>
               </a>
             </li>
             <li data-group="PRO">
@@ -130,7 +132,7 @@
                 <span class="wr-name">NZ SYSTEM</span>
                 <span class="wr-org">RTBS</span>
                 <span class="wr-field">16 Pages · B2B Brand Site</span>
-                <span class="wr-year">—</span>
+                <span class="wr-year">2025</span>
               </a>
             </li>
             <li data-group="PRO">
@@ -188,6 +190,7 @@
               </a>
             </li>
           </ol>
+          </div>
           <div class="work-thumb" aria-hidden="true"><img alt="" /></div>
         </div>
 
@@ -256,7 +259,7 @@
         <article class="chapter" id="ch-kiosk" data-layout="a" data-chapter="KIOSK SYSTEM">
           <div class="chapter-inner">
             <div class="chapter-text">
-              <span class="meta" data-reveal>03 / RTBS / 2025</span>
+              <span class="meta" data-reveal>03 / RTBS / 2023–2025</span>
               <h4 class="chapter-title" data-reveal>KIOSK SYSTEM</h4>
               <div class="chapter-role" data-reveal>
                 <span>Maintenance</span><span>New Pages</span><span>Color Variants</span>
@@ -279,7 +282,7 @@
         <article class="chapter" id="ch-orderweb" data-layout="c" data-chapter="ORDER WEB">
           <div class="chapter-inner">
             <div class="chapter-text">
-              <span class="meta" data-reveal>04 / RTBS / 2025</span>
+              <span class="meta" data-reveal>04 / RTBS / 2024</span>
               <h4 class="chapter-title" data-reveal>ORDER WEB</h4>
               <div class="chapter-role" data-reveal>
                 <span>Template System</span><span>Multi-brand</span><span>Web App</span>
@@ -302,7 +305,7 @@
         <article class="chapter" id="ch-nz" data-layout="a" data-chapter="NZ SYSTEM">
           <div class="chapter-inner">
             <div class="chapter-text">
-              <span class="meta" data-reveal>05 / RTBS</span>
+              <span class="meta" data-reveal>05 / RTBS / 2025</span>
               <h4 class="chapter-title" data-reveal>NZ SYSTEM</h4>
               <div class="chapter-role" data-reveal>
                 <span>16 Pages</span><span>B2B Brand Site</span><span>Responsive</span>
@@ -609,10 +612,10 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script src="hero.js?v=20261012c"></script>
-  <script src="site.js?v=20261012c"></script>
-  <script src="topbtn.js?v=20261012c"></script>
-  <script src="mobile-window.js?v=20261012c"></script>
-  <script src="work-index.js?v=20261012c"></script>
+  <script src="hero.js?v=20261012d"></script>
+  <script src="site.js?v=20261012d"></script>
+  <script src="topbtn.js?v=20261012d"></script>
+  <script src="mobile-window.js?v=20261012d"></script>
+  <script src="work-index.js?v=20261012d"></script>
 </body>
 </html>
