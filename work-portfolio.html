@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SOYUL PORTFOLIO — 디자인 결정을 문서로 먼저 정하고 코드로 옮긴 포트폴리오 사이트" />
+  <title>PORTFOLIO — SOYUL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..112,400..700&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="case.css" />
+</head>
+<body class="case-page">
+  <header class="site-header is-visible" id="siteHeader">
+    <div class="site-header-inner">
+      <a href="index.html" class="site-logo">SOYUL</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html#work">WORK</a>
+        <a href="index.html#about">ABOUT</a>
+        <a href="index.html#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="case">
+      <section class="case-open">
+        <div class="case-cover">
+          <img src="assets/portfolio/field.webp" alt="포트폴리오 첫 화면의 파티클 배경" />
+        </div>
+        <div class="case-open-inner">
+          <span class="meta case-eyebrow">11 / SELF-DIRECTED / 2026</span>
+          <h1 class="case-title">PORTFOLIO</h1>
+          <p class="case-tagline">
+            지금 보고 계신 이 사이트입니다. 디자인 결정을 문서로 먼저 정하고,
+            그 문서를 기준으로 화면을 만들고 고쳐 왔습니다.
+          </p>
+          <a class="case-live" href="index.html">
+            <span>Back to Main</span>
+            <svg class="case-live-arrow" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M4 12L12 4M12 4H5.5M12 4V10.5" fill="none" stroke="currentColor"
+                    stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+          <span class="case-rule" aria-hidden="true"></span>
+        </div>
+      </section>
+
+      <section class="case-brief" aria-label="프로젝트 개요">
+        <div class="brief-cell">
+          <h2>Overview</h2>
+          <p>
+            7년 실무와 개인 프로젝트를 한 사이트에서 보여주기 위해 만들었습니다.
+            작업물 이미지가 돋보이도록 UI는 무채색으로만 두고, 이 규칙을 DESIGN_SYSTEM.md에 적어 두었습니다.
+          </p>
+        </div>
+        <div class="brief-cell">
+          <h2>My Role</h2>
+          <p>
+            포지셔닝, 디자인 시스템 정리, 디자인, 퍼블리싱, 배포까지 혼자 진행했습니다.
+          </p>
+        </div>
+        <div class="brief-cell">
+          <h2>Build</h2>
+          <p>
+            파티클 Hero · 실무 / 개인 두 묶음의 WORK · HOW I WORK WITH AI · ABOUT · CONTACT.
+            프로젝트마다 상세 페이지를 따로 만들었습니다.
+          </p>
+        </div>
+        <div class="brief-cell">
+          <h2>Stack</h2>
+          <ul>
+            <li>HTML</li><li>CSS</li><li>JavaScript</li>
+            <li>Canvas</li><li>Lenis</li><li>GitHub Pages</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="case-flow" aria-label="작업 과정">
+        <span class="meta">WORKFLOW</span>
+        <ol class="flow">
+          <li class="flow-step" data-reveal>
+            <span class="flow-no">01</span>
+            <h3>포지셔닝 정하기</h3>
+          </li>
+          <li class="flow-step" data-reveal>
+            <span class="flow-no">02</span>
+            <h3>디자인 시스템 문서화</h3>
+            <div class="flow-tags"><span><i class="tool-icon is-text" aria-hidden="true">md</i>DESIGN_SYSTEM.md</span></div>
+          </li>
+          <li class="flow-step" data-reveal>
+            <span class="flow-no">03</span>
+            <h3>Hero 프로토타입 반복</h3>
+            <div class="flow-tags"><span>Canvas</span></div>
+          </li>
+          <li class="flow-step" data-reveal>
+            <span class="flow-no">04</span>
+            <h3>메인 · 상세 페이지 구현</h3>
+            <div class="flow-tags"><span><i class="tool-icon is-text" aria-hidden="true">Cl</i>Claude Code</span><span><i class="tool-icon" style="--icon:url(assets/icons/vscode.svg)" aria-hidden="true"></i>VS Code</span></div>
+          </li>
+          <li class="flow-step" data-reveal>
+            <span class="flow-no">05</span>
+            <h3>브라우저 · 실기기 확인</h3>
+          </li>
+          <li class="flow-step is-last" data-reveal>
+            <span class="flow-no">06</span>
+            <h3>배포</h3>
+            <div class="flow-tags"><span><i class="tool-icon" style="--icon:url(assets/icons/github.svg)" aria-hidden="true"></i>GitHub Pages</span></div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="case-gallery is-flow">
+        <div class="case-chapter" data-reveal><h2>Foundations</h2></div>
+        <!-- 값은 style.css :root 토큰에서 그대로 가져왔다. 색은 작업물 이미지에만 있다. -->
+        <ul class="palette" aria-label="컬러 팔레트">
+          <li class="swatch" style="--c:#08080A" data-reveal>
+            <span class="swatch-chip"></span>
+            <span class="swatch-name">Void</span>
+            <span class="swatch-use">배경</span>
+            <code>#08080A</code>
+          </li>
+          <li class="swatch" style="--c:#101013" data-reveal>
+            <span class="swatch-chip"></span>
+            <span class="swatch-name">Surface</span>
+            <span class="swatch-use">면 · 묶음 띠</span>
+            <code>#101013</code>
+          </li>
+          <li class="swatch" style="--c:#FFFFFF" data-reveal>
+            <span class="swatch-chip"></span>
+            <span class="swatch-name">Text 000</span>
+            <span class="swatch-use">제목 · 활성</span>
+            <code>#FFFFFF</code>
+          </li>
+          <li class="swatch" style="--c:#ABABB4" data-reveal>
+            <span class="swatch-chip"></span>
+            <span class="swatch-name">Text 300</span>
+            <span class="swatch-use">본문 보조</span>
+            <code>#ABABB4</code>
+          </li>
+          <li class="swatch" style="--c:#4E4E57" data-reveal>
+            <span class="swatch-chip"></span>
+            <span class="swatch-name">Text 600</span>
+            <span class="swatch-use">비활성 · 점</span>
+            <code>#4E4E57</code>
+          </li>
+        </ul>
+        <ul class="typeset" aria-label="타이포그래피">
+          <li class="type-row" data-reveal>
+            <span class="type-use">영문 제목</span>
+            <span class="type-name" style="font-family:var(--font-display)">Archivo</span>
+            <span class="type-sample" style="font-family:var(--font-display);font-weight:700">DITOLAND · BABAMBI</span>
+          </li>
+          <li class="type-row" data-reveal>
+            <span class="type-use">본문 · 국문</span>
+            <span class="type-name" style="font-family:var(--font-body)">Pretendard</span>
+            <span class="type-sample" style="font-family:var(--font-body)">다양한 환경의 웹 화면을 구현합니다</span>
+          </li>
+          <li class="type-row" data-reveal>
+            <span class="type-use">메타 · 번호</span>
+            <span class="type-name" style="font-family:var(--font-mono)">JetBrains Mono</span>
+            <span class="type-sample" style="font-family:var(--font-mono)">01 / UTPLUS INTERACTIVE / 2023</span>
+          </li>
+        </ul>
+
+        <div class="case-chapter" data-reveal><h2>Desktop</h2></div>
+        <figure class="shot" data-reveal>
+          <img src="assets/portfolio/hero.webp" alt="첫 화면 — 파티클 배경 위에 이름과 역할이 나타나는 Hero" loading="lazy" />
+        </figure>
+        <figure class="shot" data-reveal>
+          <img src="assets/portfolio/work.webp" alt="WORK 챕터 화면 — 좌측 챕터 레일과 DITOLAND 챕터" loading="lazy" />
+        </figure>
+        <div class="shot-grid cols-2">
+          <figure class="shot" data-reveal>
+            <img src="assets/portfolio/ai.webp" alt="HOW I WORK WITH AI 섹션 — 다섯 단계별 AI와 직접 한 일" loading="lazy" />
+          </figure>
+          <figure class="shot" data-reveal>
+            <img src="assets/portfolio/case.webp" alt="프로젝트 상세 페이지 첫 화면" loading="lazy" />
+          </figure>
+        </div>
+
+        <div class="case-chapter" data-reveal><h2>Mobile</h2></div>
+        <figure class="shot" data-reveal>
+          <img src="assets/portfolio/mobile.webp" alt="모바일 화면 — 첫 화면과 WORK 챕터" loading="lazy" />
+        </figure>
+      </section>
+
+      <section class="case-notes" aria-label="작업 내용">
+        <span class="meta">WHAT I BUILT</span>
+
+        <div class="note-grid">
+          <article class="note">
+            <span class="note-no">01</span>
+            <div class="note-body">
+              <h3>파티클 Hero · 이름이 맞춰지는 첫 화면</h3>
+              <div class="note-tags"><span>Canvas</span></div>
+            </div>
+          </article>
+
+          <article class="note">
+            <span class="note-no">02</span>
+            <div class="note-body">
+              <h3>스크롤하면 빠져나가는 Hero 전환</h3>
+              <div class="note-tags"><span>JavaScript</span></div>
+            </div>
+          </article>
+
+          <article class="note">
+            <span class="note-no">03</span>
+            <div class="note-body">
+              <h3>현재 위치를 보여주는 좌측 챕터 레일</h3>
+              <div class="note-tags"><span>JavaScript</span></div>
+            </div>
+          </article>
+
+          <article class="note">
+            <span class="note-no">04</span>
+            <div class="note-body">
+              <h3>스크롤에 맞춰 나타나는 제목</h3>
+              <div class="note-tags"><span>CSS scroll-timeline</span></div>
+            </div>
+          </article>
+
+          <article class="note">
+            <span class="note-no">05</span>
+            <div class="note-body">
+              <h3>이미지 비율에 맞춰 바뀌는 갤러리</h3>
+              <div class="note-tags"><span>JavaScript</span></div>
+            </div>
+          </article>
+
+          <article class="note">
+            <span class="note-no">06</span>
+            <div class="note-body">
+              <h3>이미지 크게 보기</h3>
+              <div class="note-tags"><span>Lightbox</span></div>
+            </div>
+          </article>
+
+          <article class="note">
+            <span class="note-no">07</span>
+            <div class="note-body">
+              <h3>부드러운 스크롤</h3>
+              <div class="note-tags"><span>Lenis</span></div>
+            </div>
+          </article>
+
+          <article class="note">
+            <span class="note-no">08</span>
+            <div class="note-body">
+              <h3>반응형 레이아웃 (데스크톱 · 모바일)</h3>
+              <div class="note-tags"><span>HTML</span><span>CSS</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <a class="case-next" href="work-ditoland.html">
+        <img src="assets/cover-ditoland.webp" alt="" />
+        <div class="case-next-inner">
+          <span class="meta case-next-label">BACK TO START — 01</span>
+          <span class="case-next-title">DITOLAND</span>
+        </div>
+      </a>
+    </article>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="case.js"></script>
+  <script src="topbtn.js"></script>
+</body>
+</html>
