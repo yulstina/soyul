@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <!-- Archivo = 디스플레이(그로테스크), JetBrains Mono = 메타/좌표. -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..112,400..700&family=JetBrains+Mono:wght@400;500&display=swap" />
-  <link rel="stylesheet" href="style.css?v=20261012b" />
+  <link rel="stylesheet" href="style.css?v=20261012c" />
 </head>
 <body>
   <header class="site-header" id="siteHeader">
@@ -73,6 +73,122 @@
             최근에는 <span class="highlight">생성형 AI 기반 스마트 커머스 교육을 통해 AI를 활용한 브랜딩과 디자인, 영상 콘텐츠 제작, 이커머스 운영, 온라인 마케팅</span>을 배웠습니다. <br />
             새로운 도구를 익히고 작업에 적용하는 과정을 즐기며, 개인 프로젝트에서 브랜드 기획부터 콘텐츠 제작과 웹 구현까지 경험을 넓혀가고 있습니다.
           </p>
+        </div>
+
+
+        <!-- 프로젝트 목록. 채용 담당자가 1~2분 안에 전체를 훑을 수 있게 한 줄씩 보여주고,
+             필터로 실무 / 개인만 골라 볼 수 있다. 행을 누르면 아래 챕터로 이동한다. -->
+        <div class="work-index">
+          <div class="work-filter" role="group" aria-label="프로젝트 분류">
+            <button type="button" data-filter="ALL" aria-pressed="true">전체 <span>11</span></button>
+            <button type="button" data-filter="PRO" aria-pressed="false">실무 <span>06</span></button>
+            <button type="button" data-filter="SELF" aria-pressed="false">개인 <span>05</span></button>
+          </div>
+          <div class="work-list-head" aria-hidden="true">
+            <span>No.</span><span>Project</span><span>Client</span><span>Field</span><span>Year</span>
+          </div>
+          <ol class="work-list">
+            <li data-group="PRO">
+              <a class="work-row" href="#ch-ditoland" data-thumb="assets/cover-ditoland.webp">
+                <span class="wr-no">01</span>
+                <span class="wr-name">DITOLAND</span>
+                <span class="wr-org">UTPLUS</span>
+                <span class="wr-field">Web · App</span>
+                <span class="wr-year">2023</span>
+              </a>
+            </li>
+            <li data-group="PRO">
+              <a class="work-row" href="#ch-ont" data-thumb="assets/cover-ont.webp">
+                <span class="wr-no">02</span>
+                <span class="wr-name">ONT KIOSK</span>
+                <span class="wr-org">RTBS</span>
+                <span class="wr-field">Table Order · Kiosk UI</span>
+                <span class="wr-year">2025</span>
+              </a>
+            </li>
+            <li data-group="PRO">
+              <a class="work-row" href="#ch-kiosk" data-thumb="assets/cover-navyz.webp">
+                <span class="wr-no">03</span>
+                <span class="wr-name">KIOSK SYSTEM</span>
+                <span class="wr-org">RTBS</span>
+                <span class="wr-field">Maintenance · New Pages</span>
+                <span class="wr-year">2025</span>
+              </a>
+            </li>
+            <li data-group="PRO">
+              <a class="work-row" href="#ch-orderweb" data-thumb="assets/cover-tomntoms.webp">
+                <span class="wr-no">04</span>
+                <span class="wr-name">ORDER WEB</span>
+                <span class="wr-org">RTBS</span>
+                <span class="wr-field">Template System · Multi-brand</span>
+                <span class="wr-year">2025</span>
+              </a>
+            </li>
+            <li data-group="PRO">
+              <a class="work-row" href="#ch-nz" data-thumb="assets/cover-nz.webp">
+                <span class="wr-no">05</span>
+                <span class="wr-name">NZ SYSTEM</span>
+                <span class="wr-org">RTBS</span>
+                <span class="wr-field">16 Pages · B2B Brand Site</span>
+                <span class="wr-year">—</span>
+              </a>
+            </li>
+            <li data-group="PRO">
+              <a class="work-row" href="#ch-13months" data-thumb="assets/cover-13months.webp">
+                <span class="wr-no">06</span>
+                <span class="wr-name">13 MONTHS</span>
+                <span class="wr-org">Freelance</span>
+                <span class="wr-field">Branding · Cafe24</span>
+                <span class="wr-year">2026</span>
+              </a>
+            </li>
+            <li data-group="SELF">
+              <a class="work-row" href="#ch-unsu" data-thumb="assets/cover-unsu.webp">
+                <span class="wr-no">07</span>
+                <span class="wr-name">UNSU</span>
+                <span class="wr-org">Personal</span>
+                <span class="wr-field">Service Planning · Mobile Web App</span>
+                <span class="wr-year">2026</span>
+              </a>
+            </li>
+            <li data-group="SELF">
+              <a class="work-row" href="#ch-babambi" data-thumb="assets/babambi/cover_babambi.webp">
+                <span class="wr-no">08</span>
+                <span class="wr-name">BABAMBI</span>
+                <span class="wr-org">Personal</span>
+                <span class="wr-field">Branding · SNS Content</span>
+                <span class="wr-year">2026</span>
+              </a>
+            </li>
+            <li data-group="SELF">
+              <a class="work-row" href="#ch-lucent" data-thumb="assets/cover-lucent.webp">
+                <span class="wr-no">09</span>
+                <span class="wr-name">LUCENT</span>
+                <span class="wr-org">Personal</span>
+                <span class="wr-field">Branding · Clinic Web</span>
+                <span class="wr-year">2026</span>
+              </a>
+            </li>
+            <li data-group="SELF">
+              <a class="work-row" href="#ch-goyo" data-thumb="assets/cover-goyo.webp">
+                <span class="wr-no">10</span>
+                <span class="wr-name">GOYO</span>
+                <span class="wr-org">Personal</span>
+                <span class="wr-field">Branding · Responsive Web</span>
+                <span class="wr-year">2026</span>
+              </a>
+            </li>
+            <li data-group="SELF">
+              <a class="work-row" href="#ch-portfolio" data-thumb="assets/cover-portfolio.webp">
+                <span class="wr-no">11</span>
+                <span class="wr-name">PORTFOLIO</span>
+                <span class="wr-org">Personal</span>
+                <span class="wr-field">Design System · Interaction</span>
+                <span class="wr-year">2026</span>
+              </a>
+            </li>
+          </ol>
+          <div class="work-thumb" aria-hidden="true"><img alt="" /></div>
         </div>
 
         <!-- 챕터 ------------------------------------------------------------
@@ -493,9 +609,10 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script src="hero.js?v=20261012b"></script>
-  <script src="site.js?v=20261012b"></script>
-  <script src="topbtn.js?v=20261012b"></script>
-  <script src="mobile-window.js?v=20261012b"></script>
+  <script src="hero.js?v=20261012c"></script>
+  <script src="site.js?v=20261012c"></script>
+  <script src="topbtn.js?v=20261012c"></script>
+  <script src="mobile-window.js?v=20261012c"></script>
+  <script src="work-index.js?v=20261012c"></script>
 </body>
 </html>

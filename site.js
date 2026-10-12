@@ -74,8 +74,11 @@
     // The rail reads out chapter positions, so it belongs to the chapters —
     // not to WORK as a whole. Keying it to the section would light it up over
     // the intro copy, which it then sits on top of.
-    const first = chapters[0].getBoundingClientRect();
-    const last = chapters[chapters.length - 1].getBoundingClientRect();
+    // 필터(work-index.js)로 숨긴 챕터는 크기가 0이라 기준에서 뺀다.
+    const shown = chapters.filter((ch) => ch.offsetParent !== null);
+    if (!shown.length) return;
+    const first = shown[0].getBoundingClientRect();
+    const last = shown[shown.length - 1].getBoundingClientRect();
     nav.classList.toggle('is-active',
       first.top < innerHeight * 0.5 && last.bottom > innerHeight * 0.5);
 
