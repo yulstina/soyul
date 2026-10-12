@@ -37,7 +37,7 @@ WORK — PROFESSIONAL 01 … 06 → SELF-DIRECTED 07 … 11
   ↓
 HOW I WORK WITH AI (단계별 AI / 직접 한 일)
   ↓
-ABOUT (경력 · 3사)
+CAREER (경력 · 3사)
   ↓
 CONTACT
 ```
