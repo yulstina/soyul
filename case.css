@@ -474,3 +474,8 @@
 .tool-icon.is-text{font-family:var(--font-mono);font-size:8px;font-weight:500;
   letter-spacing:0;line-height:1;border:1px solid currentColor;border-radius:3px;
   width:15px;height:14px;opacity:.9; margin-right:3px;}
+
+/* A flow that needs a sentence of context before its steps — the CS tool is
+   not something the artwork above explains on its own. */
+.flow-lead{margin:0 0 clamp(28px,4vh,48px);max-width:62ch;color:var(--text-100);
+           line-height:1.85;word-break:keep-all}
