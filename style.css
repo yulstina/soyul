@@ -257,12 +257,9 @@ h1,h2,h3,h4,p{margin:0}
 /* 개인 프로젝트의 "무엇을 위해 만들었나". UI에 색을 쓰지 않는 규칙(DESIGN_SYSTEM §3)
    안에서, 테두리 알약(role)과 반대로 흰 면에 검정 글자로 뒤집어 한 단계 위에 둔다. */
 .chapter-purpose{display:inline-flex;align-self:flex-start;align-items:center;gap:10px;
-                 margin:0;padding:7px 14px 7px 8px;border-radius:999px;
+                 margin:0;padding:7px 14px;border-radius:999px;
                  background:var(--text-000);color:var(--void-100);
                  font-weight:600;font-size:15px;letter-spacing:-.01em;word-break:keep-all}
-.chapter-purpose span{font-family:var(--font-mono);font-size:11px;font-weight:500;
-                      letter-spacing:.08em;padding:3px 8px;border-radius:999px;
-                      background:var(--void-100);color:var(--text-000)}
 .chapter-desc{color:var(--text-100);line-height:1.85;max-width:46ch;word-break:keep-all}
 .chapter-links{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:22px;margin-top:4px}
 .chapter-link{font-family:var(--font-mono);font-size:var(--fs-meta);letter-spacing:.1em;
