@@ -189,14 +189,23 @@ h1,h2,h3,h4,p{margin:0}
 /* Work groups --------------------------------------------------------------
    WORK는 실무 / 개인 프로젝트 두 묶음으로 나뉜다. 묶음마다 짧은 머리말을 두어
    지금 어느 쪽을 보고 있는지 스크롤 중에도 알 수 있게 한다. */
-.group-intro{padding:clamp(96px,14vh,168px) var(--margin) clamp(40px,6vh,72px);
-             padding-left:calc(var(--margin) + var(--rail))}
-#work-pro .group-intro{padding-top:clamp(64px,9vh,112px)}
-#work-self .group-intro{border-top:1px solid var(--line)}
-.group-intro .meta{display:block;margin-bottom:clamp(14px,2vh,22px)}
-.group-title{font-family:var(--font-display);font-weight:600;font-size:var(--fs-h2);
-             line-height:1.06;letter-spacing:-.03em;color:var(--text-000);word-break:keep-all}
-.group-desc{margin-top:clamp(12px,2vh,20px);color:var(--text-300);line-height:1.8;word-break:keep-all}
+.group-intro{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);
+             gap:clamp(24px,4vw,72px);align-items:end;
+             min-height:clamp(320px,52vh,560px);
+             padding:clamp(72px,10vh,128px) var(--margin) clamp(48px,7vh,88px);
+             padding-left:calc(var(--margin) + var(--rail));
+             background:var(--void-200);
+             border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+/* 묶음 제목이 챕터 제목(--fs-mega)보다 작으면 DITOLAND 같은 첫 챕터에 묻힌다.
+   면(--void-200)과 위아래 선으로 띠를 만들고, 제목도 챕터와 같은 급으로 올려
+   "여기서 한 묶음이 시작된다"가 크기와 면 두 가지로 읽히게 한다. */
+.group-no{display:block;font-family:var(--font-mono);font-size:var(--fs-meta);
+          letter-spacing:.14em;color:var(--text-300);margin-bottom:clamp(14px,2vh,24px)}
+.group-title{font-family:var(--font-body);font-weight:700;font-size:clamp(44px,7vw,112px);white-space:nowrap;
+             line-height:1;letter-spacing:-.04em;color:var(--text-000);word-break:keep-all}
+.group-side{padding-bottom:.6em}
+.group-side .meta{display:block;margin-bottom:clamp(10px,1.6vh,16px)}
+.group-desc{color:var(--text-100);line-height:1.8;word-break:keep-all;max-width:34ch}
 /* 머리말 바로 아래 첫 챕터는 섹션 시작용 큰 여백 대신 챕터 기본 여백만 쓴다. */
 #work .group-intro + .chapter:not([data-layout="b"]){padding-top:clamp(24px,4vh,48px)}
 
@@ -243,6 +252,15 @@ h1,h2,h3,h4,p{margin:0}
 .chapter-role span{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;
                    text-transform:uppercase;color:var(--text-300);
                    border:1px solid var(--line);border-radius:999px;padding:5px 11px}
+/* 개인 프로젝트의 "무엇을 위해 만들었나". UI에 색을 쓰지 않는 규칙(DESIGN_SYSTEM §3)
+   안에서, 테두리 알약(role)과 반대로 흰 면에 검정 글자로 뒤집어 한 단계 위에 둔다. */
+.chapter-purpose{display:inline-flex;align-self:flex-start;align-items:center;gap:10px;
+                 margin:0;padding:7px 14px 7px 8px;border-radius:999px;
+                 background:var(--text-000);color:var(--void-100);
+                 font-weight:600;font-size:15px;letter-spacing:-.01em;word-break:keep-all}
+.chapter-purpose span{font-family:var(--font-mono);font-size:11px;font-weight:500;
+                      letter-spacing:.08em;padding:3px 8px;border-radius:999px;
+                      background:var(--void-100);color:var(--text-000)}
 .chapter-desc{color:var(--text-100);line-height:1.85;max-width:46ch;word-break:keep-all}
 .chapter-links{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:22px;margin-top:4px}
 .chapter-link{font-family:var(--font-mono);font-size:var(--fs-meta);letter-spacing:.1em;
@@ -430,6 +448,9 @@ h1,h2,h3,h4,p{margin:0}
 }
 /* 가로 한 줄이 좁아지면 회사별로 세로 스택으로 접는다. */
 @media (max-width:1023px){
+  .group-intro{grid-template-columns:1fr;align-items:start;min-height:0}
+  .group-title{white-space:normal}
+  .group-side{padding-bottom:0}
   .career-item{grid-template-columns:1fr;gap:clamp(14px,3vw,20px)}
 }
 @media (max-width:767px){
