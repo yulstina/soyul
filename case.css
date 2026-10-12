@@ -55,7 +55,7 @@
             color:var(--text-500)}
 .brief-cell p{color:var(--text-100);line-height:1.8;font-size:16px;word-break:keep-all}
 .brief-cell ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:7px}
-.brief-cell li{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;
+.brief-cell li{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;
                color:var(--text-100);border:1px solid var(--line);
                border-radius:999px;padding:5px 10px}
 /* Stack 칸 안에서 작업 환경·협업 도구를 나누는 작은 라벨. 셀 제목(h2)보다 한 단
