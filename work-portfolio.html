@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..112,400..700&family=JetBrains+Mono:wght@400;500&display=swap" />
-  <link rel="stylesheet" href="style.css?v=20261012f" />
-  <link rel="stylesheet" href="case.css?v=20261012f" />
+  <link rel="stylesheet" href="style.css?v=20261012h" />
+  <link rel="stylesheet" href="case.css?v=20261012h" />
 </head>
 <body class="case-page">
   <header class="site-header is-visible" id="siteHeader">
@@ -90,7 +90,7 @@
           <li class="flow-step" data-reveal>
             <span class="flow-no">02</span>
             <h3>디자인 시스템 문서화</h3>
-            <div class="flow-tags"><span><i class="tool-icon is-text" aria-hidden="true">md</i>DESIGN_SYSTEM.md</span></div>
+            <div class="flow-tags"><span><i class="tool-icon" style="--icon:url(assets/icons/markdown.svg)" aria-hidden="true"></i>DESIGN_SYSTEM.md</span></div>
           </li>
           <li class="flow-step" data-reveal>
             <span class="flow-no">03</span>
@@ -100,7 +100,7 @@
           <li class="flow-step" data-reveal>
             <span class="flow-no">04</span>
             <h3>메인 · 상세 페이지 구현</h3>
-            <div class="flow-tags"><span><i class="tool-icon is-text" aria-hidden="true">Cl</i>Claude Code</span><span><i class="tool-icon" style="--icon:url(assets/icons/vscode.svg)" aria-hidden="true"></i>VS Code</span></div>
+            <div class="flow-tags"><span><img class="tool-logo" src="assets/icons/claudecode-color.svg" alt="" width="16" height="16" />Claude Code</span><span><img class="tool-logo" src="assets/icons/vscode-color.svg" alt="" width="16" height="16" />VS Code</span></div>
           </li>
           <li class="flow-step" data-reveal>
             <span class="flow-no">05</span>
@@ -167,26 +167,22 @@
           </li>
         </ul>
 
-        <div class="case-chapter" data-reveal><h2>Desktop</h2></div>
-        <figure class="shot" data-reveal>
-          <img src="assets/portfolio/hero.webp" alt="첫 화면 — 파티클 배경 위에 이름과 역할이 나타나는 Hero" loading="lazy" />
-        </figure>
-        <figure class="shot" data-reveal>
-          <img src="assets/portfolio/work.webp" alt="WORK 챕터 화면 — 좌측 챕터 레일과 DITOLAND 챕터" loading="lazy" />
-        </figure>
-        <div class="shot-grid cols-2">
-          <figure class="shot" data-reveal>
-            <img src="assets/portfolio/ai.webp" alt="HOW I WORK WITH AI 섹션 — 다섯 단계별 AI와 직접 한 일" loading="lazy" />
+        <div class="case-chapter" data-reveal><h2>Mobile</h2></div>
+        <!-- 같은 기기에서 같은 크기로 캡처한 네 장. 비율이 같아 나란히 두면 높이가 맞는다. -->
+        <div class="shot-grid cols-4">
+          <figure class="shot is-phone" data-reveal>
+            <img src="assets/portfolio/m1.webp" width="900" height="1491" alt="모바일 첫 화면 — 파티클 배경 위 SOYUL과 VIEW WORK 버튼" loading="lazy" />
           </figure>
-          <figure class="shot" data-reveal>
-            <img src="assets/portfolio/case.webp" alt="프로젝트 상세 페이지 첫 화면" loading="lazy" />
+          <figure class="shot is-phone" data-reveal>
+            <img src="assets/portfolio/m2.webp" width="900" height="1491" alt="모바일 WORK 목록 — 개인 필터와 행별 썸네일" loading="lazy" />
+          </figure>
+          <figure class="shot is-phone" data-reveal>
+            <img src="assets/portfolio/m3.webp" width="900" height="1491" alt="모바일 BABAMBI 상세 — CS 자동화 흐름" loading="lazy" />
+          </figure>
+          <figure class="shot is-phone" data-reveal>
+            <img src="assets/portfolio/m4.webp" width="900" height="1491" alt="모바일 LUCENT 상세 — 서체와 모션 영상" loading="lazy" />
           </figure>
         </div>
-
-        <div class="case-chapter" data-reveal><h2>Mobile</h2></div>
-        <figure class="shot" data-reveal>
-          <img src="assets/portfolio/mobile.webp" alt="모바일 화면 — 첫 화면과 WORK 챕터" loading="lazy" />
-        </figure>
       </section>
 
       <section class="case-notes" aria-label="작업 내용">
@@ -270,7 +266,7 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script src="case.js?v=20261012f"></script>
-  <script src="topbtn.js?v=20261012f"></script>
+  <script src="case.js?v=20261012h"></script>
+  <script src="topbtn.js?v=20261012h"></script>
 </body>
 </html>
