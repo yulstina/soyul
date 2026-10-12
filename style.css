@@ -318,7 +318,8 @@ h1,h2,h3,h4,p{margin:0}
 .ai-row.is-me dt{color:var(--text-000)}
 .ai-row.is-me dd{color:var(--text-000)}
 .ai-tools{display:flex;flex-wrap:wrap;gap:6px}
-.ai-tools span{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;
+.ai-tools span{display:inline-flex;align-items:center;gap:6px;
+               font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;
                color:var(--text-300);border:1px solid var(--line);
                border-radius:999px;padding:3px 8px;white-space:nowrap}
 .ai-ex{margin:2px 0 0;display:flex;flex-wrap:wrap;gap:6px 14px}
@@ -444,3 +445,18 @@ h1,h2,h3,h4,p{margin:0}
   .wr-go{grid-column:4;grid-row:1 / span 2;width:36px;height:36px;font-size:16px}
   .wr-name{font-size:22px}
 }
+
+/* Tool marks -----------------------------------------------------------------
+   칩 안의 프로그램 로고. 색이 있는 브랜드는 원래 색 그대로(img), 흑백 브랜드
+   (OpenAI · GitHub · Vercel · Markdown · Flask)는 글자색을 따른다(mask).
+   로고를 구하지 못한 프로그램만 같은 크기의 글자 표시로 둔다. */
+.tool-logo{flex:0 0 auto;width:16px;height:16px;object-fit:contain;border-radius:3px;
+           margin-right:2px;vertical-align:middle}
+.tool-icon{flex:0 0 auto;width:14px;height:14px;display:inline-flex;
+           align-items:center;justify-content:center}
+.tool-icon:not(.is-text){background-color:currentColor;
+  -webkit-mask:var(--icon) center/contain no-repeat;
+          mask:var(--icon) center/contain no-repeat}
+.tool-icon.is-text{font-family:var(--font-mono);font-size:8px;font-weight:500;
+  letter-spacing:0;line-height:1;border:1px solid currentColor;border-radius:3px;
+  width:15px;height:14px;opacity:.9;margin-right:3px}

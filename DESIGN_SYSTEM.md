@@ -85,6 +85,8 @@ HERO (고정, 블랙홀 이탈)
 
 작업물 썸네일이 유일한 채도다. UI에는 어떤 색상도 없다.
 
+- **예외 — 도구 칩의 프로그램 로고** (2026-10): 16px 로고만 브랜드 원래 색을 쓴다(`.tool-logo`, `assets/icons/*-color.*`). 흑백 브랜드(OpenAI · GitHub · Vercel · Markdown · Flask)는 글자색 마스크(`.tool-icon`). 로고가 없는 Higgsfield · Stitch만 글자 표시.
+
 ```css
 --void-000:#000000;  /* 절대 배경 — 챕터 사이의 공백 */
 --void-100:#08080A;  /* 기본 페이지 배경 */

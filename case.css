@@ -214,6 +214,10 @@
 .shot-grid{display:grid;gap:clamp(12px,1.5vw,22px)}
 .shot-grid.cols-3{grid-template-columns:repeat(3,1fr)}
 .shot-grid.cols-2{grid-template-columns:repeat(2,1fr)}
+.shot-grid.cols-4{grid-template-columns:repeat(4,1fr)}
+/* 휴대폰 캡처 — 원본 비율 그대로, 잘라내지 않는다. */
+.shot.is-phone{border-radius:14px;overflow:hidden}
+.shot.is-phone img{width:100%;height:auto;display:block}
 /* Inside a hand-laid row the measured ratio must not re-span anything. */
 .shot-grid > .shot[data-ratio]{grid-column:auto;height:auto}
 /* A whole phone page is thousands of pixels tall and would own the case study
@@ -292,6 +296,7 @@
 @media (max-width:1023px){
   .shot-grid.cols-3{grid-template-columns:repeat(2,1fr)}
   .shot-grid.cols-2{grid-template-columns:1fr}
+  .shot-grid.cols-4{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:559px){
   .shot-grid.cols-3{grid-template-columns:1fr}
@@ -341,7 +346,7 @@
               font-size:16px;letter-spacing:-.01em;color:var(--text-000);
               word-break:keep-all}
 .flow-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.flow-tags span{font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;
+.flow-tags span{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;
                 color:var(--text-300);border:1px solid var(--line);
                 border-radius:999px;padding:4px 9px;white-space:nowrap}
 
@@ -461,19 +466,6 @@
 /* A near-square recording does not need the full measure — at 1252px wide it
    would stand over a thousand pixels tall for a loop of a second and a half. */
 .video-main.is-compact{max-width:640px;margin-inline:auto}
-
-/* Tool marks ----------------------------------------------------------------
-   Four of these programs publish a logo we can use; the rest do not, so they
-   get a letter mark in the same box. Same size, same colour, same alignment —
-   the row reads as one set rather than four logos and nine gaps. */
-.tool-icon{flex:0 0 auto;width:14px;height:14px;display:inline-flex;
-           align-items:center;justify-content:center}
-.tool-icon:not(.is-text){background-color:currentColor;
-  -webkit-mask:var(--icon) center/contain no-repeat;
-          mask:var(--icon) center/contain no-repeat}
-.tool-icon.is-text{font-family:var(--font-mono);font-size:8px;font-weight:500;
-  letter-spacing:0;line-height:1;border:1px solid currentColor;border-radius:3px;
-  width:15px;height:14px;opacity:.9; margin-right:3px;}
 
 /* A flow that needs a sentence of context before its steps — the CS tool is
    not something the artwork above explains on its own. */
