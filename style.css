@@ -512,3 +512,70 @@ h1,h2,h3,h4,p{margin:0}
   .ai-steps{grid-template-columns:1fr}
   .ai-step,.ai-step + .ai-step{padding:22px 0 26px;border-left:0;border-bottom:1px solid var(--line-faint)}
 }
+
+/* Work index -----------------------------------------------------------------
+   WORK 첫머리의 한 줄 목록. 열한 개 챕터를 다 넘기지 않아도 무엇이 있는지
+   한 화면에 보이게 한다. 필터는 목록과 아래 챕터를 함께 거른다. */
+.work-index{position:relative;padding:0 var(--margin) clamp(56px,8vh,96px);
+            padding-left:calc(var(--margin) + var(--rail))}
+/* 분류 버튼 — 한 줄짜리 세그먼트. 흰 바탕(thumb)이 고른 버튼 뒤로 미끄러져 가고,
+   목록도 같은 방향으로 넘어간다(work-index.js). */
+.work-filter{position:relative;display:inline-flex;padding:4px;
+             margin-bottom:clamp(20px,3vh,32px);
+             border:1px solid var(--line);border-radius:999px}
+.work-filter-thumb{position:absolute;left:0;top:4px;bottom:4px;width:0;
+                   border-radius:999px;background:var(--text-000);
+                   transition:transform .5s var(--ease),width .5s var(--ease)}
+.work-filter:not(.is-ready) .work-filter-thumb{transition:none}
+.work-filter button{position:relative;z-index:1;
+                    font:500 13px/1 var(--font-mono);letter-spacing:.08em;
+                    color:var(--text-300);background:none;cursor:pointer;
+                    border:0;border-radius:999px;padding:11px 18px;
+                    transition:color .35s ease}
+.work-filter button span{color:var(--text-500);margin-left:4px;transition:color .35s ease}
+.work-filter button:hover{color:var(--text-000)}
+.work-filter button[aria-pressed="true"]{color:var(--void-100)}
+.work-filter button[aria-pressed="true"] span{color:var(--void-300)}
+.work-filter button:focus-visible{outline:2px solid var(--text-000);outline-offset:2px}
+
+.work-list-head,.work-row{display:grid;
+  grid-template-columns:56px minmax(0,1.3fr) minmax(0,.8fr) minmax(0,1.2fr) 80px;
+  gap:clamp(12px,2vw,32px);align-items:baseline}
+.work-list-head{padding:0 0 12px;border-bottom:1px solid var(--line);
+                font:500 11px/1 var(--font-mono);letter-spacing:.12em;
+                text-transform:uppercase;color:var(--text-500)}
+.work-list{list-style:none;margin:0;padding:0;will-change:transform}
+.work-list-view{overflow-x:clip}
+.work-list li[hidden],.chapter-index [hidden]{display:none}
+.work-row{padding:clamp(14px,1.8vh,20px) 0;border-bottom:1px solid var(--line-faint);
+          color:var(--text-300);transition:color .25s ease,padding-left .35s var(--ease)}
+.wr-no,.wr-org,.wr-field,.wr-year{font:500 12px/1.4 var(--font-mono);letter-spacing:.08em;
+                                  text-transform:uppercase}
+.wr-name{font-family:var(--font-display);font-weight:600;font-size:clamp(20px,2vw,30px);
+         line-height:1.1;letter-spacing:-.02em;color:var(--text-100)}
+.wr-year{text-align:right}
+.work-row:hover,.work-row:focus-visible{color:var(--text-000);padding-left:12px}
+.work-row:hover .wr-name,.work-row:focus-visible .wr-name{color:var(--text-000)}
+.work-row:focus-visible{outline:none;background:var(--void-200)}
+
+/* 마우스를 올린 행의 대표 이미지. 포인터를 따라다니며, 목록 글자를 가리지 않게
+   오른쪽 아래로 비켜 둔다. 터치 기기에서는 쓰지 않는다. */
+.work-thumb{position:fixed;left:0;top:0;z-index:30;width:clamp(220px,22vw,340px);
+            aspect-ratio:16/10;pointer-events:none;overflow:hidden;
+            border:1px solid var(--line);background:var(--void-200);
+            opacity:0;transform:translate3d(-999px,-999px,0) scale(.96);
+            transition:opacity .25s ease}
+.work-thumb.is-on{opacity:1}
+.work-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+@media (hover:none){.work-thumb{display:none}}
+
+@media (max-width:1279px){
+  .work-index{padding-left:var(--margin)}
+}
+@media (max-width:767px){
+  .work-list-head{display:none}
+  .work-row{grid-template-columns:36px minmax(0,1fr) auto;row-gap:6px}
+  .wr-org{grid-column:2;grid-row:2}
+  .wr-field{display:none}
+  .wr-year{grid-column:3;grid-row:1}
+}
