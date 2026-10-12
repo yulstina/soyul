@@ -405,7 +405,7 @@ h1,h2,h3,h4,p{margin:0}
 
 @media (max-width:1023px){
   .work-list-head,.work-row{grid-template-columns:44px minmax(0,1fr) minmax(0,.8fr) 72px 44px}
-  .wr-field,.work-list-head span:nth-child(4){display:none}
+  .wr-field{display:none}
 }
 @media (max-width:767px){
   .work-list-head{display:none}
@@ -418,4 +418,29 @@ h1,h2,h3,h4,p{margin:0}
   .work-filter{display:flex}
   .work-filter button{flex:1;padding:13px 10px}
   .wr-purpose{font-size:13px;padding:6px 10px}
+}
+
+/* 터치 기기에는 마우스를 올려 볼 미리보기가 없다. 대신 행마다 작은 썸네일을
+   붙여, 누르기 전에 어떤 작업인지 보이게 한다. */
+.wr-thumb{display:none}
+.work-list-head .wr-field{font:inherit}
+@media (hover:none){
+  .wr-thumb{display:block;overflow:hidden;aspect-ratio:4/3;border-radius:4px;
+            background:var(--void-200);border:1px solid var(--line-faint)}
+  .work-list-head .wr-thumb{visibility:hidden;border:0;background:none;aspect-ratio:auto}
+  .wr-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+  .work-list-head,.work-row{
+    grid-template-columns:56px 112px minmax(0,1.5fr) minmax(0,.6fr) minmax(0,1.3fr) 80px 48px}
+}
+@media (hover:none) and (max-width:1023px){
+  .work-list-head,.work-row{grid-template-columns:44px 96px minmax(0,1fr) minmax(0,.8fr) 72px 44px}
+}
+@media (hover:none) and (max-width:767px){
+  .work-row{grid-template-columns:22px 76px minmax(0,1fr) 36px;column-gap:12px;align-items:center}
+  .wr-no{grid-column:1;grid-row:1 / span 2;align-self:start;padding-top:4px}
+  .wr-thumb{grid-column:2;grid-row:1 / span 2;align-self:center}
+  .wr-main{grid-column:3;grid-row:1}
+  .wr-org,.wr-year{grid-column:3;grid-row:2}
+  .wr-go{grid-column:4;grid-row:1 / span 2;width:36px;height:36px;font-size:16px}
+  .wr-name{font-size:22px}
 }
