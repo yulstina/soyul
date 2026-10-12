@@ -51,7 +51,17 @@
   const chapters = [...document.querySelectorAll('[data-chapter]')];
   const nav = document.getElementById('chapterIndex');
 
+  // 챕터가 속한 묶음(data-group)이 바뀌는 자리마다 레일에 묶음 이름을 끼운다.
+  let group = null;
   const links = chapters.map((ch, i) => {
+    const g = ch.closest('[data-group]')?.dataset.group;
+    if (g && g !== group) {
+      const label = document.createElement('span');
+      label.className = 'chapter-index-group';
+      label.textContent = g;
+      nav.appendChild(label);
+      group = g;
+    }
     const a = document.createElement('a');
     a.href = `#${ch.id}`;
     a.textContent = String(i + 1).padStart(2, '0');

@@ -66,7 +66,7 @@ body{margin:0;background:var(--void-100);color:var(--text-100);
      -webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
-h1,h2,h3,p{margin:0}
+h1,h2,h3,h4,p{margin:0}
 
 .meta{font-family:var(--font-mono);font-size:var(--fs-meta);font-weight:500;
       letter-spacing:.12em;text-transform:uppercase;color:var(--text-500)}
@@ -176,8 +176,6 @@ h1,h2,h3,p{margin:0}
                      padding-top:clamp(72px,11vh,132px);
                      padding-bottom:clamp(56px,8vh,100px);
                      display:flex;flex-direction:column;justify-content:center}
-/* 소개 → 첫 프로젝트는 섹션이 바뀌는 지점이라, 프로젝트끼리의 간격보다 더 벌린다. */
-#work .chapter:first-of-type{padding-top:clamp(72px,13vh,160px)}
 .section-intro .meta{display:block;margin-bottom:clamp(20px,3vh,36px)}
 .section-title{font-family:var(--font-display);font-weight:600;font-size:var(--fs-h2);
                line-height:1.06;letter-spacing:-.03em;color:var(--text-000);
@@ -187,6 +185,20 @@ h1,h2,h3,p{margin:0}
    the way in. Still capped, so it never runs the full 1680px measure. */
 .section-lede{margin-top:clamp(20px,3vh,32px);max-width:min(72ch,100%);color:var(--text-300);
               line-height:1.8;word-break:keep-all}
+
+/* Work groups --------------------------------------------------------------
+   WORK는 실무 / 개인 프로젝트 두 묶음으로 나뉜다. 묶음마다 짧은 머리말을 두어
+   지금 어느 쪽을 보고 있는지 스크롤 중에도 알 수 있게 한다. */
+.group-intro{padding:clamp(96px,14vh,168px) var(--margin) clamp(40px,6vh,72px);
+             padding-left:calc(var(--margin) + var(--rail))}
+#work-pro .group-intro{padding-top:clamp(64px,9vh,112px)}
+#work-self .group-intro{border-top:1px solid var(--line)}
+.group-intro .meta{display:block;margin-bottom:clamp(14px,2vh,22px)}
+.group-title{font-family:var(--font-display);font-weight:600;font-size:var(--fs-h2);
+             line-height:1.06;letter-spacing:-.03em;color:var(--text-000);word-break:keep-all}
+.group-desc{margin-top:clamp(12px,2vh,20px);color:var(--text-300);line-height:1.8;word-break:keep-all}
+/* 머리말 바로 아래 첫 챕터는 섹션 시작용 큰 여백 대신 챕터 기본 여백만 쓴다. */
+#work .group-intro + .chapter:not([data-layout="b"]){padding-top:clamp(24px,4vh,48px)}
 
 /* Chapter index ------------------------------------------------------------
    The "coordinate" element: a fixed read-out of where you are among the eight
@@ -206,6 +218,10 @@ h1,h2,h3,p{margin:0}
 .chapter-index a:hover{color:var(--text-300)}
 .chapter-index a.is-current{color:var(--text-000)}
 .chapter-index a.is-current::before{width:34px}
+/* 레일 안의 묶음 이름. 링크가 아니라 구분 표시라 한 단계 더 작고 흐리게 둔다. */
+.chapter-index-group{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;
+                     color:var(--text-300);margin-bottom:2px}
+.chapter-index-group:not(:first-child){margin-top:14px}
 
 /* Work chapters ------------------------------------------------------------
    한 프로젝트가 한 화면을 쓰되, 콘텐츠보다 화면이 크면 위아래로 검정 여백이
@@ -409,7 +425,8 @@ h1,h2,h3,p{margin:0}
   .chapter[data-layout="c"] .chapter-text{order:1}
   .chapter[data-layout="c"] .chapter-media{order:2}
   .chapter-index{display:none}
-  #work .section-intro{padding-left:var(--margin)}
+  #work .section-intro,
+  .group-intro{padding-left:var(--margin)}
 }
 /* 가로 한 줄이 좁아지면 회사별로 세로 스택으로 접는다. */
 @media (max-width:1023px){
