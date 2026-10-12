@@ -69,6 +69,7 @@
           <p>
             랜딩 · 브랜드 스토리 · 제품 목록 · 제품 상세 · 레시피 · 이벤트 섹션.
             한 페이지에서 스크롤로 이어지는 구조로 만들었습니다.
+            스토어 문의를 처리하는 CS 대시보드도 따로 만들었습니다.
           </p>
         </div>
         <div class="brief-cell">
@@ -76,6 +77,11 @@
           <ul>
             <li>HTML</li><li>CSS</li><li>JavaScript</li>
             <li>Vite</li>
+          </ul>
+          <h3 class="brief-sub">CS 자동화</h3>
+          <ul>
+            <li>Python</li><li>Flask</li><li>SQLite</li>
+            <li>네이버 커머스API</li><li>Claude Code</li>
           </ul>
         </div>
       </section>
@@ -164,6 +170,59 @@
           </figure>
         </div>
 
+        <div class="case-chapter" data-reveal><h2>CS Automation</h2></div>
+        <div class="shot-grid cols-2">
+          <figure class="shot" data-reveal>
+            <img src="assets/babambi/cs-dashboard.webp" alt="CS 대시보드에서 급여량 문의에 대한 답변 초안을 확인하는 화면" loading="lazy" />
+          </figure>
+          <figure class="shot" data-reveal>
+            <img src="assets/babambi/cs-claim.webp" alt="환불 요청 문의가 주의로 분류되고 이유가 표시된 화면" loading="lazy" />
+          </figure>
+        </div>
+
+      </section>
+
+      <!-- 스마트스토어 CS 대시보드. 화면은 시험용 가짜 문의로 찍었다. -->
+      <section class="case-flow" aria-label="CS 자동화 작업 과정">
+        <span class="meta">CS AUTOMATION</span>
+        <p class="flow-lead">
+          바밤비를 혼자 운영한다고 생각하고, 스마트스토어 1:1 문의와 상품문의를 한 화면에서
+          처리하는 CS 대시보드를 만들었습니다. 새 문의를 가져오면 상품 정보와 배송·반품 정책
+          문서를 근거로 답변 초안이 만들어지고, 효능·알레르기·환불처럼 제가 직접 봐야 하는
+          문의는 &lsquo;주의&rsquo;로 표시됩니다. 초안을 읽고 고친 뒤 [확인 후 등록]을 누른
+          답변만 스토어에 올라가도록 했습니다.
+        </p>
+        <ol class="flow">
+          <li class="flow-step" data-reveal>
+            <span class="flow-no">01</span>
+            <h3>CS 설계서 작성</h3>
+            <div class="flow-tags"><span>my-cs.md</span></div>
+          </li>
+          <li class="flow-step" data-reveal>
+            <span class="flow-no">02</span>
+            <h3>상품 · 정책 자료 정리</h3>
+            <div class="flow-tags"><span>Markdown</span></div>
+          </li>
+          <li class="flow-step" data-reveal>
+            <span class="flow-no">03</span>
+            <h3>스토어 연결</h3>
+            <div class="flow-tags"><span>네이버 커머스API</span></div>
+          </li>
+          <li class="flow-step" data-reveal>
+            <span class="flow-no">04</span>
+            <h3>대시보드 만들기</h3>
+            <div class="flow-tags"><span>Python</span><span>Flask</span><span>SQLite</span></div>
+          </li>
+          <li class="flow-step" data-reveal>
+            <span class="flow-no">05</span>
+            <h3>답변 초안 · 주의 표시</h3>
+            <div class="flow-tags"><span><i class="tool-icon is-text" aria-hidden="true">Cl</i>Claude Code</span></div>
+          </li>
+          <li class="flow-step is-last" data-reveal>
+            <span class="flow-no">06</span>
+            <h3>시험 모드로 등록 확인</h3>
+          </li>
+        </ol>
       </section>
 
       <section class="case-notes" aria-label="작업 내용">
@@ -257,6 +316,30 @@
               <div class="note-tags"><span>CSS</span></div>
             </div>
           </article>
+
+          <article class="note">
+            <span class="note-no">12</span>
+            <div class="note-body">
+              <h3>스토어 문의 가져오기 · 답변 등록</h3>
+              <div class="note-tags"><span>네이버 커머스API</span></div>
+            </div>
+          </article>
+
+          <article class="note">
+            <span class="note-no">13</span>
+            <div class="note-body">
+              <h3>금지 표현 검사 · 연락처 가리기</h3>
+              <div class="note-tags"><span>Python</span></div>
+            </div>
+          </article>
+
+          <article class="note">
+            <span class="note-no">14</span>
+            <div class="note-body">
+              <h3>시험 모드 · 확인 후 등록</h3>
+              <div class="note-tags"><span>Flask</span><span>SQLite</span></div>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -294,6 +377,14 @@
             <div class="note-body">
               <h3>배너 · 프로모션 콘텐츠</h3>
               <div class="note-tags"><span><i class="tool-icon is-text" aria-hidden="true">GPT</i>ChatGPT</span><span><i class="tool-icon" style="--icon:url(assets/icons/figma.svg)" aria-hidden="true"></i>Figma</span><span><i class="tool-icon is-text" aria-hidden="true">미</i>미리캔버스</span></div>
+            </div>
+          </article>
+
+          <article class="note">
+            <span class="note-no">T5</span>
+            <div class="note-body">
+              <h3>CS 대시보드 · 답변 초안</h3>
+              <div class="note-tags"><span><i class="tool-icon is-text" aria-hidden="true">Cl</i>Claude Code</span></div>
             </div>
           </article>
         </div>
