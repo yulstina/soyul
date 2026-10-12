@@ -1,6 +1,6 @@
 /* SOYUL PORTFOLIO — page behaviour outside the hero.
-   Four small jobs: smooth scroll, the header drop, the chapter coordinate
-   read-out, and one shared reveal primitive. Nothing here owns layout. */
+   Small jobs: smooth scroll, the header drop and one shared reveal
+   primitive. Nothing here owns layout. */
 (() => {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const header = document.getElementById('siteHeader');
@@ -45,53 +45,6 @@
     );
   }
 
-  /* Chapter coordinates ---------------------------------------------------
-     Built from the DOM so adding or reordering a chapter in index.html needs
-     no change here. */
-  const chapters = [...document.querySelectorAll('[data-chapter]')];
-  const nav = document.getElementById('chapterIndex');
-
-  // 챕터가 속한 묶음(data-group)이 바뀌는 자리마다 레일에 묶음 이름을 끼운다.
-  let group = null;
-  const links = chapters.map((ch, i) => {
-    const g = ch.closest('[data-group]')?.dataset.group;
-    if (g && g !== group) {
-      const label = document.createElement('span');
-      label.className = 'chapter-index-group';
-      label.textContent = g;
-      nav.appendChild(label);
-      group = g;
-    }
-    const a = document.createElement('a');
-    a.href = `#${ch.id}`;
-    a.textContent = String(i + 1).padStart(2, '0');
-    a.setAttribute('aria-label', ch.dataset.chapter);
-    nav.appendChild(a);
-    return a;
-  });
-
-  function syncChapters() {
-    // The rail reads out chapter positions, so it belongs to the chapters —
-    // not to WORK as a whole. Keying it to the section would light it up over
-    // the intro copy, which it then sits on top of.
-    // 필터(work-index.js)로 숨긴 챕터는 크기가 0이라 기준에서 뺀다.
-    const shown = chapters.filter((ch) => ch.offsetParent !== null);
-    if (!shown.length) return;
-    const first = shown[0].getBoundingClientRect();
-    const last = shown[shown.length - 1].getBoundingClientRect();
-    nav.classList.toggle('is-active',
-      first.top < innerHeight * 0.5 && last.bottom > innerHeight * 0.5);
-
-    // Current = the chapter whose box straddles the middle of the screen.
-    const mid = innerHeight / 2;
-    let current = -1;
-    chapters.forEach((ch, i) => {
-      const b = ch.getBoundingClientRect();
-      if (b.top <= mid && b.bottom >= mid) current = i;
-    });
-    links.forEach((a, i) => a.classList.toggle('is-current', i === current));
-  }
-
   let ticking = false;
   function onScroll() {
     if (ticking) return;
@@ -99,7 +52,6 @@
     requestAnimationFrame(() => {
       ticking = false;
       syncHeader();
-      syncChapters();
     });
   }
   addEventListener('scroll', onScroll, { passive: true });
@@ -205,5 +157,5 @@
      fallback rather than a degraded one. */
 
   syncHeader();
-  syncChapters();
+
 })();
