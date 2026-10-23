@@ -104,7 +104,9 @@
   const apply = (filter, animate = true) => {
     current = filter;
     buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.filter === filter)));
-    moveThumb(buttons.find((b) => b.dataset.filter === filter));
+    const on = buttons.find((b) => b.dataset.filter === filter);
+    moveThumb(on);
+    on.scrollIntoView?.({ inline: 'nearest', block: 'nearest' });
     zoneLong.hidden = !(filter === 'all' || filter === 'detail');
     zoneContent.hidden = filter === 'detail';
     cells.forEach((c) => {
