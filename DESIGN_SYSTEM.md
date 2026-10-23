@@ -731,7 +731,7 @@ CHROME="C:/Program Files/Google/Chrome/Application/chrome.exe"
   흐른다. 누르면 `design-[브랜드].html`. 상세 페이지는 860px 원본을 `--void-200` 위에
   세우고, 1280px 이상에서는 왼쪽에 단계 목차를 고정한다. 목차는 섹션을 하나씩 나열하지
   않고 도입 · 특징 · 신뢰 · 정보 같은 3~5단계로 묶는다(섹션이 20개를 넘어도 짧게 유지). 끝은 `case-next`로 다음
-  상세페이지에 이어진다(LUNÉA → BABAMBI → MODAK → LUNÉA).
+  상세페이지에 이어진다(LUNÉA → BABAMBI → MODAK → CIRRUS → LUNÉA).
 - **콘텐츠** — 원본 비율 그대로 쌓는 매스너리(`grid-auto-rows:6px` + JS row span).
   가로 배너는 두 칸. 카드뉴스는 뒤에 두 장이 겹친 묶음으로, 여러 장짜리는 장수 배지를
   단다. 누르면 `<dialog>` 뷰어, 여러 장은 뷰어 안에서 scroll-snap으로 넘긴다.
