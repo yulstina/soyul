@@ -393,6 +393,47 @@ h1,h2,h3,h4,p{margin:0}
                                                       transform:rotate(-45deg)}
 .work-row:focus-visible{outline:2px solid var(--text-000);outline-offset:-2px}
 
+/* DESIGN 안내 띠 — WORK 목록 끝에서 디자인 메뉴가 이어진다는 힌트.
+   행(.work-row)보다 한 단계 크게, 위에 굵은 선을 둬 목록이 끝났음을 알린다. */
+.design-teaser{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto 44px;
+               grid-template-areas:"meta meta meta" "main thumbs go";
+               align-items:center;gap:20px clamp(20px,3vw,48px);
+               margin:clamp(28px,5vh,56px) -12px 0;padding:clamp(24px,3.4vh,36px) 12px;
+               border-top:1px solid var(--line);border-bottom:1px solid var(--line-faint);
+               border-radius:4px;color:var(--text-300);
+               transition:background-color .3s ease}
+.dt-meta{grid-area:meta}
+.dt-main{grid-area:main;display:grid;gap:10px;min-width:0}
+.dt-title{font-family:var(--font-display);font-weight:700;
+          font-size:clamp(44px,6vw,92px);line-height:.88;letter-spacing:-.05em;
+          font-variation-settings:'wdth' 86;color:var(--text-000);
+          transition:transform .45s var(--ease)}
+.dt-sub{font:500 14px/1.5 var(--font-mono);letter-spacing:.06em;color:var(--text-300)}
+.dt-thumbs{grid-area:thumbs;display:flex;align-items:center;gap:8px}
+.dt-thumbs img{height:clamp(72px,8vw,112px);width:auto;border-radius:3px;
+               filter:brightness(.72) saturate(.85);
+               transition:filter .4s ease,transform .5s var(--ease)}
+.dt-thumbs img:nth-child(even){transform:translateY(10px)}
+.design-teaser .wr-go{grid-area:go}
+.design-teaser:hover,.design-teaser:focus-visible{background:var(--void-200)}
+.design-teaser:hover .dt-title,.design-teaser:focus-visible .dt-title{transform:translateX(8px)}
+.design-teaser:hover .dt-thumbs img,.design-teaser:focus-visible .dt-thumbs img{filter:none}
+.design-teaser:hover .dt-thumbs img:nth-child(even){transform:translateY(0)}
+.design-teaser:hover .wr-go,.design-teaser:focus-visible .wr-go{background:var(--text-000);color:var(--void-100);
+                                                               transform:rotate(-45deg)}
+.design-teaser:focus-visible{outline:2px solid var(--text-000);outline-offset:-2px}
+@media (max-width:1023px){
+  .dt-thumbs img:nth-child(n+4){display:none}
+}
+@media (max-width:767px){
+  .design-teaser{grid-template-columns:minmax(0,1fr) 44px;
+                 grid-template-areas:"meta meta" "main go" "thumbs thumbs"}
+  .dt-thumbs img{height:84px}
+}
+@media (prefers-reduced-motion:reduce){
+  .dt-thumbs img,.design-teaser .dt-title{transition:none}
+}
+
 /* 마우스를 올린 행의 대표 이미지. 포인터를 따라다니며, 목록 글자를 가리지 않게
    오른쪽 아래로 비켜 둔다. 터치 기기에서는 쓰지 않는다. */
 .work-thumb{position:fixed;left:0;top:0;z-index:30;width:clamp(220px,22vw,340px);
