@@ -242,8 +242,9 @@
   function initMap() {
     const map = document.querySelector('.dd-map');
     if (!map || !('IntersectionObserver' in window)) return;
+    // 목차는 섹션 몇 개씩을 한 단계로 묶는다. 어느 섹션이 보이든 그 단계가 켜진다.
     const links = [...map.querySelectorAll('a')];
-    const byId = new Map(links.map((a) => [a.hash.slice(1), a]));
+    const byId = new Map(links.flatMap((a) => (a.dataset.secs || a.hash.slice(1)).split(' ').map((id) => [id, a])));
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => {
         if (!en.isIntersecting) return;

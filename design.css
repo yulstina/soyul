@@ -188,7 +188,7 @@
 .dd-map{position:sticky;top:calc(var(--header-height) + 32px);align-self:start;
         display:grid;gap:2px;justify-self:end;width:min(100%,240px)}
 .dd-map .meta{margin-bottom:12px}
-.dd-map a{display:grid;grid-template-columns:28px minmax(0,1fr);gap:6px;padding:6px 0;
+.dd-map a{display:grid;grid-template-columns:28px minmax(0,1fr);gap:6px;padding:7px 0;
           font-size:13px;line-height:1.45;color:var(--text-500);transition:color .25s}
 .dd-map a span{font-family:var(--font-mono);font-size:11px;padding-top:1px}
 .dd-map a:hover{color:var(--text-100)}
