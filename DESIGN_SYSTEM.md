@@ -716,3 +716,27 @@ CHROME="C:/Program Files/Google/Chrome/Application/chrome.exe"
 
 9개 페이지의 내부 링크를 전수 확인했고 끊어진 링크는 없다. 이미지 누락 0건,
 가로 오버플로 0건. 마지막 NZ의 `case-next`는 01 BABAMBI로 돌아가 목록이 순환한다.
+
+## 30. DESIGN 페이지 — 상세페이지와 콘텐츠 디자인 (2026-10)
+
+메인 스크롤 흐름은 그대로 두고, 디자인 작업은 별도 페이지 `design.html`로 뺐다. 이미지가
+많아 메인에 넣으면 WORK를 1~2분에 훑는 동선(§2)이 길어진다.
+
+- **메뉴** — 데스크톱 헤더는 ABOUT · WORK · DESIGN · CAREER · CONTACT. 767px 이하는
+  메뉴 전체를 햄버거 패널로 접는다(`menu.js`). 다섯 개가 한 줄에 들어가지 않는다.
+- **분류** — 포맷 하나로만 나눈다: 전체 · 상세페이지 · 배너 · SNS · 카드뉴스. 브랜드는
+  캡션에만 적는다. 필터는 WORK와 같은 세그먼트 바이고, 개수가 0인 분류는 버튼을 만들지
+  않는다. 선택은 `design.html#sns`처럼 해시로 남아 링크로 보낼 수 있다.
+- **상세페이지** — 3:4 창 안에 세로 스트립을 두고, 올리면 길이에 비례한 속도로 아래까지
+  흐른다. 누르면 `design-[브랜드].html`. 상세 페이지는 860px 원본을 `--void-200` 위에
+  세우고, 1280px 이상에서는 왼쪽에 섹션 미니맵을 고정한다. 끝은 `case-next`로 다음
+  상세페이지에 이어진다(LUNÉA → BABAMBI → MODAK → LUNÉA).
+- **콘텐츠** — 원본 비율 그대로 쌓는 매스너리(`grid-auto-rows:6px` + JS row span).
+  가로 배너는 두 칸. 카드뉴스는 뒤에 두 장이 겹친 묶음으로, 여러 장짜리는 장수 배지를
+  단다. 누르면 `<dialog>` 뷰어, 여러 장은 뷰어 안에서 scroll-snap으로 넘긴다.
+- **공통 툴 4단계** — 기획 Claude · 이미지 생성 GPT · 이미지 편집·제작 Figma ·
+  영상 Flow, Higgsfield, CapCut. 목록 상단, 상세 페이지, 뷰어 캡션이 같은 순서와 로고를
+  쓴다. CapCut은 로고 파일이 없어 글자 아이콘(`.tool-icon.is-text`).
+- **데이터** — `design-data.js` 한 곳. 새 작업은 `assets/design/`에 이미지를 넣고 한 줄 추가.
+- **GIF는 mp4로** — 상세페이지 안의 움직이는 컷은 `autoplay muted loop playsinline` 영상으로
+  바꿔 슬라이스 위의 원래 자리에 겹친다. MODAK GIF 3개 8.5MB → 0.8MB.

@@ -1,0 +1,247 @@
+/* DESIGN — 상세페이지와 콘텐츠 디자인 (2026-10)
+   style.css/case.css의 보이드 토큰을 그대로 쓴다. 색은 작업물에서만 나온다.
+   목록(design.html)과 상세(design-*.html)가 이 파일 하나를 같이 쓴다. */
+
+.design-page main{padding-top:var(--header-height)}
+.design-wrap{max-width:1680px;margin-inline:auto;padding-inline:var(--margin)}
+
+/* 공통 툴 4단계 ---------------------------------------------------------------
+   기획 → 이미지 생성 → 이미지 편집·제작 → 영상. 실제 작업 순서라 번호를 붙인다. */
+.tool-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+            border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tool-step{padding:16px 18px 18px;display:grid;gap:12px;align-content:start;min-width:0}
+.tool-step + .tool-step{border-left:1px solid var(--line-faint)}
+.tool-step-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tool-step-tags span{display:inline-flex;align-items:center;gap:7px;
+                     padding:7px 12px 7px 9px;border:1px solid var(--line);border-radius:999px;
+                     font-size:13px;font-weight:600;line-height:1;color:var(--text-100);
+                     white-space:nowrap}
+.tool-step-tags .tool-logo{margin-right:0}
+.tool-step-tags .tool-icon.is-text{margin-right:0}
+/* 아이콘만 나란히 — 카드·뷰어 캡션용 */
+.tool-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap;color:var(--text-100)}
+.tool-row .tool-logo,.tool-row .tool-icon{margin-right:0}
+
+/* 목록 머리 -------------------------------------------------------------------- */
+.design-intro{padding-block:clamp(56px,10vh,120px) 32px;display:grid;
+              grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end}
+.design-title{font-family:var(--font-display);font-weight:700;
+              font-size:clamp(64px,13vw,210px);line-height:.82;letter-spacing:-.055em;
+              font-variation-settings:'wdth' 84;color:var(--text-000)}
+.design-title sup{font-family:var(--font-mono);font-size:13px;font-weight:500;
+                  letter-spacing:.06em;color:var(--text-500);vertical-align:top;
+                  margin-left:12px;position:relative;top:.7em;font-variation-settings:normal}
+.design-lede{max-width:32ch;color:var(--text-300);font-size:15px;line-height:1.7}
+.design-tools{margin-bottom:32px}
+
+.design-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;
+            flex-wrap:wrap;margin-bottom:clamp(28px,4vh,44px)}
+/* WORK 필터와 같은 세그먼트 바. 버튼이 늘어나 모바일에서는 가로로 스크롤된다. */
+.design-filter{position:relative;display:inline-flex;padding:4px;max-width:100%;
+               border:1px solid var(--line);border-radius:999px;
+               overflow-x:auto;scrollbar-width:none}
+.design-filter::-webkit-scrollbar{display:none}
+.design-filter-thumb{position:absolute;left:0;top:4px;bottom:4px;width:0;
+                     border-radius:999px;background:var(--text-000);
+                     transition:transform .5s var(--ease),width .5s var(--ease)}
+.design-filter:not(.is-ready) .design-filter-thumb{transition:none}
+.design-filter button{position:relative;z-index:1;flex:none;
+                      font:600 15px/1 var(--font-body);color:var(--text-300);
+                      background:none;cursor:pointer;border:0;border-radius:999px;
+                      padding:13px 20px;transition:color .35s ease}
+.design-filter button span{font-family:var(--font-mono);font-weight:500;font-size:13px;
+                           color:var(--text-500);margin-left:6px;transition:color .35s ease}
+.design-filter button:hover{color:var(--text-000)}
+.design-filter button[aria-pressed="true"]{color:var(--void-100)}
+.design-filter button[aria-pressed="true"] span{color:var(--void-300)}
+.design-filter button:focus-visible{outline:2px solid var(--text-000);outline-offset:2px}
+.design-hint{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:var(--text-500)}
+
+.design-zone{padding-bottom:clamp(56px,9vh,112px)}
+.design-zone[hidden]{display:none}
+.design-zone-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+                  border-top:1px solid var(--line);padding:16px 0 24px}
+.design-zone-head h2{font-family:var(--font-display);font-size:14px;font-weight:700;
+                     letter-spacing:.14em;color:var(--text-000)}
+
+/* 상세페이지 롱폼 카드: 올리면 페이지가 위에서 아래로 흐른다 --------------------- */
+.long-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.4vw,40px)}
+.long-card{display:grid;gap:18px;align-content:start;color:inherit}
+.long-win{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:6px;
+          background:var(--void-300);max-width:100%}
+.long-win img{position:absolute;left:0;top:0;width:100%;height:auto;
+              filter:brightness(.86) saturate(.9);
+              transition:transform 1.1s var(--ease),filter .45s ease}
+.long-card:hover .long-win img,.long-card:focus-visible .long-win img{
+  transform:translateY(var(--shift,0));filter:none;
+  transition:transform var(--dur,8s) linear,filter .45s ease}
+.long-bar{position:absolute;right:8px;top:8px;bottom:8px;width:2px;border-radius:2px;
+          background:rgba(255,255,255,.16);overflow:hidden}
+.long-bar i{display:block;height:18%;background:var(--text-000);
+            transition:transform 1.1s var(--ease)}
+.long-card:hover .long-bar i,.long-card:focus-visible .long-bar i{
+  transform:translateY(455%);transition:transform var(--dur,8s) linear}
+.long-card:focus-visible{outline:none}
+.long-card:focus-visible .long-win{outline:2px solid var(--text-000);outline-offset:4px}
+.long-text{display:grid;gap:8px;min-width:0}
+.long-text h3{font-family:var(--font-display);font-weight:700;font-size:clamp(24px,2.4vw,36px);
+              line-height:1;letter-spacing:-.035em;font-variation-settings:'wdth' 88;color:var(--text-000)}
+.long-text p{color:var(--text-300);font-size:14px;line-height:1.65}
+.long-go{display:inline-flex;align-items:center;gap:10px;margin-top:6px;
+         font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:var(--text-100)}
+.long-go i{width:36px;height:36px;display:grid;place-items:center;font-style:normal;
+           border:1px solid var(--line-strong);border-radius:50%;
+           transition:background .3s,color .3s,transform .35s var(--ease)}
+.long-card:hover .long-go i{background:var(--text-000);color:var(--void-100);transform:rotate(-45deg)}
+
+/* 콘텐츠 그리드: 원본 비율 그대로 쌓는 매스너리 ----------------------------------
+   grid-auto-rows 한 칸 높이에 맞춰 design.js가 각 셀의 row span을 잡는다. */
+.mason{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:6px;
+       gap:0 clamp(14px,1.6vw,24px);grid-auto-flow:dense}
+.cell{display:block;align-self:start;margin:0;padding:0;border:0;background:none;
+      color:inherit;text-align:left;cursor:zoom-in;font:inherit;min-width:0;
+      transition:opacity .35s ease,transform .45s var(--ease)}
+.cell.is-wide{grid-column:span 2}
+.cell.is-leave{opacity:0;transform:translateY(10px)}
+.cell-media{position:relative;display:block;overflow:hidden;border-radius:6px;background:var(--void-300)}
+.cell-media img{display:block;width:100%;height:auto;filter:brightness(.82) saturate(.88);
+                transition:filter .45s ease,transform .7s var(--ease)}
+.cell:hover .cell-media img,.cell:focus-visible .cell-media img{filter:none;transform:scale(1.025)}
+.cell:focus-visible{outline:none}
+.cell:focus-visible .cell-media{outline:2px solid var(--text-000);outline-offset:3px}
+.cell-count{position:absolute;right:10px;top:10px;z-index:2;
+            font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;
+            padding:5px 9px;border-radius:999px;color:var(--text-000);
+            background:rgba(8,8,10,.72);backdrop-filter:blur(8px)}
+/* 카드뉴스: 뒤에 두 장이 겹친 묶음 — 넘기는 콘텐츠라는 표시 */
+.cell.is-deck .cell-media{overflow:visible;background:none}
+.cell.is-deck .cell-media::before,.cell.is-deck .cell-media::after{
+  content:"";position:absolute;inset:0;border-radius:6px;z-index:-1;
+  transition:transform .5s var(--ease)}
+.cell.is-deck .cell-media::before{background:var(--void-300);transform:translate(10px,-10px) rotate(3deg)}
+.cell.is-deck .cell-media::after{background:#24242a;transform:translate(5px,-5px) rotate(1.5deg)}
+.cell.is-deck:hover .cell-media::before{transform:translate(22px,-14px) rotate(7deg)}
+.cell.is-deck:hover .cell-media::after{transform:translate(11px,-7px) rotate(3.5deg)}
+.cell.is-deck .cell-media img{border-radius:6px;position:relative}
+.cell.is-deck{isolation:isolate}
+.cell-cap{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+          padding:12px 2px 0;min-width:0}
+.cell-cap b{font-size:14px;font-weight:600;color:var(--text-100);min-width:0;
+            overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cell-cap span{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;
+               color:var(--text-500);flex:none;text-transform:uppercase}
+
+/* 뷰어 ------------------------------------------------------------------------ */
+.viewer{width:100%;max-width:none;height:100%;max-height:none;margin:0;padding:0;border:0;
+        background:rgba(0,0,0,.95);color:var(--text-100)}
+.viewer::backdrop{background:rgba(0,0,0,.6)}
+.viewer-in{height:100%;display:grid;grid-template-rows:auto minmax(0,1fr) auto;
+           padding:calc(16px + env(safe-area-inset-top,0px)) var(--margin)
+                   calc(16px + env(safe-area-inset-bottom,0px))}
+.viewer-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.viewer-btn{width:46px;height:46px;display:grid;place-items:center;flex:none;
+            border:1px solid var(--line-strong);border-radius:50%;
+            background:rgba(8,8,10,.6);color:var(--text-000);
+            font:500 16px/1 var(--font-mono);cursor:pointer;
+            transition:background .25s,color .25s}
+.viewer-btn:hover{background:var(--text-000);color:var(--void-100)}
+.viewer-btn:focus-visible{outline:2px solid var(--text-000);outline-offset:3px}
+/* 미디어는 무대 안에 절대 위치로 채우고 object-fit으로 비율을 지킨다.
+   퍼센트 높이를 그리드 안에서 풀게 두면 세로로 긴 이미지가 아래로 넘친다. */
+.viewer-stage{position:relative;min-height:0}
+.viewer-media{position:absolute;inset:16px 0;width:100%;height:calc(100% - 32px);object-fit:contain}
+.viewer-track{position:absolute;inset:16px 0;display:flex;overflow-x:auto;
+              scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.viewer-track::-webkit-scrollbar{display:none}
+.viewer-track > div{flex:0 0 100%;min-width:0;height:100%;scroll-snap-align:center;padding-inline:4px}
+.viewer-track img{width:100%;height:100%;object-fit:contain}
+.viewer-nav{position:absolute;z-index:2;left:0;right:0;top:50%;transform:translateY(-50%);
+            display:flex;justify-content:space-between;pointer-events:none}
+.viewer-nav .viewer-btn{pointer-events:auto}
+.viewer-foot{display:flex;justify-content:space-between;align-items:baseline;gap:16px 28px;
+             flex-wrap:wrap;border-top:1px solid var(--line-faint);padding-top:14px}
+.viewer-title{display:grid;gap:4px}
+.viewer-title h2{font-size:18px;font-weight:700;color:var(--text-000)}
+.viewer-meta{display:flex;flex-wrap:wrap;gap:8px 24px;margin:0}
+.viewer-meta dt{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;color:var(--text-500)}
+.viewer-meta dd{margin:2px 0 0;font-size:14px;color:var(--text-100)}
+
+/* 상세 페이지 ------------------------------------------------------------------ */
+.dd-open{padding-block:clamp(48px,9vh,112px) clamp(32px,5vh,56px);display:grid;gap:28px}
+.dd-back{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;color:var(--text-300);
+         justify-self:start;transition:color .25s}
+.dd-back:hover{color:var(--text-000)}
+.dd-title{font-family:var(--font-display);font-weight:700;font-size:var(--fs-mega);
+          line-height:.88;letter-spacing:-.05em;font-variation-settings:'wdth' 88;color:var(--text-000)}
+.dd-tagline{max-width:46ch;font-size:clamp(17px,1.4vw,21px);line-height:1.6;color:var(--text-100)}
+.dd-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0;
+          border-top:1px solid var(--line)}
+.dd-facts div{padding:14px 16px 16px 0;border-bottom:1px solid var(--line-faint);min-width:0}
+.dd-facts dt{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;color:var(--text-500)}
+.dd-facts dd{margin:4px 0 0;font-size:15px;color:var(--text-100)}
+.dd-note{font-size:14px;color:var(--text-300);border-left:1px solid var(--line-strong);padding-left:14px}
+.dd-note b{color:var(--text-000);font-weight:600}
+
+.dd-body{display:grid;grid-template-columns:minmax(0,1fr) 860px minmax(0,1fr);gap:40px;
+         background:var(--void-200);padding-block:clamp(40px,6vh,72px) clamp(64px,10vh,120px);
+         padding-inline:var(--margin);border-top:1px solid var(--line-faint)}
+.dd-map{position:sticky;top:calc(var(--header-height) + 32px);align-self:start;
+        display:grid;gap:2px;justify-self:end;width:min(100%,240px)}
+.dd-map .meta{margin-bottom:12px}
+.dd-map a{display:grid;grid-template-columns:28px minmax(0,1fr);gap:6px;padding:6px 0;
+          font-size:13px;line-height:1.45;color:var(--text-500);transition:color .25s}
+.dd-map a span{font-family:var(--font-mono);font-size:11px;padding-top:1px}
+.dd-map a:hover{color:var(--text-100)}
+.dd-map a[aria-current="true"]{color:var(--text-000)}
+.dd-paper{grid-column:2;line-height:0;background:var(--void-300);
+          box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+.dd-paper img,.dd-paper video{display:block;width:100%;height:auto}
+.dd-sec{scroll-margin-top:calc(var(--header-height) + 24px)}
+/* 슬라이스 위에 원래 GIF 자리를 영상으로 겹친다. 위치는 슬라이스 픽셀 기준 % */
+.dd-slot{position:relative}
+.dd-slot video{position:absolute;object-fit:cover}
+.dd-slot-text{position:absolute;left:5.8%;bottom:9%;color:#fff;line-height:1.55;
+              font-size:clamp(14px,2.6vw,22px);letter-spacing:-.01em;
+              text-shadow:0 1px 12px rgba(0,0,0,.35)}
+/* LUNÉA: 4번 컷 → 영상 → 5번 컷, 배경색을 이어 이음새를 지운다 */
+.dd-serum{background:linear-gradient(#eee8f6 0,#eee8f6 62%,#fcf7fd 100%);padding:0 3.02% 1%}
+.dd-serum div{border-radius:4.2% / 7.4%;overflow:hidden;aspect-ratio:16/9;background:#eed6f7}
+.dd-serum video{width:100%;height:100%;object-fit:cover}
+.dd-graph{background:#fcf7fd}
+.dd-dog{aspect-ratio:860/751;background:#e9dccd;overflow:hidden}
+.dd-dog video{width:100%;height:100%!important;object-fit:cover}
+
+/* 반응형 --------------------------------------------------------------------- */
+@media (max-width:1279px){
+  .mason{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .dd-body{grid-template-columns:minmax(0,1fr);padding-inline:0}
+  .dd-map{display:none}
+  .dd-paper{grid-column:1;width:100%;max-width:860px;margin-inline:auto}
+}
+@media (max-width:1023px){
+  .long-list{grid-template-columns:minmax(0,1fr)}
+  .long-card{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end;gap:24px}
+  .tool-steps,.dd-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tool-step:nth-child(3){border-left:0}
+  .tool-step:nth-child(n+3){border-top:1px solid var(--line-faint)}
+}
+@media (max-width:767px){
+  .design-intro{grid-template-columns:minmax(0,1fr)}
+  .design-hint{display:none}
+  .mason{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cell-cap{flex-direction:column;gap:3px}
+  .cell-cap b{white-space:normal}
+  .long-card{grid-template-columns:minmax(0,1fr)}
+  .long-win{aspect-ratio:4/4.2}
+  .viewer-nav{display:none}
+  .viewer-in{padding-inline:16px}
+  .tool-step{padding:14px 12px 16px}
+}
+@media (hover:none){
+  .long-card .long-win img{transform:none!important}
+  .long-bar{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .long-card .long-win img{transform:none!important}
+  .cell,.cell-media img,.long-go i{transition:none}
+}
