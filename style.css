@@ -460,3 +460,32 @@ h1,h2,h3,h4,p{margin:0}
 .tool-icon.is-text{font-family:var(--font-mono);font-size:8px;font-weight:500;
   letter-spacing:0;line-height:1;border:1px solid currentColor;border-radius:3px;
   width:15px;height:14px;opacity:.9;margin-right:3px}
+
+/* Mobile menu ---------------------------------------------------------------
+   767px 이하에서는 메뉴를 햄버거 안에 넣는다. DESIGN은 이 패널에서만 보인다.
+   버튼은 menu.js가 만든다. */
+.menu-btn{display:none}
+@media (max-width:767px){
+  .menu-btn{display:block;width:40px;height:40px;margin-right:-10px;padding:0;
+            background:none;border:0;color:var(--text-000);cursor:pointer;position:relative;z-index:2}
+  .menu-btn i{position:absolute;left:10px;top:50%;width:20px;height:1.5px;margin-top:-.75px;
+              background:currentColor;transition:transform .35s var(--ease)}
+  .menu-btn i:first-child{transform:translateY(-4px)}
+  .menu-btn i:last-child{transform:translateY(4px)}
+  .is-menu-open .menu-btn i:first-child{transform:rotate(45deg)}
+  .is-menu-open .menu-btn i:last-child{transform:rotate(-45deg)}
+  .menu-btn:focus-visible{outline:2px solid var(--text-000);outline-offset:2px;border-radius:50%}
+  .site-nav{position:fixed;inset:0;z-index:1;display:flex;flex-direction:column;
+            justify-content:center;gap:6px;padding:0 var(--margin);
+            background:var(--void-000);opacity:0;visibility:hidden;
+            transition:opacity .35s ease,visibility 0s linear .35s}
+  .is-menu-open .site-nav{opacity:1;visibility:visible;transition:opacity .35s ease}
+  .site-nav a{font-family:var(--font-display);font-size:clamp(40px,12vw,56px);font-weight:700;
+              letter-spacing:-.04em;text-transform:none;color:var(--text-300);line-height:1.15}
+  .site-nav a[aria-current="page"]{color:var(--text-000)}
+  .site-logo{position:relative;z-index:2}
+  /* 패널이 열리면 헤더 블러 면이 패널 위에 띠처럼 남지 않게 한다. */
+  .site-header.is-menu-open{transform:none;backdrop-filter:none;background:transparent}
+  .site-header.is-menu-open::after{transform:scaleX(0)}
+}
+.site-nav a[aria-current="page"]{color:var(--text-000)}
