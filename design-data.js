@@ -6,7 +6,7 @@
 window.DESIGN_TOOLS = [
   { step: '기획', tools: [['Claude', 'assets/icons/claude-color.svg']] },
   { step: '이미지 생성', tools: [['GPT', 'assets/icons/openai.svg', 'mask']] },
-  { step: '이미지 편집·제작', tools: [['Figma', 'assets/icons/figma-color.svg']] },
+  { step: '이미지 편집·제작', tools: [['Figma', 'assets/icons/figma-color.svg'], ['Photoshop', 'assets/icons/photoshop.svg', 'mask'], ['Illustrator', 'assets/icons/illustrator.svg', 'mask']] },
   { step: '영상', tools: [['Flow', 'assets/icons/flow.webp'], ['Higgsfield', 'assets/icons/higgsfield.webp'], ['CapCut', 'CC', 'text']] },
 ];
 
