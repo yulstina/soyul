@@ -735,7 +735,7 @@ CHROME="C:/Program Files/Google/Chrome/Application/chrome.exe"
 - **콘텐츠** — 원본 비율 그대로 쌓는 매스너리(`grid-auto-rows:6px` + JS row span).
   가로 배너는 두 칸. 카드뉴스는 뒤에 두 장이 겹친 묶음으로, 여러 장짜리는 장수 배지를
   단다. 누르면 `<dialog>` 뷰어, 여러 장은 뷰어 안에서 scroll-snap으로 넘긴다.
-- **공통 툴 4단계** — 기획 Claude · 이미지 생성 GPT · 이미지 편집·제작 Figma ·
+- **공통 툴 4단계** — 기획 Claude · 이미지 생성 GPT · 이미지 편집·제작 Figma·Photoshop·Illustrator ·
   영상 Flow, Higgsfield, CapCut. 목록 상단, 상세 페이지, 뷰어 캡션이 같은 순서와 로고를
   쓴다. CapCut은 로고 파일이 없어 글자 아이콘(`.tool-icon.is-text`).
 - **데이터** — `design-data.js` 한 곳. 새 작업은 `assets/design/`에 이미지를 넣고 한 줄 추가.
