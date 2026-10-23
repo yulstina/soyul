@@ -26,6 +26,10 @@ window.DESIGN_ITEMS = (() => {
       desc: '잔불처럼 켜지는 캠핑 랜턴 상세페이지. 불이 켜지는 장면과 색온도 전환을 영상으로 넣었습니다.',
       href: 'design-modak.html', thumb: 'assets/design/modak/strip.webp', w: 480, h: 3403 },
 
+    { id: 'cirrus', type: 'detail', brand: 'CIRRUS NIMBUS', title: 'CIRRUS NIMBUS', kicker: 'HOME APPLIANCE · 2026',
+      desc: '날개 없는 링에 바람과 빛을 담은 서큘레이터 팬램프 상세페이지. 23개 섹션에 시연 영상 4컷을 넣었습니다.',
+      href: 'design-cirrus.html', thumb: 'assets/design/cirrus/strip.webp', w: 480, h: 4400 },
+
     // 콘텐츠 — 뷰어로 본다. 순서는 브랜드가 섞이도록 배치
     { id: 'modak-card', type: 'card', brand: 'MODAK EMBER', title: '생활용품 카드뉴스', fmt: 'CARD NEWS 4:5',
       size: '1080 × 1350 · 8장', thumb: `${C}modak-card-01@640.webp`, w: 640, h: 800, slides: set(range('modak-card', 8)) },
