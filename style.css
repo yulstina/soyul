@@ -525,8 +525,19 @@ h1,h2,h3,h4,p{margin:0}
               letter-spacing:-.04em;text-transform:none;color:var(--text-300);line-height:1.15}
   .site-nav a[aria-current="page"]{color:var(--text-000)}
   .site-logo{position:relative;z-index:2}
+  /* transform·backdrop-filter가 걸린 헤더는 fixed 자식(.site-nav)의 기준 박스가 된다.
+     열릴 때 이 값이 풀리면 패널이 헤더 크기에서 화면 크기로 바뀌며 메뉴가 위에서
+     떨어져 보이므로, 모바일에서는 헤더에서 둘 다 빼고 같은 효과를 다른 방식으로 낸다. */
+  .site-header{transform:none;backdrop-filter:none;background:none;
+               transition:opacity .3s ease-out}
+  .site-header::before{content:"";position:absolute;inset:0;z-index:0;
+                       background:rgba(8,8,10,.72);backdrop-filter:blur(14px);
+                       transform:translateY(-100%);transition:transform .55s var(--ease)}
+  .site-header.is-visible::before{transform:translateY(0)}
+  .site-header.is-visible{transform:none}
+  .site-header-inner{position:relative}
   /* 패널이 열리면 헤더 블러 면이 패널 위에 띠처럼 남지 않게 한다. */
-  .site-header.is-menu-open{transform:none;backdrop-filter:none;background:transparent}
+  .site-header.is-menu-open::before{opacity:0;transition:none}
   .site-header.is-menu-open::after{transform:scaleX(0)}
 }
 .site-nav a[aria-current="page"]{color:var(--text-000)}
