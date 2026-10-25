@@ -201,6 +201,9 @@
 /* 슬라이스 위에 원래 GIF 자리를 영상으로 겹친다. 위치는 슬라이스 픽셀 기준 % */
 .dd-slot{position:relative}
 .dd-slot video{position:absolute;object-fit:cover}
+.dd-overlay,.dd-note{position:absolute;display:block;pointer-events:none}
+.dd-notes .dd-note{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s cubic-bezier(.22,.61,.36,1)}
+.dd-notes .dd-note.on{opacity:1;transform:none}
 .dd-slot-text{position:absolute;left:5.8%;bottom:9%;color:#fff;line-height:1.55;
               font-size:clamp(14px,2.6vw,22px);letter-spacing:-.01em;
               text-shadow:0 1px 12px rgba(0,0,0,.35)}
@@ -249,4 +252,5 @@
 @media (prefers-reduced-motion:reduce){
   .long-card .long-win img{transform:none!important}
   .cell,.cell-media img,.long-go i{transition:none}
+  .dd-notes .dd-note{opacity:1;transform:none;transition:none}
 }

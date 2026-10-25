@@ -27,6 +27,7 @@
   });
 
   initMap();
+  initNotes();
 
   const root = document.querySelector('.design-index');
   if (!root) return;
@@ -264,5 +265,25 @@
       e.preventDefault();
       window.__lenis.scrollTo(target, { offset: -(document.getElementById('siteHeader')?.offsetHeight || 0) - 16 });
     }));
+  }
+
+  // 향 노트 1→2→3 순차 등장 — 화면에 들어오면 루프, 벗어나면 정지.
+  function initNotes() {
+    const box = document.querySelector('.dd-notes');
+    if (!box) return;
+    const notes = [...box.querySelectorAll('.dd-note')];
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+      notes.forEach((n) => n.classList.add('on'));
+      return;
+    }
+    let timers = [];
+    const stop = () => { timers.forEach(clearTimeout); timers = []; };
+    const run = () => {
+      stop();
+      notes.forEach((n) => n.classList.remove('on'));
+      notes.forEach((n, i) => timers.push(setTimeout(() => n.classList.add('on'), 600 + i * 1000)));
+      timers.push(setTimeout(run, 5200));
+    };
+    new IntersectionObserver((es) => es.forEach((e) => (e.isIntersecting ? run() : stop())), { threshold: 0.3 }).observe(box);
   }
 })();
