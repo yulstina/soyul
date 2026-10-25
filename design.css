@@ -70,11 +70,10 @@
 .long-win{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:6px;
           background:var(--void-300);max-width:100%}
 .long-win img{position:absolute;left:0;top:0;width:100%;height:auto;
-              filter:brightness(.86) saturate(.9);
-              transition:transform 1.1s var(--ease),filter .45s ease}
+              transition:transform 1.1s var(--ease)}
 .long-card:hover .long-win img,.long-card:focus-visible .long-win img{
-  transform:translateY(var(--shift,0));filter:none;
-  transition:transform var(--dur,8s) linear,filter .45s ease}
+  transform:translateY(var(--shift,0));
+  transition:transform var(--dur,8s) linear}
 .long-bar{position:absolute;right:8px;top:8px;bottom:8px;width:2px;border-radius:2px;
           background:rgba(255,255,255,.16);overflow:hidden}
 .long-bar i{display:block;height:18%;background:var(--text-000);
@@ -106,9 +105,9 @@
 .cell.is-wide{grid-column:span 2}
 .cell.is-leave{opacity:0;transform:translateY(10px)}
 .cell-media{position:relative;display:block;overflow:hidden;border-radius:6px;background:var(--void-300)}
-.cell-media img{display:block;width:100%;height:auto;filter:brightness(.82) saturate(.88);
-                transition:filter .45s ease,transform .7s var(--ease)}
-.cell:hover .cell-media img,.cell:focus-visible .cell-media img{filter:none;transform:scale(1.025)}
+.cell-media img{display:block;width:100%;height:auto;
+                transition:transform .7s var(--ease)}
+.cell:hover .cell-media img,.cell:focus-visible .cell-media img{transform:scale(1.025)}
 .cell:focus-visible{outline:none}
 .cell:focus-visible .cell-media{outline:2px solid var(--text-000);outline-offset:3px}
 .cell-count{position:absolute;right:10px;top:10px;z-index:2;
