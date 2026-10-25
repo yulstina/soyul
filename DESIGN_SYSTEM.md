@@ -731,12 +731,12 @@ CHROME="C:/Program Files/Google/Chrome/Application/chrome.exe"
   흐른다. 누르면 `design-[브랜드].html`. 상세 페이지는 860px 원본을 `--void-200` 위에
   세우고, 1280px 이상에서는 왼쪽에 단계 목차를 고정한다. 목차는 섹션을 하나씩 나열하지
   않고 도입 · 특징 · 신뢰 · 정보 같은 3~5단계로 묶는다(섹션이 20개를 넘어도 짧게 유지). 끝은 `case-next`로 다음
-  상세페이지에 이어진다(LUNÉA → BABAMBI → MODAK → CIRRUS → LUNÉA).
+  상세페이지에 이어진다(LUNÉA → BABAMBI → MODAK → CIRRUS → GYEOL → LUNÉA).
 - **콘텐츠** — 원본 비율 그대로 쌓는 매스너리(`grid-auto-rows:6px` + JS row span).
   가로 배너는 두 칸. 카드뉴스는 뒤에 두 장이 겹친 묶음으로, 여러 장짜리는 장수 배지를
   단다. 누르면 `<dialog>` 뷰어, 여러 장은 뷰어 안에서 scroll-snap으로 넘긴다.
 - **공통 툴 4단계** — 기획 Claude · 이미지 생성 GPT · 이미지 편집·제작 Figma·Photoshop·Illustrator ·
-  영상 Flow, Higgsfield, CapCut. 목록 상단, 상세 페이지, 뷰어 캡션이 같은 순서와 로고를
+  영상 Flow, CapCut (Higgsfield는 쓴 브랜드에만: LUNÉA 영상, GYEOL 이미지 생성·영상, `designToolsFor(brand)`). 목록 상단, 상세 페이지, 뷰어 캡션이 같은 순서와 로고를
   쓴다. CapCut은 로고 파일이 없어 글자 아이콘(`.tool-icon.is-text`).
 - **데이터** — `design-data.js` 한 곳. 새 작업은 `assets/design/`에 이미지를 넣고 한 줄 추가.
 - **GIF는 mp4로** — 상세페이지 안의 움직이는 컷은 `autoplay muted loop playsinline` 영상으로

@@ -4,7 +4,7 @@
 (() => {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const ITEMS = window.DESIGN_ITEMS || [];
-  const TOOLS = window.DESIGN_TOOLS || [];
+  const toolsFor = (brand) => (window.designToolsFor ? window.designToolsFor(brand) : window.DESIGN_TOOLS || []);
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
   const toolIcon = ([name, src, kind]) => {
@@ -12,12 +12,14 @@
     if (kind === 'mask') return `<i class="tool-icon" style="--icon:url(${src})" aria-hidden="true"></i>`;
     return `<img class="tool-logo" src="${src}" alt="" width="16" height="16" />`;
   };
-  const allTools = TOOLS.flatMap((s) => s.tools);
-  const toolRow = () => `<span class="tool-row" role="img" aria-label="${allTools.map((t) => t[0]).join(', ')}">${allTools.map(toolIcon).join('')}</span>`;
+  const toolRow = (brand) => {
+    const all = toolsFor(brand).flatMap((s) => s.tools);
+    return `<span class="tool-row" role="img" aria-label="${all.map((t) => t[0]).join(', ')}">${all.map(toolIcon).join('')}</span>`;
+  };
 
   // 공통 툴 띠 — 목록과 상세 페이지가 같은 마크업을 쓴다.
   document.querySelectorAll('[data-tool-steps]').forEach((el) => {
-    el.innerHTML = TOOLS.map((s, i) => `
+    el.innerHTML = toolsFor(el.dataset.brand).map((s, i) => `
       <div class="tool-step">
         <span class="meta">${String(i + 1).padStart(2, '0')} · ${s.step}</span>
         <div class="tool-step-tags">${s.tools.map((t) => `<span>${toolIcon(t)}${t[0]}</span>`).join('')}</div>
@@ -39,7 +41,7 @@
         <span class="meta">${it.kicker}</span>
         <h3>${esc(it.title)}</h3>
         <p>${esc(it.desc)}</p>
-        ${toolRow()}
+        ${toolRow(it.brand)}
         <span class="long-go"><i aria-hidden="true">→</i>상세페이지 보기</span>
       </span>
     </a>`).join('');
@@ -172,7 +174,7 @@
     titleEl.innerHTML = `<span class="meta">${esc(it.brand)}</span><h2>${esc(it.title)}</h2>`;
     metaEl.innerHTML = `<div><dt>FORMAT</dt><dd>${esc(it.fmt)}</dd></div><div><dt>SIZE</dt><dd>${esc(it.size)}</dd></div>`
       + `<div><dt>PAGE</dt><dd class="viewer-page">${it.slides.length > 1 ? `01 / ${pad(it.slides.length)}` : '—'}</dd></div>`
-      + `<div><dt>TOOLS</dt><dd>${toolRow()}</dd></div>`;
+      + `<div><dt>TOOLS</dt><dd>${toolRow(it.brand)}</dd></div>`;
   };
   function syncCount() {
     if (!track) return;

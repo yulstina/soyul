@@ -7,8 +7,25 @@ window.DESIGN_TOOLS = [
   { step: '기획', tools: [['Claude', 'assets/icons/claude-color.svg']] },
   { step: '이미지 생성', tools: [['GPT', 'assets/icons/openai.svg', 'mask']] },
   { step: '이미지 편집·제작', tools: [['Figma', 'assets/icons/figma-color.svg'], ['Photoshop', 'assets/icons/photoshop.svg', 'mask'], ['Illustrator', 'assets/icons/illustrator.svg', 'mask']] },
-  { step: '영상', tools: [['Flow', 'assets/icons/flow.webp'], ['Higgsfield', 'assets/icons/higgsfield.webp'], ['CapCut', 'CC', 'text']] },
+  { step: '영상', tools: [['Flow', 'assets/icons/flow.webp'], ['CapCut', 'CC', 'text']] },
 ];
+
+/* Higgsfield는 쓴 브랜드에만 붙인다: 브랜드 → 붙일 단계. 브랜드를 안 넘기면(목록 상단 띠)
+   쓴 단계를 모두 합친다. */
+window.DESIGN_HIGGSFIELD = {
+  tool: ['Higgsfield', 'assets/icons/higgsfield.webp'],
+  brands: { 'LUNÉA LAB': ['영상'], 'GYEOL': ['이미지 생성', '영상'] },
+};
+window.designToolsFor = (brand) => {
+  const hf = window.DESIGN_HIGGSFIELD;
+  const steps = brand ? hf.brands[brand] || [] : [...new Set(Object.values(hf.brands).flat())];
+  return window.DESIGN_TOOLS.map((s) => {
+    if (!steps.includes(s.step)) return s;
+    const tools = [...s.tools];
+    tools.splice(s.step === '영상' ? 1 : tools.length, 0, hf.tool);
+    return { ...s, tools };
+  });
+};
 
 window.DESIGN_ITEMS = (() => {
   const C = 'assets/design/content/';
@@ -29,6 +46,10 @@ window.DESIGN_ITEMS = (() => {
     { id: 'cirrus', type: 'detail', brand: 'CIRRUS NIMBUS', title: 'CIRRUS NIMBUS', kicker: 'HOME APPLIANCE · 2026',
       desc: '날개 없는 링에 바람과 빛을 담은 서큘레이터 팬램프 상세페이지. 23개 섹션에 시연 영상 4컷을 넣었습니다.',
       href: 'design-cirrus.html', thumb: 'assets/design/cirrus/strip.webp', w: 480, h: 4400 },
+
+    { id: 'gyeol', type: 'detail', brand: 'GYEOL', title: 'GYEOL', kicker: 'BODY WASH · 2026',
+      desc: '유자로 시작해 바다로 끝나는 바디워시 상세페이지. 코발트 블루와 버터 아이보리, 11개 섹션에 영상 3컷을 넣었습니다.',
+      href: 'design-gyeol.html', thumb: 'assets/design/gyeol/strip.webp', w: 480, h: 4400 },
 
     // 콘텐츠 — 뷰어로 본다. 순서는 브랜드가 섞이도록 배치
     { id: 'modak-card', type: 'card', brand: 'MODAK EMBER', title: '생활용품 카드뉴스', fmt: 'CARD NEWS 4:5',
