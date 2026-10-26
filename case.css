@@ -33,7 +33,8 @@
                  padding:calc(var(--header-height) + 40px) var(--margin)
                          clamp(56px,9vh,110px);
                  max-width:1680px;margin-inline:auto;will-change:transform}
-.case-eyebrow{display:block;margin-bottom:clamp(14px,2vh,22px)}
+.case-eyebrow{display:block;margin-bottom:clamp(14px,2vh,22px);
+              color:rgba(255,255,255,.92);text-shadow:0 1px 10px rgba(0,0,0,.45)}
 .case-title{font-family:var(--font-display);font-weight:600;
             font-size:clamp(46px,9vw,140px);line-height:.9;letter-spacing:-.045em;
             color:var(--text-000);font-variation-settings:'wght' 700,'wdth' 100}
