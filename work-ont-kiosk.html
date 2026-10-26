@@ -98,8 +98,11 @@
         <div class="case-chapter" data-reveal><h2>Demo</h2></div>
         <!-- 태블릿 키오스크라 화면 하나가 곧 제품이다. 클립으로 쪼개지 않고
              한 편을 크게 두고, 저절로 돌아가되 마우스를 올리면 멈춘다. -->
-        <figure class="demo-gif" data-reveal>
-          <img src="assets/ont/demo_ont.gif" alt="ONT 테이블 주문 키오스크 시연 화면" loading="lazy" />
+        <figure class="video-main" data-reveal>
+          <video data-inview data-hover="pause" src="assets/ont/demo_ont.mp4"
+                 muted loop autoplay playsinline preload="metadata"
+                 aria-label="ONT 테이블 주문 키오스크 시연 화면"></video>
+          <button class="video-toggle" type="button" aria-pressed="false">PAUSE</button>
         </figure>
       </section>
 
