@@ -53,6 +53,12 @@
 .brief-cell dt,.brief-cell h2{margin:0;font-family:var(--font-mono);font-size:12px;
             font-weight:500;letter-spacing:.12em;text-transform:uppercase;
             color:var(--text-500)}
+/* 한글 라벨 버전(목표·담당·결과·기술) — 모노 대문자 대신 읽기 쉬운 크기와 굵기로. */
+.case-brief--ko .brief-cell h2{font-family:var(--font-body,inherit);font-size:15px;font-weight:700;
+            letter-spacing:0;text-transform:none;color:var(--text-000);
+            padding-bottom:12px;border-bottom:1px solid var(--line-faint)}
+.case-brief--ko .brief-cell .brief-sub{font-family:var(--font-body,inherit);font-size:13px;
+            letter-spacing:0;text-transform:none}
 .brief-cell p{color:var(--text-100);line-height:1.8;font-size:16px;word-break:keep-all}
 .brief-cell ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:7px}
 .brief-cell li{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;
