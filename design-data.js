@@ -33,6 +33,9 @@ window.DESIGN_ITEMS = (() => {
   const range = (prefix, n) => Array.from({ length: n }, (_, i) => `${prefix}-${String(i + 1).padStart(2, '0')}`);
   return [
     // 상세페이지 — 각자 새 페이지로 열린다
+     { id: 'gyeol', type: 'detail', brand: 'GYEOL', title: 'GYEOL', kicker: 'BODY WASH · 2026',
+      desc: '유자로 시작해 바다로 끝나는 바디워시 상세페이지. 코발트 블루와 버터 아이보리, 11개 섹션에 영상 3컷을 넣었습니다.',
+      href: 'design-gyeol.html', thumb: 'assets/design/gyeol/strip.webp', w: 480, h: 4400 },
     { id: 'lunea', type: 'detail', brand: 'LUNÉA LAB', title: 'LUNÉA LAB', kicker: 'COSMETIC · 2026',
       desc: '라일락빛 세럼 상세페이지. 8개 섹션에 모델 영상과 수분 그래프 애니메이션을 넣었습니다.',
       href: 'design-lunea.html', thumb: 'assets/design/lunea/strip.webp', w: 480, h: 4086 },
@@ -47,11 +50,19 @@ window.DESIGN_ITEMS = (() => {
       desc: '날개 없는 링에 바람과 빛을 담은 서큘레이터 팬램프 상세페이지. 23개 섹션에 시연 영상 4컷을 넣었습니다.',
       href: 'design-cirrus.html', thumb: 'assets/design/cirrus/strip.webp', w: 480, h: 4400 },
 
-    { id: 'gyeol', type: 'detail', brand: 'GYEOL', title: 'GYEOL', kicker: 'BODY WASH · 2026',
-      desc: '유자로 시작해 바다로 끝나는 바디워시 상세페이지. 코발트 블루와 버터 아이보리, 11개 섹션에 영상 3컷을 넣었습니다.',
-      href: 'design-gyeol.html', thumb: 'assets/design/gyeol/strip.webp', w: 480, h: 4400 },
+   
 
     // 콘텐츠 — 뷰어로 본다. 순서는 브랜드가 섞이도록 배치
+     { id: 'gyeol-feed', type: 'sns', brand: 'GYEOL', title: '바디워시 인스타 피드', fmt: 'FEED 4:5',
+      size: '1080 × 1350 × 9', thumb: `${C}gyeol-feed@640.webp`, w: 800, h: 995, slides: set(['gyeol-feed']) },
+    { id: 'lunea-banner-event', type: 'banner', brand: 'LUNÉA LAB', title: '화장품 기획전 배너', fmt: 'WEB BANNER',
+  size: '1200 × 600', thumb: `${C}lunea-banner-event@640.webp`, w: 960, h: 480, wide: true, slides: set(['lunea-banner-event']) },
+  { id: 'cirrus-banner', type: 'banner', brand: 'CIRRUS NIMBUS', title: '가전 프로모션 배너 3종', fmt: 'BANNER SET',
+      size: '1920×600 · 1920×140 · 1080×1080', thumb: `${C}cirrus-banner-wide@640.webp`, w: 960, h: 300, wide: true,
+      slides: set(['cirrus-banner-wide', 'cirrus-banner-strip', 'cirrus-banner-square']) },
+    { id: 'gyeol-banner', type: 'banner', brand: 'GYEOL', title: '바디워시 프로모션 배너 3종', fmt: 'BANNER SET',
+      size: '1920×720 · 750×1000 · 1200×160', thumb: `${C}gyeol-banner-wide@640.webp`, w: 960, h: 360, wide: true,
+      slides: set(['gyeol-banner-wide', 'gyeol-banner-mobile', 'gyeol-banner-strip']) },
     { id: 'modak-card', type: 'card', brand: 'MODAK EMBER', title: '생활용품 카드뉴스', fmt: 'CARD NEWS 4:5',
       size: '1080 × 1350 · 8장', thumb: `${C}modak-card-01@640.webp`, w: 640, h: 800, slides: set(range('modak-card', 8)) },
     { id: 'lunea-banner-pc', type: 'banner', brand: 'LUNÉA LAB', title: '화장품 PC 메인 배너', fmt: 'WEB BANNER',
@@ -68,28 +79,20 @@ window.DESIGN_ITEMS = (() => {
       size: '1080 × 1350 · 6장', thumb: `${C}lunea-card-01@640.webp`, w: 640, h: 800, slides: set(range('lunea-card', 6)) },
     { id: 'modak-banner', type: 'banner', brand: 'MODAK EMBER', title: '생활용품 프로모션 배너 3종', fmt: 'BANNER SET',
       size: '1920×600 · 1080×1080 · 750×1000', thumb: `${C}modak-banner-wide@640.webp`, w: 960, h: 300, wide: true,
-      slides: set(['modak-banner-wide', 'modak-banner-square', 'modak-banner-mobile']) },
-    { id: 'gyeol-banner', type: 'banner', brand: 'GYEOL', title: '바디워시 프로모션 배너 3종', fmt: 'BANNER SET',
-      size: '1920×720 · 750×1000 · 1200×160', thumb: `${C}gyeol-banner-wide@640.webp`, w: 960, h: 360, wide: true,
-      slides: set(['gyeol-banner-wide', 'gyeol-banner-mobile', 'gyeol-banner-strip']) },
-    { id: 'cirrus-banner', type: 'banner', brand: 'CIRRUS NIMBUS', title: '가전 프로모션 배너 3종', fmt: 'BANNER SET',
-      size: '1920×600 · 1920×140 · 1080×1080', thumb: `${C}cirrus-banner-wide@640.webp`, w: 960, h: 300, wide: true,
-      slides: set(['cirrus-banner-wide', 'cirrus-banner-strip', 'cirrus-banner-square']) },
+      slides: set(['modak-banner-wide', 'modak-banner-square', 'modak-banner-mobile']) }, 
+  
     { id: 'lunea-feed', type: 'sns', brand: 'LUNÉA LAB', title: '화장품 인스타 피드', fmt: 'FEED 4:5',
       size: '1080 × 1350 × 9', thumb: `${C}lunea-feed@640.webp`, w: 800, h: 1000, slides: set(['lunea-feed']) },
     { id: 'gyeol-story', type: 'sns', brand: 'GYEOL', title: '바디워시 인스타 스토리', fmt: 'STORY 9:16',
       size: '1080 × 1920', thumb: `${C}gyeol-story@640.webp`, w: 640, h: 1138, slides: set(['gyeol-story']) },
     { id: 'cirrus-feed', type: 'sns', brand: 'CIRRUS NIMBUS', title: '가전 인스타 피드', fmt: 'FEED 1:1',
       size: '1080 × 1080 × 9', thumb: `${C}cirrus-feed@640.webp`, w: 800, h: 800, slides: set(['cirrus-feed']) },
-    { id: 'lunea-banner-event', type: 'banner', brand: 'LUNÉA LAB', title: '화장품 기획전 배너', fmt: 'WEB BANNER',
-      size: '1200 × 600', thumb: `${C}lunea-banner-event@640.webp`, w: 960, h: 480, wide: true, slides: set(['lunea-banner-event']) },
+   
     { id: 'lunea-banner-mo', type: 'banner', brand: 'LUNÉA LAB', title: '화장품 모바일 배너 2종', fmt: 'MOBILE BANNER',
       size: '750 × 900 · 2장', thumb: `${C}lunea-banner-mo-1@640.webp`, w: 640, h: 768, slides: set(['lunea-banner-mo-1', 'lunea-banner-mo-2']) },
-    { id: 'gyeol-feed', type: 'sns', brand: 'GYEOL', title: '바디워시 인스타 피드', fmt: 'FEED 4:5',
-      size: '1080 × 1350 × 9', thumb: `${C}gyeol-feed@640.webp`, w: 800, h: 995, slides: set(['gyeol-feed']) },
+   
     { id: 'babambi-feed', type: 'sns', brand: 'BABAMBI', title: '반려동물 인스타 피드', fmt: 'FEED',
       size: '프로필 + 9컷', thumb: `${C}babambi-feed@640.webp`, w: 800, h: 772, slides: set(['babambi-feed']) },
-    { id: 'lunea-banner-yearend', type: 'banner', brand: 'LUNÉA LAB', title: '화장품 연말 프로모션 배너', fmt: 'WEB BANNER',
-      size: '1200 × 600', thumb: `${C}lunea-banner-yearend@640.webp`, w: 960, h: 480, wide: true, slides: set(['lunea-banner-yearend']) },
+     
   ];
 })();
