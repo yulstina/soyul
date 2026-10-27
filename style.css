@@ -159,6 +159,8 @@ h1,h2,h3,h4,p{margin:0}
 @media (max-width:520px){.identity-cta+.identity-cta{margin-left:0;margin-top:10px}}
 .identity-cta:hover{border-color:var(--line-strong);color:var(--text-000);
                     background:rgba(255,255,255,.04)}
+.identity-cta.is-primary{background:var(--text-000);border-color:var(--text-000);color:var(--void-000)}
+.identity-cta.is-primary:hover{background:var(--text-100);border-color:var(--text-100);color:var(--void-000)}
 
 /* Page flow ----------------------------------------------------------------
    Everything after the pinned hero rides in one stacking context so it slides
@@ -432,6 +434,8 @@ h1,h2,h3,h4,p{margin:0}
                  grid-template-areas:"meta meta" "main go" "thumbs thumbs"}
   .dt-thumbs img{height:84px}
 }
+/* ?role=design 일 때 목록 위로 올라온 카드 */
+.design-teaser.is-first{margin:clamp(20px,4vh,40px) -12px clamp(28px,5vh,56px)}
 @media (prefers-reduced-motion:reduce){
   .dt-thumbs img,.design-teaser .dt-title{transition:none}
 }
