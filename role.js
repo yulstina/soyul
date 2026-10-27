@@ -4,13 +4,12 @@
   const role = (new URLSearchParams(location.search).get('role') || '').toLowerCase();
   if (role !== 'design') return;
 
-  // 히어로 버튼: DESIGN을 앞에, 주 버튼으로
+  // 히어로 버튼: DESIGN을 앞에
   const ctas = [...document.querySelectorAll('.identity-reveal .identity-cta')];
   const design = ctas.find((a) => a.getAttribute('href') === 'design.html');
   const work = ctas.find((a) => a.getAttribute('href') === '#work');
   if (design && work) {
     work.before(design);
-    design.classList.add('is-primary');
   }
 
   // 목록 위로 DESIGN 안내 카드를 올림
