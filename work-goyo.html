@@ -37,7 +37,9 @@
           <span class="meta case-eyebrow">10 / SELF-DIRECTED / 2026</span>
           <h1 class="case-title">GOYO</h1>
           <p class="case-tagline">
-            한옥의 차분한 분위기를 여백과 절제된 움직임으로 표현한 스테이 웹사이트입니다. 날짜 선택부터 예약자 정보 입력, 예약 완료와 조회·취소까지 이어지는 예약 흐름을 구현했습니다. 공간의 정적인 정서와 사용하기 편한 예약 경험을 함께 담았습니다.
+            한옥의 차분한 분위기를 여백과 절제된 움직임으로 표현한 스테이 웹사이트입니다. 
+            날짜 선택부터 예약자 정보 입력, 예약 완료와 조회·취소까지 이어지는 예약 흐름을 구현했습니다.
+            공간의 정적인 정서와 사용하기 편한 예약 경험을 함께 담았습니다.
           </p>
           <a class="case-live" href="https://goyo-hanok-stay.vercel.app/" target="_blank" rel="noopener">
             <span>Live Site</span>
@@ -210,6 +212,47 @@
           <img src="assets/goyo/mo-screens.webp" alt="모바일 화면 다섯 개 — 메뉴 · 객실 · 서비스 · 예약 · 오시는 길" loading="lazy" />
         </figure>
 
+        <div class="case-chapter" data-reveal><h2>Reservation</h2></div>
+        <!-- 예약 흐름 전체를 세 단계로 나눠 보여준다. 카드는 화면 상단만 보이고,
+             클릭하면 전체 화면이 라이트박스로 열린다. -->
+        <!-- 예약부터 취소까지 이어지는 화면 녹화. 폰 비율 그대로 좁게 놓는다. -->
+        <figure class="video-main is-phone-video" data-reveal>
+          <video data-inview
+                 src="assets/goyo/res/res-flow.mp4"
+                 muted loop playsinline preload="metadata"
+                 aria-label="고요 예약부터 취소까지 모바일 화면 녹화"></video>
+          <button class="video-toggle" type="button" aria-pressed="false">PAUSE</button>
+        </figure>
+
+        <div class="step-group" data-reveal>
+          <h3 class="step-title"><span>01</span>예약</h3>
+          <div class="step-rail">
+            <div class="step"><figure class="shot is-step"><img src="assets/goyo/res/res-01.webp" alt="예약 시작 — 날짜 선택" loading="lazy" /></figure><p class="step-cap">날짜 선택</p></div>
+            <div class="step"><figure class="shot is-step"><img src="assets/goyo/res/res-02.webp" alt="예약자 정보 입력과 필수 동의" loading="lazy" /></figure><p class="step-cap">정보 입력 · 필수 동의 검증</p></div>
+            <div class="step"><figure class="shot is-step"><img src="assets/goyo/res/res-03.webp" alt="예약 완료 화면과 숙박 내역" loading="lazy" /></figure><p class="step-cap">예약 완료 · 예약번호 발급</p></div>
+            <div class="step"><figure class="shot is-step"><img src="assets/goyo/res/res-04.webp" alt="예약 내역 복사 완료 토스트" loading="lazy" /></figure><p class="step-cap">예약 내역 복사</p></div>
+            <div class="step"><figure class="shot is-step"><img src="assets/goyo/res/res-05.webp" alt="일정 공유 시트" loading="lazy" /></figure><p class="step-cap">일정 공유하기</p></div>
+          </div>
+        </div>
+
+        <div class="step-group" data-reveal>
+          <h3 class="step-title"><span>02</span>조회</h3>
+          <div class="step-rail is-three">
+            <div class="step"><figure class="shot is-step"><img src="assets/goyo/res/res-06.webp" alt="예약 조회 입력" loading="lazy" /></figure><p class="step-cap">예약번호로 조회</p></div>
+            <div class="step"><figure class="shot is-step"><img src="assets/goyo/res/res-07.webp" alt="이메일 오류 상태" loading="lazy" /></figure><p class="step-cap">입력 오류 안내</p></div>
+            <div class="step"><figure class="shot is-step"><img src="assets/goyo/res/res-08.webp" alt="예약 상세" loading="lazy" /></figure><p class="step-cap">예약 상세 확인</p></div>
+          </div>
+        </div>
+
+        <div class="step-group" data-reveal>
+          <h3 class="step-title"><span>03</span>취소</h3>
+          <div class="step-rail is-three">
+            <div class="step"><figure class="shot is-step"><img src="assets/goyo/res/res-09.webp" alt="환불 규정" loading="lazy" /></figure><p class="step-cap">환불 규정 · 해당 구간 강조</p></div>
+            <div class="step"><figure class="shot is-step"><img src="assets/goyo/res/res-10.webp" alt="환불액 계산과 취소 확인" loading="lazy" /></figure><p class="step-cap">환불액 계산 · 취소 동의</p></div>
+            <div class="step"><figure class="shot is-step"><img src="assets/goyo/res/res-11.webp" alt="취소 완료" loading="lazy" /></figure><p class="step-cap">취소 완료 · 환불 내역</p></div>
+          </div>
+        </div>
+
         <div class="case-chapter" data-reveal><h2>Web</h2></div>
         <!-- 화면 녹화 네 편. 마우스를 올리면 재생된다. -->
         <div class="clip-grid">
@@ -239,98 +282,83 @@
           <article class="note">
             <span class="note-no">01</span>
             <div class="note-body">
-              <h3>스크롤에 반응하는 콘텐츠</h3>
-              <div class="note-tags"><span>GSAP</span><span>ScrollTrigger</span></div>
+              <h3>날짜 범위 예약 달력 · 연박 요금 계산</h3>
+              <div class="note-tags"><span>Flatpickr</span><span>JavaScript</span></div>
             </div>
           </article>
 
           <article class="note">
             <span class="note-no">02</span>
             <div class="note-body">
-              <h3>순서대로 나타나는 요소</h3>
-              <div class="note-tags"><span>Stagger Reveal</span></div>
+              <h3>예약자 정보 입력 · 필수 동의 · 오류 안내</h3>
+              <div class="note-tags"><span>폼 유효성 검사</span><span>JavaScript</span></div>
             </div>
           </article>
 
           <article class="note">
             <span class="note-no">03</span>
             <div class="note-body">
-              <h3>움직이는 배경 이미지</h3>
-              <div class="note-tags"><span>Scroll Parallax</span></div>
+              <h3>예약 완료 · 예약번호 발급 · 내역 복사·공유</h3>
+              <div class="note-tags"><span>JavaScript</span><span>sessionStorage</span></div>
             </div>
           </article>
 
           <article class="note">
             <span class="note-no">04</span>
             <div class="note-body">
-              <h3>상태가 변하는 헤더</h3>
-              <div class="note-tags"><span>Dynamic Header</span></div>
+              <h3>예약번호 · 이메일 조회</h3>
+              <div class="note-tags"><span>JavaScript</span><span>sessionStorage</span></div>
             </div>
           </article>
 
           <article class="note">
             <span class="note-no">05</span>
             <div class="note-body">
-              <h3>한·영 언어 전환</h3>
-              <div class="note-tags"><span>Client-side i18n</span></div>
+              <h3>예약 취소 · 체크인 날짜별 환불액 계산</h3>
+              <div class="note-tags"><span>JavaScript</span></div>
             </div>
           </article>
 
           <article class="note">
             <span class="note-no">06</span>
             <div class="note-body">
-              <h3>날짜 범위 예약 달력</h3>
-              <div class="note-tags"><span>Flatpickr</span></div>
+              <h3>한·영 언어 전환</h3>
+              <div class="note-tags"><span>JavaScript</span></div>
             </div>
           </article>
 
           <article class="note">
             <span class="note-no">07</span>
             <div class="note-body">
-              <h3>실시간 숙박 금액 계산</h3>
-              <div class="note-tags"><span>JavaScript</span></div>
+              <h3>스크롤 모션 · 헤더 상태 변화</h3>
+              <div class="note-tags"><span>GSAP</span><span>ScrollTrigger</span></div>
             </div>
           </article>
 
           <article class="note">
             <span class="note-no">08</span>
             <div class="note-body">
-              <h3>객실 이미지 탐색</h3>
-              <div class="note-tags"><span>Responsive Gallery</span></div>
+              <h3>반응형 레이아웃 (데스크톱 · 모바일)</h3>
+              <div class="note-tags"><span>HTML</span><span>CSS</span></div>
             </div>
           </article>
 
           <article class="note">
             <span class="note-no">09</span>
             <div class="note-body">
-              <h3>반응형 페이지 구성</h3>
-              <div class="note-tags"><span>HTML</span><span>CSS</span></div>
+              <h3>접근성 · 모션 줄이기 대응</h3>
+              <div class="note-tags"><span>ARIA</span><span>prefers-reduced-motion</span></div>
             </div>
           </article>
 
           <article class="note">
             <span class="note-no">10</span>
             <div class="note-body">
-              <h3>공통 UI 모듈화</h3>
-              <div class="note-tags"><span>Partial Include</span></div>
-            </div>
-          </article>
-
-          <article class="note">
-            <span class="note-no">11</span>
-            <div class="note-body">
-              <h3>접근성과 모션 최적화</h3>
-              <div class="note-tags"><span>ARIA</span><span>Reduced Motion</span></div>
-            </div>
-          </article>
-
-          <article class="note">
-            <span class="note-no">12</span>
-            <div class="note-body">
-              <h3>배포 및 버전 관리</h3>
+              <h3>배포 · 버전 관리</h3>
               <div class="note-tags"><span><i class="tool-icon" style="--icon:url(assets/icons/github.svg)" aria-hidden="true"></i>GitHub</span><span><i class="tool-icon" style="--icon:url(assets/icons/vercel.svg)" aria-hidden="true"></i>Vercel</span></div>
             </div>
           </article>
+
         </div>
       </section>
 

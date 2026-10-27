@@ -466,6 +466,33 @@
 .clip .video-toggle{right:10px;bottom:10px;padding:6px 10px;opacity:.42}
 .clip:hover .video-toggle{opacity:1}
 
+/* Reservation flow — phone screens in three steps. Cards are cropped to the top
+   of each screen at one ratio so a row lines up; the lightbox shows the whole. */
+.step-group{display:flex;flex-direction:column;gap:clamp(14px,1.6vw,22px)}
+.step-title{margin:0;display:flex;align-items:baseline;gap:12px;
+            font-family:var(--font-display);font-weight:600;
+            font-size:var(--fs-h3);letter-spacing:-.01em;color:var(--text-000)}
+.step-title span{font-family:var(--font-mono);font-size:12px;font-weight:400;
+                 letter-spacing:.1em;color:var(--text-300,currentColor);opacity:.6}
+.step-rail{display:grid;grid-template-columns:repeat(5,1fr);
+           gap:clamp(12px,1.5vw,22px)}
+.step-rail.is-three{grid-template-columns:repeat(3,1fr);
+                    max-width:960px}
+.step{display:flex;flex-direction:column;gap:10px;min-width:0}
+.shot.is-step{aspect-ratio:970/1640;border-radius:10px}
+.shot.is-step img{height:100%;object-fit:cover;object-position:top}
+.step-cap{margin:0;font-size:13px;line-height:1.5;color:var(--text-100,currentColor);opacity:.8}
+@media (max-width:900px){
+  /* Fluid: the phones re-flow into fewer columns instead of keeping a fixed
+     width, so they always sit inside the page margins. */
+  .step-rail,.step-rail.is-three{grid-template-columns:repeat(3,1fr);max-width:none}
+}
+@media (max-width:560px){
+  .step-rail,.step-rail.is-three{grid-template-columns:repeat(2,1fr)}
+}
+/* A portrait recording at the full measure would be several screens tall. */
+.video-main.is-phone-video{max-width:min(100%,380px);margin-inline:auto}
+
 /* A single tall capture would run past 1500px at the full measure. Narrowed
    and centred it reads at about the size of the screen it came from. */
 .shot-narrow{max-width:420px;margin-inline:auto}
