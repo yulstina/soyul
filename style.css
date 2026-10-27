@@ -151,16 +151,14 @@ h1,h2,h3,h4,p{margin:0}
            transition:opacity .5s ease,transform .5s ease,filter .5s ease}
 .role-space{display:inline-block;width:.34em}
 .identity-cta{display:inline-block;margin-top:clamp(16px,2.4vh,28px);
-              font-family:var(--font-mono);font-size:var(--fs-meta);letter-spacing:.12em;
-              text-transform:uppercase;color:var(--text-100);
-              border:1px solid var(--line);border-radius:999px;padding:10px 22px;
-              transition:border-color .3s ease,color .3s ease,background-color .3s ease}
+              font-family:var(--font-mono);font-size:var(--fs-meta);font-weight:500;letter-spacing:.14em;
+              text-transform:uppercase;color:var(--void-000);
+              background:var(--text-000);border:1px solid var(--text-000);border-radius:999px;padding:12px 30px;
+              transition:background-color .3s ease,color .3s ease,border-color .3s ease,transform .3s ease}
 .identity-cta+.identity-cta{margin-left:10px}
 @media (max-width:520px){.identity-cta+.identity-cta{margin-left:0;margin-top:10px}}
-.identity-cta:hover{border-color:var(--line-strong);color:var(--text-000);
-                    background:rgba(255,255,255,.04)}
-.identity-cta.is-primary{background:var(--text-000);border-color:var(--text-000);color:var(--void-000)}
-.identity-cta.is-primary:hover{background:var(--text-100);border-color:var(--text-100);color:var(--void-000)}
+/* 호버는 기본의 반대: 흰 버튼 → 검은 바탕에 흰 글자 */
+.identity-cta:hover{background:var(--void-000);color:var(--text-000);border-color:var(--text-000);transform:translateY(-2px)}
 
 /* Page flow ----------------------------------------------------------------
    Everything after the pinned hero rides in one stacking context so it slides
