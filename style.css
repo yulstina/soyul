@@ -688,7 +688,6 @@ h1,h2,h3,h4,p{margin:0}
 .mk-ch{display:inline-block;transform:translateY(108%);
        transition:transform .9s var(--ease);transition-delay:calc(var(--i) * 55ms)}
 [data-mark].is-on .mk-ch{transform:none}
-.sec-after{margin-top:clamp(20px,3vh,36px)}
 .sec-sentence{margin:clamp(14px,2vh,22px) 0 0;max-width:none;color:var(--text-100);
               font-family:var(--font-body);font-weight:500;font-size:clamp(20px,2vw,28px);
               line-height:1.4;letter-spacing:-.02em;word-break:keep-all}
