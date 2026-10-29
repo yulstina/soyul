@@ -70,7 +70,7 @@
                border-radius:999px;padding:5px 10px}
 /* Stack 칸 안에서 작업 환경·협업 도구를 나누는 작은 라벨. 셀 제목(h2)보다 한 단
    낮은 위계로, 그룹 사이에 약간의 간격을 준다. */
-.brief-cell .brief-sub{margin:8px 0 0;font-family:var(--font-mono);font-size:11px;
+.brief-cell .brief-sub{margin:8px 0 0;font-family:var(--font-mono);font-size:12px;
                font-weight:500;letter-spacing:.1em;text-transform:uppercase;
                color:var(--text-500)}
 
@@ -383,43 +383,48 @@
    value — the same three things the Figma page lists. The page is near-black
    and most of this palette is near-white, so every chip keeps a hairline
    border: without it the pale ones would have no edge at all. */
-.palette{list-style:none;margin:clamp(16px,2vw,28px) 0 0;padding:0;
-         display:grid;grid-template-columns:repeat(4,1fr);
-         gap:clamp(12px,1.5vw,22px)}
-.swatch{display:flex;flex-direction:column;gap:6px}
-.swatch-chip{display:block;aspect-ratio:16/9;background:var(--c);
-             border:1px solid var(--line);margin-bottom:6px}
-.swatch-name{font-family:var(--font-body);font-weight:500;font-size:14px;
+.palette{list-style:none;margin:clamp(8px,1.2vw,16px) 0 0;padding:0;
+         display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+         column-gap:clamp(28px,5vw,72px)}
+/* 큰 색 카드 대신 한 줄짜리 행: 작은 칩 · 이름 · 용도 · 색상 코드.
+   바탕이 거의 흰색인 색이 많아 칩에는 얇은 테두리를 유지한다. */
+.swatch{display:grid;grid-template-columns:26px minmax(92px,auto) minmax(0,1fr) auto;
+        align-items:center;column-gap:14px;padding:13px 0;
+        border-bottom:1px solid var(--line-faint)}
+.swatch-chip{display:block;width:26px;height:26px;border-radius:7px;background:var(--c);
+             border:1px solid var(--line)}
+.swatch-name{font-family:var(--font-body);font-weight:600;font-size:15px;
              color:var(--text-000)}
 .swatch-use{font-size:14px;color:var(--text-300);word-break:keep-all}
 .swatch code{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;
              color:var(--text-500);text-transform:uppercase}
 
-@media (max-width:1023px){ .palette{grid-template-columns:repeat(3,1fr)} }
-@media (max-width:599px){ .palette{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:767px){
+  .palette{grid-template-columns:1fr}
+  .swatch{grid-template-columns:26px minmax(80px,auto) minmax(0,1fr) auto;column-gap:12px}
+}
 
 /* Typeset -------------------------------------------------------------------
    Three roles, three faces. Named next to the job it does, with a line of the
    site own copy set in it, so the choice is legible rather than asserted. */
-.typeset{list-style:none;margin:clamp(28px,3.4vw,52px) 0 0;padding:0}
-.type-row{display:grid;grid-template-columns:minmax(150px,1fr) 2.2fr;
-          gap:8px clamp(20px,3vw,48px);align-items:baseline;
-          padding:clamp(20px,2.4vw,32px) 0;
-          border-top:1px solid var(--line-faint)}
+.typeset{list-style:none;margin:clamp(8px,1.2vw,16px) 0 0;padding:0}
+/* 한 줄짜리 행: 용도 · 폰트명 · 샘플 문구. 큰 견본 대신 이름과 짧은 예시만 보여준다. */
+.type-row{display:grid;grid-template-columns:minmax(120px,.8fr) minmax(0,1.1fr) minmax(0,1.6fr);
+          gap:6px clamp(16px,2.4vw,36px);align-items:baseline;
+          padding:14px 0;border-top:1px solid var(--line-faint)}
 .type-row:last-child{border-bottom:1px solid var(--line-faint)}
 .type-use{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;
           text-transform:uppercase;color:var(--text-500);word-break:keep-all}
-.type-name{grid-column:2;font-size:clamp(19px,2vw,26px);color:var(--text-000);
+.type-name{font-size:clamp(17px,1.5vw,20px);font-weight:500;color:var(--text-000);
            letter-spacing:-.01em}
-.type-sample{grid-column:2;font-size:clamp(15px,1.2vw,18px);color:var(--text-300);
-             line-height:1.7;word-break:keep-all}
+.type-sample{font-size:15px;color:var(--text-300);
+             line-height:1.6;word-break:keep-all}
 .serif-kr{font-family:'Noto Serif KR',serif;font-weight:400}
 .sans-kr{font-family:'Noto Sans KR',var(--font-body);font-weight:400}
 .batang{font-family:'GyeonggiBatang','Noto Serif KR',serif;font-weight:400}
 
-@media (max-width:599px){
-  .type-row{grid-template-columns:1fr}
-  .type-name,.type-sample{grid-column:1}
+@media (max-width:767px){
+  .type-row{grid-template-columns:1fr;gap:2px;padding:12px 0}
 }
 
 

@@ -315,13 +315,13 @@ h1,h2,h3,h4,p{margin:0}
             letter-spacing:-.02em;color:var(--text-000);word-break:keep-all}
 .ai-rows{margin:0;display:flex;flex-direction:column;gap:10px}
 .ai-row{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;align-items:baseline}
-.ai-row dt{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:var(--text-500)}
+.ai-row dt{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:var(--text-500)}
 .ai-row dd{margin:0;font-size:15px;line-height:1.65;color:var(--text-300);word-break:keep-all}
 .ai-row.is-me dt{color:var(--text-000)}
 .ai-row.is-me dd{color:var(--text-000)}
 .ai-tools{display:flex;flex-wrap:wrap;gap:6px}
 .ai-tools span{display:inline-flex;align-items:center;gap:6px;
-               font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;
+               font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;
                color:var(--text-300);border:1px solid var(--line);
                border-radius:999px;padding:3px 8px;white-space:nowrap}
 .ai-ex{margin:2px 0 0;display:flex;flex-wrap:wrap;gap:6px 14px}
