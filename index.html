@@ -32,7 +32,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <!-- Archivo = 디스플레이(그로테스크), JetBrains Mono = 메타/좌표. -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..112,400..700&family=JetBrains+Mono:wght@400;500&display=swap" />
-  <link rel="stylesheet" href="style.css?v=20261029f" />
+  <link rel="stylesheet" href="style.css?v=20261029h" />
 </head>
 <body>
   <header class="site-header" id="siteHeader">
@@ -88,8 +88,9 @@
       <!-- 소개. 어떤 퍼블리셔인지 먼저 읽히고, 그 아래 WORK에서 작업을 고른다. -->
       <section class="about-intro" id="about">
         <div class="about-inner">
-          <span class="meta" data-reveal>ABOUT</span>
-          <h2 class="section-title" data-reveal>디자인을 이해하고, <br />사용자 경험을 구현하는 웹 퍼블리셔</h2>
+          <span class="meta" data-reveal>SOYUL — WEB PUBLISHER</span>
+          <h2 class="sec-mark" data-mark>ABOUT</h2>
+          <p class="section-title sec-after" data-reveal>디자인을 이해하고, <br />사용자 경험을 구현하는 웹 퍼블리셔</p>
           <p class="section-lede" data-reveal>
             <span class="highlight">약 7년간 HTML, CSS, jQuery</span>를 중심으로 <span class="highlight">반응형 웹과 서비스 UI를 구현</span>해 왔습니다. <br />
             기획·디자인·개발팀과 협업하며  <span class="highlight">웹사이트 리뉴얼부터 키오스크, 주문 웹, 모바일 웹앱</span>까지 <span class="highlight">다양한 서비스 환경</span>을 경험했습니다.<br /><br />
@@ -102,7 +103,8 @@
       <section class="work" id="work">
         <div class="section-head">
           <span class="meta" data-reveal>SELECTED WORK — 11</span>
-          <h2 class="section-title" data-reveal>회사 실무와<br />개인 프로젝트 작업입니다.</h2>
+          <h2 class="sec-mark" data-mark>WORK</h2>
+          <p class="sec-sentence" data-reveal>실무와 개인 프로젝트</p>
         </div>
 
         <!-- 프로젝트 목록. 채용 담당자가 1~2분 안에 전체를 훑을 수 있게 한 줄씩 보여주고,
@@ -252,7 +254,7 @@
         <a class="design-teaser" href="design.html">
           <span class="meta dt-meta">ALSO — DESIGN</span>
           <span class="dt-main">
-            <span class="dt-title">DESIGN</span>
+            <span class="dt-title" data-mark>DESIGN</span>
             <span class="dt-sub">상세페이지 · 배너 · SNS · 카드뉴스</span>
           </span>
           <span class="dt-thumbs" aria-hidden="true">
@@ -273,7 +275,7 @@
         <button class="fold-bar" type="button" aria-expanded="false" aria-controls="aiPanel">
           <span class="meta fold-meta">HOW I WORK WITH AI</span>
           <span class="fold-main">
-            <span class="fold-title">WITH AI</span>
+            <span class="fold-title" data-mark>WITH AI</span>
             <span class="fold-sub">초안은 AI와 빠르게, 판단과 마무리는 직접 합니다.</span>
           </span>
           <span class="fold-chips" aria-hidden="true">
@@ -336,10 +338,9 @@
         </div>
       </section>
       <section class="about" id="career">
-        <span class="meta" data-reveal>CAREER</span>
-        <h2 class="section-title" style="margin-top:clamp(20px,3vh,36px)" data-reveal>
-          웹사이트부터 키오스크와 앱 내 웹뷰까지,<br />다양한 서비스 화면을 구현해 왔습니다.
-        </h2>
+        <span class="meta" data-reveal>2017 — 2025</span>
+        <h2 class="sec-mark" data-mark>CAREER</h2>
+        <p class="section-title sec-after" data-reveal>웹사이트부터 키오스크와 앱 내 웹뷰까지,<br />다양한 서비스 화면을 구현해 왔습니다.</p>
         <div class="career">
           <article class="career-item" data-reveal>
             <div class="career-head">
@@ -464,7 +465,8 @@
 
       <section class="contact" id="contact">
         <canvas class="contact-field" id="contactField" aria-hidden="true"></canvas>
-        <span class="meta" data-reveal>CONTACT</span>
+        <span class="meta" data-reveal>GET IN TOUCH</span>
+        <h2 class="sec-mark" data-mark>CONTACT</h2>
         <div data-reveal>
           <a class="contact-mail" href="mailto:lalalapanda910@gmail.com">lalalapanda910@gmail.com</a>
         </div>
@@ -487,6 +489,7 @@
   <script src="menu.js?v=20261027i"></script>
   <script src="mobile-window.js?v=20261027i"></script>
   <script src="work-index.js?v=20261027i"></script>
+  <script src="mark.js?v=20261029h"></script>
   <script src="fold.js?v=20261029c"></script>
   <script src="role.js?v=20261027i"></script>
 </body>

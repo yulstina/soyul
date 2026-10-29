@@ -676,3 +676,19 @@ h1,h2,h3,h4,p{margin:0}
 .design-feature .design-teaser:hover .wr-go,.design-feature .design-teaser:focus-visible .wr-go{
   background:var(--void-100);color:var(--text-000)}
 .design-feature .design-teaser:focus-visible{outline:2px solid var(--text-000);outline-offset:3px}
+
+/* Section wordmarks ---------------------------------------------------------
+   ABOUT · WORK · DESIGN · CAREER · CONTACT 제목을 DESIGN · WITH AI 띠와 같은 크기의 워드마크로 맞춘다.
+   위 작은 라벨 → 큰 워드마크 → 설명 문장(예전의 큰 제목)의 순서. */
+.about-inner > .meta,.section-head > .meta,#career > .meta,.contact > .meta{display:block;margin-bottom:16px}
+.sec-mark{margin:0;font-family:var(--font-display);font-weight:700;
+          font-size:clamp(44px,6vw,92px);line-height:.88;letter-spacing:-.05em;
+          font-variation-settings:'wdth' 86;color:var(--text-000)}
+[data-mark].is-split{overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+.mk-ch{display:inline-block;transform:translateY(108%);
+       transition:transform .9s var(--ease);transition-delay:calc(var(--i) * 55ms)}
+[data-mark].is-on .mk-ch{transform:none}
+.sec-after{margin-top:clamp(20px,3vh,36px)}
+.sec-sentence{margin:clamp(14px,2vh,22px) 0 0;max-width:none;color:var(--text-100);
+              font-family:var(--font-body);font-weight:500;font-size:clamp(20px,2vw,28px);
+              line-height:1.4;letter-spacing:-.02em;word-break:keep-all}
