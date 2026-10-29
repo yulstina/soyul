@@ -651,3 +651,34 @@ h1,h2,h3,h4,p{margin:0}
 .work:has(+ .ai-work){padding-bottom:0;border-bottom:0}
 .work + .ai-work .fold-bar{border-top:0}
 #career{padding-top:clamp(72px,11vh,140px)}
+
+/* DESIGN 띠는 WORK 바로 아래에서, 글씨 크기는 다른 띠와 같게 두되 흰 바탕으로 반전해 강조한다.
+   선택된 필터 탭과 같은 방식(흰 바탕 + 어두운 글자). 제목과 썸네일은 가깝게 붙인다. */
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
+         clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.work:has(+ .design-feature){padding-bottom:0;border-bottom:0}
+.design-feature{padding:clamp(20px,3vh,32px) var(--margin) clamp(20px,3vh,32px)}
+.design-feature .design-teaser{margin:0;border:0;border-radius:12px;
+                               grid-template-columns:auto minmax(0,1fr) 44px;
+                               column-gap:clamp(28px,4vw,64px);
+                               padding:clamp(28px,4vh,44px) clamp(20px,2.4vw,36px);
+                               background:var(--text-000);color:#55555E}
+.design-feature .dt-thumbs{justify-self:start}
+.design-feature .dt-meta{color:#6A6A74}
+.design-feature .dt-title{color:var(--void-100)}
+.design-feature .dt-sub{color:#45454D;word-break:keep-all}
+.design-feature .dt-thumbs img{height:clamp(110px,11.5vw,170px);filter:none}
+.design-feature .dt-thumbs img:nth-child(n+5){display:none}
+.design-feature .wr-go{border-color:rgba(8,8,10,.45);color:var(--void-100)}
+.design-feature .design-teaser:hover,.design-feature .design-teaser:focus-visible{background:#EDEDF0}
+.design-feature .design-teaser:hover .wr-go,.design-feature .design-teaser:focus-visible .wr-go{
+  background:var(--void-100);color:var(--text-000)}
+.design-feature .design-teaser:focus-visible{outline:2px solid var(--text-000);outline-offset:3px}
+@media (max-width:1023px){
+  .design-feature .dt-thumbs img:nth-child(n+4){display:none}
+}
+@media (max-width:767px){
+  .design-feature .design-teaser{grid-template-columns:minmax(0,1fr) 44px}
+  .design-feature .dt-thumbs img{height:104px}
+  .design-feature .dt-sub{font-size:13px;letter-spacing:.01em}
+}
