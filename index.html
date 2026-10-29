@@ -32,7 +32,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <!-- Archivo = 디스플레이(그로테스크), JetBrains Mono = 메타/좌표. -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..112,400..700&family=JetBrains+Mono:wght@400;500&display=swap" />
-  <link rel="stylesheet" href="style.css?v=20261027i" />
+  <link rel="stylesheet" href="style.css?v=20261029a" />
 </head>
 <body>
   <header class="site-header" id="siteHeader">
@@ -145,7 +145,7 @@
               <a class="work-row" href="work-ditoland.html" data-thumb="assets/cover-ditoland.webp">
                 <span class="wr-no">03</span>
                 <span class="wr-thumb" aria-hidden="true"><img src="assets/cover-ditoland.webp" alt="" loading="lazy" /></span>
-                <span class="wr-main"><span class="wr-name">DITOLAND</span></span>
+                <span class="wr-main"><span class="wr-name">DITOLAND</span><span class="wr-purpose">Vue.js 협업 · 웹/앱 반응형</span></span>
                 <span class="wr-org">UTPLUS</span>
                 <span class="wr-field">Web · App · Vue.js</span>
                 <span class="wr-year">2019–22</span>
@@ -156,7 +156,7 @@
               <a class="work-row" href="work-ont-kiosk.html" data-thumb="assets/cover-ont.webp">
                 <span class="wr-no">04</span>
                 <span class="wr-thumb" aria-hidden="true"><img src="assets/cover-ont.webp" alt="" loading="lazy" /></span>
-                <span class="wr-main"><span class="wr-name">ONT KIOSK</span></span>
+                <span class="wr-main"><span class="wr-name">ONT KIOSK</span><span class="wr-purpose">1920×1080 기기 무관 동일 화면</span></span>
                 <span class="wr-org">RTBS</span>
                 <span class="wr-field">Table Order · Kiosk UI</span>
                 <span class="wr-year">2025</span>
@@ -167,7 +167,7 @@
               <a class="work-row" href="work-kiosk.html" data-thumb="assets/cover-navyz.webp">
                 <span class="wr-no">05</span>
                 <span class="wr-thumb" aria-hidden="true"><img src="assets/cover-navyz.webp" alt="" loading="lazy" /></span>
-                <span class="wr-main"><span class="wr-name">KIOSK SYSTEM</span></span>
+                <span class="wr-main"><span class="wr-name">KIOSK SYSTEM</span><span class="wr-purpose">11타입 · 6테마 토큰화</span></span>
                 <span class="wr-org">RTBS</span>
                 <span class="wr-field">Maintenance · New Pages</span>
                 <span class="wr-year">2023–25</span>
@@ -178,7 +178,7 @@
               <a class="work-row" href="work-orderweb.html" data-thumb="assets/cover-tomntoms.webp">
                 <span class="wr-no">06</span>
                 <span class="wr-thumb" aria-hidden="true"><img src="assets/cover-tomntoms.webp" alt="" loading="lazy" /></span>
-                <span class="wr-main"><span class="wr-name">ORDER WEB</span></span>
+                <span class="wr-main"><span class="wr-name">ORDER WEB</span><span class="wr-purpose">브랜드만 바꿔 쓰는 주문 웹</span></span>
                 <span class="wr-org">RTBS</span>
                 <span class="wr-field">Template System · Multi-brand</span>
                 <span class="wr-year">2024</span>
@@ -189,7 +189,7 @@
               <a class="work-row" href="work-nz-system.html" data-thumb="assets/cover-nz.webp">
                 <span class="wr-no">07</span>
                 <span class="wr-thumb" aria-hidden="true"><img src="assets/cover-nz.webp" alt="" loading="lazy" /></span>
-                <span class="wr-main"><span class="wr-name">NZ SYSTEM</span></span>
+                <span class="wr-main"><span class="wr-name">NZ SYSTEM</span><span class="wr-purpose">인터랙션 반응형 웹</span></span>
                 <span class="wr-org">RTBS</span>
                 <span class="wr-field">16 Pages · B2B Brand Site</span>
                 <span class="wr-year">2025</span>
@@ -332,13 +332,20 @@
             </div>
             <div class="career-col">
               <span class="career-label">Role</span>
-              <p>키오스크·주문 웹·모바일 웹앱 퍼블리싱 및 유지보수</p>
+              <p class="career-role">키오스크 · 주문 웹 · 모바일 웹앱<br />퍼블리싱 및 유지보수</p>
             </div>
             <div class="career-col">
               <span class="career-label">Project</span>
-              <p>- NAVYZ·ONT 키오스크 화면 구현 및 개선<br/>
-                - 브랜드별 활용 가능한 주문 웹·웹앱 템플릿 제작<br/>
-                - NZ시스템 홍보 사이트 리뉴얼 및 관리자 페이지 작업</p>
+              <ul class="career-projects">
+                <li><strong>스탠드형 키오스크 · KIOSK SYSTEM</strong>
+                  <span>기존 UI/UX 리디자인을 반영해 전반 퍼블리싱을 재정비했습니다. 11가지 타입의 공통 레이아웃으로 유지보수성과 재사용성을 높이고, 타입당 6가지 테마 색상을 토큰화해 브랜드별 적용이 쉽도록 했습니다. 키보드 UI와 슬라이드 메뉴도 구현했습니다.</span></li>
+                <li><strong>테이블형 키오스크 · ONT</strong>
+                  <span>1920×1080 기준으로 작업해 어느 기기에서나 동일한 배열의 최적화 화면을 제공했습니다.</span></li>
+                <li><strong>반응형 주문 웹 · ORDER WEB</strong>
+                  <span>목록형·박스형 보기 전환을 구현하고, 브랜드 컬러·폰트·로고만 교체하면 바로 적용되는 스킨 구조로 빠른 온보딩이 가능하게 했습니다.</span></li>
+                <li><strong>인터랙션 반응형 웹 · NZ SYSTEM</strong>
+                  <span>홍보 사이트 리뉴얼과 관리자 페이지 작업을 맡아 인터랙션이 들어간 반응형 화면을 구현했습니다.</span></li>
+              </ul>
             </div>
           </article>
 
@@ -349,13 +356,18 @@
             </div>
             <div class="career-col">
               <span class="career-label">Role</span>
-              <p>기획·디자인·개발팀과 협업하며 웹 서비스와 앱 내 웹 화면 퍼블리싱</p>
+              <p class="career-role">기획 · 디자인 · 프론트엔드 개발자와 협업하며 반응형 웹과 앱 웹뷰 퍼블리싱</p>
             </div>
             <div class="career-col">
               <span class="career-label">Project</span>
-              <p>- 디토랜드 웹 플랫폼 구축 및 리뉴얼<br/>
-                - 디토랜드 앱 웹뷰 화면 구현<br/>
-                - 근로복지공단 등 메타버스 프로젝트 웹 페이지 제작</p>
+              <ul class="career-projects">
+                <li><strong>디토랜드 웹 · 앱 (Vue.js 협업)</strong>
+                  <span>Vue.js 협업 환경에서 하드코딩으로 퍼블리싱했습니다. 언리얼 엔진 기반 앱의 포털·커뮤니티 UI를 구축하고, iPhone X 이상 기기의 노치를 고려해 Safe Area 기준 레이아웃을 구현했습니다.</span></li>
+                <li><strong>기관 · 방송 메타버스 사이트</strong>
+                  <span>2021 인디크래프트, tvN 메타버스, 전남정보문화산업진흥원, 근로복지공단 메타버스·키오스크 등 프로젝트 사이트를 구축하고 리뉴얼했습니다.</span></li>
+                <li><strong>협업 방식</strong>
+                  <span>마크업·스타일링, 접근성, 반응형, UX 인터랙션을 중점으로 프론트엔드 개발자와 함께 작업했습니다.</span></li>
+              </ul>
             </div>
           </article>
 
@@ -366,13 +378,18 @@
             </div>
             <div class="career-col">
               <span class="career-label">Role</span>
-              <p>반응형 웹 디자인 및 퍼블리싱</p>
+              <p class="career-role">반응형 웹 디자인 및 퍼블리싱</p>
             </div>
             <div class="career-col">
               <span class="career-label">Project</span>
-              <p>- 통합 홈페이지 디자인 및 반응형 리뉴얼<br/>
-                - 수백 개의 심리검사·보고서 페이지 모바일 대응<br/>
-                - 사내 관리자·제휴사 사이트 퍼블리싱</p>
+              <ul class="career-projects">
+                <li><strong>통합 홈페이지 반응형 리뉴얼</strong>
+                  <span>홈페이지 디자인부터 반응형 구현까지 진행했습니다.</span></li>
+                <li><strong>심리검사 · 보고서 페이지 모바일 대응</strong>
+                  <span>수백 개 페이지를 모바일 환경에 맞게 대응했습니다.</span></li>
+                <li><strong>사내 관리자 · 제휴사 사이트</strong>
+                  <span>퍼블리싱을 담당했습니다.</span></li>
+              </ul>
             </div>
           </article>
         </div>

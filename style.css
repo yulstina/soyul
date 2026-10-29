@@ -18,6 +18,8 @@
   --text-300:#ABABB4;
   --text-500:#9C9CA6;
   --text-600:#4E4E57;
+  /* 포인트색: 제목·라벨처럼 읽는 순서를 잡아야 하는 곳에만 쓴다. */
+  --accent:#C8F169;
 
   /* Type ------------------------------------------------------------------ */
   --font-display:'Archivo','Pretendard Variable','Pretendard',-apple-system,sans-serif;
@@ -556,3 +558,12 @@ h1,h2,h3,h4,p{margin:0}
   .site-nav a,.is-menu-open .site-nav a{transform:none;transition:opacity .2s ease}
 }
 .site-nav a[aria-current="page"]{color:var(--text-000)}
+
+/* Career projects -----------------------------------------------------------
+   프로젝트마다 짧은 제목 + 그 아래 한두 줄 설명(주로 성과). 제목에만 포인트색을 쓴다. */
+.career-projects{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:18px}
+.career-projects li{display:flex;flex-direction:column;gap:4px;min-width:0}
+.career-projects strong{font-weight:600;font-size:16px;line-height:1.5;color:var(--accent);
+                        letter-spacing:-.005em;word-break:keep-all}
+.career-projects span{color:var(--text-300);font-size:15px;line-height:1.7;word-break:keep-all}
+.career-role{color:var(--text-100)}
