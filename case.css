@@ -527,3 +527,72 @@
    not something the artwork above explains on its own. */
 .flow-lead{margin:0 0 clamp(28px,4vh,48px);max-width:62ch;color:var(--text-100);
            line-height:1.85;word-break:keep-all}
+
+/* 13 MONTHS — 2026-11 ---------------------------------------------------------
+   STORY(문제 해결 기록), SEO(끝낸 작업), 캡션 달린 화면. 모두 무채색:
+   색은 캡처 안에만 둔다(DESIGN_SYSTEM §1). */
+.flow-note{margin:6px 0 0;font-size:13px;line-height:1.6;color:var(--text-300);word-break:keep-all}
+
+.case-story,.case-seo{padding:clamp(64px,9vh,120px) var(--margin);max-width:1680px;
+  margin-inline:auto;border-top:1px solid var(--line-faint)}
+.case-story > .meta,.case-seo > .meta{display:block;margin-bottom:14px}
+.case-sec-title{margin:0 0 14px;font-family:var(--font-body);font-weight:600;
+  font-size:clamp(24px,2.4vw,34px);line-height:1.3;letter-spacing:-.02em;
+  color:var(--text-000);word-break:keep-all;text-wrap:balance}
+
+.story-list{border-top:1px solid var(--line-faint)}
+.story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);
+  gap:clamp(12px,4vw,72px);padding:clamp(24px,3.4vh,36px) 0;
+  border-bottom:1px solid var(--line-faint)}
+.story-no,.shot-cap-label{font-family:var(--font-mono);font-size:12px;
+  letter-spacing:.1em;color:var(--text-500)}
+.story-head h3{margin:8px 0 0;font-family:var(--font-body);font-weight:600;
+  font-size:clamp(17px,1.4vw,20px);line-height:1.45;letter-spacing:-.01em;
+  color:var(--text-000);word-break:keep-all}
+.story-body p{margin:0 0 10px;color:var(--text-100);line-height:1.85;word-break:keep-all;max-width:64ch}
+.story-body b{color:var(--text-000);font-weight:600;margin-right:6px}
+.story-body code,.seo-item code{font-family:var(--font-mono);font-size:.88em;
+  padding:1px 5px;border:1px solid var(--line);border-radius:4px;color:var(--text-000)}
+.story-body .story-tools{margin:14px 0 0;font-family:var(--font-mono);font-size:12px;
+  letter-spacing:.04em;color:var(--text-500)}
+
+.seo-list{list-style:none;margin:0;padding:0;display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(28px,5vw,72px)}
+.seo-item{padding:18px 0;border-top:1px solid var(--line-faint)}
+.seo-item h3{margin:0 0 4px;font-family:var(--font-body);font-weight:600;font-size:16px;
+  color:var(--text-000);word-break:keep-all}
+.seo-item p{margin:0;font-size:14px;line-height:1.75;color:var(--text-300);word-break:keep-all}
+
+.shot-row{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);
+  gap:clamp(20px,3vw,48px);align-items:start}
+.shot-row.is-reverse{grid-template-columns:minmax(0,1fr) minmax(0,1.7fr)}
+.shot-row.is-reverse .shot-cap{order:-1}
+.shot-row.is-phones .shot-grid{max-width:560px}
+/* case.js 가 비율을 재서 붙이는 data-ratio(wide = 전체 폭)가 캡션 칸을 밀어내지 않게. */
+.shot-row > .shot[data-ratio]{grid-column:auto;height:auto}
+.shot-cap{position:sticky;top:110px}
+.shot-cap h3{margin:8px 0 10px;font-family:var(--font-body);font-weight:600;
+  font-size:clamp(17px,1.4vw,20px);color:var(--text-000);word-break:keep-all}
+.shot-cap p{margin:0;font-size:15px;line-height:1.85;color:var(--text-100);word-break:keep-all}
+.shot-cap-ref{display:inline-block;margin-top:14px;font-family:var(--font-mono);
+  font-size:12px;letter-spacing:.08em;color:var(--text-500)}
+
+.bodoni{font-family:'Bodoni Moda','Times New Roman',serif;font-weight:400}
+
+@media (max-width:1023px){
+  .story{grid-template-columns:1fr}
+  .seo-list{grid-template-columns:1fr}
+  .shot-row,.shot-row.is-reverse{grid-template-columns:1fr}
+  .shot-row.is-reverse .shot-cap{order:0}
+  .shot-cap{position:static}
+  .shot-row.is-phones .shot-grid{max-width:none}
+}
+/* 휴대폰 두 장은 좁은 화면에서도 나란히 — 한 줄씩 쌓으면 한 화면이 넘게 길어진다. */
+@media (max-width:767px){
+  .shot-row.is-phones .shot-grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* 포인트색 — case 페이지 쓰임 (색 값과 전체 규칙은 style.css 맨 아래 §accent) ----
+   섹션 라벨, PROBLEM 번호, "해결", 캡션 라벨. 그 밖에는 쓰지 않는다. */
+.case-flow > .meta,.case-notes > .meta,.case-story > .meta,.case-seo > .meta,
+.story-no,.shot-cap-label,.story-body b{color:var(--accent)}
