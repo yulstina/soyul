@@ -95,7 +95,7 @@
         <div class="brief-cell">
           <h2>결과</h2>
           <p>
-            메뉴를 목록형·박스형으로 바꿔 보는 보기 전환을 구현하고, 브랜드 컬러·폰트·로고만 교체하면 되는 스킨 구조로 마크업·스타일을 정리했습니다. 메인 · 메뉴 목록과 상세 · 장바구니 · 주문 확인 · 로그인 · 회원가입 · 마이페이지(주문내역 · 쿠폰 · 즐겨찾는 메뉴 · 정보수정)를 두 화면으로 각각 구현했습니다.
+            메뉴를 목록형·박스형으로 바꿔 보는 보기 전환을 구현하고, 브랜드 컬러·폰트·로고만 교체하면 되는 스킨 구조로 마크업·스타일을 정리했습니다. 메인 · 메뉴 목록과 상세 · 장바구니 · 주문 정보 · 결제 · 주문 완료 · 로그인 · 회원가입 · 마이페이지(내 정보 · 주문내역 · 주문상세 · 쿠폰 · 즐겨찾는 메뉴), 총 17개 화면을 직접 마크업해 데스크톱과 모바일로 각각 구현했습니다.
           </p>
         </div>
         <div class="brief-cell">
@@ -138,6 +138,124 @@
                  aria-label="브랜드별로 바뀌는 주문 화면 녹화"></video>
           <button class="video-toggle" type="button" aria-pressed="false">PAUSE</button>
         </figure>
+
+        <div class="case-chapter" data-reveal><h2>04 — 직접 마크업한 화면</h2></div>
+        <p class="flow-note" data-reveal>디자인 시안을 받아 화면 17종을 HTML·CSS·jQuery로 직접 마크업했습니다. 데스크톱과 모바일(390px)을 각각 만들었고, 아래는 그중 대표 화면입니다.</p>
+        <div class="shot-row" data-reveal>
+          <figure class="shot">
+            <img src="assets/orderweb/v2/d-menu.webp" alt="메뉴 목록 PC" loading="lazy" width="1440" height="900" />
+          </figure>
+          <div class="shot-cap">
+            <span class="shot-cap-label">PC · MENU</span>
+            <h3>메뉴 목록 · 상세</h3>
+            <p>카테고리별 메뉴 목록과, 옵션·수량을 고르는 메뉴 상세를 마크업했습니다. 목록형과 박스형으로 바꿔 보는 보기 전환도 이 화면에 들어 있습니다.</p>
+          </div>
+        </div>
+        <div class="shot-row is-phones" data-reveal>
+          <div class="shot-grid cols-2">
+            <figure class="shot is-phone">
+              <img src="assets/orderweb/v2/m-menu.webp" alt="메뉴 목록 모바일" loading="lazy" width="780" height="1688" />
+            </figure>
+            <figure class="shot is-phone">
+              <img src="assets/orderweb/v2/m-menu_detail.webp" alt="메뉴 상세 모바일" loading="lazy" width="780" height="1688" />
+            </figure>
+          </div>
+          <div class="shot-cap">
+            <span class="shot-cap-label">MOBILE · MENU</span>
+            <h3>모바일 메뉴 화면</h3>
+            <p>하단에 고정되는 주문 버튼과 옵션 선택 영역을 터치하기 편한 크기로 잡았습니다.</p>
+          </div>
+        </div>
+        <div class="shot-row is-reverse" data-reveal>
+          <figure class="shot">
+            <img src="assets/orderweb/v2/d-order_cart_list.webp" alt="장바구니 PC" loading="lazy" width="1440" height="900" />
+          </figure>
+          <div class="shot-cap">
+            <span class="shot-cap-label">PC · CART</span>
+            <h3>장바구니</h3>
+            <p>주문 단계(장바구니 · 결제 · 주문완료)를 위쪽 스텝 바로 보여주고, 수량 조절과 삭제를 한 줄에 넣었습니다.</p>
+          </div>
+        </div>
+        <div class="shot-row" data-reveal>
+          <figure class="shot">
+            <img src="assets/orderweb/v2/d-order_order_info.webp" alt="주문 정보 PC" loading="lazy" width="1440" height="900" />
+          </figure>
+          <div class="shot-cap">
+            <span class="shot-cap-label">PC · ORDER INFO</span>
+            <h3>주문 정보 입력</h3>
+            <p>배송·수령 정보 입력 폼입니다. 선택한 값과 비활성 입력칸을 구분해 보이도록 스타일을 나눴습니다.</p>
+          </div>
+        </div>
+        <div class="shot-row is-phones" data-reveal>
+          <div class="shot-grid cols-2">
+            <figure class="shot is-phone">
+              <img src="assets/orderweb/v2/m-order_order_info.webp" alt="주문 정보 모바일" loading="lazy" width="780" height="1688" />
+            </figure>
+            <figure class="shot is-phone">
+              <img src="assets/orderweb/v2/m-order_order_payment.webp" alt="결제 모바일" loading="lazy" width="780" height="1688" />
+            </figure>
+          </div>
+          <div class="shot-cap">
+            <span class="shot-cap-label">MOBILE · ORDER</span>
+            <h3>주문 정보 · 결제</h3>
+            <p>현금 · 카드 결제 탭, 연락처와 이메일 입력, 쿠폰 입력 영역까지 모바일 한 화면 흐름으로 이었습니다.</p>
+          </div>
+        </div>
+        <div class="shot-row is-phones" data-reveal>
+          <div class="shot-grid cols-2">
+            <figure class="shot is-phone">
+              <img src="assets/orderweb/v2/m-order_cart_list.webp" alt="장바구니 모바일" loading="lazy" width="780" height="1688" />
+            </figure>
+            <figure class="shot is-phone">
+              <img src="assets/orderweb/v2/m-order_order_finish.webp" alt="주문 완료 모바일" loading="lazy" width="780" height="1688" />
+            </figure>
+          </div>
+          <div class="shot-cap">
+            <span class="shot-cap-label">MOBILE · CART / FINISH</span>
+            <h3>장바구니 · 주문 완료</h3>
+            <p>뒤로가기와 다음 단계 버튼을 하단에 고정해 한 손으로 주문을 이어갈 수 있게 했습니다.</p>
+          </div>
+        </div>
+        <div class="shot-row is-reverse" data-reveal>
+          <figure class="shot">
+            <img src="assets/orderweb/v2/d-mypage_my_order_history.webp" alt="주문내역 PC" loading="lazy" width="1440" height="900" />
+          </figure>
+          <div class="shot-cap">
+            <span class="shot-cap-label">PC · MY ORDER</span>
+            <h3>마이페이지 · 주문내역</h3>
+            <p>주문 유형(배달 · 포장)을 색 라벨로 구분하고, 영수증과 상세보기 버튼을 카드마다 배치했습니다.</p>
+          </div>
+        </div>
+        <div class="shot-row is-phones" data-reveal>
+          <div class="shot-grid cols-2">
+            <figure class="shot is-phone">
+              <img src="assets/orderweb/v2/m-mypage_my_page.webp" alt="마이페이지 모바일" loading="lazy" width="780" height="1688" />
+            </figure>
+            <figure class="shot is-phone">
+              <img src="assets/orderweb/v2/m-mypage_my_coupon.webp" alt="쿠폰 모바일" loading="lazy" width="780" height="1688" />
+            </figure>
+          </div>
+          <div class="shot-cap">
+            <span class="shot-cap-label">MOBILE · MY PAGE</span>
+            <h3>마이페이지 · 쿠폰</h3>
+            <p>내 정보 · 즐겨찾는 메뉴 · 주문내역 · 쿠폰으로 나뉘는 메뉴와, 쿠폰 목록 화면입니다.</p>
+          </div>
+        </div>
+        <div class="shot-row is-phones" data-reveal>
+          <div class="shot-grid cols-2">
+            <figure class="shot is-phone">
+              <img src="assets/orderweb/v2/m-member_login.webp" alt="로그인 모바일" loading="lazy" width="780" height="1688" />
+            </figure>
+            <figure class="shot is-phone">
+              <img src="assets/orderweb/v2/m-member_signup.webp" alt="회원가입 모바일" loading="lazy" width="780" height="1688" />
+            </figure>
+          </div>
+          <div class="shot-cap">
+            <span class="shot-cap-label">MOBILE · MEMBER</span>
+            <h3>로그인 · 회원가입</h3>
+            <p>입력 폼 두 화면의 간격과 버튼 위치를 맞추고, 비밀번호 표시 토글과 안내 문구를 넣었습니다.</p>
+          </div>
+        </div>
       </section>
 
       <section class="case-notes" aria-label="작업 내용">
@@ -181,6 +299,14 @@
             <div class="note-body">
               <h3>마이페이지 · 로그인 · 회원가입 화면</h3>
               <div class="note-tags"><span>HTML</span><span>CSS</span></div>
+            </div>
+          </article>
+          <article class="note">
+            <span class="note-no">06</span>
+            <div class="note-body">
+              <h3>17개 화면 직접 마크업 · 데스크톱/모바일</h3>
+              <p>메인, 메뉴 목록·상세, 장바구니부터 주문 완료까지 주문 흐름 6개, 로그인·회원가입, 마이페이지 6개 화면을 직접 코딩했습니다. 화면마다 데스크톱과 모바일을 따로 만들었습니다.</p>
+              <div class="note-tags"><span>HTML</span><span>CSS</span><span>jQuery</span></div>
             </div>
           </article>
 
