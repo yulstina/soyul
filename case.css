@@ -592,21 +592,7 @@
   .shot-row.is-phones .shot-grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
-/* 포인트색 (13 MONTHS에서 먼저 시험, 2026-11) ---------------------------------
-   글이 많은 페이지에서 눈이 걸릴 자리만 칠한다: 섹션 라벨, PROBLEM 번호, "해결",
-   캡션 라벨, SEO 항목 앞 표시. 본문 글자와 넓은 면에는 쓰지 않는다.
-   body 에 has-accent 가 있는 페이지에만 적용된다. */
-.has-accent{--accent:#FF6B1A}
-.has-accent .case-flow > .meta,
-.has-accent .case-notes > .meta,
-.has-accent .case-story > .meta,
-.has-accent .case-seo > .meta,
-.has-accent .story-no,
-.has-accent .shot-cap-label,
-.has-accent .shot-cap-ref{color:var(--accent)}
-.has-accent .story-body b{color:var(--accent)}
-.has-accent .flow-step.is-last::after{background:var(--accent)}
-.has-accent .seo-item h3{position:relative;padding-left:16px}
-.has-accent .seo-item h3::before{content:"";position:absolute;left:0;top:.55em;
-  width:6px;height:6px;border-radius:50%;background:var(--accent)}
-.has-accent .brief-cell h2{border-color:var(--accent)}
+/* 포인트색 — case 페이지 쓰임 (색 값과 전체 규칙은 style.css 맨 아래 §accent) ----
+   섹션 라벨, PROBLEM 번호, "해결", 캡션 라벨. 그 밖에는 쓰지 않는다. */
+.case-flow > .meta,.case-notes > .meta,.case-story > .meta,.case-seo > .meta,
+.story-no,.shot-cap-label,.story-body b{color:var(--accent)}

@@ -19,6 +19,9 @@
   --text-500:#9C9CA6;
   --text-600:#4E4E57;
 
+  /* 포인트색 — 아래 §accent 에 적힌 자리에만 쓴다 */
+  --accent:#C6FF3D;
+
   /* Type ------------------------------------------------------------------ */
   --font-display:'Archivo','Pretendard Variable','Pretendard',-apple-system,sans-serif;
   --font-body:'Pretendard Variable','Pretendard',-apple-system,sans-serif;
@@ -691,3 +694,15 @@ h1,h2,h3,h4,p{margin:0}
 .sec-sentence{margin:clamp(14px,2vh,22px) 0 0;max-width:none;color:var(--text-100);
               font-family:var(--font-body);font-weight:500;font-size:clamp(20px,2vw,28px);
               line-height:1.4;letter-spacing:-.02em;word-break:keep-all}
+
+/* §accent — 포인트색(라임) ------------------------------------------------------
+   UI는 무채색이라는 원칙(§1)은 그대로 두고, 글이 많은 화면에서 "여기부터 읽는다"를
+   알려 주는 표시로만 쓴다. 쓰는 곳은 셋뿐이다.
+   1) 섹션 라벨(작은 mono 글자)  2) 눌러 열리는 행의 원형 화살표(올렸을 때)
+   3) 케이스 페이지의 PROBLEM 번호·"해결"·캡션 라벨(case.css)
+   본문 글자, 제목, 배지, 테두리, 배경 면에는 쓰지 않는다. 새 자리를 늘리지 않는다. */
+.about-inner > .meta,.section-head > .meta,#career > .meta,.contact > .meta,
+.fold-meta,.dd-map .meta{color:var(--accent)}
+.work-row:hover .wr-go,.work-row:focus-visible .wr-go,
+.design-teaser:hover .wr-go,.design-teaser:focus-visible .wr-go{
+  background:var(--accent);border-color:var(--accent);color:var(--void-100)}
