@@ -529,7 +529,7 @@
            line-height:1.85;word-break:keep-all}
 
 /* 13 MONTHS — 2026-11 ---------------------------------------------------------
-   STORY(문제 해결 기록), SEO(완료 / 진행 중), 캡션 달린 화면. 모두 무채색:
+   STORY(문제 해결 기록), SEO(끝낸 작업), 캡션 달린 화면. 모두 무채색:
    색은 캡처 안에만 둔다(DESIGN_SYSTEM §1). */
 .flow-note{margin:6px 0 0;font-size:13px;line-height:1.6;color:var(--text-300);word-break:keep-all}
 
@@ -544,7 +544,7 @@
 .story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);
   gap:clamp(12px,4vw,72px);padding:clamp(24px,3.4vh,36px) 0;
   border-bottom:1px solid var(--line-faint)}
-.story-no,.shot-cap-label,.seo-state{font-family:var(--font-mono);font-size:12px;
+.story-no,.shot-cap-label{font-family:var(--font-mono);font-size:12px;
   letter-spacing:.1em;color:var(--text-500)}
 .story-head h3{margin:8px 0 0;font-family:var(--font-body);font-weight:600;
   font-size:clamp(17px,1.4vw,20px);line-height:1.45;letter-spacing:-.01em;
@@ -558,15 +558,10 @@
 
 .seo-list{list-style:none;margin:0;padding:0;display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(28px,5vw,72px)}
-.seo-item{display:grid;grid-template-columns:76px minmax(0,1fr);gap:14px;
-  padding:18px 0;border-top:1px solid var(--line-faint)}
+.seo-item{padding:18px 0;border-top:1px solid var(--line-faint)}
 .seo-item h3{margin:0 0 4px;font-family:var(--font-body);font-weight:600;font-size:16px;
   color:var(--text-000);word-break:keep-all}
 .seo-item p{margin:0;font-size:14px;line-height:1.75;color:var(--text-300);word-break:keep-all}
-/* 완료는 채운 배지, 진행 중은 점선 배지. 끝나면 li 에 is-done 만 붙인다. */
-.seo-state{align-self:start;justify-self:start;padding:3px 8px;border-radius:999px;
-  border:1px dashed var(--line-strong);white-space:nowrap;font-size:11px;letter-spacing:.06em}
-.seo-item.is-done .seo-state{border:1px solid var(--text-000);background:var(--text-000);color:var(--void-000)}
 
 .shot-row{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);
   gap:clamp(20px,3vw,48px);align-items:start}
