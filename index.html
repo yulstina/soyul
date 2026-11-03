@@ -32,7 +32,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <!-- Archivo = 디스플레이(그로테스크), JetBrains Mono = 메타/좌표. -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..112,400..700&family=JetBrains+Mono:wght@400;500&display=swap" />
-  <link rel="stylesheet" href="style.css?v=20261103a" />
+  <link rel="stylesheet" href="style.css?v=20261103b" />
 </head>
 <body>
   <header class="site-header" id="siteHeader">
@@ -269,6 +269,38 @@
         </a>
       </section>
 
+      <!-- AI VIDEO 띠. WITH AI 띠(.fold-bar)와 같은 모양으로 두고, 오른쪽에 무음 반복 미리보기를 둔다.
+           누르면 소리가 있는 원본을 대화상자(dialog)에서 재생한다. 영상이 늘면 .vf-thumb 와 dialog 목록을 함께 늘린다. -->
+      <section class="video-feature" aria-label="AI Video">
+        <button class="fold-bar vf-bar" type="button" aria-haspopup="dialog" aria-controls="videoDialog">
+          <span class="meta fold-meta">ALSO — AI VIDEO</span>
+          <span class="fold-main">
+            <span class="fold-title" data-mark>AI VIDEO</span>
+            <span class="fold-sub">29초영화제 출품 · 모든 순간의 커피</span>
+          </span>
+          <span class="vf-thumb" aria-hidden="true">
+            <video src="assets/video/coffee-loop.mp4" poster="assets/video/coffee-loop.webp" muted loop playsinline autoplay preload="metadata" width="640" height="360"></video>
+            <span class="vf-time">0:29</span>
+          </span>
+          <span class="vf-play" aria-hidden="true"><i></i></span>
+        </button>
+      </section>
+
+      <dialog class="vf-dialog" id="videoDialog" aria-labelledby="vfTitle">
+        <div class="vf-box">
+          <button class="vf-close" type="button" aria-label="닫기">×</button>
+          <video class="vf-video" controls playsinline preload="none" poster="assets/video/coffee-poster.webp" width="1920" height="1080">
+            <source src="assets/video/coffee.mp4" type="video/mp4" />
+          </video>
+          <div class="vf-info">
+            <span class="meta">29초영화제 · 주제 커피 · 0:29</span>
+            <h2 id="vfTitle">모든 순간의 커피</h2>
+            <p>설레던 첫 만남부터 함께 나이 든 오늘까지, 한 사람의 인생을 커피 한 잔의 장면들로 이었습니다.</p>
+            <div class="ai-tools"><span><img class="tool-logo" src="assets/icons/flow.webp" alt="" width="16" height="16" />Flow</span></div>
+          </div>
+        </div>
+      </dialog>
+
       <!-- AI를 어디에 쓰고 어디서 직접 판단하는지. 단계마다 AI가 한 일과 내가 한 일을
            한 줄씩 나눠, "AI로 만들었다"가 아니라 "AI와 이렇게 일한다"로 읽히게 한다. -->
       <section class="ai-work fold" id="ai-workflow" aria-label="How I work with AI">
@@ -492,5 +524,6 @@
   <script src="mark.js?v=20261103a"></script>
   <script src="fold.js?v=20261103a"></script>
   <script src="role.js?v=20261103a"></script>
+  <script src="video.js?v=20261103b"></script>
 </body>
 </html>
