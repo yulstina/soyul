@@ -57,7 +57,7 @@
           <span class="meta case-eyebrow">01 / UTPLUS INTERACTIVE / 2019–2022</span>
           <h1 class="case-title">DITOLAND</h1>
           <p class="case-tagline">
-            메타버스 플랫폼 디토랜드의 반응형 웹과 앱 내 웹뷰, 기관 메타버스 웹뷰를 Vue.js 협업 환경에서 퍼블리싱했습니다.
+            메타버스 플랫폼 디토랜드의 웹 전 페이지와 앱 내 웹뷰, 기관 메타버스 웹뷰를 하드코딩으로 마크업하고, Vue.js 협업 환경에서 퍼블리싱했습니다.
           </p>
           <a class="case-live" href="https://ditoland.net/" target="_blank" rel="noopener">
             <span>Live Site</span>
@@ -80,13 +80,13 @@
         <div class="brief-cell">
           <h2>담당</h2>
           <p>
-            유티플러스 인터랙티브에서 디토랜드 웹과 앱 웹뷰, 근로복지공단 등 기관·방송 메타버스 사이트의 퍼블리싱을 담당했습니다. 기획·디자인·프론트엔드 개발자와 협업했습니다.
+            유티플러스 인터랙티브에서 디토랜드 웹 전 페이지와 앱 웹뷰, 근로복지공단 등 기관·방송 메타버스 사이트, 사내 대시보드의 퍼블리싱을 담당했습니다. 기획·디자인·프론트엔드 개발자와 협업하고, 팀 Git 브랜치 규칙(alpha·m6·m7, 체리픽)에 맞춰 작업했습니다.
           </p>
         </div>
         <div class="brief-cell">
           <h2>결과</h2>
           <p>
-            웹은 전 화면을 반응형으로, 앱은 웹뷰로 나오는 전 화면과 태블릿 대응까지 구현했습니다. 언리얼 엔진 기반 앱의 포털·커뮤니티 UI를 하드코딩으로 구축하고, iPhone X 이상의 노치를 고려한 Safe Area 레이아웃으로 iOS 앱 심사를 통과했습니다.
+            웹은 전 화면을 반응형으로, 앱은 웹뷰로 나오는 전 화면과 태블릿 대응까지 구현했습니다. 반응형은 PC 1024~1200, 태블릿 720~1023, 모바일 360~719로 나누고 GNB와 본문을 따로 전환했습니다. 언리얼 엔진 기반 앱의 포털·커뮤니티 UI를 하드코딩으로 구축하고, iPhone X 이상의 노치를 고려한 Safe Area 레이아웃으로 iOS 앱 심사를 통과했습니다.
           </p>
         </div>
         <div class="brief-cell">
@@ -161,48 +161,80 @@
           <article class="note">
             <span class="note-no">01</span>
             <div class="note-body">
-              <h3>웹 · 앱 · 태블릿 반응형 퍼블리싱</h3>
-              <div class="note-tags"><span>HTML</span><span>CSS</span></div>
+              <h3>웹 전 페이지 반응형 하드코딩 마크업 · 앱 웹뷰 · 태블릿</h3>
+              <div class="note-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
             </div>
           </article>
 
           <article class="note">
             <span class="note-no">02</span>
             <div class="note-body">
-              <h3>게임 목록 슬라이더 · 카드 그리드</h3>
-              <div class="note-tags"><span>JavaScript</span><span>CSS Grid</span></div>
+              <h3>리뉴얼 GNB: jQuery 프로토타입으로 검증 후 header_v2 컴포넌트에 맞춰 마크업</h3>
+              <div class="note-tags"><span>Vue.js</span><span>jQuery</span><span>HTML</span><span>CSS</span></div>
             </div>
           </article>
 
           <article class="note">
             <span class="note-no">03</span>
             <div class="note-body">
-              <h3>앱 웹뷰 화면 퍼블리싱</h3>
-              <div class="note-tags"><span>HTML</span><span>CSS</span><span>WebView</span></div>
+              <h3>로그인 · 회원가입 · 계정찾기 화면 (입력 상태, 약관 팝업, SNS 간편 로그인)</h3>
+              <div class="note-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
             </div>
           </article>
 
           <article class="note">
             <span class="note-no">04</span>
             <div class="note-body">
-              <h3>근로복지공단 메타버스 퍼블리싱</h3>
-              <div class="note-tags"><span>HTML</span><span>CSS</span></div>
+              <h3>채팅 UI: 1:1 · 그룹 채팅, 친구 추가 · 목록 · 삭제, 말풍선 · 스크롤, 대화창 입력</h3>
+              <div class="note-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
             </div>
           </article>
 
           <article class="note">
             <span class="note-no">05</span>
             <div class="note-body">
-              <h3>Vue 컴포넌트 구조에 맞춘 마크업 · 개발자 협업</h3>
-              <div class="note-tags"><span>Vue.js</span><span>HTML</span><span>CSS</span></div>
+              <h3>슬라이드 구현 (Swiper · Flipster 등 비교 검증 후 적용)</h3>
+              <div class="note-tags"><span>JavaScript</span><span>CSS</span></div>
             </div>
           </article>
 
           <article class="note">
             <span class="note-no">06</span>
             <div class="note-body">
+              <h3>반응형 기준 설계: 구간별 GNB · 본문 분리 전환, SVG 아이콘 규칙</h3>
+              <div class="note-tags"><span>Responsive</span><span>SVG</span></div>
+            </div>
+          </article>
+
+          <article class="note">
+            <span class="note-no">07</span>
+            <div class="note-body">
               <h3>iOS 노치(Safe Area) 대응 · 앱 심사 통과</h3>
               <div class="note-tags"><span>iOS</span><span>Safe Area</span></div>
+            </div>
+          </article>
+
+          <article class="note">
+            <span class="note-no">08</span>
+            <div class="note-body">
+              <h3>태블릿 가로 모드 대응</h3>
+              <div class="note-tags"><span>CSS</span><span>Tablet</span></div>
+            </div>
+          </article>
+
+          <article class="note">
+            <span class="note-no">09</span>
+            <div class="note-body">
+              <h3>근로복지공단 등 기관 메타버스 웹뷰 · 사내 대시보드 퍼블리싱</h3>
+              <div class="note-tags"><span>HTML</span><span>CSS</span><span>Bootstrap</span></div>
+            </div>
+          </article>
+
+          <article class="note">
+            <span class="note-no">10</span>
+            <div class="note-body">
+              <h3>Vue 컴포넌트 구조에 맞춘 마크업 · 리뉴얼 병행(renewal 레이아웃) · 개발자 협업</h3>
+              <div class="note-tags"><span>Vue.js</span><span>Git</span></div>
             </div>
           </article>
 
