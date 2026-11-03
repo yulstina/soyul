@@ -95,6 +95,9 @@
 .shot img{width:100%;height:auto;display:block;
           transition:transform .8s var(--ease),filter .6s var(--ease)}
 .shot:hover img{transform:scale(1.02)}
+/* PC + mobile device mockups pre-composed to one height; breathing room around them. */
+.shot.shot-pair{padding:clamp(18px,3vw,44px);box-sizing:border-box}
+.shot.shot-pair:hover img{transform:none}
 /* Wide artwork earns the full measure; everything else pairs up. */
 .shot[data-ratio="wide"]{grid-column:1/-1}
 .shot[data-ratio="square"],.shot[data-ratio="tall"]{grid-column:span 1}
