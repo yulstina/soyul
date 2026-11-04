@@ -8,6 +8,7 @@
 
   const ICON = {
     flow: '<img class="tool-logo" src="assets/icons/flow.webp" alt="" width="16" height="16" />Flow',
+    gpt: '<i class="tool-icon" style="--icon:url(assets/icons/openai.svg)" aria-hidden="true"></i>ChatGPT',
     capcut: '<i class="tool-icon is-text" aria-hidden="true">CC</i>CapCut',
   };
   const VIDEOS = [
@@ -16,9 +17,9 @@
       desc: '설레던 첫 만남부터 함께 나이 든 오늘까지, 한 사람의 인생을 커피 한 잔의 장면들로 이었습니다.',
       tools: ['flow', 'capcut'] },
     { src: 'assets/video/career.mp4', poster: 'assets/video/career-poster.webp', thumb: 'assets/video/career-loop.webp',
-      ratio: '9 / 16', meta: '2026 경력단절예방·극복 콘텐츠 공모전 · 0:46', title: '경력은 이어집니다',
-      desc: '“경력에 쉼표는 있어도, 마침표는 없습니다.” 잠시 멈춘 순간에도 경력은 이어질 수 있다는 메시지를 장면과 자막으로 전했습니다.',
-      tools: [] },
+      ratio: '9 / 16', meta: '2026 경력단절예방·극복 콘텐츠 공모전 · 0:46', title: '경력에 쉼표는 있어도, 마침표는 없습니다.',
+      desc: '돌봄과 일 사이에서 잠시 멈춘 여성의 경력, 그 시간이 단절이 아닌 새로운 시작으로 이어질 수 있도록. 경력단절 예방의 중요성과 일·생활 균형, 여성의 지속적인 경제활동을 응원하는 메시지를 AI 영상과 모션그래픽으로 표현한 공익 캠페인 영상입니다.',
+      tools: ['gpt', 'flow', 'capcut'] },
   ];
 
   const video = dlg.querySelector('.vf-video');
