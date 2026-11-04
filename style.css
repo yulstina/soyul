@@ -759,6 +759,7 @@ h1,h2,h3,h4,p{margin:0}
 .vf-info .meta{color:var(--accent)}
 .vf-info h2{margin:0;font:700 clamp(20px,2vw,26px)/1.3 var(--font-body);letter-spacing:-.02em;color:var(--text-000);word-break:keep-all}
 .vf-info p{margin:0;max-width:60ch;color:var(--text-300);font-size:15px;line-height:1.6;word-break:keep-all}
+.vf-info .vf-lead{color:var(--text-100);font-size:16px;font-weight:600;line-height:1.5}
 .vf-info .ai-tools{margin-top:4px}
 html.is-locked{overflow:hidden}
 @media (max-width:767px){
