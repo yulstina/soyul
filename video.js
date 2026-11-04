@@ -3,12 +3,14 @@
 // 미리보기는 무음 반복이며, 움직임 줄이기 설정이면 처음부터 멈춘 채로 둔다.
 (() => {
   const bar = document.querySelector('.vf-bar');
+  let opener = null;
   const dlg = document.getElementById('videoDialog');
   if (!bar || !dlg || typeof dlg.showModal !== 'function') return;
 
   const ICON = {
     flow: '<img class="tool-logo" src="assets/icons/flow.webp" alt="" width="16" height="16" />Flow',
     gpt: '<i class="tool-icon" style="--icon:url(assets/icons/openai.svg)" aria-hidden="true"></i>ChatGPT',
+    higgsfield: '<img class="tool-logo" src="assets/icons/higgsfield.webp" alt="" width="16" height="16" />Higgsfield',
     capcut: '<i class="tool-icon is-text" aria-hidden="true">CC</i>CapCut',
   };
   const VIDEOS = [
@@ -20,6 +22,10 @@
       ratio: '9 / 16', meta: '2026 경력단절 예방·극복 콘텐츠 공모전 · 0:46', title: '경력에 쉼표는 있어도, 마침표는 없습니다.',
       desc: '돌봄으로 잠시 멈춘 경력도 다시 이어질 수 있다는 메시지를 담았습니다. 경력단절 예방과 일·생활 균형의 중요성을 AI 영상 및 모션그래픽을 통해 전달하는 공익 캠페인 콘텐츠입니다.',
       tools: ['gpt', 'flow', 'capcut'] },
+    { src: 'assets/video/babambi-ad.mp4', poster: 'assets/video/babambi-ad-poster.webp', thumb: 'assets/video/babambi-ad-loop.webp',
+      ratio: '9 / 16', meta: 'BABAMBI · 동결건조 간식 광고 영상 · 0:27', title: '자연 그대로의 채소를, 사료 위에 톡톡.',
+      desc: '강아지 동결건조 간식 바밤비의 광고 영상입니다. 채소 원물에서 시작해 한 끼가 특별해지는 장면까지 AI 영상으로 만들었고, Higgsfield로 배경음악을 만들어 ASMR 효과음과 함께 입혔습니다. 컷마다 자막 애니메이션을 넣어 흐름이 매끄럽게 이어지도록 다듬었습니다.',
+      tools: ['gpt', 'flow', 'higgsfield', 'capcut'] },
   ];
 
   const video = dlg.querySelector('.vf-video');
@@ -59,10 +65,14 @@
     bar.querySelectorAll('video').forEach((l) => { l.removeAttribute('autoplay'); l.pause(); });
   }
 
-  bar.addEventListener('click', () => {
-    show(0, true);
-    dlg.showModal();
-    document.documentElement.classList.add('is-locked');
+  // 제목·썸네일·재생 버튼 어디서든 data-vf 번호의 영상부터 연다.
+  bar.querySelectorAll('[data-vf]').forEach((el) => {
+    el.addEventListener('click', () => {
+      opener = el;
+      show(Number(el.dataset.vf), true);
+      dlg.showModal();
+      document.documentElement.classList.add('is-locked');
+    });
   });
   const close = () => dlg.close();
   dlg.querySelector('.vf-close').addEventListener('click', close);
@@ -73,6 +83,6 @@
     video.removeAttribute('src');
     video.load();
     document.documentElement.classList.remove('is-locked');
-    bar.focus();
+    if (opener) opener.focus();
   });
 })();
