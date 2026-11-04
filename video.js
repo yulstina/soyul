@@ -16,7 +16,7 @@
       ratio: '16 / 9', meta: '29초영화제 · 주제 커피 · 0:29', title: '모든 순간의 커피',
       desc: '설레던 첫 만남부터 함께 나이 든 오늘까지, 한 사람의 인생을 커피 한 잔의 장면들로 이었습니다.',
       tools: ['flow', 'capcut'] },
-    { src: 'assets/video/career.mp4', poster: 'assets/video/career-poster.webp', thumb: 'assets/video/career-loop.webp',
+    { src: 'assets/video/career.mp4?v=2', poster: 'assets/video/career-poster.webp', thumb: 'assets/video/career-loop.webp',
       ratio: '9 / 16', meta: '2026 경력단절 예방·극복 콘텐츠 공모전 · 0:46', title: '경력에 쉼표는 있어도, 마침표는 없습니다.',
       desc: '돌봄으로 잠시 멈춘 경력도 다시 이어질 수 있다는 메시지를 담았습니다. 경력단절 예방과 일·생활 균형의 중요성을 AI 영상 및 모션그래픽을 통해 전달하는 공익 캠페인 콘텐츠입니다.',
       tools: ['gpt', 'flow', 'capcut'] },
