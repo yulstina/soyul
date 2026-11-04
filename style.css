@@ -712,7 +712,13 @@ h1,h2,h3,h4,p{margin:0}
 .video-feature{padding:0 var(--margin)}
 .video-feature + .ai-work .fold-bar{border-top-color:var(--line-faint)}
 .vf-thumbs{grid-area:chips;display:flex;align-items:center;justify-self:end;gap:10px}
-.vf-thumb{position:relative;display:block;
+.vf-main{grid-area:main;min-width:0;padding:0;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.vf-main:focus-visible,.vf-thumb:focus-visible,.vf-play:focus-visible{outline:2px solid var(--text-000);outline-offset:4px}
+.vf-bar{cursor:default}
+.vf-bar:hover{background:none}
+.vf-bar:hover .fold-title{transform:none}
+.vf-main:hover .fold-title,.vf-main:focus-visible .fold-title{transform:translateX(8px)}
+.vf-thumb{position:relative;display:block;padding:0;border:0;cursor:pointer;
           height:clamp(72px,7.4vw,107px);aspect-ratio:16/9;border-radius:6px;overflow:hidden;
           background:var(--void-200)}
 .vf-thumb.is-tall{aspect-ratio:9/16}
@@ -725,9 +731,12 @@ h1,h2,h3,h4,p{margin:0}
 .vf-play i{position:absolute;left:50%;top:50%;margin:-6px 0 0 -3px;width:0;height:0;
            border-style:solid;border-width:6px 0 6px 10px;
            border-color:transparent transparent transparent var(--text-100);transition:border-color .3s ease}
-.vf-bar:hover .vf-thumb video,.vf-bar:focus-visible .vf-thumb video{filter:none;transform:scale(1.04)}
-.vf-bar:hover .vf-play,.vf-bar:focus-visible .vf-play{background:var(--accent);border-color:var(--accent)}
-.vf-bar:hover .vf-play i,.vf-bar:focus-visible .vf-play i{border-left-color:var(--void-100)}
+.vf-thumb:hover video,.vf-thumb:focus-visible video{filter:none;transform:scale(1.04)}
+.vf-thumb::after{content:"";position:absolute;inset:0;border-radius:6px;border:1px solid transparent;pointer-events:none;transition:border-color .3s ease}
+.vf-thumb:hover::after,.vf-thumb:focus-visible::after{border-color:var(--accent)}
+.vf-play{padding:0;background:none;cursor:pointer}
+.vf-play:hover,.vf-play:focus-visible{background:var(--accent);border-color:var(--accent)}
+.vf-play:hover i,.vf-play:focus-visible i{border-left-color:var(--void-100)}
 @media (max-width:767px){
   .vf-thumbs{justify-self:start}
   .vf-thumb{height:112px;flex:none}
