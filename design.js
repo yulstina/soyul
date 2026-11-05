@@ -12,8 +12,9 @@
     if (kind === 'mask') return `<i class="tool-icon" style="--icon:url(${src})" aria-hidden="true"></i>`;
     return `<img class="tool-logo" src="${src}" alt="" width="16" height="16" />`;
   };
-  const toolRow = (brand) => {
-    const all = toolsFor(brand).flatMap((s) => s.tools);
+  const toolRow = (brand, only) => {
+    // only: 항목이 쓴 도구를 직접 지정하면 브랜드 공통 도구 대신 그것만 보여 준다.
+    const all = only || toolsFor(brand).flatMap((s) => s.tools);
     return `<span class="tool-row" role="img" aria-label="${all.map((t) => t[0]).join(', ')}">${all.map(toolIcon).join('')}</span>`;
   };
 
@@ -175,7 +176,7 @@
     titleEl.innerHTML = `<span class="meta">${esc(it.brand)}</span><h2>${esc(it.title)}</h2>`;
     metaEl.innerHTML = `<div><dt>FORMAT</dt><dd>${esc(it.fmt)}</dd></div><div><dt>SIZE</dt><dd>${esc(it.size)}</dd></div>`
       + `<div><dt>PAGE</dt><dd class="viewer-page">${it.slides.length > 1 ? `01 / ${pad(it.slides.length)}` : '—'}</dd></div>`
-      + `<div><dt>TOOLS</dt><dd>${toolRow(it.brand)}</dd></div>`;
+      + `<div><dt>TOOLS</dt><dd>${toolRow(it.brand, it.tools)}</dd></div>`;
   };
   function syncCount() {
     if (!track) return;
