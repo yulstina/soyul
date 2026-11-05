@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..112,400..700&family=JetBrains+Mono:wght@400;500&family=EB+Garamond:wght@400;500&family=Noto+Serif+KR:wght@300;400;600&family=Noto+Sans+KR:wght@400;500&display=swap" />
   <link rel="stylesheet" href="style.css?v=20261104f" />
-  <link rel="stylesheet" href="case.css?v=20261103a" />
+  <link rel="stylesheet" href="case.css?v=20261105a" />
 </head>
 <body class="case-page">
   <header class="site-header is-visible" id="siteHeader">
@@ -312,6 +312,33 @@
           </article>
 
         </div>
+      </section>
+
+      <!-- SEO · GEO · AEO: lucent-derm build-pages.mjs에 실제로 들어간 것만 적는다. -->
+      <section class="case-seo" aria-labelledby="seo-title">
+        <span class="meta">SEO · GEO · AEO</span>
+        <h2 class="case-sec-title" id="seo-title">검색과 AI 답변에 읽히는 구조</h2>
+        <p class="flow-lead">페이지를 빌드 스크립트로 만들면서 메타 정보와 구조화 데이터를 함께 생성하도록 했습니다.</p>
+        <ul class="seo-list">
+          <li class="seo-item" data-reveal>
+            <div><h3>시맨틱 마크업</h3><p>페이지마다 h1 하나, 주 메뉴·모바일 메뉴에 이름을 붙인 nav, 본문 바로가기 링크를 넣었습니다.</p></div>
+          </li>
+          <li class="seo-item" data-reveal>
+            <div><h3>Title · Description · Open Graph</h3><p>8개 페이지마다 제목과 설명 문구를 따로 쓰고, 공유용 OG 정보를 함께 넣었습니다.</p></div>
+          </li>
+          <li class="seo-item" data-reveal>
+            <div><h3>FAQ 구조화 데이터(FAQPage)</h3><p>저널의 자주 묻는 질문을 JSON-LD FAQPage로 만들어, 검색엔진과 AI 답변 엔진이 질문과 답을 그대로 읽을 수 있게 했습니다.</p></div>
+          </li>
+          <li class="seo-item" data-reveal>
+            <div><h3>WebSite · WebPage 스키마</h3><p>사이트와 각 페이지의 이름·설명·언어를 JSON-LD로 넣었습니다.</p></div>
+          </li>
+          <li class="seo-item" data-reveal>
+            <div><h3>4개 언어 hreflang</h3><p>한국어·영어·일본어·중국어 페이지를 <code>hreflang</code>으로 서로 연결했습니다.</p></div>
+          </li>
+          <li class="seo-item" data-reveal>
+            <div><h3>sitemap · robots 자동 생성</h3><p>빌드할 때 sitemap.xml과 robots.txt를 만들고, 가상 브랜드라 기본값은 <code>noindex</code>로 두었습니다.</p></div>
+          </li>
+        </ul>
       </section>
 
       <section class="case-notes" aria-label="사용 도구">

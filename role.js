@@ -1,7 +1,21 @@
-// 지원 직무별 첫 화면: 주소 끝에 ?role=design 을 붙이면 DESIGN을 먼저 보여준다.
+// 지원 직무별 첫 화면: ?role=design 은 DESIGN을 먼저, ?role=clinic 은 LUCENT(병원 홈페이지)를 먼저 보여준다.
 // (상세페이지·콘텐츠 디자인 직무 지원용 링크. 일반 링크는 그대로 WORK 우선.)
 (() => {
   const role = (new URLSearchParams(location.search).get('role') || '').toLowerCase();
+
+  // ?role=clinic : 병원 홈페이지·랜딩 직무 지원용. LUCENT(가상 피부과)를 목록 맨 위로 올리고
+  // 한 줄 소개를 병원 홈페이지 관점으로 바꾼다. 번호(09)는 그대로 둔다.
+  if (role === 'clinic') {
+    const row = document.querySelector('.work-list a[href="work-lucent.html"]');
+    const li = row && row.closest('li');
+    if (li && li.parentElement) {
+      li.parentElement.prepend(li);
+      const purpose = row.querySelector('.wr-purpose');
+      if (purpose) purpose.textContent = '병원 홈페이지 · 상담 흐름 · SEO·AEO';
+    }
+    return;
+  }
+
   if (role !== 'design') return;
 
   // 히어로 버튼: DESIGN을 앞에
