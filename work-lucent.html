@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..112,400..700&family=JetBrains+Mono:wght@400;500&family=EB+Garamond:wght@400;500&family=Noto+Serif+KR:wght@300;400;600&family=Noto+Sans+KR:wght@400;500&display=swap" />
   <link rel="stylesheet" href="style.css?v=20261104f" />
-  <link rel="stylesheet" href="case.css?v=20261105a" />
+  <link rel="stylesheet" href="case.css?v=20261105b" />
 </head>
 <body class="case-page">
   <header class="site-header is-visible" id="siteHeader">
@@ -54,18 +54,27 @@
           <img src="assets/cover-lucent.webp" alt="LUCENT 가상 피부과 웹사이트 메인 화면" />
         </div>
         <div class="case-open-inner">
-          <span class="meta case-eyebrow">09 / SELF-DIRECTED / 2026</span>
+          <span class="meta case-eyebrow">03 / SELF-DIRECTED / 2026</span>
           <h1 class="case-title">LUCENT</h1>
           <p class="case-tagline">
             &lsquo;피부 본연의 빛&rsquo;에서 출발한 가상 피부과 브랜드 웹사이트입니다. 8개 페이지를 한국어·영어·일본어·중국어(간체)로 구성하고, 진료 정보부터 공간 소개와 상담 가이드까지 하나의 흐름으로 연결했습니다.
           </p>
-          <a class="case-live" href="https://lucent-build.vercel.app/" target="_blank" rel="noopener">
-            <span>Live Site</span>
-            <svg class="case-live-arrow" viewBox="0 0 16 16" aria-hidden="true">
-              <path d="M4 12L12 4M12 4H5.5M12 4V10.5" fill="none" stroke="currentColor"
+          <div class="case-live-group">
+            <a class="case-live" href="https://lucent-build.vercel.app/" target="_blank" rel="noopener">
+              <span>Live Site</span>
+              <svg class="case-live-arrow" viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M4 12L12 4M12 4H5.5M12 4V10.5" fill="none" stroke="currentColor"
                     stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>
+              </svg>
+            </a>
+            <a class="case-live" href="https://lucent-treatment.vercel.app/treatments/lifting/" target="_blank" rel="noopener">
+              <span>시술 안내 페이지</span>
+              <svg class="case-live-arrow" viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M4 12L12 4M12 4H5.5M12 4V10.5" fill="none" stroke="currentColor"
+                    stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
           <span class="case-rule" aria-hidden="true"></span>
         </div>
       </section>
@@ -311,6 +320,44 @@
             </div>
           </article>
 
+        </div>
+      </section>
+
+      <!-- 시술 안내 페이지: lucent-treatment(Astro + Vue) 저장소에 실제로 있는 것만 적는다. 포토샵 시안은 만든 뒤에 추가한다. -->
+      <section class="case-seo" aria-labelledby="tr-title">
+        <span class="meta">TREATMENT PAGE</span>
+        <h2 class="case-sec-title" id="tr-title">배너에서 상담 예약까지, 시술 안내 상세페이지</h2>
+        <p class="flow-lead">병원 사이트에서 메인 배너와 팝업을 누르면 도착하는 초음파 리프팅 안내 페이지를 Astro와 Vue로 따로 만들었습니다.</p>
+        <ul class="seo-list">
+          <li class="seo-item" data-reveal>
+            <div><h3>배너 → 팝업 → 상세 → 상담 예약 흐름</h3><p>메인 슬라이드 배너와 이벤트 팝업(오늘 하루 보지 않기), 상세페이지, 상담 폼, 모바일 하단 고정 버튼까지 한 흐름으로 이었습니다.</p></div>
+          </li>
+          <li class="seo-item" data-reveal>
+            <div><h3>Astro 뼈대 + Vue 인터랙션</h3><p>페이지와 SEO 마크업은 Astro, 비교 탭·상담 폼·팝업·배너 슬라이드는 Vue 컴포넌트로 나눴습니다. 시술 하나가 JSON 데이터 파일 하나라 다른 시술은 파일만 추가하면 됩니다.</p></div>
+          </li>
+          <li class="seo-item" data-reveal>
+            <div><h3>움직임으로 설명하는 시술 원리</h3><p>초음파가 피부 층을 내려가는 모습을 CSS 애니메이션으로 보여주고, 섹션은 스크롤하면 차례로 나타납니다. 모션 줄이기 설정에서는 멈춥니다.</p></div>
+          </li>
+          <li class="seo-item" data-reveal>
+            <div><h3>검색과 AI 답변을 고려한 구조</h3><p>MedicalWebPage·MedicalProcedure·FAQPage JSON-LD를 넣었고, FAQ 답변은 JS 없이도 HTML에 그대로 들어 있습니다.</p></div>
+          </li>
+          <li class="seo-item" data-reveal>
+            <div><h3>접근성 검사와 의료광고 고려</h3><p>axe-core 검사 위반 0건을 확인했고, 후기·할인 문구·전후 사진·효과 보장 표현은 넣지 않았습니다. 부작용과 개인차 안내는 본문에 항상 보입니다.</p></div>
+          </li>
+        </ul>
+        <div class="case-live-group">
+          <a class="case-live" href="https://lucent-treatment.vercel.app/" target="_blank" rel="noopener"><span>메인 배너·팝업 보기</span>
+            <svg class="case-live-arrow" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M4 12L12 4M12 4H5.5M12 4V10.5" fill="none" stroke="currentColor"
+                    stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+          <a class="case-live" href="https://github.com/yulstina/lucent-treatment" target="_blank" rel="noopener"><span>GitHub</span>
+            <svg class="case-live-arrow" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M4 12L12 4M12 4H5.5M12 4V10.5" fill="none" stroke="currentColor"
+                    stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
         </div>
       </section>
 
