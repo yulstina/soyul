@@ -601,6 +601,9 @@
    섹션 라벨, PROBLEM 번호, "해결", 캡션 라벨. 그 밖에는 쓰지 않는다. */
 .case-flow > .meta,.case-notes > .meta,.case-story > .meta,.case-seo > .meta,
 .story-no,.shot-cap-label,.story-body b{color:var(--accent)}
+/* 예외 1건: 모바일 회원 화면 캡션 제목의 "SNS 간편 로그인 연동"만 포인트색 (2026-11 소율 요청) */
+.shot-cap h3 .shot-cap-hl{color:var(--accent);white-space:nowrap}
+@media (max-width:600px){.shot-cap h3 .shot-cap-hl{display:block}}
 
 /* 읽기 편하게 — 요약 4칸·STORY·SEO·캡션 글자를 한 단계 키운다 (2026-11).
    라벨 알약 테두리와 목록 점은 포인트색(§accent). */
