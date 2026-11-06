@@ -700,8 +700,7 @@ h1,h2,h3,h4,p{margin:0}
    알려 주는 표시로만 쓴다. 쓰는 곳은 셋뿐이다.
    1) 섹션 라벨(작은 mono 글자)  2) 눌러 열리는 행의 원형 화살표(올렸을 때)
    3) 케이스 페이지의 PROBLEM 번호·"해결"·캡션 라벨(case.css)
-   본문 글자, 제목, 배지, 테두리, 배경 면에는 쓰지 않는다. 새 자리를 늘리지 않는다.
-   예외: 13 MONTHS 모바일 회원 화면 캡션 제목의 "SNS 간편 로그인 연동"(case.css .shot-cap-hl). */
+   본문 글자, 제목, 배지, 테두리, 배경 면에는 쓰지 않는다. 새 자리를 늘리지 않는다. */
 .about-inner > .meta,.section-head > .meta,#career > .meta,.contact > .meta,
 .fold-meta,.dd-map .meta{color:var(--accent)}
 .work-row:hover .wr-go,.work-row:focus-visible .wr-go,
