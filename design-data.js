@@ -6,7 +6,7 @@
 window.DESIGN_TOOLS = [
   { step: '기획', tools: [['Claude', 'assets/icons/claude-color.svg']] },
   { step: '이미지 생성', tools: [['GPT', 'assets/icons/openai.svg', 'mask']] },
-  { step: '이미지 편집·제작', tools: [['Figma', 'assets/icons/figma-color.svg'], ['Photoshop', 'assets/icons/photoshop.svg', 'mask'], ['Illustrator', 'assets/icons/illustrator.svg', 'mask']] },
+  { step: '이미지 편집·제작', tools: [['Figma', 'assets/icons/figma-color.svg']] },
   { step: '영상', tools: [['Flow', 'assets/icons/flow.webp'], ['CapCut', 'CC', 'text']] },
 ];
 
@@ -16,7 +16,17 @@ window.DESIGN_HIGGSFIELD = {
   tool: ['Higgsfield', 'assets/icons/higgsfield.webp'],
   brands: { 'LUNÉA LAB': ['영상'], 'GYEOL': ['이미지 생성', '영상'] },
 };
+/* 공통 4단계와 도구 구성이 아예 다른 브랜드는 여기서 단계별로 통째로 지정한다. */
+window.DESIGN_BRAND_TOOLS = {
+  OHRA: [
+    { step: '기획', tools: [['Claude', 'assets/icons/claude-color.svg']] },
+    { step: '이미지 생성', tools: [['Higgsfield', 'assets/icons/higgsfield.webp']] },
+    { step: '이미지 편집·제작', tools: [['Figma', 'assets/icons/figma-color.svg']] },
+    { step: '영상', tools: [['Flow', 'assets/icons/flow.webp']] },
+  ],
+};
 window.designToolsFor = (brand) => {
+  if (brand && window.DESIGN_BRAND_TOOLS[brand]) return window.DESIGN_BRAND_TOOLS[brand];
   const hf = window.DESIGN_HIGGSFIELD;
   const steps = brand ? hf.brands[brand] || [] : [...new Set(Object.values(hf.brands).flat())];
   return window.DESIGN_TOOLS.map((s) => {
@@ -33,6 +43,9 @@ window.DESIGN_ITEMS = (() => {
   const range = (prefix, n) => Array.from({ length: n }, (_, i) => `${prefix}-${String(i + 1).padStart(2, '0')}`);
   return [
     // 상세페이지 — 각자 새 페이지로 열린다
+    { id: 'ohra', type: 'detail', brand: 'OHRA', title: 'OHRA', kicker: 'HEALTH FOOD · 2026',
+      desc: '복숭아 맛 콜라겐 젤리 스틱 상세페이지. 15개 섹션에 물결·젤리·파우치 영상 4컷과 가격 배지 애니메이션을 넣었습니다.',
+      href: 'design-ohra.html', thumb: 'assets/design/ohra/strip.webp', w: 480, h: 4400 },
      { id: 'gyeol', type: 'detail', brand: 'GYEOL', title: 'GYEOL', kicker: 'BODY WASH · 2026',
       desc: '유자로 시작해 바다로 끝나는 바디워시 상세페이지. 코발트 블루와 버터 아이보리, 11개 섹션에 영상 3컷을 넣었습니다.',
       href: 'design-gyeol.html', thumb: 'assets/design/gyeol/strip.webp', w: 480, h: 4400 },
@@ -56,7 +69,7 @@ window.DESIGN_ITEMS = (() => {
      { id: 'gyeol-feed', type: 'sns', brand: 'GYEOL', title: '바디워시 인스타 피드', fmt: 'FEED 4:5',
       size: '1080 × 1350 × 9', thumb: `${C}gyeol-feed@640.webp`, w: 800, h: 995, slides: set(['gyeol-feed']) },
     { id: '13months-feed-wreath', type: 'sns', brand: '13 MONTHS', title: '크리스마스 리스 클래스 모집 피드', fmt: 'FEED 4:5 · MOTION',
-      size: '1080 × 1350', thumb: `${C}13months-feed-wreath@640.webp`, tools: [['Figma', 'assets/icons/figma-color.svg'], ['GPT', 'assets/icons/openai.svg', 'mask']], w: 640, h: 800, slides: set(['13months-feed-wreath']) },
+      size: '1080 × 1350', thumb: `${C}13months-feed-wreath@640.webp`, tools: [['Figma', 'assets/icons/figma-color.svg'], ['Photoshop', 'assets/icons/photoshop.svg', 'mask'], ['GPT', 'assets/icons/openai.svg', 'mask']], w: 640, h: 800, slides: set(['13months-feed-wreath']) },
     { id: 'lunea-banner-event', type: 'banner', brand: 'LUNÉA LAB', title: '화장품 기획전 배너', fmt: 'WEB BANNER',
   size: '1200 × 600', thumb: `${C}lunea-banner-event@640.webp`, w: 960, h: 480, wide: true, slides: set(['lunea-banner-event']) },
   { id: 'cirrus-banner', type: 'banner', brand: 'CIRRUS NIMBUS', title: '가전 프로모션 배너 3종', fmt: 'BANNER SET',
