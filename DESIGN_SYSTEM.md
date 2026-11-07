@@ -743,6 +743,9 @@ CHROME="C:/Program Files/Google/Chrome/Application/chrome.exe"
   상세페이지에는 Photoshop·Illustrator를 쓰지 않아 공통에서 뺐고, 13 MONTHS 크리스마스 리스 피드만
   항목별 `tools`에 Photoshop을 넣는다. 목록 상단, 상세 페이지, 뷰어 캡션이 같은 순서와 로고를
   쓴다. CapCut은 로고 파일이 없어 글자 아이콘(`.tool-icon.is-text`).
+- **원본 HTML 임베드(OHRA)** — 스크롤 등장·카운트업·히어로 스윕처럼 슬라이스로는 못 살리는 모션이 있는
+  상세페이지는 원본 index.html을 `assets/design/<id>/page/`에 두고 iframe으로 넣는다(`design-embed.js`).
+  iframe 높이는 원본 문서에 맞추고, 원본 section 위치에 `#s1…` 앵커를 옮겨 목차를 유지, 휠은 부모 Lenis로 넘긴다.
 - **데이터** — `design-data.js` 한 곳. 새 작업은 `assets/design/`에 이미지를 넣고 한 줄 추가.
 - **GIF는 mp4로** — 상세페이지 안의 움직이는 컷은 `autoplay muted loop playsinline` 영상으로
   바꿔 슬라이스 위의 원래 자리에 겹친다. MODAK GIF 3개 8.5MB → 0.8MB.

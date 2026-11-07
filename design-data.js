@@ -44,7 +44,7 @@ window.DESIGN_ITEMS = (() => {
   return [
     // 상세페이지 — 각자 새 페이지로 열린다
     { id: 'ohra', type: 'detail', brand: 'OHRA', title: 'OHRA', kicker: 'HEALTH FOOD · 2026',
-      desc: '복숭아 맛 콜라겐 젤리 스틱 상세페이지. 15개 섹션에 물결·젤리·파우치 영상 4컷과 가격 배지 애니메이션을 넣었습니다.',
+      desc: '복숭아 맛 콜라겐 젤리 스틱 상세페이지. 원본 HTML 그대로 스크롤 등장 효과, 비타민C 카운트업, 영상 4컷이 움직입니다.',
       href: 'design-ohra.html', thumb: 'assets/design/ohra/strip.webp', w: 480, h: 4400 },
      { id: 'gyeol', type: 'detail', brand: 'GYEOL', title: 'GYEOL', kicker: 'BODY WASH · 2026',
       desc: '유자로 시작해 바다로 끝나는 바디워시 상세페이지. 코발트 블루와 버터 아이보리, 11개 섹션에 영상 3컷을 넣었습니다.',
