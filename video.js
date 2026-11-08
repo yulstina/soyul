@@ -11,6 +11,7 @@
     flow: '<img class="tool-logo" src="assets/icons/flow.webp" alt="" width="16" height="16" />Flow',
     gpt: '<i class="tool-icon" style="--icon:url(assets/icons/openai.svg)" aria-hidden="true"></i>ChatGPT',
     higgsfield: '<img class="tool-logo" src="assets/icons/higgsfield.webp" alt="" width="16" height="16" />Higgsfield',
+    claude: '<img class="tool-logo" src="assets/icons/claude-color.svg" alt="" width="16" height="16" />Claude',
     capcut: '<i class="tool-icon is-text" aria-hidden="true">CC</i>CapCut',
   };
   const VIDEOS = [
@@ -26,6 +27,10 @@
       ratio: '9 / 16', meta: 'BABAMBI · 동결건조 간식 광고 영상 · 0:27', title: '자연 그대로의 채소를, 사료 위에 톡톡.',
       desc: '강아지 동결건조 간식 바밤비의 광고 영상입니다. 채소 원물에서 시작해 한 끼가 특별해지는 장면까지 AI 영상으로 만들었고, Higgsfield로 배경음악을 만들어 ASMR 효과음과 함께 입혔습니다. 컷마다 자막 애니메이션을 넣어 흐름이 매끄럽게 이어지도록 다듬었습니다.',
       tools: ['gpt', 'flow', 'higgsfield', 'capcut'] },
+    { src: 'assets/video/ohra-ad.mp4', poster: 'assets/video/ohra-ad-poster.webp', thumb: 'assets/video/ohra-ad-loop.webp',
+      ratio: '16 / 9', meta: 'OHRA · 비주얼 광고 영상 · 0:33', title: '복숭아 과수원에서 시작되는 하루 한 포.',
+      desc: '복숭아 맛 이너뷰티 젤리 OHRA의 비주얼 광고 영상입니다. 햇살 드는 과수원에서 복숭아를 따고, 한 포를 맛보고, 제품이 놓이는 마지막 장면까지 따뜻한 색감으로 이어 붙였습니다. 가상 브랜드로 만든 작업입니다.',
+      tools: ['flow', 'gpt', 'claude', 'higgsfield'] },
   ];
 
   const video = dlg.querySelector('.vf-video');
