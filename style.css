@@ -738,7 +738,9 @@ h1,h2,h3,h4,p{margin:0}
 .vf-play:hover,.vf-play:focus-visible{background:var(--accent);border-color:var(--accent)}
 .vf-play:hover i,.vf-play:focus-visible i{border-left-color:var(--void-100)}
 @media (max-width:767px){
-  .vf-thumbs{justify-self:start}
+  /* 영상이 4개 이상이면 한 줄에 다 안 들어가므로 띠 안에서 옆으로 넘긴다(페이지는 가로로 늘어나지 않게). */
+  .vf-thumbs{justify-self:start;min-width:0;max-width:100%;overflow-x:auto;scrollbar-width:none;overscroll-behavior-x:contain}
+  .vf-thumbs::-webkit-scrollbar{display:none}
   .vf-thumb{height:112px;flex:none}
 }
 
