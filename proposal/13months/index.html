@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>13 MONTHS Online Proposal — SOYUL</title>
+  <link rel="icon" href="../../favicon.ico" sizes="48x48" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400&family=Noto+Sans+KR:wght@400;500;700&display=swap" />
+  <link rel="stylesheet" href="deck.css" />
+</head>
+<body>
+  <!-- 작업 당시 기획 문서(클래스 랜딩 기획안, SEO 문구 세트)를 클라이언트 제안서 형식으로 재구성한 덱.
+       1920×1080 고정 슬라이드. 화면에서는 deck.js가 뷰포트에 맞게 축소, 인쇄(PDF)에서는 한 장 = 한 쪽. -->
+  <main class="deck" id="deck" aria-roledescription="carousel" aria-label="13 MONTHS 제안서">
+
+    <!-- 01 표지 -->
+    <section class="slide s-cover is-dark" aria-label="01 표지">
+      <div class="cover-text">
+        <p class="eyebrow">Proposal · 2026.10</p>
+        <h1 class="en-title">13 MONTHS<br /><em>Online Proposal</em></h1>
+        <p class="cover-ko">열세달꽃 온라인 개선 제안</p>
+        <p class="cover-sub">스킨 · 검색 노출 · 클래스 랜딩</p>
+      </div>
+      <figure class="cover-photo"><img src="../../assets/cover-13months.webp" alt="열세달꽃 작품 사진" /></figure>
+      <footer class="cover-foot">
+        <span>For 열세달꽃 · 김포</span><span>Prepared by SOYUL</span>
+      </footer>
+    </section>
+
+    <!-- 02 현황 진단 -->
+    <section class="slide" aria-label="02 현황 진단">
+      <header class="s-head">
+        <span class="s-no">02</span><span class="s-label">현황 진단</span><span class="s-part">PROPOSAL</span>
+      </header>
+      <h2 class="headline">사이트는 있는데, 검색에서도 예약에서도<br />잘 보이지 않습니다</h2>
+      <p class="key">문제는 화면보다 <b>찾아오는 길</b>과 <b>예약까지 가는 길</b>입니다.</p>
+      <div class="grid-2x2">
+        <article class="diag">
+          <span class="big-no">01</span>
+          <h3>무료 스킨 그대로</h3>
+          <p>작품 사진은 좋은데, 기본 스킨 레이아웃이라 브랜드 인상이 살지 않습니다.</p>
+        </article>
+        <article class="diag">
+          <span class="big-no">02</span>
+          <h3>검색 설정이 비어 있음</h3>
+          <p>title 빈칸, description · og · 구조화 데이터 없음. 새 도메인은 아직 연결 전입니다.</p>
+          <pre class="code">&lt;title&gt;&lt;/title&gt;</pre>
+        </article>
+        <article class="diag">
+          <span class="big-no">03</span>
+          <h3>메인 제목이 영어뿐</h3>
+          <p>“김포 · 꽃집 · 꽃 클래스” 같은 단어가 본문에 거의 없어 검색엔진이 업종과 지역을 읽기 어렵습니다.</p>
+          <pre class="code">&lt;h1&gt;Flowers Beyond the Season.&lt;/h1&gt;</pre>
+        </article>
+        <article class="diag">
+          <span class="big-no">04</span>
+          <h3>클래스가 메뉴 속에 있음</h3>
+          <p>원데이 · 창업반 · 출강 안내가 메뉴 이동형 구조 안에 있어, 예약과 문의까지 가는 길이 깁니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 03 목표 -->
+    <section class="slide" aria-label="03 목표">
+      <header class="s-head">
+        <span class="s-no">03</span><span class="s-label">목표</span><span class="s-part">PROPOSAL</span>
+      </header>
+      <h2 class="headline">세 가지를 바꿉니다</h2>
+      <p class="key">목표마다 무엇으로 확인할지 먼저 정해 둡니다. 숫자 목표는 데이터가 쌓인 뒤에 잡습니다.</p>
+      <ol class="goals">
+        <li>
+          <span class="goal-no">01</span>
+          <h3>유료 스킨 수준의 첫인상</h3>
+          <p class="goal-check"><span>확인</span>사장님 승인, PC · 모바일 동일한 완성도</p>
+        </li>
+        <li>
+          <span class="goal-no">02</span>
+          <h3>검색에 잡히는 사이트</h3>
+          <p class="goal-check"><span>확인</span>상호 검색 노출, 주요 페이지 색인 여부</p>
+        </li>
+        <li>
+          <span class="goal-no">03</span>
+          <h3>늘어나는 클래스 문의</h3>
+          <p class="goal-check"><span>확인</span>톡톡 · 문의폼 · 전화 문의의 추이</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 04 타깃과 유입 -->
+    <section class="slide" aria-label="04 타깃과 유입">
+      <header class="s-head">
+        <span class="s-no">04</span><span class="s-label">타깃과 유입</span><span class="s-part">PROPOSAL</span>
+      </header>
+      <h2 class="headline">손님은 메인이 아니라<br />네이버 지도와 인스타 링크로 들어옵니다</h2>
+      <p class="key">들어오는 길도 셋, 원하는 수업도 셋. 첫 화면은 이 조합에 맞춰야 합니다.</p>
+      <div class="flowmap">
+        <ul class="fm-col">
+          <li class="fm-node">네이버 지도 · 예약</li>
+          <li class="fm-node">네이버 검색</li>
+          <li class="fm-node">인스타 프로필 링크</li>
+        </ul>
+        <svg class="fm-lines" viewBox="0 0 220 420" aria-hidden="true">
+          <path d="M0 70 C110 70 110 210 220 210" /><path d="M0 210 L220 210" /><path d="M0 350 C110 350 110 210 220 210" />
+        </svg>
+        <div class="fm-hub">
+          <span class="fm-hub-en">13 MONTHS</span>
+          <span class="fm-hub-ko">김포 · 20~60대<br />모바일 우선</span>
+        </div>
+        <svg class="fm-lines" viewBox="0 0 220 420" aria-hidden="true">
+          <path d="M0 210 C110 210 110 70 220 70" /><path d="M0 210 L220 210" /><path d="M0 210 C110 210 110 350 220 350" />
+        </svg>
+        <ul class="fm-col">
+          <li class="fm-node is-goal"><b>원데이 취미</b><span>무엇을 만드나, 언제 되나</span></li>
+          <li class="fm-node is-goal"><b>창업반</b><span>커리큘럼, 수료 후</span></li>
+          <li class="fm-node is-goal"><b>학교 · 기관 출강</b><span>인원, 지역, 견적 방식</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 05 제안 A -->
+    <section class="slide" aria-label="05 제안 A 사이트 역할 분리">
+      <header class="s-head">
+        <span class="s-no">05</span><span class="s-label">제안 A · 사이트 역할 분리</span><span class="s-part">PROPOSAL</span>
+      </header>
+      <h2 class="headline">기존 사이트는 보관하고,<br />예약은 랜딩 한 장이 맡습니다</h2>
+      <p class="key">사이트를 다시 만들지 않고 역할만 나눕니다.</p>
+      <div class="split">
+        <figure class="split-pc"><img src="../../assets/13months/v2/pc-home.webp" alt="열세달꽃 카페24 사이트 PC 메인" /><figcaption>기존 카페24 사이트</figcaption></figure>
+        <table class="compare">
+          <thead><tr><th></th><th>기존 사이트</th><th>새 랜딩</th></tr></thead>
+          <tbody>
+            <tr><th>역할</th><td>정보를 보관하는 곳</td><td>예약까지 가게 하는 한 장</td></tr>
+            <tr><th>유입</th><td>직접 방문, 검색</td><td>인스타 프로필, 네이버 플레이스, 광고</td></tr>
+            <tr><th>구조</th><td>메뉴 이동형</td><td>위에서 아래로 한 흐름</td></tr>
+          </tbody>
+        </table>
+        <figure class="split-m" aria-label="모바일 랜딩 실루엣">
+          <div class="phone"><span></span><span></span><span></span><span></span><span class="is-cta"></span></div>
+          <figcaption>클래스 랜딩 (모바일)</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 06 제안 B -->
+    <section class="slide" aria-label="06 제안 B 클래스 랜딩 구성">
+      <header class="s-head">
+        <span class="s-no">06</span><span class="s-label">제안 B · 클래스 랜딩 구성</span><span class="s-part">PROPOSAL</span>
+      </header>
+      <span class="stage-badge">제안 단계 · 미구현</span>
+      <div class="wire-wrap">
+        <div class="wire-text">
+          <h2 class="headline">위에서 아래로,<br />예약까지 한 흐름</h2>
+          <p class="key">먼저 “어떤 수업이 필요한지”를 고르게 해서, 목적이 다른 손님이 서로의 정보에 막히지 않게 합니다.</p>
+          <ol class="wire-list">
+            <li><b>첫 화면</b> 한 줄 약속 + 대표 사진 + 예약 버튼</li>
+            <li><b>누구를 위한 수업인가</b> 원데이 / 창업반 / 출강 3갈래</li>
+            <li><b>갈래별 안내</b> 배우는 내용, 소요 시간, 수업 사진</li>
+            <li><b>믿을 근거</b> 전공 플로리스트, 매장, 운영 연수</li>
+            <li><b>진행 순서</b> 상담 → 예약 → 수업 → 이후 지원</li>
+            <li><b>자주 묻는 질문</b> 가격, 준비물, 인원</li>
+            <li><b>마지막 예약</b> 네이버 예약, 톡톡 상담, 위치</li>
+          </ol>
+          <p class="tone"><span>말투</span>출강은 단정한 정보 중심 · 창업반은 작품 중심 · 원데이는 밝고 사진을 크게</p>
+        </div>
+        <div class="wire" aria-label="모바일 와이어프레임 360px">
+          <div class="w w-hero"><i>1</i><span class="w-cta">예약하기</span></div>
+          <div class="w w-tabs"><i>2</i><span>원데이</span><span>창업반</span><span>출강</span></div>
+          <div class="w w-info"><i>3</i></div>
+          <div class="w w-trust"><i>4</i></div>
+          <div class="w w-steps"><i>5</i><span></span><span></span><span></span><span></span></div>
+          <div class="w w-faq"><i>6</i></div>
+          <div class="w w-end"><i>7</i><span class="w-cta">네이버 예약</span><span class="w-cta is-line">톡톡 상담</span></div>
+          <span class="wire-w">360</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 제안 C -->
+    <section class="slide" aria-label="07 제안 C 검색 노출">
+      <header class="s-head">
+        <span class="s-no">07</span><span class="s-label">제안 C · 검색 노출</span><span class="s-part">PROPOSAL</span>
+      </header>
+      <h2 class="headline">“김포 꽃집”으로 찾을 수 있게</h2>
+      <p class="key">효과가 큰 순서대로, 사장님만 할 수 있는 일과 제가 할 일을 나눠 진행합니다.</p>
+      <div class="seo-wrap">
+        <div class="seo-left">
+          <div class="serp" aria-label="검색결과 미리보기 예시">
+            <span class="serp-tag">검색결과 미리보기 · 예시</span>
+            <p class="serp-url">13monthsflower.shop</p>
+            <p class="serp-title">김포 꽃집 열세달꽃</p>
+            <p class="serp-desc">김포 꽃집 열세달꽃. 핸드타이드·꽃바구니와 원데이·정규 취미반 꽃 클래스, 창업반, 기업·학교·기관 출강까지.</p>
+          </div>
+          <table class="meta-table">
+            <thead><tr><th>페이지</th><th>title</th></tr></thead>
+            <tbody>
+              <tr><td>메인</td><td>김포 꽃집 열세달꽃</td></tr>
+              <tr><td>클래스</td><td>김포 꽃 클래스 | 열세달꽃</td></tr>
+              <tr><td>출강</td><td>꽃 기업·학교·기관 출강 | 열세달꽃</td></tr>
+            </tbody>
+          </table>
+          <ul class="kw">
+            <li>김포 꽃집</li><li>김포 꽃 클래스</li><li>김포 원데이 클래스</li><li>김포 꽃바구니</li><li>김포 핸드타이드</li>
+          </ul>
+        </div>
+        <ol class="steps6">
+          <li><span class="st-no">1</span><div><b>네이버 플레이스 정보 채우기</b><p>주소 · 전화 · 영업시간 · 사진 · 홈페이지</p></div><span class="who is-owner">사장님</span></li>
+          <li><span class="st-no">2</span><div><b>카페24 SEO 설정</b><p>페이지별 title · description, 노출 허용</p></div><span class="who">제작자</span></li>
+          <li><span class="st-no">3</span><div><b>네이버 서치어드바이저</b><p>사이트 등록 · 소유 확인 · 사이트맵</p></div><span class="who">제작자</span></li>
+          <li><span class="st-no">4</span><div><b>구글 서치 콘솔</b><p>등록 · 사이트맵 · 색인 요청</p></div><span class="who">제작자</span></li>
+          <li><span class="st-no">5</span><div><b>인스타 상호 표기 통일</b><p>계정명 · 프로필 링크에 “열세달꽃 · 김포”</p></div><span class="who is-owner">사장님</span></li>
+          <li><span class="st-no">6</span><div><b>블로그 글로 링크 쌓기</b><p>클래스 후기 · 수업 사진 글</p></div><span class="who is-owner">사장님</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 08 일정과 역할 -->
+    <section class="slide" aria-label="08 일정과 역할">
+      <header class="s-head">
+        <span class="s-no">08</span><span class="s-label">일정과 역할</span><span class="s-part">PROPOSAL</span>
+      </header>
+      <h2 class="headline">제가 할 일과 사장님이 해 주실 일</h2>
+      <p class="key">1단계(스킨 · 검색)와 2단계(클래스 랜딩)로 나눠, 먼저 끝낼 수 있는 것부터 진행합니다.</p>
+      <div class="timeline">
+        <div class="tl-phase">
+          <span class="tl-tag">1단계</span>
+          <ol><li>스킨 개편</li><li>도메인 연결</li><li>SEO 설정</li></ol>
+        </div>
+        <div class="tl-phase is-next">
+          <span class="tl-tag">2단계</span>
+          <ol><li>와이어프레임</li><li>시안</li><li>구현</li><li>검수</li></ol>
+        </div>
+      </div>
+      <div class="lanes">
+        <div class="lane">
+          <span class="lane-who">제작자</span>
+          <p>디자인, 카페24 스킨 퍼블리싱, SEO 문구 작성과 설정, 검색엔진 등록, 랜딩 와이어 · 시안 · 구현</p>
+        </div>
+        <div class="lane is-owner">
+          <span class="lane-who">사장님</span>
+          <p>네이버 플레이스 정보, 사진 · 클래스 정보 제공, 단계별 피드백과 승인</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 요청 자료 -->
+    <section class="slide" aria-label="09 요청 자료">
+      <header class="s-head">
+        <span class="s-no">09</span><span class="s-label">요청 자료</span><span class="s-part">PROPOSAL</span>
+      </header>
+      <h2 class="headline">시작 전에 이것만 보내 주세요</h2>
+      <p class="key">정해지지 않은 가격 · 일정은 비워 두고 “상담 문의”로 엽니다.</p>
+      <div class="req-common">
+        <span class="req-title">공통</span>
+        <ul class="checks is-row">
+          <li>신청 · 상담 방법과 문의 전화</li><li>페이지 게시 위치와 기간</li><li>사용 동의된 사진 원본</li><li>포트폴리오 공개 동의</li>
+        </ul>
+      </div>
+      <div class="req-cols">
+        <div class="req-col">
+          <span class="req-title">원데이 취미반</span>
+          <ul class="checks"><li>클래스 종류, 소요 시간, 정원</li><li>수강료, 재료 포함 여부</li><li>진행 요일 · 시간</li><li>예약 마감 기준</li><li>시즌 한정 메뉴</li></ul>
+        </div>
+        <div class="req-col">
+          <span class="req-title">개인 창업반</span>
+          <ul class="checks"><li>기간 · 횟수 · 정원</li><li>커리큘럼 요약</li><li>수강료, 분납 여부</li><li>수료 후 혜택</li><li>다음 기수 일정</li></ul>
+        </div>
+        <div class="req-col">
+          <span class="req-title">학교 · 기관 출강</span>
+          <ul class="checks"><li>출강 가능 지역, 최소 인원</li><li>회당 시간, 과정 구성</li><li>재료비 포함 여부</li><li>출강처 이름 공개 여부</li><li>견적 방식</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 수행 결과 -->
+    <section class="slide" aria-label="10 수행 결과">
+      <header class="s-head">
+        <span class="s-no">10</span><span class="s-label">수행 결과</span><span class="s-part is-report">REPORT</span>
+      </header>
+      <h2 class="headline">1단계는 이렇게 끝냈습니다</h2>
+      <p class="key">스킨 개편과 제안 C의 검색 작업을 실제 운영 사이트에 적용했습니다.</p>
+      <div class="result">
+        <div class="result-shots">
+          <figure class="rs-pc"><img src="../../assets/13months/v2/pc-home.webp" alt="개편한 PC 메인" /></figure>
+          <figure class="rs-m"><img src="../../assets/13months/v2/m-home.webp" alt="개편한 모바일 메인" /></figure>
+        </div>
+        <div class="result-box">
+          <span class="rb-title">검색 작업 6건</span>
+          <ul class="done">
+            <li>새 도메인 연결</li>
+            <li>네이버 · 구글 검색엔진 등록</li>
+            <li>페이지별 title · description · canonical · OG</li>
+            <li>구조화 데이터 (JSON-LD)</li>
+            <li>이미지 alt · 지연 로딩</li>
+            <li>사이트맵 누락 페이지 확인</li>
+          </ul>
+          <span class="rb-title">그 후</span>
+          <ul class="after">
+            <li>SEO 작업 직후 문의 증가</li>
+            <li>병원 · 기관 연락, 단체 클래스 출강 확정</li>
+            <li>문의폼 접수를 메일로 받음</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 기대치와 다음 단계 -->
+    <section class="slide is-dark" aria-label="11 기대치와 다음 단계">
+      <header class="s-head">
+        <span class="s-no">11</span><span class="s-label">기대치와 다음 단계</span><span class="s-part is-report">REPORT</span>
+      </header>
+      <h2 class="headline">상호 검색은 금방,<br />“김포 꽃집”은 시간이 걸립니다</h2>
+      <p class="key">무엇을 언제 확인할지 정해 두고, 다음은 클래스 랜딩입니다.</p>
+      <div class="expect">
+        <div class="ex-col">
+          <span class="ex-title">기대치</span>
+          <p>등록 후 며칠~몇 주. 상호 검색은 빠르게 잡히고, “김포 꽃집” 같은 일반 키워드는 플레이스 정보와 후기가 쌓여야 올라갑니다.</p>
+        </div>
+        <div class="ex-col">
+          <span class="ex-title">확인 방법</span>
+          <ul><li>예약 버튼 클릭</li><li>톡톡 문의 수</li><li>문의폼 접수 수</li><li>서치 콘솔 노출</li></ul>
+        </div>
+      </div>
+      <ol class="next">
+        <li><span>Next 01</span>랜딩 와이어 확정</li>
+        <li><span>Next 02</span>클래스 자료 수령</li>
+        <li><span>Next 03</span>시안</li>
+      </ol>
+      <footer class="end-foot"><span class="en">SOYUL</span><span>yulstina.github.io/soyul</span></footer>
+    </section>
+  </main>
+
+  <nav class="deck-nav" aria-label="슬라이드 이동">
+    <button type="button" class="dn-prev" aria-label="이전 슬라이드">←</button>
+    <span class="dn-count"><b id="dnCur">01</b> / 11</span>
+    <button type="button" class="dn-next" aria-label="다음 슬라이드">→</button>
+    <a class="dn-pdf" href="13months-proposal.pdf" target="_blank" rel="noopener">PDF</a>
+  </nav>
+  <script src="deck.js"></script>
+</body>
+</html>
