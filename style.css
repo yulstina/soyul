@@ -779,3 +779,28 @@ html.is-locked{overflow:hidden}
   .vf-dialog[open]{animation:none}
   .vf-thumb video{transition:none}
 }
+
+/* Career v3 — 읽기 쉽게 (2026-11-12) ------------------------------------------
+   핵심어는 굵은 흰 글씨 + 옅은 밑줄 바탕, 프로젝트마다 키워드 칩. 색은 쓰지 않는다(§accent 밖).
+   데스크톱에서는 왼쪽 회사 칸이 프로젝트 목록을 따라 붙어 다닌다. */
+.career-date{font-size:14px;color:var(--text-300)}
+.career-item h3{font-size:clamp(26px,2.5vw,36px);line-height:1.15;word-break:keep-all}
+.career-role-box{border-color:var(--line-strong);background:rgba(255,255,255,.05)}
+.career-role{color:var(--text-000);font-weight:600}
+.career-label{color:var(--text-300)}
+.cp{padding:26px 0}
+.cp-no{color:var(--text-300)}
+.cp-title{font-size:clamp(19px,1.6vw,23px)}
+.cp-desc{font-size:17px;line-height:1.8;color:var(--text-100)}
+.hl{font-weight:700;color:var(--text-000);
+    background:linear-gradient(transparent 64%,rgba(255,255,255,.18) 0);padding:0 1px}
+.cp-tags{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.cp-tags li{font:500 11.5px/1 var(--font-mono);letter-spacing:.08em;color:var(--text-100);
+            padding:7px 11px;border:1px solid var(--line);border-radius:999px}
+@media (min-width:1024px){
+  .career-head{position:sticky;top:100px}
+}
+@media (max-width:767px){
+  .cp-desc{font-size:16px}
+  .cp-tags li{font-size:11px;padding:6px 10px}
+}
