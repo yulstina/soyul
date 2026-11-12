@@ -61,21 +61,8 @@
   });
   addEventListener('resize', longShift, { passive: true });
 
-  /* UI/UX 링크 카드 --------------------------------------------------------- */
-  const uiList = root.querySelector('.ui-list');
-  uiList.innerHTML = ITEMS.filter((it) => it.type === 'uiux').map((it) => `
-    <a class="ui-card" href="${it.href}">
-      <span class="ui-win"><img src="${it.thumb}" width="${it.w}" height="${it.h}" alt="" loading="lazy" /><span class="ui-tag">${esc(it.label)}</span></span>
-      <span class="long-text">
-        <span class="meta">${it.kicker}</span>
-        <h3>${esc(it.title)}</h3>
-        <p>${esc(it.desc)}</p>
-        <span class="long-go"><i aria-hidden="true">→</i>${it.label === 'WORK' ? '케이스 보기' : '바로 보기'}</span>
-      </span>
-    </a>`).join('');
-
   /* 콘텐츠 매스너리 ---------------------------------------------------------- */
-  const contents = ITEMS.filter((it) => it.type !== 'detail' && it.type !== 'uiux');
+  const contents = ITEMS.filter((it) => it.type !== 'detail');
   const mason = root.querySelector('.mason');
   mason.innerHTML = contents.map((it, i) => {
     const many = it.slides.length > 1;
@@ -103,7 +90,6 @@
   const thumbBar = bar.querySelector('.design-filter-thumb');
   const zoneLong = root.querySelector('#zone-detail');
   const zoneContent = root.querySelector('#zone-content');
-  const zoneUi = root.querySelector('#zone-uiux');
   const count = (type) => (type === 'all' ? ITEMS : ITEMS.filter((it) => it.type === type)).length;
   const pad = (n) => String(n).padStart(2, '0');
   // 개수가 0인 분류는 버튼을 만들지 않는다.
@@ -126,8 +112,7 @@
     moveThumb(on);
     on.scrollIntoView?.({ inline: 'nearest', block: 'nearest' });
     zoneLong.hidden = !(filter === 'all' || filter === 'detail');
-    zoneContent.hidden = filter === 'detail' || filter === 'uiux';
-    zoneUi.hidden = !(filter === 'all' || filter === 'uiux');
+    zoneContent.hidden = filter === 'detail';
     cells.forEach((c) => {
       const show = filter === 'all' || c.dataset.type === filter;
       c.hidden = !show;
