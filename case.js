@@ -132,16 +132,25 @@
   }
 
   /* Video --------------------------------------------------------------------
-     On a mouse, the recording runs while the pointer is over it and stops when
-     the pointer leaves — the visitor decides when it moves. A touch screen has
-     no pointer to hover with, so there it plays while on screen instead, and
-     the corner button is the way to stop it. Muted and inline either way, which
-     is what browsers require before they will start a video at all. */
+     Every recording runs on its own while it is on screen and stops once it
+     scrolls away, so a page full of clips never decodes more than the visitor
+     can see. Muted and inline, which is what browsers (iOS Safari included)
+     require before they will start a video at all. Each one gets a corner
+     button to stop it, since motion that starts by itself must be stoppable. */
   const canHover = matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   document.querySelectorAll('video[data-inview]').forEach((video) => {
     const frame = video.parentElement;
-    const toggle = frame.querySelector('.video-toggle');
+    let toggle = frame.querySelector('.video-toggle');
+    // Clips that used to wait for a hover have no button in their markup.
+    if (!toggle) {
+      toggle = document.createElement('button');
+      toggle.className = 'video-toggle';
+      toggle.type = 'button';
+      toggle.setAttribute('aria-pressed', 'false');
+      toggle.textContent = 'PAUSE';
+      frame.appendChild(toggle);
+    }
 
     // A slot whose file has not been exported yet keeps its place in the layout
     // and labels itself, instead of showing a broken video frame. A missing
@@ -182,16 +191,10 @@
     let stopped = false;
     const play = () => { if (!stopped) video.play().catch(() => {}); };
 
-    /* Three ways a recording can behave, one per kind of thing being shown.
-       A short clip of an interaction reads best when the visitor starts it, so
-       hovering plays it. A kiosk demo is a screen that is meant to be running,
-       so it runs on its own and hovering STOPS it — that is the only way to
-       hold a frame long enough to read it. `data-hover="pause"` asks for the
-       second. A touch screen has no pointer for either, so both fall back to
-       playing while on screen. */
-    const mode = video.dataset.hover === 'pause' ? 'pause'
-               : video.dataset.hover === 'none' ? 'in-view'
-               : canHover ? 'hover-play' : 'in-view';
+    /* Two ways a recording can behave. Both play while on screen. A kiosk
+       demo, `data-hover="pause"`, also STOPS while the pointer is over it —
+       the only way to hold a frame long enough to read it. */
+    const mode = video.dataset.hover === 'pause' ? 'pause' : 'in-view';
     let inView = false;
     const watchViewport = () => new IntersectionObserver((entries) => {
       entries.forEach((e) => {
@@ -205,11 +208,6 @@
       stopped = true;
       video.controls = true;
       if (toggle) toggle.hidden = true;
-    } else if (mode === 'hover-play') {
-      frame.addEventListener('mouseenter', play);
-      frame.addEventListener('mouseleave', () => video.pause());
-      // Hovering is the control here, so the button would only be a second one.
-      if (toggle) toggle.hidden = true;
     } else {
       watchViewport();
       if (mode === 'pause' && canHover) {
@@ -219,7 +217,6 @@
       }
     }
 
-    if (!toggle) return;
     toggle.addEventListener('click', () => {
       stopped = !stopped;
       if (stopped) video.pause(); else video.play().catch(() => {});
