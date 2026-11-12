@@ -334,25 +334,11 @@
   .ux-lead{font-size:16px}
 }
 
-/* UI/UX 구역: 16:9 링크 카드 (2026-11-12). 글자 영역은 상세페이지 카드(.long-text)와 같다 */
-.ui-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,3vw,48px) clamp(20px,2.4vw,40px)}
-.ui-card{display:grid;gap:18px;align-content:start;color:inherit}
-.ui-win{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;border-radius:6px;background:var(--void-300)}
-.ui-win img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
-.ui-card:hover .ui-win img,.ui-card:focus-visible .ui-win img{transform:scale(1.03)}
-.ui-tag{position:absolute;left:12px;top:12px;padding:3px 10px;border-radius:999px;background:rgba(8,8,10,.78);
-  border:1px solid var(--line);font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:var(--text-100)}
-.ui-card:hover .long-go i{background:var(--text-000);color:var(--void-100);transform:rotate(-45deg)}
-.ui-card:focus-visible{outline:none}
-.ui-card:focus-visible .ui-win{outline:2px solid var(--text-000);outline-offset:4px}
-@media (max-width:1023px){ .ui-list{grid-template-columns:repeat(2,minmax(0,1fr))} }
 @media (max-width:767px){
-  .ui-list{grid-template-columns:minmax(0,1fr)}
   .design-filter{overflow-x:auto;scrollbar-width:none}
   .design-filter::-webkit-scrollbar{display:none}
   .design-filter button{flex:0 0 auto}
 }
-@media (prefers-reduced-motion:reduce){ .ui-win img{transition:none} }
 .design-zone-head h2{white-space:nowrap}
 
 /* 05 Before/After: 두 영역을 BEFORE | AFTER 같은 크기로 (2026-11-12) */

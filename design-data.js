@@ -2,8 +2,7 @@
    목록·필터 개수·뷰어에 함께 반영된다.
    - thumb : 목록 썸네일(640px 안팎), w/h는 그 썸네일 크기
    - slides: 뷰어에서 보는 원본. 두 장 이상이면 뷰어 안에서 넘긴다
-   - wide  : 매스너리에서 두 칸을 쓰는 가로형 배너
-   - type 'uiux': UI/UX 구역의 링크 카드(href로 이동, label은 카드 위 작은 태그) */
+   - wide  : 매스너리에서 두 칸을 쓰는 가로형 배너 */
 window.DESIGN_TOOLS = [
   { step: '기획', tools: [['Claude', 'assets/icons/claude-color.svg']] },
   { step: '이미지 생성', tools: [['GPT', 'assets/icons/openai.svg', 'mask']] },
@@ -43,17 +42,6 @@ window.DESIGN_ITEMS = (() => {
   const set = (names) => names.map((n) => `${C}${n}.webp`);
   const range = (prefix, n) => Array.from({ length: n }, (_, i) => `${prefix}-${String(i + 1).padStart(2, '0')}`);
   return [
-    // UI/UX — 설계 과정·제안서·WORK 케이스로 바로 가는 링크 카드. thumb는 16:9
-    { id: 'lunea-process', type: 'uiux', brand: 'LUNÉA LAB', title: 'LUNÉA LAB 설계 과정', kicker: 'UX PROCESS · 2026', label: '설계 과정',
-      desc: '1차 시안의 문제 3가지에서 시작해 3·10·30초 스크롤 흐름도, 1차 시안과 최종안 Before/After, 자체 점검까지 정리했습니다.',
-      href: 'design-lunea.html#process', thumb: 'assets/design/lunea/process-thumb.webp', w: 960, h: 540 },
-    { id: '13months-proposal', type: 'uiux', brand: '13 MONTHS', title: '13 MONTHS 제안서', kicker: 'PROPOSAL · 2026', label: '제안서',
-      desc: '현황 진단, 제안 3가지, 일정과 역할, 수행 결과까지 클라이언트 제안서 11장으로 정리했습니다.',
-      href: 'work-13months.html#proposal', thumb: 'assets/13months/proposal/p01.webp', w: 1600, h: 900 },
-    { id: 'lucent', type: 'uiux', brand: 'LUCENT', title: 'LUCENT', kicker: 'CLINIC WEB · 2026', label: 'WORK',
-      desc: '상담 흐름부터 설계하고 구현한 가상 피부과 브랜드 웹사이트입니다.',
-      href: 'work-lucent.html', thumb: 'assets/cover-lucent.webp', w: 1600, h: 900 },
-
     // 상세페이지 — 각자 새 페이지로 열린다
     { id: 'ohra', type: 'detail', brand: 'OHRA', title: 'OHRA', kicker: 'HEALTH FOOD · 2026',
       desc: '복숭아 맛 콜라겐 젤리 스틱 상세페이지. 원본 HTML 그대로 스크롤 등장 효과, 비타민C 카운트업, 영상 4컷이 움직입니다.',
