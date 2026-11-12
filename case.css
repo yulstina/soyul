@@ -599,7 +599,7 @@
 
 /* 포인트색 — case 페이지 쓰임 (색 값과 전체 규칙은 style.css 맨 아래 §accent) ----
    섹션 라벨, PROBLEM 번호, "해결", 캡션 라벨. 그 밖에는 쓰지 않는다. */
-.case-flow > .meta,.case-notes > .meta,.case-story > .meta,.case-seo > .meta,
+.case-flow > .meta,.case-notes > .meta,.case-story > .meta,.case-seo > .meta,.case-proposal > .meta,
 .story-no,.shot-cap-label,.story-body b{color:var(--accent)}
 
 /* 읽기 편하게 — 요약 4칸·STORY·SEO·캡션 글자를 한 단계 키운다 (2026-11).
@@ -624,3 +624,41 @@
 .shot-cap-em{font-weight:700;color:var(--text-000)}
 .flow-note{font-size:14px;color:var(--text-100)}
 .flow-lead{font-size:17px}
+
+/* PROPOSAL — 13 MONTHS 제안서 11장 (2026-11-11) ---------------------------------
+   슬라이드는 클라이언트 톤(흰색·딥그린) 이미지 그대로 두고, 둘레 UI는 무채색. 라벨만 §accent. */
+.case-proposal{padding:clamp(64px,9vh,120px) var(--margin);max-width:1680px;
+  margin-inline:auto;border-top:1px solid var(--line-faint)}
+.case-proposal > .meta{display:block;margin-bottom:14px}
+.pp-track{position:relative;list-style:none;margin:0;padding:0;display:flex;gap:16px;overflow-x:auto;
+  scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;
+  scrollbar-width:none;outline:none}
+.pp-track::-webkit-scrollbar{display:none}
+.pp-track:focus-visible{outline:1px solid var(--line-strong);outline-offset:6px}
+.pp-slide{flex:0 0 100%;scroll-snap-align:start;background:#fff;border:1px solid var(--line-faint)}
+.pp-slide img{display:block;width:100%;height:auto;aspect-ratio:16/9}
+.pp-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;margin-top:18px}
+.pp-ctrl{display:flex;align-items:center;gap:8px}
+.pp-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:none;
+  color:var(--text-000);font-size:16px;cursor:pointer;transition:border-color .3s var(--ease)}
+.pp-btn:hover,.pp-btn:focus-visible{border-color:var(--line-strong);outline:none}
+.pp-btn:disabled{opacity:.35;cursor:default}
+.pp-count{min-width:72px;text-align:center;font-family:var(--font-mono);font-size:13px;
+  letter-spacing:.08em;color:var(--text-300)}
+.pp-count b{color:var(--text-000);font-weight:500}
+.pp-links{display:flex;gap:20px}
+.pp-links a{font-size:15px;color:var(--text-100);text-decoration:none;
+  border-bottom:1px solid var(--line);padding-bottom:2px;transition:border-color .3s var(--ease)}
+.pp-links a:hover,.pp-links a:focus-visible{border-color:var(--text-000);color:var(--text-000)}
+.pp-points{list-style:none;margin:clamp(36px,5vh,56px) 0 0;padding:0;display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,48px)}
+.pp-points li{padding-top:18px;border-top:1px solid var(--line-faint)}
+.pp-points h3{margin:0 0 6px;font-family:var(--font-body);font-weight:600;font-size:18px;
+  color:var(--text-000);word-break:keep-all}
+.pp-points p{margin:0;font-size:16px;line-height:1.7;color:var(--text-100);word-break:keep-all}
+.flow-link{color:inherit;text-decoration:none;border-bottom:1px solid var(--line)}
+.flow-link:hover,.flow-link:focus-visible{color:var(--text-000);border-color:var(--text-000)}
+@media (max-width:767px){
+  .pp-track{gap:10px}
+  .pp-points{grid-template-columns:1fr}
+}

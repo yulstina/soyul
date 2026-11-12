@@ -32,7 +32,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..112,400..700&family=JetBrains+Mono:wght@400;500&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400&family=Noto+Sans+KR:wght@400;500&display=swap" />
   <link rel="stylesheet" href="style.css?v=20261102d" />
-  <link rel="stylesheet" href="case.css?v=20261102d" />
+  <link rel="stylesheet" href="case.css?v=20261111" />
 </head>
 <body class="case-page">
   <header class="site-header is-visible" id="siteHeader">
@@ -117,6 +117,7 @@
           <li class="flow-step" data-reveal>
             <span class="flow-no">01</span>
             <h3>기획</h3>
+            <p class="flow-note"><a class="flow-link" href="#proposal">제안서 보기 → PROPOSAL</a></p>
           </li>
           <li class="flow-step" data-reveal>
             <span class="flow-no">02</span>
@@ -214,6 +215,47 @@
           <li class="seo-item" data-reveal>
             <div><h3>사이트맵 점검</h3><p>카페24가 자동 생성하는 sitemap.xml에는 직접 만든 페이지(/13months/…)가 포함되지 않는 구조를 확인했습니다.</p></div>
           </li>
+        </ul>
+      </section>
+
+      <!-- PROPOSAL: 작업 당시 기획 문서(클래스 랜딩 기획안, SEO 문구 세트)를 제안서 형식으로 재구성한 11장.
+           슬라이드 원본은 proposal/13months/, 여기 이미지는 그 렌더(1600×900). 06장 랜딩은 제안 단계(미구현). -->
+      <section class="case-proposal" id="proposal" aria-labelledby="proposal-title">
+        <span class="meta">PROPOSAL</span>
+        <h2 class="case-sec-title" id="proposal-title">제안서로 정리한 작업 범위와 다음 단계</h2>
+        <p class="flow-lead">작업 당시 쓴 기획 문서(클래스 랜딩 기획안, SEO 문구 세트)를 클라이언트 제안서 형식 11장으로 재구성했습니다. 01–09장은 제안, 10–11장은 1단계 결과 보고입니다.</p>
+
+        <div class="pp-viewer">
+          <ol class="pp-track" id="ppTrack" tabindex="0" aria-label="제안서 슬라이드 11장, 좌우로 넘겨 보기">
+            <li class="pp-slide"><img src="assets/13months/proposal/p01.webp" width="1600" height="900" alt="01 표지: 13 MONTHS Online Proposal, 열세달꽃 온라인 개선 제안" /></li>
+            <li class="pp-slide"><img src="assets/13months/proposal/p02.webp" width="1600" height="900" loading="lazy" alt="02 현황 진단: 무료 스킨, 비어 있는 검색 설정, 영어뿐인 메인 제목, 메뉴 속 클래스" /></li>
+            <li class="pp-slide"><img src="assets/13months/proposal/p03.webp" width="1600" height="900" loading="lazy" alt="03 목표: 유료 스킨 수준의 첫인상, 검색에 잡히는 사이트, 늘어나는 클래스 문의" /></li>
+            <li class="pp-slide"><img src="assets/13months/proposal/p04.webp" width="1600" height="900" loading="lazy" alt="04 타깃과 유입: 유입 3경로와 수업 목적 3갈래 흐름도" /></li>
+            <li class="pp-slide"><img src="assets/13months/proposal/p05.webp" width="1600" height="900" loading="lazy" alt="05 제안 A: 기존 사이트는 보관, 예약은 랜딩 한 장이 맡는 역할 분리 비교표" /></li>
+            <li class="pp-slide"><img src="assets/13months/proposal/p06.webp" width="1600" height="900" loading="lazy" alt="06 제안 B: 클래스 랜딩 7단 구성과 모바일 와이어프레임, 제안 단계" /></li>
+            <li class="pp-slide"><img src="assets/13months/proposal/p07.webp" width="1600" height="900" loading="lazy" alt="07 제안 C: 페이지별 title, 키워드, 검색 노출 6단계와 담당" /></li>
+            <li class="pp-slide"><img src="assets/13months/proposal/p08.webp" width="1600" height="900" loading="lazy" alt="08 일정과 역할: 1단계와 2단계 타임라인, 제작자와 사장님 역할" /></li>
+            <li class="pp-slide"><img src="assets/13months/proposal/p09.webp" width="1600" height="900" loading="lazy" alt="09 요청 자료: 공통 자료와 클래스 갈래별 체크리스트" /></li>
+            <li class="pp-slide"><img src="assets/13months/proposal/p10.webp" width="1600" height="900" loading="lazy" alt="10 수행 결과: 개편한 PC·모바일 화면, 검색 작업 6건과 이후 변화" /></li>
+            <li class="pp-slide"><img src="assets/13months/proposal/p11.webp" width="1600" height="900" loading="lazy" alt="11 기대치와 다음 단계: 확인 방법과 다음 단계 3개" /></li>
+          </ol>
+          <div class="pp-bar">
+            <div class="pp-ctrl">
+              <button type="button" class="pp-btn" id="ppPrev" aria-label="이전 슬라이드">←</button>
+              <span class="pp-count" aria-live="polite"><b id="ppCur">01</b> / 11</span>
+              <button type="button" class="pp-btn" id="ppNext" aria-label="다음 슬라이드">→</button>
+            </div>
+            <div class="pp-links">
+              <a href="proposal/13months/" target="_blank" rel="noopener">전체 화면으로 보기 ↗</a>
+              <a href="proposal/13months/13months-proposal.pdf" target="_blank" rel="noopener">PDF ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <ul class="pp-points">
+          <li><h3>진단 → 제안 → 수행</h3><p>“찾아오는 길과 예약까지 가는 길이 막혀 있다”는 진단 하나로 시작해, 제안 세 가지와 실제 결과까지 한 문서로 이었습니다.</p></li>
+          <li><h3>제안 C는 실제로 적용</h3><p>07장 검색 노출 제안 중 6건을 운영 사이트에 적용했고, 10장에 결과로 정리했습니다.</p></li>
+          <li><h3>06장 랜딩은 제안 단계</h3><p>클래스 랜딩은 구성안과 와이어프레임까지 제안한 상태이며, 아직 만들지 않았습니다.</p></li>
         </ul>
       </section>
 
@@ -435,6 +477,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="case.js?v=20261102d"></script>
+  <script src="proposal.js?v=20261111"></script>
   <script src="topbtn.js?v=20261102d"></script>
   <script src="menu.js?v=20261102d"></script>
 </body>
