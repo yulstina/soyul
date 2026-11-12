@@ -396,3 +396,18 @@
 }
 @media (prefers-reduced-motion:reduce){ .ui-win img{transition:none} }
 .design-zone-head h2{white-space:nowrap}
+
+/* 05 Before/After: 두 영역을 BEFORE | AFTER 같은 크기로 (2026-11-12) */
+.ux-pair{margin-top:clamp(28px,4vh,44px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:clamp(14px,2.4vw,40px);row-gap:14px;max-width:1000px}
+.ux-pair + .ux-pair{padding-top:clamp(28px,4vh,44px);border-top:1px solid var(--line-faint)}
+.ux-pair-title{grid-column:1/-1;margin:0;display:flex;gap:12px;align-items:baseline;font-size:18px;font-weight:600;color:var(--text-000)}
+.ux-pair-title span{font-family:var(--font-mono);font-size:12px;color:var(--text-500)}
+.ux-shot{margin:0;position:relative;align-self:start}
+.ux-shot img{display:block;width:100%;height:auto;border-radius:6px;border:1px solid var(--line-faint)}
+.ux-shot .ux-tag{position:absolute;left:10px;top:10px;z-index:1;margin:0}
+.ux-diff{list-style:none;margin:0;padding:0;align-self:start}
+.ux-diff li{position:relative;padding:5px 0 5px 18px;font-size:15px;line-height:1.65;color:var(--text-100);word-break:keep-all}
+.ux-diff li::before{content:"";position:absolute;left:2px;top:.95em;width:8px;height:1px;background:var(--text-500)}
+.ux-diff.is-after li{color:var(--text-000)}
+.ux-diff.is-after li::before{background:var(--accent);height:2px}
+@media (max-width:767px){.ux-diff li{font-size:14px}.ux-pair{column-gap:10px}}
