@@ -2,7 +2,8 @@
    목록·필터 개수·뷰어에 함께 반영된다.
    - thumb : 목록 썸네일(640px 안팎), w/h는 그 썸네일 크기
    - slides: 뷰어에서 보는 원본. 두 장 이상이면 뷰어 안에서 넘긴다
-   - wide  : 매스너리에서 두 칸을 쓰는 가로형 배너 */
+   - wide  : 매스너리에서 두 칸을 쓰는 가로형 배너
+   - type 'uiux': UI/UX 구역의 링크 카드(href로 이동, label은 카드 위 작은 태그) */
 window.DESIGN_TOOLS = [
   { step: '기획', tools: [['Claude', 'assets/icons/claude-color.svg']] },
   { step: '이미지 생성', tools: [['GPT', 'assets/icons/openai.svg', 'mask']] },
@@ -42,6 +43,26 @@ window.DESIGN_ITEMS = (() => {
   const set = (names) => names.map((n) => `${C}${n}.webp`);
   const range = (prefix, n) => Array.from({ length: n }, (_, i) => `${prefix}-${String(i + 1).padStart(2, '0')}`);
   return [
+    // UI/UX — 설계 과정·제안서·WORK 케이스로 바로 가는 링크 카드. thumb는 16:9
+    { id: 'lunea-process', type: 'uiux', brand: 'LUNÉA LAB', title: 'LUNÉA LAB 설계 과정', kicker: 'UX PROCESS · 2026', label: '설계 과정',
+      desc: '1차 시안의 문제 3가지에서 시작해 3·10·30초 스크롤 흐름도, 와이어프레임 비교, 자체 점검까지 정리했습니다.',
+      href: 'design-lunea.html#process', thumb: 'assets/design/lunea/process-thumb.webp', w: 960, h: 540 },
+    { id: '13months-proposal', type: 'uiux', brand: '13 MONTHS', title: '13 MONTHS 제안서', kicker: 'PROPOSAL · 2026', label: '제안서',
+      desc: '현황 진단, 제안 3가지, 일정과 역할, 수행 결과까지 클라이언트 제안서 11장으로 정리했습니다.',
+      href: 'work-13months.html#proposal', thumb: 'assets/13months/proposal/p01.webp', w: 1600, h: 900 },
+    { id: 'ont-kiosk', type: 'uiux', brand: 'RTBS', title: 'ONT KIOSK', kicker: 'TABLE ORDER · 2025', label: 'WORK',
+      desc: '테이블에 놓고 손님이 직접 주문하는 1920×1080 키오스크 UI입니다.',
+      href: 'work-ont-kiosk.html', thumb: 'assets/cover-ont.webp', w: 1718, h: 916 },
+    { id: 'kiosk-system', type: 'uiux', brand: 'RTBS', title: 'KIOSK SYSTEM', kicker: 'KIOSK UI · 2023–25', label: 'WORK',
+      desc: '운영 중인 키오스크 템플릿 11타입 · 6테마를 토큰으로 정리하고 새 화면을 더했습니다.',
+      href: 'work-kiosk.html', thumb: 'assets/cover-navyz.webp', w: 1719, h: 915 },
+    { id: 'orderweb', type: 'uiux', brand: 'RTBS', title: 'ORDER WEB', kicker: 'MOBILE ORDER · 2024', label: 'WORK',
+      desc: '여러 프랜차이즈에 배포되는 독립형 주문웹 템플릿입니다.',
+      href: 'work-orderweb.html', thumb: 'assets/cover-tomntoms.webp', w: 1717, h: 916 },
+    { id: 'lucent', type: 'uiux', brand: 'LUCENT', title: 'LUCENT', kicker: 'CLINIC WEB · 2026', label: 'WORK',
+      desc: '상담 흐름부터 설계하고 구현한 가상 피부과 브랜드 웹사이트입니다.',
+      href: 'work-lucent.html', thumb: 'assets/cover-lucent.webp', w: 1600, h: 900 },
+
     // 상세페이지 — 각자 새 페이지로 열린다
     { id: 'ohra', type: 'detail', brand: 'OHRA', title: 'OHRA', kicker: 'HEALTH FOOD · 2026',
       desc: '복숭아 맛 콜라겐 젤리 스틱 상세페이지. 원본 HTML 그대로 스크롤 등장 효과, 비타민C 카운트업, 영상 4컷이 움직입니다.',
@@ -50,7 +71,7 @@ window.DESIGN_ITEMS = (() => {
       desc: '유자로 시작해 바다로 끝나는 바디워시 상세페이지. 코발트 블루와 버터 아이보리, 11개 섹션에 영상 3컷을 넣었습니다.',
       href: 'design-gyeol.html', thumb: 'assets/design/gyeol/strip.webp', w: 480, h: 4400 },
     { id: 'lunea', type: 'detail', brand: 'LUNÉA LAB', title: 'LUNÉA LAB', kicker: 'COSMETIC · 2026',
-      desc: '라일락빛 세럼 상세페이지. 8개 섹션에 모델 영상과 수분 그래프 애니메이션을 넣었습니다.',
+      desc: '라일락빛 세럼 상세페이지. 8개 섹션에 모델 영상과 수분 그래프를 넣고, 1차 시안에서 최종안까지의 설계 과정을 함께 정리했습니다.',
       href: 'design-lunea.html', thumb: 'assets/design/lunea/strip.webp', w: 480, h: 4086 },
     { id: 'babambi', type: 'detail', brand: 'BABAMBI', title: 'BABAMBI', kicker: 'PET FOOD · 2026',
       desc: '반려견 동결건조 간식 상세페이지. 원물 비교, 6가지 옵션, 급여량과 FAQ까지 담았습니다.',

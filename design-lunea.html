@@ -32,7 +32,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..112,400..700&family=JetBrains+Mono:wght@400;500&display=swap" />
   <link rel="stylesheet" href="style.css?v=20261104f" />
   <link rel="stylesheet" href="case.css?v=20261112a" />
-  <link rel="stylesheet" href="design.css?v=20261107b" />
+  <link rel="stylesheet" href="design.css?v=20261112a" />
 </head>
 <body class="case-page design-page">
   <header class="site-header is-visible" id="siteHeader">
@@ -63,6 +63,7 @@
         </dl>
         <div class="tool-steps" data-tool-steps data-brand="LUNÉA LAB" aria-label="작업 도구"></div>
         <p class="dd-note"><b>가상 브랜드 작업입니다.</b> 브랜드·제품·임상 수치·인증 문구는 모두 예시이며, 모델 사진은 AI로 생성했습니다.</p>
+        <a class="dd-jump" href="#process">1차 시안에서 최종안까지, 설계 과정 보기 <i aria-hidden="true">↓</i></a>
       </div>
 
       <div class="dd-body">
@@ -87,6 +88,281 @@
         </div>
       </div>
 
+
+      <!-- PROCESS: 1차 시안 → 최종안 설계 과정 (2026-11-12). 가상 브랜드라 성과 수치는 쓰지 않는다.
+           흐름도·와이어프레임은 인라인 SVG(색은 design.css §ux), before/after는 assets/design/lunea/before-after.webp.
+           06은 사용자 테스트 전이라 자체 점검으로 표기한다. -->
+      <section class="case-story ux-process" id="process" aria-labelledby="process-title">
+        <span class="meta">PROCESS</span>
+        <h2 class="case-sec-title" id="process-title">설계 과정 — 1차 시안에서 최종안까지</h2>
+        <p class="flow-lead">1차 시안을 “모바일에서 엄지로 넘기는 사람” 기준으로 다시 보고, 장식보다 구조부터 고쳤습니다. 가상 브랜드라 판매·전환 수치는 없고, 화면을 고친 근거만 정리했습니다.</p>
+        <ol class="ux-index" aria-label="설계 과정 순서">
+          <li><a href="#ux-1"><span>01</span>문제</a></li>
+          <li><a href="#ux-2"><span>02</span>사용자와 상황</a></li>
+          <li><a href="#ux-3"><span>03</span>스크롤 흐름</a></li>
+          <li><a href="#ux-4"><span>04</span>와이어프레임</a></li>
+          <li><a href="#ux-5"><span>05</span>Before / After</a></li>
+          <li><a href="#ux-6"><span>06</span>자체 점검</a></li>
+        </ol>
+
+        <div class="ux-step" id="ux-1" data-reveal>
+          <header class="ux-head"><span class="story-no">01 · PROBLEM</span><h3>1차 시안의 문제 3가지</h3></header>
+          <ol class="ux-problems">
+            <li><b>1</b><div><h4>제품이 박스 안에 갇힌 첫 화면</h4><p>흰 배경 위 박스 안에 사진을 넣어 제품이 배경과 분리돼 보였고, 첫 화면에서 세럼의 질감이 드러나지 않았습니다.</p></div></li>
+            <li><b>2</b><div><h4>시선이 두 번 꺾이는 우측 정렬 카피</h4><p>로고와 카피는 오른쪽, 사진은 가운데에 있어 첫 화면 안에서 시선이 오른쪽 → 가운데로 흩어졌습니다.</p></div></li>
+            <li><b>3</b><div><h4>먼저 읽을 곳이 없는 카드 4개</h4><p>검은 선 아이콘이 라일락 톤과 따로 놀았고, 같은 무게의 카드 4개가 한 덩어리로 보여 우선순위가 없었습니다.</p></div></li>
+          </ol>
+        </div>
+
+        <div class="ux-step" id="ux-2" data-reveal>
+          <header class="ux-head"><span class="story-no">02 · USER</span><h3>누가, 어떤 상황에서 보는가</h3></header>
+          <dl class="ux-user">
+            <div><dt>누가</dt><dd>보습·광채 세럼을 몇 개 놓고 비교하는 20–30대</dd></div>
+            <div><dt>어디서</dt><dd>쇼핑앱·SNS 광고로 들어와 모바일에서 엄지로 빠르게 넘김</dd></div>
+            <div><dt>무엇을</dt><dd>몇 초 안에 “나한테 맞는 제품인지” 판단하고 남거나 떠남</dd></div>
+          </dl>
+          <p class="ux-note">가상 브랜드라 실제 고객 조사 대신 상세페이지를 설계하기 위해 세운 가정입니다.</p>
+        </div>
+
+        <div class="ux-step" id="ux-3" data-reveal>
+          <header class="ux-head"><span class="story-no">03 · FLOW</span><h3>3초 · 10초 · 30초에 답할 질문</h3></header>
+          <p class="ux-lead">머무는 시간마다 사용자가 던질 질문을 하나씩 정하고, 8개 섹션을 그 순서대로 놓았습니다. 어느 지점에서 떠나도 그때까지 본 내용만으로 제품이 설명되게 하는 것이 기준이었습니다.</p>
+          <figure class="ux-flow">
+<svg class="ux-flow-svg is-wide" viewBox="0 0 1200 374" role="img" aria-labelledby="flowTitle flowDesc">
+<title id="flowTitle">스크롤 흐름도</title>
+<desc id="flowDesc">3초 안에는 히어로로 무슨 제품인지, 10초 안에는 KEY POINT와 POINT 01·02로 나에게 맞는지, 30초 안에는 임상·전후 비교·추천 대상·상품 정보로 믿고 살 수 있는지에 답하도록 8개 섹션을 배치했습니다.</desc>
+<g transform="translate(0 0)">
+<rect class="f-box" x="0.5" y="0.5" width="359" height="235" rx="10"/>
+<text class="f-time" x="22" y="34">~3초 · 첫 화면</text>
+<text class="f-q" x="22" y="76">“이게 무슨 제품이지?”</text>
+<line class="f-rule" x1="22" y1="100" x2="338" y2="100"/>
+<rect class="f-row" x="22" y="116" width="316" height="36" rx="6"/>
+<text class="f-no" x="36" y="139">01</text>
+<text class="f-sec" x="68" y="139">히어로<tspan class="f-sub" dx="8">제품 · 한 줄 약속</tspan></text>
+<text class="f-keep" x="22" y="198">여기서 떠나도 남는 것</text>
+<text class="f-keep-b" x="22" y="222">브랜드명 · 제품 · 효능 한 줄</text>
+</g>
+<g transform="translate(420 0)">
+<rect class="f-box" x="0.5" y="0.5" width="359" height="327" rx="10"/>
+<text class="f-time" x="22" y="34">~10초 · 스크롤 2–4</text>
+<text class="f-q" x="22" y="76">“나한테 맞는 제품일까?”</text>
+<line class="f-rule" x1="22" y1="100" x2="338" y2="100"/>
+<rect class="f-row" x="22" y="116" width="316" height="36" rx="6"/>
+<text class="f-no" x="36" y="139">02</text>
+<text class="f-sec" x="68" y="139">KEY POINT<tspan class="f-sub" dx="8">핵심 4가지</tspan></text>
+<rect class="f-row" x="22" y="162" width="316" height="36" rx="6"/>
+<text class="f-no" x="36" y="185">03</text>
+<text class="f-sec" x="68" y="185">POINT 01<tspan class="f-sub" dx="8">성분 3가지</tspan></text>
+<rect class="f-row" x="22" y="208" width="316" height="36" rx="6"/>
+<text class="f-no" x="36" y="231">04</text>
+<text class="f-sec" x="68" y="231">POINT 02<tspan class="f-sub" dx="8">제형 · 영상</tspan></text>
+<text class="f-keep" x="22" y="290">여기서 떠나도 남는 것</text>
+<text class="f-keep-b" x="22" y="314">성분 · 제형 · 쓰는 방법</text>
+</g>
+<g transform="translate(840 0)">
+<rect class="f-box" x="0.5" y="0.5" width="359" height="373" rx="10"/>
+<text class="f-time" x="22" y="34">~30초 · 끝까지</text>
+<text class="f-q" x="22" y="76">“믿고 사도 될까?”</text>
+<line class="f-rule" x1="22" y1="100" x2="338" y2="100"/>
+<rect class="f-row" x="22" y="116" width="316" height="36" rx="6"/>
+<text class="f-no" x="36" y="139">05</text>
+<text class="f-sec" x="68" y="139">POINT 03<tspan class="f-sub" dx="8">임상 · 그래프</tspan></text>
+<rect class="f-row" x="22" y="162" width="316" height="36" rx="6"/>
+<text class="f-no" x="36" y="185">06</text>
+<text class="f-sec" x="68" y="185">분석<tspan class="f-sub" dx="8">전후 비교 · 저자극</tspan></text>
+<rect class="f-row" x="22" y="208" width="316" height="36" rx="6"/>
+<text class="f-no" x="36" y="231">07</text>
+<text class="f-sec" x="68" y="231">비교<tspan class="f-sub" dx="8">추천 대상</tspan></text>
+<rect class="f-row" x="22" y="254" width="316" height="36" rx="6"/>
+<text class="f-no" x="36" y="277">08</text>
+<text class="f-sec" x="68" y="277">정보<tspan class="f-sub" dx="8">상품 정보 고시</tspan></text>
+<text class="f-keep" x="22" y="336">여기서 떠나도 남는 것</text>
+<text class="f-keep-b" x="22" y="360">근거와 구매 정보</text>
+</g>
+<path class="f-arrow" d="M370 76 H408 M400 70 L408 76 L400 82"/>
+<path class="f-arrow" d="M790 76 H828 M820 70 L828 76 L820 82"/>
+</svg>
+<svg class="ux-flow-svg is-narrow" viewBox="0 0 360 1022" aria-hidden="true">
+<g transform="translate(0 0)">
+<rect class="f-box" x="0.5" y="0.5" width="359" height="235" rx="10"/>
+<text class="f-time" x="22" y="34">~3초 · 첫 화면</text>
+<text class="f-q" x="22" y="76">“이게 무슨 제품이지?”</text>
+<line class="f-rule" x1="22" y1="100" x2="338" y2="100"/>
+<rect class="f-row" x="22" y="116" width="316" height="36" rx="6"/>
+<text class="f-no" x="36" y="139">01</text>
+<text class="f-sec" x="68" y="139">히어로<tspan class="f-sub" dx="8">제품 · 한 줄 약속</tspan></text>
+<text class="f-keep" x="22" y="198">여기서 떠나도 남는 것</text>
+<text class="f-keep-b" x="22" y="222">브랜드명 · 제품 · 효능 한 줄</text>
+</g>
+<path class="f-arrow" d="M180 244 V270 M174 262 L180 270 L186 262"/>
+<g transform="translate(0 278)">
+<rect class="f-box" x="0.5" y="0.5" width="359" height="327" rx="10"/>
+<text class="f-time" x="22" y="34">~10초 · 스크롤 2–4</text>
+<text class="f-q" x="22" y="76">“나한테 맞는 제품일까?”</text>
+<line class="f-rule" x1="22" y1="100" x2="338" y2="100"/>
+<rect class="f-row" x="22" y="116" width="316" height="36" rx="6"/>
+<text class="f-no" x="36" y="139">02</text>
+<text class="f-sec" x="68" y="139">KEY POINT<tspan class="f-sub" dx="8">핵심 4가지</tspan></text>
+<rect class="f-row" x="22" y="162" width="316" height="36" rx="6"/>
+<text class="f-no" x="36" y="185">03</text>
+<text class="f-sec" x="68" y="185">POINT 01<tspan class="f-sub" dx="8">성분 3가지</tspan></text>
+<rect class="f-row" x="22" y="208" width="316" height="36" rx="6"/>
+<text class="f-no" x="36" y="231">04</text>
+<text class="f-sec" x="68" y="231">POINT 02<tspan class="f-sub" dx="8">제형 · 영상</tspan></text>
+<text class="f-keep" x="22" y="290">여기서 떠나도 남는 것</text>
+<text class="f-keep-b" x="22" y="314">성분 · 제형 · 쓰는 방법</text>
+</g>
+<path class="f-arrow" d="M180 614 V640 M174 632 L180 640 L186 632"/>
+<g transform="translate(0 648)">
+<rect class="f-box" x="0.5" y="0.5" width="359" height="373" rx="10"/>
+<text class="f-time" x="22" y="34">~30초 · 끝까지</text>
+<text class="f-q" x="22" y="76">“믿고 사도 될까?”</text>
+<line class="f-rule" x1="22" y1="100" x2="338" y2="100"/>
+<rect class="f-row" x="22" y="116" width="316" height="36" rx="6"/>
+<text class="f-no" x="36" y="139">05</text>
+<text class="f-sec" x="68" y="139">POINT 03<tspan class="f-sub" dx="8">임상 · 그래프</tspan></text>
+<rect class="f-row" x="22" y="162" width="316" height="36" rx="6"/>
+<text class="f-no" x="36" y="185">06</text>
+<text class="f-sec" x="68" y="185">분석<tspan class="f-sub" dx="8">전후 비교 · 저자극</tspan></text>
+<rect class="f-row" x="22" y="208" width="316" height="36" rx="6"/>
+<text class="f-no" x="36" y="231">07</text>
+<text class="f-sec" x="68" y="231">비교<tspan class="f-sub" dx="8">추천 대상</tspan></text>
+<rect class="f-row" x="22" y="254" width="316" height="36" rx="6"/>
+<text class="f-no" x="36" y="277">08</text>
+<text class="f-sec" x="68" y="277">정보<tspan class="f-sub" dx="8">상품 정보 고시</tspan></text>
+<text class="f-keep" x="22" y="336">여기서 떠나도 남는 것</text>
+<text class="f-keep-b" x="22" y="360">근거와 구매 정보</text>
+</g>
+</svg>
+          </figure>
+        </div>
+
+        <div class="ux-step" id="ux-4" data-reveal>
+          <header class="ux-head"><span class="story-no">04 · WIREFRAME</span><h3>1차 vs 최종 구조</h3></header>
+          <p class="ux-lead">문제가 컸던 두 영역(히어로, 체크 포인트)을 색과 사진을 빼고 구조만 남겨 비교했습니다. 동그라미 번호는 01의 문제 번호입니다.</p>
+          <div class="ux-wf">
+            <h4 class="ux-wf-title">히어로</h4>
+            <figure><span class="ux-tag">1차</span><svg class="ux-wf-svg" viewBox="0 0 300 460" role="img" aria-label="1차 히어로 와이어프레임: 오른쪽 위 로고, 우측 정렬 카피, 구분선 아래 박스 안 제품 사진">
+<rect class="w-frame" x="0.5" y="0.5" width="299" height="459" rx="6"/>
+<rect class="w-block" x="150" y="30" width="126" height="22" rx="2"/>
+<text class="w-t" x="213" y="45">LOGO</text>
+<rect class="w-line" x="110" y="66" width="166" height="9" rx="2"/>
+<rect class="w-line" x="84" y="83" width="192" height="9" rx="2"/>
+<line class="w-rule" x1="24" y1="108" x2="276" y2="108"/>
+<rect class="w-img" x="24" y="120" width="252" height="290" rx="3"/><path class="w-x" d="M24 120 L276 410 M276 120 L24 410"/>
+<text class="w-cap" x="150" y="270">제품 사진 · 박스</text>
+<g class="w-mark"><circle cx="46" cy="41" r="11"/><text x="46" y="45">2</text></g>
+<g class="w-mark"><circle cx="46" cy="87" r="11"/><text x="46" y="91">2</text></g>
+<g class="w-mark"><circle cx="258" cy="140" r="11"/><text x="258" y="144">1</text></g>
+</svg><figcaption>사진은 박스 안, 로고와 카피는 오른쪽 정렬</figcaption></figure>
+            <figure><span class="ux-tag is-final">최종</span><svg class="ux-wf-svg" viewBox="0 0 300 460" role="img" aria-label="최종 히어로 와이어프레임: 화면 전체 사진 위 가운데 정렬 카피, 크게 놓은 제품과 제형, 하단 로고">
+<rect class="w-frame" x="0.5" y="0.5" width="299" height="459" rx="6"/>
+<rect class="w-img is-bleed" x="1" y="1" width="298" height="458" rx="3"/><path class="w-x" d="M1 1 L299 459 M299 1 L1 459"/>
+<rect class="w-line is-on" x="96" y="38" width="108" height="6" rx="2"/>
+<rect class="w-line is-on" x="62" y="58" width="176" height="9" rx="2"/>
+<rect class="w-line is-on" x="72" y="75" width="156" height="9" rx="2"/>
+<rect class="w-prod" x="118" y="140" width="64" height="150" rx="10"/>
+<rect class="w-prod" x="136" y="112" width="28" height="32" rx="6"/>
+<text class="w-cap is-on" x="150" y="222">제품</text>
+<ellipse class="w-prod" cx="214" cy="292" rx="36" ry="22"/>
+<text class="w-cap is-on" x="214" y="296">제형</text>
+<rect class="w-block is-on" x="70" y="398" width="160" height="26" rx="2"/>
+<text class="w-t" x="150" y="415">LOGO</text>
+</svg><figcaption>사진을 화면 전체로, 카피는 가운데 한 줄 시선, 로고는 하단에 고정. 제형을 더해 첫 화면에서 질감까지 보이게</figcaption></figure>
+          </div>
+          <div class="ux-wf">
+            <h4 class="ux-wf-title">체크 포인트</h4>
+            <figure><span class="ux-tag">1차</span><svg class="ux-wf-svg" viewBox="0 0 300 460" role="img" aria-label="1차 체크 포인트 와이어프레임: 제목 아래 같은 무게의 선 아이콘 카드 4개">
+<rect class="w-frame" x="0.5" y="0.5" width="299" height="459" rx="6"/>
+<rect class="w-line is-dim" x="118" y="34" width="64" height="6" rx="2"/>
+<rect class="w-line" x="80" y="50" width="140" height="11" rx="2"/>
+<rect class="w-card" x="28" y="90" width="117" height="150" rx="6"/>
+<circle class="w-ico" cx="86.5" cy="124" r="12"/>
+<rect class="w-line" x="52.5" y="150" width="68" height="8" rx="2"/>
+<rect class="w-line is-dim" x="44.5" y="166" width="84" height="6" rx="2"/>
+<rect class="w-line is-dim" x="52.5" y="178" width="68" height="6" rx="2"/>
+<rect class="w-card" x="155" y="90" width="117" height="150" rx="6"/>
+<circle class="w-ico" cx="213.5" cy="124" r="12"/>
+<rect class="w-line" x="179.5" y="150" width="68" height="8" rx="2"/>
+<rect class="w-line is-dim" x="171.5" y="166" width="84" height="6" rx="2"/>
+<rect class="w-line is-dim" x="179.5" y="178" width="68" height="6" rx="2"/>
+<rect class="w-card" x="28" y="250" width="117" height="150" rx="6"/>
+<circle class="w-ico" cx="86.5" cy="284" r="12"/>
+<rect class="w-line" x="52.5" y="310" width="68" height="8" rx="2"/>
+<rect class="w-line is-dim" x="44.5" y="326" width="84" height="6" rx="2"/>
+<rect class="w-line is-dim" x="52.5" y="338" width="68" height="6" rx="2"/>
+<rect class="w-card" x="155" y="250" width="117" height="150" rx="6"/>
+<circle class="w-ico" cx="213.5" cy="284" r="12"/>
+<rect class="w-line" x="179.5" y="310" width="68" height="8" rx="2"/>
+<rect class="w-line is-dim" x="171.5" y="326" width="84" height="6" rx="2"/>
+<rect class="w-line is-dim" x="179.5" y="338" width="68" height="6" rx="2"/>
+<g class="w-mark"><circle cx="52" cy="124" r="11"/><text x="52" y="128">3</text></g>
+<g class="w-mark"><circle cx="248" cy="404" r="11"/><text x="248" y="408">3</text></g>
+</svg><figcaption>같은 무게의 선 아이콘 카드 4개</figcaption></figure>
+            <figure><span class="ux-tag is-final">최종</span><svg class="ux-wf-svg" viewBox="0 0 300 460" role="img" aria-label="최종 KEY POINT 와이어프레임: 아치 라벨과 연한 핑크 카드 4개, 라일락 입체 아이콘">
+<rect class="w-frame" x="0.5" y="0.5" width="299" height="459" rx="6"/>
+<rect class="w-img is-bleed" x="1" y="1" width="298" height="90" rx="3"/><path class="w-x" d="M1 1 L299 91 M299 1 L1 91"/>
+<rect class="w-panel" x="20" y="70" width="260" height="364" rx="4"/>
+<path class="w-arch" d="M92 100 Q92 64 150 64 Q208 64 208 100 Z"/>
+<text class="w-t" x="150" y="88">KEY POINT</text>
+<rect class="w-card is-tint" x="32" y="100" width="113" height="150" rx="6"/>
+<circle class="w-ico is-solid" cx="88.5" cy="134" r="12"/>
+<rect class="w-line is-on" x="54.5" y="160" width="68" height="8" rx="2"/>
+<rect class="w-line is-dim" x="46.5" y="176" width="84" height="6" rx="2"/>
+<rect class="w-line is-dim" x="54.5" y="188" width="68" height="6" rx="2"/>
+<rect class="w-card is-tint" x="155" y="100" width="113" height="150" rx="6"/>
+<circle class="w-ico is-solid" cx="211.5" cy="134" r="12"/>
+<rect class="w-line is-on" x="177.5" y="160" width="68" height="8" rx="2"/>
+<rect class="w-line is-dim" x="169.5" y="176" width="84" height="6" rx="2"/>
+<rect class="w-line is-dim" x="177.5" y="188" width="68" height="6" rx="2"/>
+<rect class="w-card is-tint" x="32" y="260" width="113" height="150" rx="6"/>
+<circle class="w-ico is-solid" cx="88.5" cy="294" r="12"/>
+<rect class="w-line is-on" x="54.5" y="320" width="68" height="8" rx="2"/>
+<rect class="w-line is-dim" x="46.5" y="336" width="84" height="6" rx="2"/>
+<rect class="w-line is-dim" x="54.5" y="348" width="68" height="6" rx="2"/>
+<rect class="w-card is-tint" x="155" y="260" width="113" height="150" rx="6"/>
+<circle class="w-ico is-solid" cx="211.5" cy="294" r="12"/>
+<rect class="w-line is-on" x="177.5" y="320" width="68" height="8" rx="2"/>
+<rect class="w-line is-dim" x="169.5" y="336" width="84" height="6" rx="2"/>
+<rect class="w-line is-dim" x="177.5" y="348" width="68" height="6" rx="2"/>
+</svg><figcaption>모델 사진에 겹친 아치 라벨로 시작점을 만들고, 카드 배경을 연한 핑크로 구분. 아이콘은 제품 톤의 입체 아이콘, 제목은 짧게</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="ux-step" id="ux-5" data-reveal>
+          <header class="ux-head"><span class="story-no">05 · BEFORE / AFTER</span><h3>실제 화면으로 본 차이</h3></header>
+          <p class="ux-lead">와이어프레임에서 정한 구조를 실제 시안에 적용한 결과입니다. 같은 영역끼리 나란히 놓았습니다.</p>
+          <figure class="ux-ba">
+            <a href="assets/design/lunea/before-after.webp" target="_blank" rel="noopener" aria-label="Before / After 비교 이미지 크게 보기, 새 창">
+              <img src="assets/design/lunea/before-after.webp" width="1600" height="2873" loading="lazy" alt="히어로와 체크 포인트 영역의 1차 시안과 최종안 비교. 1차는 박스 안 사진과 우측 정렬 카피, 검은 선 아이콘 카드이고 최종은 화면 전체 사진, 가운데 카피, 라일락 입체 아이콘 카드입니다." />
+            </a>
+            <figcaption>클릭하면 원본 크기로 열립니다.</figcaption>
+          </figure>
+        </div>
+
+        <div class="ux-step" id="ux-6" data-reveal>
+          <header class="ux-head"><span class="story-no">06 · CHECK</span><h3>자체 점검 체크리스트</h3></header>
+          <p class="ux-lead">5초 테스트 같은 사용자 테스트는 아직 하지 않았습니다. 아래는 최종안을 01–03에서 세운 기준으로 다시 확인한 제작자 자체 점검입니다.</p>
+          <div class="ux-check">
+            <ul aria-label="확인한 항목">
+              <li>첫 화면에 브랜드명, 제품, 효능 한 줄이 함께 보인다</li>
+              <li>첫 화면 안에서 시선이 가운데 한 줄로 내려간다</li>
+              <li>아이콘과 카드 배경이 라일락 톤 안에 있다</li>
+              <li>KEY POINT 카드 제목이 짧은 명사로 한눈에 읽힌다</li>
+              <li>효능 수치 옆에 시험 조건 문구가 붙어 있다 (수치는 예시)</li>
+              <li>섹션 순서가 3초 · 10초 · 30초 질문 순서와 맞는다</li>
+            </ul>
+            <div class="ux-next">
+              <span class="meta">NEXT</span>
+              <ul aria-label="다음에 확인할 항목">
+                <li>5초 테스트로 첫 화면에서 기억에 남는 항목 확인</li>
+                <li>360px 폭에서 작은 설명 문구의 크기 확인</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <a class="case-next" href="design-babambi.html">
         <img src="assets/design/babambi/b1.webp" alt="" />
         <div class="case-next-inner">
@@ -101,7 +377,7 @@
   <script src="case.js?v=20261112a"></script>
   <script src="topbtn.js?v=20261103a"></script>
   <script src="menu.js?v=20261103a"></script>
-  <script src="design-data.js?v=20261107c"></script>
-  <script src="design.js?v=20261105b"></script>
+  <script src="design-data.js?v=20261112a"></script>
+  <script src="design.js?v=20261112a"></script>
 </body>
 </html>
