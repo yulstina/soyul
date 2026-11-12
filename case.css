@@ -272,8 +272,8 @@
             aspect-ratio:1918/910;overflow:hidden;
             background:var(--void-200);border:1px solid var(--line-faint)}
 .video-main video{width:100%;height:100%;object-fit:cover;display:block}
-/* Only shown where there is no pointer to hover with — on a phone the loop
-   starts by itself, so there has to be a way to stop it. */
+/* Every recording starts by itself on screen, so each has a way to stop it.
+   case.js adds the button where the markup has none. */
 .video-toggle{position:absolute;right:clamp(12px,1.6vw,24px);
               bottom:clamp(12px,1.6vw,24px);z-index:2;
               font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;
