@@ -310,74 +310,32 @@
 .f-keep-b{font-size:15px;fill:var(--text-100)}
 .f-arrow{fill:none;stroke:var(--line-strong);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 
-/* 와이어프레임: 1차 | 최종 두 장을 한 줄에. 색 없이 회색 블록만 */
-.ux-wf{margin-top:28px;display:grid;grid-template-columns:minmax(0,160px) repeat(2,minmax(0,340px));
-  gap:clamp(16px,2.4vw,40px);align-items:start}
-.ux-wf + .ux-wf{padding-top:28px;border-top:1px solid var(--line-faint)}
-.ux-wf-title{margin:0;font-size:17px;font-weight:600;color:var(--text-000)}
-.ux-wf figure{margin:0}
-.ux-wf figcaption{margin-top:12px;font-size:15px;line-height:1.7;color:var(--text-100);word-break:keep-all}
 .ux-tag{display:inline-block;margin-bottom:10px;padding:3px 10px;border:1px solid var(--line-strong);border-radius:999px;
   background:var(--void-100);font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:var(--text-300)}
 .ux-tag.is-final{background:var(--text-000);border-color:var(--text-000);color:var(--void-100)}
-.ux-wf-svg{display:block;width:100%;height:auto;font-family:var(--font-mono)}
-.w-frame{fill:var(--void-200);stroke:var(--line)}
-.w-img{fill:var(--void-300);stroke:var(--line)}
-.w-img.is-bleed{stroke:none}
-.w-x{stroke:var(--line-faint)}
-.w-line{fill:var(--text-600)}
-.w-line.is-on{fill:var(--text-300)}
-.w-line.is-dim{fill:rgba(255,255,255,.12)}
-.w-rule{stroke:var(--line)}
-.w-block{fill:none;stroke:var(--text-600)}
-.w-block.is-on{stroke:var(--text-300)}
-.w-prod{fill:rgba(255,255,255,.08);stroke:var(--text-300)}
-.w-panel{fill:var(--void-200);stroke:var(--line)}
-.w-arch{fill:var(--void-200);stroke:var(--text-300)}
-.w-card{fill:none;stroke:var(--line)}
-.w-card.is-tint{fill:rgba(255,255,255,.07);stroke:none}
-.w-ico{fill:none;stroke:var(--text-600);stroke-width:1.5}
-.w-ico.is-solid{fill:var(--text-300);stroke:none}
-.w-t,.w-cap{font-size:11px;letter-spacing:.08em;text-anchor:middle;fill:var(--text-500)}
-.w-cap.is-on{fill:var(--text-100)}
-.w-mark circle{fill:var(--text-000)}
-.w-mark text{font-size:12px;font-weight:600;text-anchor:middle;fill:var(--void-100)}
 
-.ux-ba{margin:28px 0 0;max-width:1000px}
-.ux-ba a{display:block;border:1px solid var(--line-faint);border-radius:6px;overflow:hidden}
-.ux-ba img{display:block;width:100%;height:auto}
-.ux-ba a:focus-visible{outline:2px solid var(--text-000);outline-offset:4px}
-.ux-ba figcaption{margin-top:10px;font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:var(--text-500)}
 
-.ux-check{margin-top:24px;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,4vw,64px)}
+.ux-check{margin-top:24px}
+.ux-check > ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,4vw,64px)}
 .ux-check ul{list-style:none;margin:0;padding:0}
 .ux-check > ul li{position:relative;padding:14px 0 14px 34px;border-top:1px solid var(--line-faint);
   font-size:17px;line-height:1.6;color:var(--text-000);word-break:keep-all}
 .ux-check > ul li::before{content:"";position:absolute;left:4px;top:19px;width:12px;height:7px;
   border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg)}
-.ux-next{padding:18px 20px;border:1px solid var(--line);border-radius:6px;align-self:start}
-.ux-next .meta{display:block;margin-bottom:8px}
-.ux-next li{position:relative;padding:8px 0 8px 18px;font-size:15px;line-height:1.6;color:var(--text-100);word-break:keep-all}
-.ux-next li::before{content:"";position:absolute;left:2px;top:17px;width:8px;height:8px;border:1px solid var(--text-500);border-radius:50%}
 
 @media (max-width:1023px){
   .ux-problems{grid-template-columns:minmax(0,1fr)}
-  .ux-wf{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .ux-wf-title{grid-column:1/-1}
-  .ux-check{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:767px){
   .ux-flow-svg.is-wide{display:none}
   .ux-flow-svg.is-narrow{display:block}
   .ux-user{grid-template-columns:minmax(0,1fr)}
   .ux-user div + div{padding-left:0;border-left:0;border-top:1px solid var(--line-faint)}
-  .ux-wf{gap:12px}
-  .ux-wf figcaption{font-size:14px}
   .ux-lead{font-size:16px}
 }
 
 /* UI/UX 구역: 16:9 링크 카드 (2026-11-12). 글자 영역은 상세페이지 카드(.long-text)와 같다 */
-.ui-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,3vw,48px) clamp(20px,2.4vw,40px)}
+.ui-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,3vw,48px) clamp(20px,2.4vw,40px)}
 .ui-card{display:grid;gap:18px;align-content:start;color:inherit}
 .ui-win{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;border-radius:6px;background:var(--void-300)}
 .ui-win img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
@@ -424,3 +382,5 @@
 .ux-map-note{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:6px;font-size:14px;line-height:1.6}
 .ux-map-note b{display:inline-block;min-width:44px;margin-right:6px;color:var(--accent,#C6FF3D)}
 @media (max-width:767px){.ux-map-list{grid-template-columns:repeat(3,1fr);gap:10px}.ux-map{margin-bottom:40px}}
+
+@media (max-width:767px){ .ux-check > ul{grid-template-columns:minmax(0,1fr)} }
